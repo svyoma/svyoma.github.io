@@ -6,7 +6,7 @@
     <title>Your Colorful Website</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Aver', sans-serif;
             margin: 20px;
             padding: 20px;
             background-color: #f0f8ff; /* Light blue background color */
@@ -36,6 +36,27 @@
 
         a:hover {
             text-decoration: underline;
+        }
+
+        /* Define @font-face for Adishila Dev */
+        @font-face {
+            font-family: 'Adishila Dev';
+            src: local('Adishila Dev'), url('fonts/adishiladev.woff2') format('woff2'); /* Adjust the file path and format */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Define @font-face for Aver */
+        @font-face {
+            font-family: 'Aver';
+            src: local('Aver'), url('fonts/aver.woff2') format('woff2'); /* Adjust the file path and format */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Apply Adishila Dev for Devanagari characters */
+        body, h1, h2, p {
+            font-family: 'Aver', 'Adishila Dev', sans-serif;
         }
     </style>
 </head>
