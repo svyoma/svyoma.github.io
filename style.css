@@ -1,0 +1,51 @@
+/* Define @font-face for Adishila Dev */
+@font-face {
+    font-family: 'Adishila Dev';
+    src: local('Adishila Dev'), url('AdishilaSemiBoldB.woff') format('woff'); /* Adjust the file path and format */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Define @font-face for Aver */
+@font-face {
+    font-family: 'Aver';
+    src: local('Aver'), url('fonts/Aver.woff') format('woff'); /* Adjust the file path and format */
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Apply Adishila Dev for Devanagari characters */
+body, h1, h2, p {
+    font-family: 'Aver', 'Adishila Dev', sans-serif;
+}
+
+/* Your additional styles go here */
+body {
+    background-color: #f0f8ff; /* Light blue background color */
+    color: #333; /* Dark text color */
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #66c2ff; /* Light blue header background color */
+    color: #fff; /* White text color */
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1, h2 {
+    color: #1a237e; /* Dark blue heading color */
+}
+
+a {
+    color: #4caf50; /* Green link color */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
