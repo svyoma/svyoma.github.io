@@ -57,11 +57,17 @@
         body, h1, h2, p {
             font-family: 'Aver', 'Adishila', sans-serif;
         }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown in HTML</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     </style>
 </head>
-</html>
-
-# वीरनिर्वाणकल्याणकस्तुतिमञ्जूषा
+<body>
+<div id="markdown-content"></div>
+ <script>
+        var markdownText = `
+        # वीरनिर्वाणकल्याणकस्तुतिमञ्जूषा
 
 ## **वीरनिर्वाणकल्याणकस्तवः जिनप्रभसूरिविरचितः**
 
@@ -124,3 +130,10 @@
 <p>कत्तिय मासि चउत्थइ जामइं कसण चउद्दसि रयणि विरामइं।
 <p>गउ णिव्वाण ठाणे परमेसरु तिल्लोकाहिउ वीरु जिणेसरु।
 <p>*॥विबुधश्रीधरविरचितेऽपभ्रंशमाषामये वर्धमानचरिते वीरनिर्वाणवर्णनम्॥*
+        `;
+
+        // Render Markdown as HTML
+        document.getElementById('markdown-content').innerHTML = marked(markdownText);
+    </script>
+</body>
+</html>
