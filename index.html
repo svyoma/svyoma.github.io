@@ -7,24 +7,47 @@
     <style>
         body {
             font-family: 'Aver', sans-serif;
-            margin: 20px;
-            padding: 20px;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
             background-color: #ffffff; /*Background colour*/
             color: #333; /* Dark text color */
         }
 
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
         header {
             text-align: center;
-            padding: 20px;
+            padding: 20px 0;
             background-color: #ffd9b3; /* Light blue header background color */
             color: #333; /* White text color */
+
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
         }
 
         main {
             max-width: 800px;
             margin: 0 auto;
         }
-
         h1, h2 {
             color: #1a237e; /* Dark blue heading color */
         }
@@ -38,6 +61,11 @@
             text-decoration: underline;
         }
 
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+        }
         /* Define @font-face for Adishila Dev */
         @font-face {
             font-family: 'Adishila';
@@ -59,6 +87,12 @@
             font-family: 'Aver', 'Adishila', sans-serif;
         }
     </style>
+
+</head>
+<body>
+    <header>
+        <h1>Vyoma's Web Space</h1>
+        <p>प्रणाम!</p>
     <nav>
   <ul>
     <li><a href="/">Home</a></li>
@@ -67,12 +101,6 @@
     <!-- Add more menu items as needed -->
   </ul>
     </nav>
-
-</head>
-<body>
-    <header>
-        <h1>Vyoma's Web Space</h1>
-        <p>प्रणाम!</p>
     </header>
 
     <main>
