@@ -49,3 +49,22 @@ a {
 a:hover {
     text-decoration: underline;
 }
+.quicklinks {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.quicklinks li {
+    display: inline;
+    margin-right: 10px;
+}
+
+.quicklinks li a {
+    text-decoration: none;
+    color: #333;
+}
+
+.quicklinks li a:hover {
+    color: #999;
+}
