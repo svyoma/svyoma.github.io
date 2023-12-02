@@ -49,6 +49,11 @@ a {
 a:hover {
     text-decoration: underline;
 }
+.quicklinks-section {
+    width: 100%;
+    margin-top: 20px;
+}
+
 .quicklinks {
     list-style-type: none;
     padding: 0;
