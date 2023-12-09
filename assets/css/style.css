@@ -73,3 +73,11 @@ a:hover {
 .quicklinks li a:hover {
     color: #999;
 }
+
+object {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffd9b3; /* Light blue header background color */
+            color: #333; /* White text color */
+
+        }
