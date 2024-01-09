@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vyoma's Web Space</title>
+    <style>
+        body {
+            font-family: 'Aver', sans-serif;
+            text-align: left;
+            line-height: 1.6;
+            margin: 0 auto;
+	    max-width: 80em;
+            padding: 0;
+            background-color: #ffffff; /*Background colour*/
+            color: #333; /* Dark text color */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffd9b3; /* Light blue header background color */
+            color: #333; /* White text color */
+
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            color: #1a237e; /* Dark blue heading color */
+        }
+
+        a {
+            color: #4caf50; /* Green link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+        }
+        /* Define @font-face for Adishila Dev */
+        @font-face {
+            font-family: 'Adishila';
+            src: local('Adishila'), url('fonts/AdishilaSemiBoldB.woff') format('woff'); /* Adjust the file path and format */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Define @font-face for Aver */
+        @font-face {
+            font-family: 'Aver';
+            src: local('Aver'), url('fonts/Aver.woff') format('woff'); /* Adjust the file path and format */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Apply Adishila Dev for Devanagari characters */
+        body, h1, h2, p {
+            font-family: 'Aver', 'Adishila', sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>Vyoma's Web Space</h1>
+        <p>प्रणाम!</p>
+    <nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/blogs">Blog</a></li>
+    <!-- Add more menu items as needed -->
+  </ul>
+    </nav>
+    </header>
+    <title>Similar Utterance in Saṃskṛta and Prākṛta works - 1</title>
+<body>
+<h1>Only one among hundred is valiant!</h1>
+<blockquote>
+<p style="text-align: center;"><strong>शतेषु जायते शूरः सहस्रेषु च पण्डितः।</strong><br /><strong>वक्ता दशसहस्रेषु दाता भवति वा न वा॥</strong></p>
+</blockquote>
+<p>Most of us are well-acquainted with this very popular verse. While searching for its source on wikisource, it shows <em>Skandapurāṇa</em> as one of the prominent reference [pāda 4 - दाता जायेत वा न वा].<br />The source of <em>Saṃskṛta</em> verse striked me as, today, I came across same utterance in a different tongue. A <em>Prākṛta</em> version of this verse occurs in a work called Vasudevahiṇḍi. </p>
+<p style="text-align: center;">सतेसु जायते सूरो सहस्सेसु य पंडिओ।<br />वत्ता सयसहस्सेसु दाया जायति वा ण वा॥<br />इंदियाणं जए सूरो धम्मं चरति पंडिओ।<br />वत्ता सच्चवओ होइ दाया भूयहिए रओ॥</p>
+<p style="text-align: left;">[शतेषु जायते शूरः सहस्रेषु च पण्डितः।<br />वक्ता शतसहस्रेषु दाता भवति वा न वा॥<br />इन्द्रियाणां जये शूरो धर्मं चरति पण्डितः।<br />वक्ता सत्यव्रतो भवति दाता भूतहिते रतः॥]</p>
+<p><em>"One among the hundred becomes a valiant. Only one among a thousand becomes a learned. One among thousand becomes an orator. A donor might be born or not.</em><br /><em>One becomes valiant by victory over senses. A learned is one who practices Dharma. An orator is one adhers truth. A donor is one who is engaged in welfare of beings."</em> <br /><br /><em>Vasudevahiṇḍi</em> is regarded as closest edition and <em>Jaina</em> abridgement to <em>Bṛhatkathā </em>of <em>Guṇāḍhya</em>. It is authored in 5th century by <em>Saṅghadāsagaṇī</em>.</p>
+</body>
+</html>
