@@ -1,0 +1,90 @@
+@use "sass:color";
+ .callout {
+	 border: 1px solid var(--border);
+	 background-color: var(--bg);
+	 border-radius: 5px;
+	 padding: 0 1rem;
+	 overflow-y: hidden;
+	 transition: max-height 0.3s ease;
+	 box-sizing: border-box;
+	 > *:nth-child(2) {
+		 margin-top: 0;
+	}
+	 [data-callout="note"] {
+		 --color: #448aff;
+		 --border: #448aff 44;
+		 --bg: #448aff 10;
+	}
+	 [data-callout="abstract"] {
+		 --color: #00b0ff;
+		 --border: #00b0ff 44;
+		 --bg: #00b0ff 10;
+	}
+	 [data-callout="info"], [data-callout="todo"] {
+		 --color: #00b8d4;
+		 --border: #00b8d4 44;
+		 --bg: #00b8d4 10;
+	}
+	 [data-callout="tip"] {
+		 --color: #00bfa5;
+		 --border: #00bfa5 44;
+		 --bg: #00bfa5 10;
+	}
+	 [data-callout="success"] {
+		 --color: #09ad7a;
+		 --border: #09ad71 44;
+		 --bg: #09ad71 10;
+	}
+	 [data-callout="question"] {
+		 --color: #dba642;
+		 --border: #dba642 44;
+		 --bg: #dba642 10;
+	}
+	 [data-callout="warning"] {
+		 --color: #db8942;
+		 --border: #db8942 44;
+		 --bg: #db8942 10;
+	}
+	 [data-callout="failure"], [data-callout="danger"], [data-callout="bug"] {
+		 --color: #db4242;
+		 --border: #db4242 44;
+		 --bg: #db4242 10;
+	}
+	 [data-callout="example"] {
+		 --color: #7a43b5;
+		 --border: #7a43b5 44;
+		 --bg: #7a43b5 10;
+	}
+	 [data-callout="quote"] {
+		 --color: var(--secondary);
+		 --border: var(--lightgray);
+	}
+	 .is-collapsed > .callout-title > .fold {
+		 transform: rotateZ(-90deg);
+	}
+}
+ .callout-title {
+	 display: flex;
+	 gap: 5px;
+	 padding: 1rem 0;
+	 color: var(--color);
+}
+ .callout-title .fold {
+	 margin-left: 0.5rem;
+	 transition: transform 0.3s ease;
+	 opacity: 0.8;
+	 cursor: pointer;
+}
+ .callout-title > .callout-title-inner > p {
+	 color: var(--color);
+	 margin: 0;
+}
+ .callout-icon {
+	 width: 18px;
+	 height: 18px;
+	 flex: 0 0 18px;
+	 padding-top: 4px;
+}
+ .callout-title-inner {
+	 font-weight: 700;
+}
