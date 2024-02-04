@@ -86,3 +86,22 @@ object {
             color: #333; /* White text color */
 
         }
+        .verse-container {
+            position: relative;
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 600px;
+          }
+          
+          .sanskrit-verse {
+            cursor: pointer;
+          }
+          
+          .hidden {
+            display: none;
+          }
+          
+          .show {
+            display: block;
+          }  

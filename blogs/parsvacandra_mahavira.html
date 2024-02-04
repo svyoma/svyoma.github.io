@@ -95,6 +95,25 @@
             background-color: #ffffff; /* Light blue header background color */
             color: #333  
         }
+        .verse-container {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  
+  .sanskrit-verse {
+    cursor: pointer;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .show {
+    display: block;
+  }  
     </style>
 <meta charset="UTF-8">
     <meta name="name" content="Mahāvīrastavanam">
@@ -133,6 +152,30 @@
             <hr style="width: 30%; margin: 0pt">
         <p><a href="#iast">Read in IAST</a></p>
         <p><a href="#devanagari">Read in Devanāgarī</a></p>
+        <div class="verses-container">
+            <ul class="verse-list">
+              <li class="verse">
+                <p class="sanskrit-verse"> कल्याणमालामणिसन्निधानं श्रीगौतमाद्यैर्मुनिभिः प्रधानम्।<br />यशोगुणः सम्प्रति वर्धमानं स्तवीमि भक्त्या जिनवर्धमान्॥१</p>
+                </h2>
+                <p class="translation hidden">This toggles the transation for the verse.</p>
+                <p class="commentary hidden"><p>अहं पार्श्वचन्द्रनामा कविः। भक्त्या - परमसेवया कृत्वा जिनवर्धमानं स्तवीमि - स्तुतिगोचरीकरोमि इत्यन्वयः। किंविशिष्टं जिनवर्धमानम्? कल्याणेति, कल्याणानां मङ्गलानां माला श्रेणिस्तस्या मणयो रत्नानि तेषां सन्निधानं - शुभनिधिं कोशम्। एतद्विशेषणेन प्रभोर्मङ्गलमयत्वं प्रोक्तम्। पुनः किंविशिष्टं जिनवर्धमानम्? श्रीगौतमाद्यैः मुनिभिः प्रधानमग्रेसरम्। पुनः किंविशिष्टम्? यशोगुणैः कीर्त्या औदार्यादिभिर्गुणैः(च)। सम्प्रत्यद्यापि वर्धमानमेधमानम्। एतद्विशेषणद्वयेन शालिक्षेत्रशालिवृत्तिशुभभङ्गत्वं प्रोक्तम्॥ १ ॥</p></p>
+              </li>
+              <li class="verse">
+                <h2 class="sanskrit-verse"> Verse 2 </h2>
+                <p class="translation hidden">Translation for Verse 2</p>
+                <p class="commentary hidden">Commentary for Verse 2</p>
+              </li>
+              <li class="verse">
+                  <h2 class="sanskrit-verse"> Verse 3 </h2>
+                  <p class="translation hidden">Translation for Verse 2</p>
+                  <p class="commentary hidden">Commentary for Verse 2</p>
+                </li>
+            </ul>
+            <button id="expand-all">Expand All</button>
+          </div>
+          <script src="script.js"></script>
+
+
         <h2 id="iast"; style="font-weight: bold;">Mahāvīrastavanam</h2>
         <p>kalyāṇamālāmaṇisannidhānaṃ śrīgautamādyairmunibhiḥ pradhānam.<br />yaśoguṇaḥ samprati vardhamānaṃ stavīmi bhaktyā jinavardhamān..1</p>
         <p>a&iuml;uṛḷsamānāḥ santi lokā idānīmaghanasaralabhūtā vakrabhāvaprasūtāḥ.<br />kathamiha hi labhante prābhavaṃ śuddhamārgaṃ pracurataraviśaste tena tucchā nu citram..2</p>
