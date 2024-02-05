@@ -51,7 +51,11 @@
             margin: 0 auto;
         }
         h1, h2 {
-            color: #1a237e; /* Dark blue heading color */
+            color: #5a1a1a; /* Dark blue heading color */
+        }
+        
+        h3 {
+            color:#7a0000
         }
 
         a {
@@ -88,6 +92,32 @@
         body, h1, h2, p {
             font-family: 'Aver', 'Adishila', sans-serif;
         }
+        .blog-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .blog-item {
+            margin-bottom: 20px;
+        }
+
+        .blog-title {
+            color: #1a237e;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .blog-excerpt {
+            margin-top: 5px;
+        }
+        .blogcontainer{
+            text-align: left;
+            margin: 80%;
+            padding: 20px;
+            background-color: #ffffff; /* Light blue header background color */
+            color: #333  
+        }
     </style>
 
 </head>
@@ -104,21 +134,60 @@
   </ul>
     </nav>
     </header>
-    <h1>List of compilations</h1>
+    <p>🚀Constantly evolving: This static blog is a dynamic space, regularly updated with fresh content. Stay tuned for the latest insights and updates on this page! ✨"</p>
+    
+<div class="container">
+    <h1>Compilations</h1>
+<h2>Viṣiṣta-Jina-Stuti</h2>
+<ul class="blog-list">
+    <li class="blog-item">
+        <h3 class="blog-title" onclick="openBlog('blogs/viranirvanastuti')">Vīranirvāṇastutyādisaṅgraha</h3>
+        <p class="blog-excerpt">Contains <em>Vīranirvāṇastava</em> by <em>Jinaprabhasūri</em>, <em>Dīpālikāstuticatuṣṭayī</em> by <em>Guṇasāgaragaṇī</em> and <em>Vīranirvāṇa</em> from <em>Vaḍḍhamāṇasāmīcari:u</em> by <em>Vibudha Śrīdhara</em></p>
+    </li>
+    <li class="blog-item">
+        <h3 class="blog-title" onclick="openBlog('blogs/parsvacandra_mahavira')">Mahāvīrastavana by Pārśvacandra</h3>
+        <p class="blog-excerpt">11 verses in praise of Mahāvīrasvāmī using technical grammatical terms with commentary by Bhāvaprabhasūri</p>
+    </li>
+</ul>
+<h2>Sāmānya-Jina-Stuti</h2>
+        <ul>
+        <li class="blog-item">
+        <h3 class="blog-title" onclick="openBlog('blogs/jinastuti')">Vividha-Jina-Stuti-Saṅgraha</h3>
+        <p class="blog-excerpt">Contains verses in general praise of Jina.</p>
+        </li>
+        </ul>
+<h2>Gaṇadhara, Sādhu, Sādhvī, Śāsana, Parva, etc., Stuti</h2>
     <ul>
-        <li><a href="blogs/viranirvanastuti.html">Vīranirvāṇastutyādisaṅgraha</a></li>
-	<li><a href="blogs/jnanapancamistuti.html">Jñānapañcamīstutyādisaṅgraha</a></li>
-	<li><a href="blogs/jinastuti.html">Vivdha Jina Stuti Saṅgraha</a></li>
-    <li><a href="blogs/parsvacandra_mahavira.html">Mahāvīrastavana by Pārśvacandra</a></li>
-	    <p>🚀Constantly evolving: This static blog is a dynamic space, regularly updated with fresh content. Stay tuned for the latest insights and updates on this page! ✨"</p>
-        <!-- Add more list items for each blog post -->
-    </ul>
+        <li class="blog-item">
+        <h3 class="blog-title" onclick="openBlog('blogs/jnanapancamistuti')">Jñānapañcamīstutyādisaṅgraha</h3>
+        <p class="blog-excerpt">Contains verses in praise of Jñānapañcamī</p>
+    </li>
+</ul>
+</div>
 <hr/>
 
-<h1>Blogs</h1>
+
+<div class="container">
+    <h1>Blogs</h1>
+<h2>Life and Works</h2>
+<ul class="blog-list">
+    <li class="blog-item">
+        <h3 class="blog-title" onclick="openBlog('blogs/authors/ramacandra')">Kavikaṭāramalla Rāmacandrasūri</h3>
+        <p class="blog-excerpt">कलिकालसर्वज्ञमहापुरुषाणां शब्द-प्रमाण-साहित्य-च्छन्द-आदिविद्यानामेकनिपुणानां श्रीहेमचन्द्रसूरीणां विषये नास्ति स्वल्पमपि परिचयपदातीतम्...</p>
+    </li>
+    </ul>
+<h2>Miscellaneous Articles</h2>
+    <li class="blog-item">
+        <h3 class="blog-title" onclick="openBlog('blogs/satesu_jayate_surah')">2 Tongues, 1 Verse (+bonus) – Part 1</h3>
+        <p class="blog-excerpt">Indian literary heritage has been blessed with teaching and preachings on almost every subject. There are works which have crossed...</p>
+    </li>
 <ul>
-    <li><a href="blogs/authors/ramacandra.html">Kavikaṭāramalla Rāmacandrasūri</a></li>
-	<li><a href="blogs/satesu_jayate_surah.html">2 Tongues, 1 Verse (+bonus) – Part 1</a></li>
-</ul>
+</div>
+<script>
+    function openBlog(blogId) {
+        // You can replace this with the actual URL or navigate using your preferred method
+        window.location.href = blogId + '.html';
+    }
+</script>
 </body>
 </html>
