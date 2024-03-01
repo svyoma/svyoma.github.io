@@ -14,3 +14,6 @@ defaults:
       type: category
     values:
       layout: "category"
+
+google_analytics:
+  id: G-T12BK66SPZ
