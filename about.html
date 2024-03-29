@@ -5,31 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vyoma's Web Space</title>
     <style>
-        body {
-            font-family: 'Aver', sans-serif;
-            text-align: left;
-            line-height: 1.6;
-            margin: 0 auto;
-	    max-width: 80em;
-            padding: 0;
-            background-color: #ffffff; /*Background colour*/
-            color: #333; /* Dark text color */
-        }
+	    body {
+    font-family: 'Aver', sans-serif;
+    text-align: left;
+    line-height: 1.6;
+    margin: 0 auto;
+    padding: 0;
+    background-color: #ffffff; /*Background color*/
+    color: #333; /* Dark text color */
+}
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+.container {
+    width: 100%; /* Adjusted width */
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-        header {
-            text-align: center;
-            padding: 20px;
-            background-color: #ffd9b3; /* Light blue header background color */
-            color: #333; /* White text color */
+header, main, footer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
 
-        }
+header {
+    text-align: center;
+    background-color: #ffd9b3; /* Light blue header background color */
+    color: #333; /* Dark text color */
+}
+
+main {
+    padding-top: 0; /* Removed extra padding at the top */
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0;
+}
+
 
         nav ul {
             list-style: none;
@@ -69,11 +81,6 @@
             background-color: #ffd9b3; /* Light blue header background color */
             color: #333; /* White text color */
 
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px 0;
         }
         /* Define @font-face for Adishila Dev */
         @font-face {
