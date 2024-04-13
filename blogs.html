@@ -129,6 +129,14 @@
             background-color: #ffffff; /* Light blue header background color */
             color: #333  
         }
+        .new-badge {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: 10px;
+}
     </style>
 
 </head>
@@ -148,15 +156,20 @@
     <p>🚀Constantly evolving: This static blog is a dynamic space, regularly updated with fresh content. Stay tuned for the latest insights and updates on this page! ✨"</p>
     <p>Skip to</p>
     <ui>
-        <li><a href="#section1">Complete Works</a></li>
-        <li><a href="#section2">Compilations</a></li>
-        <li><a href="#section3">Blogs</a></li>
+        <li style="text-align: center;"><a href="#section1">Complete Works</a></li>
+        <li style="text-align: center;"><a href="#section2">Compilations</a></li>
+        <li style="text-align: center;"><a href="#section3">Blogs</a></li>
     </ui>
     
     <ui></ui>
 <div class="container">
     <h1 id="section1"><u>Complete Works</u></h1>
     <h2>Stuti, Stotra, etc.</h2>
+    <ul class="blog-list">
+        <li class="blog-item">
+            <h3 class="blog-title" onclick="openBlog('blogs/virajinathava_abhayadeva')">Vīrajiṇathavo by Abhayadevasūri</h3>
+            <p class="blog-excerpt">22 verses in praise of Mahāvīrasvāmī by Abhayadevasūri in Prākṛta. Metres used: Anuṣṭubh and Mālinī.</p>
+        </li>
     <ul class="blog-list">
         <li class="blog-item">
             <h3 class="blog-title" onclick="openBlog('blogs/virastutidvatrimsika_ratnakarasuri')">Vīrastutidvātriṃśikā by disciple of Ratnākarasūri</h3>
@@ -167,11 +180,7 @@
             <h3 class="blog-title" onclick="openBlog('blogs/adinatha_ramacandra')">Ādidevadvātriṃśikā by Rāmacandrasūri</h3>
             <p class="blog-excerpt">32 verses in praise of first Tīrthaṅkara Ādinātha by Kavikaṭāramalla Rāmacandrasūri, disciple of Hemacandrasūri.</p>
         </li>
-        <!--    <ul class="blog-list">
-        <li class="blog-item">
-            <h3 class="blog-title" onclick="openBlog('blogs/anandaghana_siddha')">Siddhacaturviṃśikā by Ānandaghana</h3>
-            <p class="blog-excerpt">25 verses on praise of Siddha by Ānandaghana primarily authored in bhujaṅgaprayātam.</p>
-        </li>
+        <!--    
         <ul class="blog-list">
         <li class="blog-item">
             <h3 class="blog-title" onclick="openBlog('blogs/anandaghana_siddha')">Siddhacaturviṃśikā by Ānandaghana</h3>

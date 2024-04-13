@@ -7,14 +7,18 @@ function toggleVerse(verse) {
   const verseTitle = verse.querySelector(".sanskrit-verse");
   const translation = verse.querySelector(".translation");
   const commentary = verse.querySelector(".commentary");
-  const transliteration = verse.querySelector(".trans")
-  const precomm = verse.querySelector(".precomm")
+  const transliteration = verse.querySelector(".trans");
+  const precomm = verse.querySelector(".precomm");
+  const chhaya = verse.querySelector(".chhaya");
+  const hinditrans = verse.querySelector(".hinditrans");
 
   verse.classList.toggle("active");
   translation.classList.toggle("hidden");
   commentary.classList.toggle("hidden");
-  transliteration.classList.toggle("hidden")
-  precomm.classList.toggle("hidden")
+  transliteration.classList.toggle("hidden");
+  precomm.classList.toggle("hidden");
+  chhaya.classList.toggle("hidden");
+  hinditrans.classList.toggle("hidden");
 
   // Update button text based on the current state
   const isExpanded = translation.classList.contains("hidden");
