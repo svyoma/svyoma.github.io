@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vyoma's Web Space</title>
+    <style> 
+    /* Global Styles */
+body {
+    font-family: 'Adishila', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #fff5e7;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.card {
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h2 {
+    color: #007bff;
+}
+
+.card p {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Card Colors */
+.card-primary {
+    background-color: #f1f1f1; /* Light Pink */
+}
+
+.card-secondary {
+    background-color: #f1f1f1; /* Light Teal */
+}
+
+.card-tertiary {
+    background-color: #f1f1f1; /* Light Orange */
+}
+       /* Define @font-face for Adishila Dev */
+       @font-face {
+            font-family: 'Adishila';
+            src: local('Adishila'), url('fonts/AdishilaSemiBoldB.woff') format('woff'); /* Adjust the file path and format */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Define @font-face for Aver */
+        @font-face {
+            font-family: 'Aver';
+            src: local('Aver'), url('fonts/Aver.woff') format('woff'); /* Adjust the file path and format */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Vyoma's Web Space</h1>
+        <p>कृत्वा स्तम्भमेष तत्त्वनिकरे विलसामि काव्यादिषु</p>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <!-- Card 1: Commentary -->
+        <div class="card card-primary">
+            <h2>समृद्धि आदि शब्दों का विवरण</h2>
+            <p>समृद्धि इत्येवमादिषु शब्देषु आदेरकारस्य दीर्घो वा भवति। सामिद्धी समिद्धी।...</p>
+            <p>अधिक जानकारी के लिए <a href="#">यहाँ</a> क्लिक करें।</p>
+        </div>
+
+        <!-- Card 2: One-line Meanings -->
+        <div class="card card-secondary">
+            <h2>संक्षिप्त अंग्रेज़ी और हिंदी अर्थ</h2>
+            <p>समृद्धि, आदि, इस समूह में पहला 'अ' स्वर वैकल्पिक रूप से 'आ' में बदल सकता है।</p>
+            <p>उदाहरण के लिए, समृद्धि → सामिद्धी।</p>
+            <p>अधिक जानकारी के लिए <a href="#">यहाँ</a> क्लिक करें।</p>
+        </div>
+
+        <!-- Card 3: Other Grammarians -->
+        <div class="card card-tertiary">
+            <h2>अन्य व्याकरणिक</h2>
+            <p>हेमचन्द्रसूरिजी द्वारा उल्लिखित शब्दों के अतिरिक्त, अन्य व्याकरणिक भी इस नियम का पालन करते हैं।</p>
+            <p>अधिक जानकारी के लिए <a href="#">यहाँ</a> क्लिक करें।</p>
+        </div>
+    </main>
+    <script>// Add click event listener to each card for toggle effect
+        const cards = document.querySelectorAll('.card');
+        
+        cards.forEach(card => {
+            card.addEventListener('click', () => {
+                card.classList.toggle('active');
+            });
+        });
+        </script>
+
+    <footer>
+        <p>&copy; 2024 Vyoma's Web Space. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
