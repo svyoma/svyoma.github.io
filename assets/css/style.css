@@ -1,22 +1,91 @@
 /* Define @font-face for Adishila Dev */
 @font-face {
     font-family: 'Adishila';
-    src: local('Adishila'), url('AdishilaSemiBoldB.woff') format('woff'); /* Adjust the file path and format */
+    src: local('Adishila'), 
+    url('fonts/AdishilaSemiBoldB.woff') format('woff'), /* Adjust the file path and format */
+    url('fonts/AdishilaSemiBoldB.ttf') format('ttf'),
+    url('fonts/AdishilaSemiBoldB.woff2') format('woff2');
     font-weight: normal;
     font-style: normal;
 }
 
 /* Define @font-face for Aver */
 @font-face {
-    font-family: 'Aver';
-    src: local('Aver'), url('fonts/Aver.woff') format('woff'); /* Adjust the file path and format */
+    font-family: 'Junicode';
+    src: local('Junicode'), 
+    url('fonts/Junicode.woff2') format('woff2'),
+    url('fonts/Junicode.woff') format('woff'),
+    url('fonts/Junicode.ttf') format('ttf'); /* Adjust the file path and format */
     font-weight: normal;
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Ekatra-B';
+    src: local('Ekatra-B'), url('fonts/Ekatra-B.woff') format('woff'); /* Adjust the file path and format */
+    font-weight: normal;
+    font-style: normal;
+    color: #7a0000;
+}
+
+/* Apply Adishila Dev for Devanagari characters */
+body, h1, h2, h3, p {
+    font-family: 'Junicode', 'Adishila', sans-serif;
+}
+
+blockquote {
+font-family: 'Adishila', 'Junicode';
+font-weight: bold;
+color: #7a0000;
+text-align: center;
+background-color: #f5f5f5;
+border-left: 0px solid #b7b7b7; /* Grey border on the left */
+padding: 10px;
+margin: 50px 0;
+}
+
+blockquote p {
+    display: inline;
+}
+.copy {
+    padding: 20px;
+background-color: #ffd9b3;
+}
+
+/* Define @font-face for Adishila Dev */
+/* Define @font-face for Adishila Dev */
+@font-face {
+    font-family: 'Adishila';
+    src: local('Adishila'), 
+    url('fonts/AdishilaSemiBoldB.woff') format('woff'), /* Adjust the file path and format */
+    url('fonts/AdishilaSemiBoldB.ttf') format('ttf'),
+    url('fonts/AdishilaSemiBoldB.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Define @font-face for Aver */
+@font-face {
+    font-family: 'Junicode';
+    src: local('Junicode'), 
+    url('fonts/Junicode.woff2') format('woff2'),
+    url('fonts/Junicode.woff') format('woff'),
+    url('fonts/Junicode.ttf') format('ttf'); /* Adjust the file path and format */
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Ekatra-B';
+    src: local('Ekatra-B'), url('fonts/Ekatra-B.woff') format('woff'); /* Adjust the file path and format */
+    font-weight: normal;
+    font-style: normal;
+    color: #7a0000;
+}
+
 /* Apply Adishila Dev for Devanagari characters */
 body, h1, h2, p {
-    font-family: 'Aver', 'Adishila', sans-serif;
+    font-family: 'Junicode', 'Adishila', sans-serif;
 }
 
 /* Your additional styles go here */
@@ -105,3 +174,35 @@ object {
           .show {
             display: block;
           }  
+          @media (max-width: 700px) {
+            nav ul li {
+            display: block;
+            margin: 10px 0;
+            }
+            
+            nav ul {
+            padding: 0;
+            text-align: center;
+            }
+            
+            main {
+            padding: 10px;
+            }
+            
+            header, footer {
+            padding: 10px;
+            }
+            
+            .container {
+            width: 100%;
+            padding: 0 40px;
+            }
+            
+            h1, h2 {
+            font-size: 1.5em;
+            }
+            
+            blockquote {
+            margin: 20px 0;
+            padding: 10px;
+        }}
