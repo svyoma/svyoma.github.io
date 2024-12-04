@@ -1,22 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-	    
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T12BK66SPZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-T12BK66SPZ');
-</script>
-
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vyoma's Web Space</title>
-    <style>
-        body {
+    <title>Jaina Literature Portal</title>
+<style>
+    /* General Page Styling */
+    body {
             font-family: 'Junicode', sans-serif;
             text-align: left;
             line-height: 1.6;
@@ -27,11 +17,11 @@
             color: #333; /* Dark text color */
         }
 
-        .container {
-            max-width: auto;
-            margin: 0 auto;
-            padding: auto;
-            box-sizing: border-box;
+
+        .image img{
+            max-width: 100%;
+            height: auto;
+            border-radius: 18px;
         }
 
         header {
@@ -39,7 +29,7 @@
             padding: 20px;
             background-color: #ffd9b3; /* Light blue header background color */
             color: #333; /* White text color */
-
+            
         }
 
         nav ul {
@@ -58,15 +48,18 @@
         }
 
         main {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
         }
         h1, h2 {
-            color: #1a237e; /* Dark blue heading color */
+            color: #630000; /* Dark blue heading color */
         }
 
+        h3 {
+            color: #1a237e; /* Dark blue heading color */
+        }
         a {
-            color: #4caf50; /* Green link color */
+            color: #630000; /* Green link color */
             text-decoration: none;
         }
 
@@ -82,10 +75,7 @@
         /* Define @font-face for Adishila Dev */
         @font-face {
             font-family: 'Adishila';
-            src: local('Adishila'), 
-            url('fonts/AdishilaSemiBoldB.woff') format('woff'), /* Adjust the file path and format */
-            url('fonts/AdishilaSemiBoldB.ttf') format('ttf'),
-            url('fonts/AdishilaSemiBoldB.woff2') format('woff2');
+            src: local('Adishila'), url('fonts/AdishilaSemiBoldB.woff') format('woff'); /* Adjust the file path and format */
             font-weight: normal;
             font-style: normal;
         }
@@ -93,10 +83,7 @@
         /* Define @font-face for Aver */
         @font-face {
             font-family: 'Junicode';
-            src: local('Junicode'), 
-            url('fonts/Junicode.woff2') format('woff2'),
-            url('fonts/Junicode.woff') format('woff'),
-            url('fonts/Junicode.ttf') format('ttf'); /* Adjust the file path and format */
+            src: local('Junicode'), url('fonts/Junicode.woff2') format('woff2'); /* Adjust the file path and format */
             font-weight: normal;
             font-style: normal;
         }
@@ -118,118 +105,197 @@
         font-family: 'Adishila', 'Junicode';
         font-weight: bold;
         color: #7a0000;
-        text-align: center;
+        text-align: left;
         background-color: #f5f5f5;
-        border-left: 0px solid #b7b7b7; /* Grey border on the left */
-        padding: 10px;
-        margin: 50px 0;
+        border-left: 5px solid #8f8f8f; /* Grey border on the left */
+        padding: 15px;
+        margin: 20px 0;
         }
 
         blockquote p {
             display: inline;
         }
-        .copy {
-            padding: 20px;
-  background-color: #ffd9b3;
-}
-
-@media (max-width: 700px) {
-    nav ul li {
-        display: block;
-        margin: 10px 0;
-    }
-
-    nav ul {
-        padding: 0;
-        text-align: center;
-    }
-
-    main {
-        padding: 10px;
-    }
-
-    header, footer {
-        padding: 10px;
-    }
 
     .container {
-        width: 100%;
-        padding: 0 40px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        padding: 30px;
     }
 
-    h1, h2 {
-        font-size: 1.5em;
-    }
+        /* Card Styling */
+        .card {
+            width: 200px;
+            height: 300px;
+            perspective: 1000px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+        }
 
-    blockquote {
-        margin: 20px 0;
-        padding: 10px;
-    }
-}
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #fff;
+            border-radius: 10px;
+        }
 
-    </style>
+        .card:hover .card-inner {
+            transform: rotateY(180deg);
+        }
 
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+            box-sizing: border-box;
+            flex-direction: column;
+        }
+
+        .card-front {
+            background-color: #ffd9b3; /* Light green pastel */
+            color: #333;
+            font-size: larger;
+            
+        }
+
+        .card-back {
+            background-color: #ffffff; /* Light peach pastel */
+            color: #333;
+            transform: rotateY(180deg);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between; /* Space text and button apart */
+            align-items: center;
+        }
+
+        /* Button to Open Text */
+        .open-link {
+            margin-bottom: 10px;
+            padding: 10px 20px;
+            background-color: #A6A9D4; /* Soft lavender */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .open-link:hover {
+            background-color: #6D9DC5;
+        }
+</style>
 </head>
 <body>
     <header>
-        <h1>Vyoma's Web Space</h1>
-        <p>प्रणाम!</p>
-    <nav>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/blogs">Blog</a></li>
-    <!-- Add more menu items as needed -->
-  </ul>
-    </nav>
+        <h1>The Jaina Literature Portal</h1>
+            <h3 style="text-align: center;">Repository of various Jaina texts. Curated and managed by <a href="../index.html">svyoma.</h3>
     </header>
-    <!--<p>🚀Constantly evolving: This static blog is a dynamic space, regularly updated with fresh content. Stay tuned for the latest insights and updates on this page! ✨"</p>
-    <p>Skip to</p>
-    <ui>
-        <li style="text-align: center;"><a href="#section1">Complete Works</a></li>
-    </ui>-->
+
+    <div class="container">
+        <!-- Card 1 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3 style="text-align: center;">Ādidevadvātriṃśikā<br/>by<br/>Rāmacandrasūri</h3>
+                </div>
+                <div class="card-back">
+                    <p>32 verses in praise of first Tīrthaṅkara Ādinātha by Kavikaṭāramalla Rāmacandrasūri, disciple of Hemacandrasūri.</p>
+                    <a href="misc-works/adinatha_ramacandra.html" class="open-link" target="_blank">Read Text</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3 style="text-align: center;">Siddhacaturviṃśikā<br/>by<br/>Ānandaghana</h3>
+                </div>
+                <div class="card-back">
+                    <p>25 verses on praise of Siddha by Ānandaghana primarily authored in bhujaṅgaprayātam.</p>
+                    <a href="misc-works/anandaghana_siddha.html" class="open-link" target="_blank">Read Text</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3 style="text-align: center;">Jinasādhāraṇastavana<br>by<br>Haribhadrasūri</h3>
+                </div>
+                <div class="card-back">
+                    <p>11 verses in āryā metre in praise of Haribhadrasūri in sama-saṃskṛta-prākṛta.</p>
+                    <a href="misc-works/jinasadharana_haribhadrasuri.html" class="open-link" target="_blank">Read Text</a>
+                </div>
+            </div>
+        </div>
+        <!-- Card 4-->>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3 style="text-align: center;">Mahāvīracariu <br> by <br>Jinaprabhasūri</h3>
+                </div>
+                <div class="card-back">
+                    <p>14th century text consisting of 24 verses in Apabhraṃśa summarizing the lives of Mahāvīrasvāmī.</p>
+                    <a href="misc-works/mahaviracariu_jinaprabhasuri.html" class="open-link" target="_blank">Read Text</a>
+                </div>
+            </div>
+        </div>
+                <!-- Card 5 -->
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3 style="text-align: center;">Caturviṃśati-Jinastavana<br/>by<br/>Ratnakśekharasūri</h3>
+                        </div>
+                        <div class="card-back">
+                            <p>Praise of 24 Jinas in Saṃskṛta, Prākṛta and Śaurasenī.</p>
+                            <a href="misc-works/caturvimsatistavana_ratnasekhara.html" class="open-link" target="_blank">Read Text</a>
+                        </div>
+                    </div>
+                </div>
     
-    <ui></ui>
-<div class="container">
-    <h1 id="section1"><u>Complete Works</u></h1>
-    <h2>Miscellaneous Works</h2>
-    <ul class="blog-list">
-        <li class="blog-item">
-            <h3 class="blog-title" onclick="openBlog('misc-works/murkhasataka_ratnasekharasuri')">Mūrkhaśatakaṃ by Ratnaśekharasūri</h3>
-            <p class="blog-excerpt">27 verses depicting 100 characteristics of fools by Ratnaśekharasūri.</p>
-        </li>
-   <!--     <ul class="blog-list">
-        <li class="blog-item">
-            <h3 class="blog-title" onclick="openBlog('blogs/virastutidvatrimsika_ratnakarasuri')">Vīrastutidvātriṃśikā by disciple of Ratnākarasūri</h3>
-            <p class="blog-excerpt">32 verses in praise of Mahāvīrasvāmī depicting the five kalyāṇakas and major events of his life in Indravajrā.</p>
-        </li>
-    <ul class="blog-list">
-        <li class="blog-item">
-            <h3 class="blog-title" onclick="openBlog('blogs/adinatha_ramacandra')">Ādidevadvātriṃśikā by Rāmacandrasūri</h3>
-            <p class="blog-excerpt">32 verses in praise of first Tīrthaṅkara Ādinātha by Kavikaṭāramalla Rāmacandrasūri, disciple of Hemacandrasūri.</p>
-        </li>
+        <!-- Card 2
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3 style="text-align: center;">Siddhacaturviṃśikā<br/>by<br/>Ānandaghana</h3>
+                </div>
+                <div class="card-back">
+                    <p>25 verses on praise of Siddha by Ānandaghana primarily authored in bhujaṅgaprayātam.</p>
+                    <a href="/jaina-literature/misc-works/anandaghana_siddha.html" class="open-link" target="_blank">Read Text</a>
+                </div>
+            </div>
+        </div>
+ -->
+        <!-- Card 3 
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h3 style="text-align: center;">Jinasādhāraṇastavana<br>by<br>Haribhadrasūri</h3>
+                </div>
+                <div class="card-back">
+                    <p>11 verses in āryā metre in praise of Haribhadrasūri in sama-saṃskṛta-prākṛta.</p>
+                    <a href="/jaina-literature/misc-works/jinasadharana_haribhadrasuri.html" class="open-link" target="_blank">Read Text</a>
+                </div>
+            </div>
+
+        </div>
+        -->
+        <!-- Add more cards as needed --> 
         
-        <ul class="blog-list">
-        <li class="blog-item">
-            <h3 class="blog-title" onclick="openBlog('blogs/anandaghana_siddha')">Siddhacaturviṃśikā by Ānandaghana</h3>
-            <p class="blog-excerpt">25 verses on praise of Siddha by Ānandaghana primarily authored in bhujaṅgaprayātam.</p>
-        </li>-->>
-    <!--<ul class="blog-list">
-        <li class="blog-item">
-            <h3 class="blog-title" onclick="openBlog('blogs/anandaghana_siddha')">Siddhacaturviṃśikā by Ānandaghana</h3>
-            <p class="blog-excerpt">25 verses on praise of Siddha by Ānandaghana primarily authored in bhujaṅgaprayātam.</p>
-        </li>
-        <li class="blog-item">
-            <h3 class="blog-title" onclick="openBlog('blogs/parsvacandra_mahavira')">Mahāvīrastavana by Pārśvacandra</h3>
-            <p class="blog-excerpt">11 verses in praise of Mahāvīrasvāmī using technical grammatical terms with commentary by Bhāvaprabhasūri</p>
-        </li>
-    </ul>-->
-</div>
-<script>
-    function openBlog(blogId) {
-        // You can replace this with the actual URL or navigate using your preferred method
-        window.location.href = blogId + '.html';
-    }
-</script>
+    </div>
 </body>
 </html>

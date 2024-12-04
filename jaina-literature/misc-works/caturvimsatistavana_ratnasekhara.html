@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vyoma's Web Space</title>
+    <style>
+        body {
+            font-family: 'Junicode', sans-serif;
+            text-align: left;
+            line-height: 1.6;
+            margin: 0 auto;
+	    max-width: 80em;
+            padding: 0;
+            background-color: #ffffff; /*Background colour*/
+            color: #333; /* Dark text color */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .englishcont {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+            font-weight: 800;
+            font-style: italic;
+            font-synthesis:weight;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffd9b3; /* Light blue header background color */
+            color: #333; /* White text color */
+
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1, h2 {
+            color: #1a237e; /* Dark blue heading color */
+        }
+
+        h3 {
+            color:#7a0000
+        }
+
+        
+        a {
+            color: #630000; /* Green link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+        }
+        /* Define @font-face for Adishila Dev */
+        @font-face {
+            font-family: 'Adishila';
+            src: local('Adishila'), url('fonts/AdishilaSemiBoldB.woff') format('woff'); /* Adjust the file path and format */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Define @font-face for Junicode */
+        @font-face {
+            font-family: 'Junicode';
+            src: local('Junicode'), url('fonts/Junicode.woff2') format('woff2'); /* Adjust the file path and format */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Apply Adishila Dev for Devanagari characters */
+        body, h1, h2, p {
+            font-family: 'Junicode', 'Adishila', sans-serif;
+        }
+        .blogcontainer{
+            text-align: left;
+            margin: 80%;
+            padding: 20px;
+            background-color: #ffffff; /* Light blue header background color */
+            color: #333  
+        }
+        .verse-container {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+  }
+  
+  .sanskrit-verse {
+    cursor: pointer;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .show {
+    display: block;
+  }  
+  /* Highlighted line styles */
+/* Highlighted sentence styles */
+.highlight {
+    background-color: #7a0000; /* Adjust the background color as needed */
+    color: #ffffff; /* Adjust the text color as needed */
+    padding: 2px 5px; /* Adjust the padding as needed */
+    border-radius: 3px; /* Optional: Add border radius for rounded corners */
+}
+
+
+    </style>
+<meta charset="UTF-8">
+    <meta name="name" content="Jinasādhāraṇastavana">
+    <meta name="keywords" content="stavana, saṃskṛta, prākṛta">
+    <meta name="category" content="stavana">
+    <meta name="author" content="Haribhadrasūri">
+    <meta name="commentator" content="-">
+    <meta name="editor" content="Śīlacandrasūri">
+    <meta name="original publisher" content="Nemisuri Gyanmandir, Ahmedabad">
+    <meta name="digitised by" content="Vyom A. Shah">
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">The Jaina Literature Portal</h1>
+        <p style="font-weight: bold;">हरिवरमरिहन्तं हे नरा! धत्त चित्ते<br /></p>
+    <nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/blogs">Blog</a></li>
+    <!-- Add more menu items as needed -->
+  </ul>
+    </nav>
+    </header>
+    <title>Mahāvīracariu</title>
+<body>
+ <div class="container">
+    <h4 style="font-weight: bold; text-align: center;">रत्नशेखरसूरिविरचितं संस्कृत-प्राकृत-शौरसेनी-भाषात्रयसमं</h1>
+        <h1 style="font-weight: bold; text-align: center;">चतुर्विंशतिस्तवनम्</h1>
+        <p style="text-align: center;"><a href="#maincontent">Skip to read original text only</a></p>
+
+            <p class="highlight" style="text-align: center;">About the Text</a></p>
+<p>This <em>Caturviṃśati-Stava</em> is authored by <em>Ratnaśekharasūri</em> &lsquo;<em>Bālasarasvatī</em>&rsquo;, disciple of <em>Somasundarasūri</em> who become the head of the order after him. He flourished around 15<sup>th</sup> century C. E. The following work using <em>Bhāṣāśleṣa</em> which means it can be read and means the same in <em>Saṃskṛta</em>, <em>Prākṛta</em> (<em>Mahārāṣṭrī</em>) and <em>Śaurasenī</em> languages. The analysis of usage of letters can be found <a href="#analysis">here</a> (it has been generated using <a href="#code">this</a> script).</p>
+<p>This work playfully weaves the praises of 24 <em>Jina</em>s in <em>Mālinī</em> metre. Read my <a href="https://svyoma.github.io/blogs/bhasaslesa-2.html" target="_blank">blog </a>on <em>Bhāṣāśleṣa</em> here to delve into intricacies of authoring similar poetry here. The author introduces himself in the last verse of the work as a disciple of <em>Somasundarasūri</em><em>. </em>The colophon reads <em>Ratnakśekharagaṇī</em> instead of <em>Ratnakśekharasūri </em>which means that this work was authored by him in his early years of initiation (probably between 1406-1437).</p>
+
+        <h3>Meta Details:</h3>
+        <p>Name: <em> Caturviṃśatistavanam</em><br /> Author: <em>Ratnaśekharasūri<br /></em>Editor: Caturavijaya<br /> Original publisher: Nirnay Sagar Printing Press<br />Original Publication Name: <em>Stotra-Samuccaya</em><br /> Digitised by: Vyom A. Shah</p>
+        <P><b>metre:</b><br />Mālinī</P>
+            <p><b>वृत्तम्</b> -<br />मालिनी</p>
+<hr />
+      <h2 id="maincontent"; style="font-weight: bold;">Reading Options:</h2>
+        <table style="width:100%">
+            <tr>
+              <td><p style="text-align: center;"><a href="#iast">Read in IAST</a></p></td>
+              <td><p style="text-align: center;"><a href="#devanagari">Read in Devanāgarī</a></p></td> 
+            </tr>
+          </table>        
+          <h2 id="iast"; style="font-weight: bold; text-align: center;">Ratnaśekharasūri's Caturviṃśati-Jinastavana</h2>
+          <div class="englishcont">
+            <p>amaragirigarīyo mārudevīyadehe<br /> kuvalayadalamālākomalā kuntalālī.<br /> sajalajalapāvannu sannīlakaṇṭhī<br /> dhavanivahamanandaṃ nandayantī jayāya..1..</p>
+            <p>asamasamaralīlālālasābhāvarūpa-<br /> cchalaparibalahelābhaṅgaraṅgaṃgamīva.<br /> karivaraparidhārī vi vimohāvahārī<br /> bhavajayivijayābhū raṅgabhūmi ramāsu..2..</p>
+            <p>bhavivibhumabhivande saṃbhavaṃ saṃbhavantaṃ<br /> nibiḍajaḍimabhaṅge'bhaṅgaraṅgeṇa geyam.<br /> taraṇihayavareṇāvaddhasevaṃ vibodho-<br /> dayarayaviralāhaṃkārabhāreṇa kiṃnu..3..</p>
+            <p>samasamayamivā'laṃ ca&ntilde;calaṃ cittamaṅkā<br /> haraṇaharivaraṃ vā'ca&ntilde;calībhāvayantam.<br /> urasi virasabhāvaṃ hanta hantuṃ turīyaṃ<br /> tamariharamaṇīyaṃ dhāraṇīyaṃ dhare'ham..4..</p>
+            <p>asamasamayapārāvārapārīnarīṇa-<br /> cchalacaraṇadhurīṇacchannamacchinnamīḍe.<br /> mahimabharaniruddhāmaṅgalaṃ maṅgalābhū-<br /> vibhumidamasubaddhaṃ maṅgalākāraṇaṃ tu..5..</p>
+            <p>tamudayagiricūlācumbi bhūcchāyabhūri-<br /> cchidurataraṇibimbābhaṅgadhāmābhirāmam.<br /> sahabhavamiva rāgaṃ kuṅkumābhaṃ vahantaṃ<br /> vaha vidurasusīmāsaṃbhavaṃ devadevam..6..</p>
+            <p>avamamavaharantu cchandasaṃcāripa&ntilde;cā'-<br /> naṇusamaṇiphaṇā me devadevorudehe.<br /> raṇabhuvi kila bhaṅge māravīreṇa dūre<br /> samamiha parihīṇā pa&ntilde;cabāṇī rayeṇa..7..</p>
+            <p>samamiha himabhājiddehadantorukūlaṃ<br /> dhaya dhavalakarālaṃ sāribhāvāriṇedam.<br /> samalamamalayantaṃ bhūvihāyo'higehaṃ<br /> himakaradharameke devadevaṃ nuvāmi..8..</p>
+            <p>naravarakururāmā nāmarāmālicūḍā-<br /> maṇibhuvamabhavantaṃ cittavāse vasantam<br /> navamamamalabhāsaṃ bhāsamiddhorubhāla-<br /> cchaladhavalakarābhā saṃkareṇeva viddham..9..</p>
+            <p>niravamatamanandāsundarodāratundi-<br /> sthalasalilaruhālī kevalī kevalāya.<br /> navamarasanilimpāhārasārābhirāmaṃ<br /> navamacaramakuṇḍaṃ kiṃnu bhūkhaṇḍamaṇḍi..10..</p>
+            <p>bhavabhayajayinandābhūpurogāmidanta-<br /> cchavinivahabhavābhā bhūribhadrāṅkarā me.<br /> iha kila kalaśā(sā?)lī bhāvavandārudevā-<br /> suranaravarabhāle kāmamuttaṃsakelim..11..</p>
+            <p>duravamaparamohaṃ hantu mohaṃ jayābhū-<br /> ravinavavasuhāsī kāsareṇāvabhāsī.<br /> sahajajalajalavāhāliṅgibhāgābhirāmo-<br /> dayagirigarimāṇaṃ hanta dhatte kilā'yam..12..</p>
+            <p>sa giridharaṇibhārādhāralīlādhurīṇaṃ<br /> kirivaramamumaṅke dhārayantaṃ nirantam.<br /> paramagarimalābhaṃ lambhayantaṃ kimevaṃ<br /> vimalamamaladehaṃ cittagehaṃ naye'ham..13..</p>
+            <p>vibhuvimalapurogābhaṅgarogāvalībhi-<br /> ccaraṇakararuhālībhāsamūhā jayanti.<br /> namiparasurabālā bhālabhāge sarāgaṃ<br /> kila paramalalāmāḍambaraṃ dhārayanti..14..</p>
+            <p>caraṇasarasi sāre kiṃnu nissīmadhāmā'-<br /> malasalilasamūhe hemapaṅkeruhāṇi.<br /> pavidharavibhuvaṅgāsaṅgibhācapiṅgaraṅgā<br /> kararuhavaramālā vo viruddhaṃ ruṇaddhu..15..</p>
+            <p>divi bhuvi cirakālaṃ candrabhidrāhukaṇṭhī-<br /> ravabhavabhayabhūyorīṇaraṅgaṃ kuraṅgam.<br /> taruṇakaruṇamaṅke lālayantaṃ kilā'muṃ<br /> bhavivara! bhagavantaṃ dhehi he dhīra! citte..16..</p>
+            <p>nara! nama parapaṅkāvāsahiṃsādhurīṇā-<br /> khilabhavibhayabhīruṃ dūrabhīpaṅkamaṅkam.<br /> chagavaramavagāḍhaṃ pālayantaṃ sugūḍhaṃ<br /> sadayamanayamanthaṃ kunthudevaṃ susevam..17..</p>
+            <p>tamaramamaradattāmandamandāramālā-<br /> parimalarasabaddhālambirolambamālam.<br /> niravamanavahemacchāyakāyaṃ namāmo'-<br /> maragirimiva kaṇṭhe vārivāhāvagāḍham..18..</p>
+            <p>bahulamiha vahantaṃ kundamandāramallī0<br /> kusumamasamavallīma&ntilde;julaṃ mallidevam.<br /> ciramurasi vahāmo bhūritārā'virāmā-<br /> valivimalavihāyomaṇḍalaṃ kiṃnu nīlam..19..</p>
+            <p>kuvalavalayakāyaṃ kundajiddantapālī-<br /> cchavibharaparibhogaṃ devamallīpurogam.<br /> tamarihamiva seve vārivāhaṃ savāriṃ<br /> kimasamabisakaṇṭhīmaṇḍalīlīḍhakaṇṭham..20..</p>
+            <p>jayabhuvi vijayante bhāsurā bhūribhāsā<br /> damivara! namidehe keligehe kalāsu.<br /> kimahimakiraṇābhā bhāvavantaṃ nayanti<br /> sudivasamavirāmaṃ caṇḍabhāvaṃ vihāya..21..</p>
+            <p>harimurudharamāṇaṃ kambusambandhabandhu<br /> kimu iha bahumantā kambudhārī cireṇa.<br /> navanavabhavakārāvāsavārī varīyo-<br /> gavalavimaladhāmā nemināmā mamāyam..22..</p>
+            <p>phaṇiguruphaṇamālāmalambicūḍāmahīyo-<br /> maṇigaṇakiraṇālasaṅgaraṅgāvagāḍham.<br /> arihamurumahelāsiddhisampannarāgā-<br /> ruṇamiva guṇageyaṃ cittadheyaṃ dhareyam..23..</p>
+            <p>giribhuvi haribhāve bāhulīlāvibhinnā-<br /> viralanibiḍapīḍāsaṅgame gāḍhakhinnam.<br /> paribhavaparihārāyeva voḍhāramaṅke<br /> harivaramarihantaṃ he narā! dhatta citte..24..</p>
+            <p>itthaṃ stotrapathaṃ katha&ntilde;cana jinā nītā vinītātmanā<br /> vṛttaiḥ prākṛtasaṃskṛtaiḥ samuditaistaiḥ śaurasenyā samaiḥ.<br /> dadyuḥ śrīgurusomasundaramudāsvādaṃ prasādaṃ javād<br /> yenā'sau rasikeva kevalakalā līlāyate mayyapi..25..</p>
+            <p>&nbsp;iti saṃskṛta-prākṛta-śaurasenī-bhāṣātrayasamaṃ caturviṃśatijinastavanaṃ mahopādhyāyaratnaśekharagaṇiviracitam.</p>
+            </div>
+                         <hr />
+        
+        <h3 id="devanagari"; style="font-weight: bold;">रत्नशेखरसूरिविरचितं चतुर्विंशतिजिनस्तवनम्</h3>
+        <p>अमरगिरिगरीयो मारुदेवीयदेहे<br /> कुवलयदलमालाकोमला कुन्तलाली।<br /> सजलजलपावन्नु सन्नीलकण्ठी<br /> धवनिवहमनन्दं नन्दयन्ती जयाय॥१॥</p>
+        <p>असमसमरलीलालालसाभावरूप-<br /> च्छलपरिबलहेलाभङ्गरङ्गंगमीव।<br /> करिवरपरिधारी वि विमोहावहारी<br /> भवजयिविजयाभू रङ्गभूमि रमासु॥२॥</p>
+        <p>भविविभुमभिवन्दे संभवं संभवन्तं<br /> निबिडजडिमभङ्गेऽभङ्गरङ्गेण गेयम्।<br /> तरणिहयवरेणावद्धसेवं विबोधो-<br /> दयरयविरलाहंकारभारेण किंनु॥३॥</p>
+        <p>समसमयमिवाऽलं चञ्चलं चित्तमङ्का<br /> हरणहरिवरं वाऽचञ्चलीभावयन्तम्।<br /> उरसि विरसभावं हन्त हन्तुं तुरीयं<br /> तमरिहरमणीयं धारणीयं धरेऽहम्॥४॥</p>
+        <p>असमसमयपारावारपारीनरीण-<br /> च्छलचरणधुरीणच्छन्नमच्छिन्नमीडे।<br /> महिमभरनिरुद्धामङ्गलं मङ्गलाभू-<br /> विभुमिदमसुबद्धं मङ्गलाकारणं तु॥५॥</p>
+        <p>तमुदयगिरिचूलाचुम्बि भूच्छायभूरि-<br /> च्छिदुरतरणिबिम्बाभङ्गधामाभिरामम्।<br /> सहभवमिव रागं कुङ्कुमाभं वहन्तं<br /> वह विदुरसुसीमासंभवं देवदेवम्॥६॥</p>
+        <p>अवममवहरन्तु च्छन्दसंचारिपञ्चाऽ-<br /> नणुसमणिफणा मे देवदेवोरुदेहे।<br /> रणभुवि किल भङ्गे मारवीरेण दूरे<br /> सममिह परिहीणा पञ्चबाणी रयेण॥७॥</p>
+        <p>सममिह हिमभाजिद्देहदन्तोरुकूलं<br /> धय धवलकरालं सारिभावारिणेदम्।<br /> समलममलयन्तं भूविहायोऽहिगेहं<br /> हिमकरधरमेके देवदेवं नुवामि॥८॥</p>
+        <p>नरवरकुरुरामा नामरामालिचूडा-<br /> मणिभुवमभवन्तं चित्तवासे वसन्तम्<br /> नवमममलभासं भासमिद्धोरुभाल-<br /> च्छलधवलकराभा संकरेणेव विद्धम्॥९॥</p>
+        <p>निरवमतमनन्दासुन्दरोदारतुन्दि-<br /> स्थलसलिलरुहाली केवली केवलाय।<br /> नवमरसनिलिम्पाहारसाराभिरामं<br /> नवमचरमकुण्डं किंनु भूखण्डमण्डि॥१०॥</p>
+        <p>भवभयजयिनन्दाभूपुरोगामिदन्त-<br /> च्छविनिवहभवाभा भूरिभद्राङ्करा मे।<br /> इह किल कलशा(सा?)ली भाववन्दारुदेवा-<br /> सुरनरवरभाले काममुत्तंसकेलिम्॥११॥</p>
+        <p>दुरवमपरमोहं हन्तु मोहं जयाभू-<br /> रविनववसुहासी कासरेणावभासी।<br /> सहजजलजलवाहालिङ्गिभागाभिरामो-<br /> दयगिरिगरिमाणं हन्त धत्ते किलाऽयम्॥१२॥</p>
+        <p>स गिरिधरणिभाराधारलीलाधुरीणं<br /> किरिवरममुमङ्के धारयन्तं निरन्तम्।<br /> परमगरिमलाभं लम्भयन्तं किमेवं<br /> विमलममलदेहं चित्तगेहं नयेऽहम्॥१३॥</p>
+        <p>विभुविमलपुरोगाभङ्गरोगावलीभि-<br /> च्चरणकररुहालीभासमूहा जयन्ति।<br /> नमिपरसुरबाला भालभागे सरागं<br /> किल परमललामाडम्बरं धारयन्ति॥१४॥</p>
+        <p>चरणसरसि सारे किंनु निस्सीमधामाऽ-<br /> मलसलिलसमूहे हेमपङ्केरुहाणि।<br /> पविधरविभुवङ्गासङ्गिभाचपिङ्गरङ्गा<br /> कररुहवरमाला वो विरुद्धं रुणद्धु॥१५॥</p>
+        <p>दिवि भुवि चिरकालं चन्द्रभिद्राहुकण्ठी-<br /> रवभवभयभूयोरीणरङ्गं कुरङ्गम्।<br /> तरुणकरुणमङ्के लालयन्तं किलाऽमुं<br /> भविवर! भगवन्तं धेहि हे धीर! चित्ते॥१६॥</p>
+        <p>नर! नम परपङ्कावासहिंसाधुरीणा-<br /> खिलभविभयभीरुं दूरभीपङ्कमङ्कम्।<br /> छगवरमवगाढं पालयन्तं सुगूढं<br /> सदयमनयमन्थं कुन्थुदेवं सुसेवम्॥१७॥</p>
+        <p>तमरममरदत्तामन्दमन्दारमाला-<br /> परिमलरसबद्धालम्बिरोलम्बमालम्।<br /> निरवमनवहेमच्छायकायं नमामोऽ-<br /> मरगिरिमिव कण्ठे वारिवाहावगाढम्॥१८॥</p>
+        <p>बहुलमिह वहन्तं कुन्दमन्दारमल्ली०<br /> कुसुममसमवल्लीमञ्जुलं मल्लिदेवम्।<br /> चिरमुरसि वहामो भूरिताराऽविरामा-<br /> वलिविमलविहायोमण्डलं किंनु नीलम्॥१९॥</p>
+        <p>कुवलवलयकायं कुन्दजिद्दन्तपाली-<br /> च्छविभरपरिभोगं देवमल्लीपुरोगम्।<br /> तमरिहमिव सेवे वारिवाहं सवारिं<br /> किमसमबिसकण्ठीमण्डलीलीढकण्ठम्॥२०॥</p>
+        <p>जयभुवि विजयन्ते भासुरा भूरिभासा<br /> दमिवर! नमिदेहे केलिगेहे कलासु।<br /> किमहिमकिरणाभा भाववन्तं नयन्ति<br /> सुदिवसमविरामं चण्डभावं विहाय॥२१॥</p>
+        <p>हरिमुरुधरमाणं कम्बुसम्बन्धबन्धु<br /> किमु इह बहुमन्ता कम्बुधारी चिरेण।<br /> नवनवभवकारावासवारी वरीयो-<br /> गवलविमलधामा नेमिनामा ममायम्॥२२॥</p>
+        <p>फणिगुरुफणमालामलम्बिचूडामहीयो-<br /> मणिगणकिरणालसङ्गरङ्गावगाढम्।<br /> अरिहमुरुमहेलासिद्धिसम्पन्नरागा-<br /> रुणमिव गुणगेयं चित्तधेयं धरेयम्॥२३॥</p>
+        <p>गिरिभुवि हरिभावे बाहुलीलाविभिन्ना-<br /> विरलनिबिडपीडासङ्गमे गाढखिन्नम्।<br /> परिभवपरिहारायेव वोढारमङ्के<br /> हरिवरमरिहन्तं हे नरा! धत्त चित्ते॥२४॥</p>
+        <p>इत्थं स्तोत्रपथं कथञ्चन जिना नीता विनीतात्मना<br /> वृत्तैः प्राकृतसंस्कृतैः समुदितैस्तैः शौरसेन्या समैः।<br /> दद्युः श्रीगुरुसोमसुन्दरमुदास्वादं प्रसादं जवाद्<br /> येनाऽसौ रसिकेव केवलकला लीलायते मय्यपि॥२५॥</p>
+        <p>इति संस्कृत-प्राकृत-शौरसेनी-भाषात्रयसमं चतुर्विंशतिजिनस्तवनं महोपाध्यायरत्नशेखरगणिविरचितम्।</p>
+                <hr />
+
+<h3 id="analysis">Analysis of usages:</h3>
+<table border="1">
+<tbody>
+<tr>
+<td width="146">
+<p>ा</p>
+</td>
+<td width="301">
+<p>207</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>म</p>
+</td>
+<td width="301">
+<p>200</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>र</p>
+</td>
+<td width="301">
+<p>199</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ि</p>
+</td>
+<td width="301">
+<p>192</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>्</p>
+</td>
+<td width="301">
+<p>183</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>व</p>
+</td>
+<td width="301">
+<p>154</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ल</p>
+</td>
+<td width="301">
+<p>111</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>न</p>
+</td>
+<td width="301">
+<p>106</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ु</p>
+</td>
+<td width="301">
+<p>97</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>भ</p>
+</td>
+<td width="301">
+<p>88</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>े</p>
+</td>
+<td width="301">
+<p>82</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ं</p>
+</td>
+<td width="301">
+<p>80</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>स</p>
+</td>
+<td width="301">
+<p>80</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ह</p>
+</td>
+<td width="301">
+<p>77</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>क</p>
+</td>
+<td width="301">
+<p>69</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>द</p>
+</td>
+<td width="301">
+<p>64</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>त</p>
+</td>
+<td width="301">
+<p>62</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ग</p>
+</td>
+<td width="301">
+<p>58</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>य</p>
+</td>
+<td width="301">
+<p>58</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ण</p>
+</td>
+<td width="301">
+<p>56</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ी</p>
+</td>
+<td width="301">
+<p>52</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>॥</p>
+</td>
+<td width="301">
+<p>48</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>च</p>
+</td>
+<td width="301">
+<p>39</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ध</p>
+</td>
+<td width="301">
+<p>39</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ङ</p>
+</td>
+<td width="301">
+<p>32</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>प</p>
+</td>
+<td width="301">
+<p>31</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ो</p>
+</td>
+<td width="301">
+<p>27</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ब</p>
+</td>
+<td width="301">
+<p>23</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ू</p>
+</td>
+<td width="301">
+<p>23</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ज</p>
+</td>
+<td width="301">
+<p>17</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ड</p>
+</td>
+<td width="301">
+<p>14</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>छ</p>
+</td>
+<td width="301">
+<p>12</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ढ</p>
+</td>
+<td width="301">
+<p>7</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>अ</p>
+</td>
+<td width="301">
+<p>5</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ञ</p>
+</td>
+<td width="301">
+<p>5</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ठ</p>
+</td>
+<td width="301">
+<p>5</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>ख</p>
+</td>
+<td width="301">
+<p>3</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>थ</p>
+</td>
+<td width="301">
+<p>3</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>फ</p>
+</td>
+<td width="301">
+<p>3</p>
+</td>
+</tr>
+<tr>
+<td width="146">
+<p>उ</p>
+</td>
+<td width="301">
+<p>1</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="code">&nbsp;Python Code:</h3>
+<p><code> import collections <br /> # Add verses here &darr;<br /> text = """<br /> """<br /><br /> # Remove non-Devanagari characters (e.g., punctuation)<br /> import re<br /> text = re.sub(r'[^\u0900-\u097F]', '', text)<br /><br /> # Count the occurrences of each Devanagari character<br /> counter = collections.Counter(text)<br /><br /> # Print the frequency of each character<br /> for char, count in sorted(counter.items()):<br /> print(f"{char}: {count}")</code></p>
+        </div>
+</body>
+</html>
