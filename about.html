@@ -5,43 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vyoma's Web Space</title>
     <style>
-	    body {
-    font-family: 'Aver', sans-serif;
-    text-align: left;
-    line-height: 1.6;
-    margin: 0 auto;
-    padding: 0;
-    background-color: #ffffff; /*Background color*/
-    color: #333; /* Dark text color */
-}
+	   body {
+            font-family: 'Aver', sans-serif;
+            text-align: left;
+            line-height: 1.6;
+            margin: 0 auto;
+	    max-width: 80em;
+            padding: 0;
+            background-color: #ffffff; /*Background colour*/
+            color: #333; /* Dark text color */
+        }
 
-.container {
-    width: 100%; /* Adjusted width */
-    padding: 20px;
-    box-sizing: border-box;
-}
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffd9b3; /* Light blue header background color */
+            color: #333; /* White text color */
 
-header, main, footer {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-header {
-    text-align: center;
-    background-color: #ffd9b3; /* Light blue header background color */
-    color: #333; /* Dark text color */
-}
-
-main {
-    padding-top: 0; /* Removed extra padding at the top */
-}
-
-footer {
-    text-align: center;
-    padding: 20px 0;
-}
-
+        }
 
         nav ul {
             list-style: none;
@@ -97,38 +78,68 @@ footer {
             font-weight: normal;
             font-style: normal;
         }
-
-        /* Apply Adishila Dev for Devanagari characters */
-        body, h1, h2, p {
-            font-family: 'Aver', 'Adishila', sans-serif;
-        }
     </style>
 <meta name="google-site-verification" content="nvi13Juvi_HO-P9gMovobq5VihKZXdZqd2AzDHfIYW8" />
 </head>
 <body>
     <div class="container">
-    <object type="text/html" data="header.html"></object>
-
+        <header>
+            <h1>Jaina Literature Portal</h1>
+            <p>History of Jaina Saṃskṛta Literature</p>
+            <p>Adapted from "Jaina Saṃskṛta Sāhitya no Itihāsa by Hiralal Rasikdas Kapadia" (Gujarati)</p>
+        <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/blogs">Blog</a></li>
+        <li><a href="/jaina-literature">Jaina Literature Portal</a></li>      </ul>
+        </nav>
+        </header>    
     <main>
-<p>This webpage is created by Vyom A. Shah to serve purpose digitizing various Jaina texts. Currently, the website holds different collections of stuti, etc., which will be soon expanded wtih sūkti, complete works, etc. See "Blogs" for collections.</p>
-
-  <h2>Contact Me</h2>
-  
-<form action="https://formspree.io/f/xbjvvlvd" method="POST">
-    <p><label for="name">Name:</label></p>
-    <input type="text" id="name" name="name" required>
-    
-    <p><label for="email">Email:</label></p>
-    <input type="email" id="email" name="email" required>
-    
-    <p><label for="message">Message:</label></p>
-    <textarea id="message" name="message" required></textarea>
-    
-   <p><button type="submit">Send Message</button></p>
-  </form>
-
-    </main>
-    <object type="text/html" data="footer.html"></object>
+        
+        <section id="about" class="about-section">
+            <div class="container">
+                <section id="about" class="about-section">
+                    <div class="container">
+                      <h2 class="section-title">About Me</h2>
+                      <div class="about-content">
+                        <div class="about-text">
+                          <p>
+                            I strive to preserve and promote our linguistic heritage. Passionate about literary traditions in Sanskrit, Prakrit, and ancient Indian languages, my work revolves around comparative literature, ancient grammar, philosophy, and poetry.
+                          </p>
+                          <p>
+                            Currently pursuing a Master's in Sanskrit at Gujarat University, I hold a Bachelor's in Sanskrit and a Diploma in Sanskrit Teaching. My traditional studies include Sanskrit and Prakrit grammar of Hemacandra (<i>Siddhahemaśabdānśāsana</i>), and I compose original verses in both Sanskrit and Prakrit.
+                          </p>
+                          <p>
+                            I also contribute to translating classical works, making them accessible to modern audiences, ensuring our rich linguistic and literary heritage is preserved and celebrated.
+                          </p>
+                        </div>
+                        <div class="about-links">
+                            <h3 class="links-title">Blogs</h3>
+                            <ul class="social-links">
+                              <li><a href="https://svyoma.github.io/blogs" target="_blank">Personal Blogs</a></li>
+                              <li><a href="https://the-vak.github.io" target="_blank">The Vak Blog</a></li>
+                              </ul>
+                            <h3 class="links-title">Social Links</h3>
+                            <ul class="social-links">
+                            <li><a href="https://www.facebook.com/vyom.sanskrit" target="_blank">Facebook</a></li>
+                            <li><a href="https://www.instagram.com/khasoochi/" target="_blank">Instagram</a></li>
+                            <li><a href="https://www.linkedin.com/in/vyom-a-shah/" target="_blank">LinkedIn</a></li>
+                            <li><a href="https://gujaratuniversity.academia.edu/VyomShah" target="_blank">Academia</a></li>
+                            <li><a href="https://github.com/svyoma" target="_blank">GitHub</a></li>
+                        </ul>
+                        <h3 class="links-title">Initiatives</h3>
+                        <ul class="social-links">
+                        <li><a href="https://x.com/sanskrit_hitaay" target="_blank">Saṃskṛta Hitāya</a></li>
+                        <li><a href="https://x.com/prakrit_hitaay" target="_blank">Prākṛta Hitāya</a></li>
+                        <li><a href="https://groups.google.com/g/jaina-literature" target="_blank">Jaina Literature</a></li>
+                        <li><a href="https://svyoma.github.io/jaina-literature/" target="_blank">Digitized Texts, etc.</a></li>
+                        </ul>
+                       
+                        </div>
+                      </div>
+                    </div>
+                  </section>                  
     </div>
 </body>
 </html>
