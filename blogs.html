@@ -122,12 +122,11 @@
         .blog-excerpt {
             margin-top: 5px;
         }
-        .blogcontainer{
-            text-align: left;
-            margin: 80%;
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
             padding: 20px;
-            background-color: #ffffff; /* Light blue header background color */
-            color: #333  
+            box-sizing: border-box;
         }
         .new-badge {
     background-color: #4caf50;
@@ -154,7 +153,10 @@
     </nav>
     </header>
     <p>🚀Constantly evolving: This static blog is a dynamic space, regularly updated with fresh content. Stay tuned for the latest insights and updates on this page! ✨"</p>
-    <p>Skip to</p>
+    <div class="container">
+    <!--     <p>Skip to</p>
+    
+
     <ui>
         <li style="text-align: center;"><a href="#section1">Complete Works</a></li>
         <li style="text-align: center;"><a href="#section2">Compilations</a></li>
@@ -162,7 +164,7 @@
     </ui>
     
     <ui></ui>
-<div class="container">
+
     <h1 id="section1"><u>Complete Works</u></h1>
     <h2>Stuti, Stotra, etc.</h2>
     <ul class="blog-list">
@@ -185,12 +187,12 @@
             <h3 class="blog-title" onclick="openBlog('blogs/mahavira_dhanapala')">Mahāvīrastava by Dhanapāla</h3>
             <p class="blog-excerpt">11 verses in praise of 24th Tīrthaṅkara - Mahāvīrasvāmī in Saṃskṛta and Prākṛta.</p>
         </li>
-        <!--    
+          
         <ul class="blog-list">
         <li class="blog-item">
             <h3 class="blog-title" onclick="openBlog('blogs/anandaghana_siddha')">Siddhacaturviṃśikā by Ānandaghana</h3>
             <p class="blog-excerpt">25 verses on praise of Siddha by Ānandaghana primarily authored in bhujaṅgaprayātam.</p>
-        </li>-->
+        </li>
     <ul class="blog-list">
         <li class="blog-item">
             <h3 class="blog-title" onclick="openBlog('blogs/anandaghana_siddha')">Siddhacaturviṃśikā by Ānandaghana</h3>
@@ -239,33 +241,31 @@
     <li class="blog-item">
         <h3 class="blog-title" onclick="openBlog('blogs/authors/ramacandra')">Kavikaṭāramalla Rāmacandrasūri</h3>
         <p class="blog-excerpt">कलिकालसर्वज्ञमहापुरुषाणां शब्द-प्रमाण-साहित्य-च्छन्द-आदिविद्यानामेकनिपुणानां श्रीहेमचन्द्रसूरीणां विषये नास्ति स्वल्पमपि परिचयपदातीतम्...</p>
-    </li>
-<h2>Miscellaneous Articles</h2>
-<li class="blog-item">
+    </li>-->
+    
+<h2>Blogs</h2>
+    <h3 class="blog-title" onclick="openBlog('blogs/anekartha-2')">Anekārthī Kāvya and Jaina Poets</h3>
+    <p class="blog-excerpt">Exploring the works authored by Jaina poets in Anekārthī Kāvya/Sandhāna Kāvya genre.</p>
+
+
     <h3 class="blog-title" onclick="openBlog('blogs/anekartha')">Introduction to Anekārtha Kāvya</h3>
     <p class="blog-excerpt">Exploring the works jam-packed with uses of śleṣa (or puns!) encompassing a diverse view of multitude of meanings.</p>
-</li>
-<li class="blog-item">
+
+
     <h3 class="blog-title" onclick="openBlog('blogs/bhasaslesa-3')">Jāti, Bhāṣāśleṣa and Linguistic Interplay</h3>
     <p class="blog-excerpt">Revisit the art pieces of poetry in Jāti Śabdālaṅkāra and discover the profound linguistic interplay!</p>
-</li>
-<li class="blog-item">
+
     <h3 class="blog-title" onclick="openBlog('blogs/bhasaslesa-2')">The art underlying Bhāṣaśleṣa</h3>
     <p class="blog-excerpt">A blog exploring the common grounds of Saṃskṛta and Prākṛta which leads to creation of verses with bhāṣāśleṣa.</p>
-</li>
-<li class="blog-item">
+
     <h3 class="blog-title" onclick="openBlog('blogs/bhasaslesa')">Macaronic-Equivalent Poetry in Saṃskṛta and Prākṛta</h3>
     <p class="blog-excerpt">In the quest of searching for Macaronic-Equivalent Poetry in Saṃskṛta and Prākṛta</p>
-</li>
 
-<li class="blog-item">
     <h3 class="blog-title" onclick="openBlog('blogs/svah_karyamadya')">Few Tongues, 1 Utterance – Part 5</h3>
     <p class="blog-excerpt">Explore various utterances advocating to refrain individuals from procrastinating.</p>
-</li>
-<li class="blog-item">
+
     <h3 class="blog-title" onclick="openBlog('blogs/drdhatara_nibaddha_musteh')">2 Tongues, 1 Verse - Part 4</h3>
     <p class="blog-excerpt">Explore utterance of "dṛḍhatarabaddhamuṣṭeḥ koṣaniṣaṇṇasya..." in Prākṛta.</p>
-</li>
 
 <!--
 <li class="blog-item">
@@ -275,28 +275,22 @@
 <li class="blog-item">
     <h3 class="blog-title" onclick="openBlog('blogs/daivayattam_kule_janma')">2 Tongues, 1 Verse - Part 3</h3>
     <p class="blog-excerpt">Explore utterance of "daivāyattaṃ kule janma" in Prākṛta.</p>
-</li>-->>
-<li class="blog-item">
+</li>-->
     <h3 class="blog-title" onclick="openBlog('blogs/daivayattam_kule_janma')">2 Tongues, 1 Verse - Part 3</h3>
     <p class="blog-excerpt">Explore utterance of "daivāyattaṃ kule janma" in Prākṛta.</p>
-</li>
-<li class="blog-item">
+
     <h3 class="blog-title" onclick="openBlog('blogs/raghuvilasa-2')">Rāmacandrasūri's Prākṛta as reflected in Raghvilāsa</h3>
     <p class="blog-excerpt">A blog exploring the Prākṛta verses and passages in Rāmacandrasūri's Raghuvilāsa.</p>
-</li>
-<li class="blog-item">
+
     <h3 class="blog-title" onclick="openBlog('blogs/na_hi_vandhya')">2 Tongues, 1 Verse - Part 2</h3>
     <p class="blog-excerpt">In the intricate tapestry of linguistic expressions, the series "Tongues and Utterances" strives to amalgamate diverse...</p>
-</li>
-<li class="blog-item">
+
     <h3 class="blog-title" onclick="openBlog('blogs/raghuvilasa-1')">Rāmacandrasūri's Raghuvilāsa - 1</h3>
     <p class="blog-excerpt">A blog on praśnottara in Raghuvilāsa and compilation of usage of svarbhūrbhuvaḥ and bhūrbhuvaḥsvaḥ.</p>
-</li>
-    <li class="blog-item">
+
         <h3 class="blog-title" onclick="openBlog('blogs/satesu_jayate_surah')">2 Tongues, 1 Verse (+bonus) – Part 1</h3>
         <p class="blog-excerpt">Indian literary heritage has been blessed with teaching and preachings on almost every subject. There are works which have crossed...</p>
-    </li>
-</ul>
+
 </div>
 <script>
     function openBlog(blogId) {
