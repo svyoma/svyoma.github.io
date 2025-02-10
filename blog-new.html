@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vyoma's Blogs - Vintage Modern Edition</title>
+  <link rel="stylesheet" href="assets/css/newblogstyle.css" />
+</head>
+<body>
+  <!-- Main Header -->
+  <header id="mainHeader">
+    <div class="container">
+      <h1>Vyoma's Blogs</h1>
+      <div class="hamburger" id="mainHamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav id="mainNav">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/blogs">Blog</a>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Sticky Top Bar -->
+  <div id="stickyHeader">
+    <div class="container">
+      <h2>Vyoma's Blogs</h2>
+      <div class="hamburger" id="stickyHamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <nav id="stickyNav">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/blogs">Blog</a>
+      </nav>
+    </div>
+  </div>
+  
+  <!-- Main Content -->
+  <div class="container">
+    <section class="blog-grid">
+      <!-- Blog Card 1 -->
+      <article class="blog-card">
+        <img src="blogs/images/cover-images/anekartha-cover-2.png" alt="Anekārthī Kāvya and Jaina Poets">
+        <div class="blog-card-content">
+          <h3>Anekārthī Kāvya and Jaina Poets</h3>
+          <p>Exploring the works authored by Jaina poets in the Anekārthī Kāvya/Sandhāna Kāvya genre.</p>
+          <a href="/blogs/anekartha-2.html">Read More</a>
+        </div>
+      </article>
+      <!-- Blog Card 2 -->
+      <article class="blog-card">
+        <img src="blogs/images/cover-images/anekartha-cover-1.png" alt="Introduction to Anekārtha Kāvya">
+        <div class="blog-card-content">
+          <h3>Introduction to Anekārtha Kāvya</h3>
+          <p>Discover works rich with śleṣa (puns) that reveal a multitude of meanings.</p>
+          <a href="/blogs/anekartha.html">Read More</a>
+        </div>
+      </article>
+      <!-- Additional blog cards can be added here -->
+    </section>
+  </div>
+  
+  <footer>
+    <p>&copy; 2025 Vyoma's Web Space. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    // Toggle hamburger for main header with morph animation
+    const mainHamburger = document.getElementById('mainHamburger');
+    const mainNav = document.getElementById('mainNav');
+    mainHamburger.addEventListener('click', () => {
+      mainHamburger.classList.toggle('active');
+      mainNav.classList.toggle('active');
+    });
+    
+    // Toggle hamburger for sticky header with morph animation
+    const stickyHamburger = document.getElementById('stickyHamburger');
+    const stickyNav = document.getElementById('stickyNav');
+    stickyHamburger.addEventListener('click', () => {
+      stickyHamburger.classList.toggle('active');
+      stickyNav.classList.toggle('active');
+    });
+    
+    // Show sticky header when scrolling past 100px
+    const stickyHeader = document.getElementById('stickyHeader');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 100) {
+        stickyHeader.classList.add('visible');
+      } else {
+        stickyHeader.classList.remove('visible');
+      }
+    });
+  </script>
+</body>
+</html>
