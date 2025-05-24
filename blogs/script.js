@@ -1,45 +1,56 @@
-const verseList = document.querySelector(".verse-list");
-const verses = verseList.querySelectorAll(".verse");
-const expandAllButton = document.getElementById("expand-all");
+document.addEventListener('DOMContentLoaded', function() {
+    // Toggle verse translations and commentary
+    const verses = document.querySelectorAll('.sanskrit-verse');
+    verses.forEach(verse => {
+        verse.addEventListener('click', function() {
+            const verseContainer = this.closest('.verse');
+            const translation = verseContainer.querySelector('.translation');
+            const commentary = verseContainer.querySelector('.commentary');
+            const transliteration = verseContainer.querySelector('.trans');
+            
+            if (translation) translation.classList.toggle('hidden');
+            if (commentary) commentary.classList.toggle('hidden');
+            if (transliteration) transliteration.classList.toggle('hidden');
+        });
+    });
 
-// Function to toggle a single verse
-function toggleVerse(verse) {
-  const verseTitle = verse.querySelector(".sanskrit-verse");
-  const translation = verse.querySelector(".translation");
-  const commentary = verse.querySelector(".commentary");
-  const transliteration = verse.querySelector(".trans");
-  const precomm = verse.querySelector(".precomm");
-  const chhaya = verse.querySelector(".chhaya");
-  const hinditrans = verse.querySelector(".hinditrans");
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
 
-  verse.classList.toggle("active");
-  translation.classList.toggle("hidden");
-  commentary.classList.toggle("hidden");
-  transliteration.classList.toggle("hidden");
-  precomm.classList.toggle("hidden");
-  chhaya.classList.toggle("hidden");
-  hinditrans.classList.toggle("hidden");
+    // Expand all verses button functionality
+    const expandAllBtn = document.getElementById('expand-all');
+    if (expandAllBtn) {
+        let expanded = false;
+        expandAllBtn.addEventListener('click', function() {
+            const hiddenElements = document.querySelectorAll('.hidden');
+            hiddenElements.forEach(el => {
+                el.classList.toggle('hidden');
+                el.classList.toggle('show');
+            });
+            expanded = !expanded;
+            this.textContent = expanded ? 'Collapse All' : 'Expand All';
+        });
+    }
 
-  // Update button text based on the current state
-  const isExpanded = translation.classList.contains("hidden");
-  expandAllButton.textContent = isExpanded ? "Expand All" : "Collapse All";
-}
-
-// Add click event listener to each verse title
-verses.forEach(verse => {
-  const verseTitle = verse.querySelector(".sanskrit-verse");
-  verseTitle.addEventListener("click", function() {
-    toggleVerse(verse);
-  });
+    // Mobile menu toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('nav ul');
+    if (menuToggle && nav) {
+        menuToggle.addEventListener('click', function() {
+            nav.classList.toggle('show');
+        });
+    }
 });
-
-// Add click event listener to the "Expand All" button
-expandAllButton.addEventListener("click", function() {
-  verses.forEach(verse => {
-    toggleVerse(verse);
-  });
-});
-
-// Initial check to update button text based on default visibility
-const hiddenTranslations = verseList.querySelectorAll(".translation.hidden");
-expandAllButton.textContent = hiddenTranslations.length > 0 ? "Expand All" : "Collapse All";

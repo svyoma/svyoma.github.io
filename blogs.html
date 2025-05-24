@@ -1,302 +1,958 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-	    
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-T12BK66SPZ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-T12BK66SPZ');
-</script>
-
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vyoma's Web Space</title>
+    <title>Blog - Vyoma's Web Space</title>
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
+        @font-face {
+            font-family: 'Adishila';
+            src: local('Adishila'), url('fonts/AdishilaSemiBoldB.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Junicode';
+            src: local('Junicode'), url('fonts/Junicode.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #f8ecd9;
+            --text-color: #3c3227;
+            --link-color: #5a7e51;
+            --accent-color: #d4a76a;
+            --light-bg: #f7f2ea;
+            --paper-texture: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoWWpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0uqwS5ExsmP9AxbDTc9JwgneAT5vTiUSm1E7BSflSt3bfa1tv8Di3R8n3Af7MNWzs49hmauE2wP+ttrq+AsWpFG2awvsuOqbipWHgtuvuaAE+A1Z/7gC9hesnr+7wqCwG8c5yAg3AL1fm8T9AZtp/bbJGwl1pNrE7RuOX7PeMRUERVaPpEs+yqeoSmuOlokqw49pgomjLeh7icHNlG19yjs6XXOMedYm5xH2YxpV2tc0Ro2jJfxC50ApuxGob7lMsxfTbeUv07TyYxpeLucEH1gNd4IKH2LAg5TdVhlCafZvpskfncCfx8pOhJzd76bJWeYFnFciwcYfubRc12Ip/ppIhA1/mSZ/RxjFDrJC5xifFjJpY2Xl5zXdguFqYyTR1zSp1Y9p+tktDYYSNflcxI0iyO4TPBdlRcpeqjK/piF5bklq77VSEaA+z8qmJTFzIWiitbnzR794USKBUaT0NTEsVjZqLaFVqJoPN9ODG70IPbfBHKK+/q/AWR0tJzYHRULOa4MP+W/HfGadZUbfw177G7j/OGbIs8TahLyynl4X4RinF793Oz+BU0saXtUHrVBFT/DnA3ctNPoGbs4hRIjTok8i+algT1lTHi4SxFvONKNrgQFAq2/gFnWMXgwffgYMJpiKYkmW3tTg3ZQ9Jq+f8XN+A5eeUKHWvJWJ2sgJ1Sop+wwhqFVijqWaJhwtD8MNlSBeWNNWTa5Z5kPZw5+LbVT99wqTdx29lMUH4OIG/D86ruKEauBjvH5xy6um/Sfj7ei6UUVk4AIl3MyD4MSSTOFgSwsH/QJWaQ5as7ZcmgBZkzjjU1UrQ74ci1gWBCSGHtuV1H2mhSnO3Wp/3fEV5a+4wz//6qy8JxjZsmxxy5+4w9CDNJY09T072iKG0EnOS0arEYgXqYnXcYHwjTtUNAcMelOd4xpkoqiTYICWFq0JSiPfPDQdnt+4/wuqcXY47QILbgAAAABJRU5ErkJggg==');
+        }
+
         body {
-            font-family: 'Aver', sans-serif;
-            text-align: left;
-            line-height: 1.6;
-            margin: 0 auto;
-	    max-width: 80em;
+            font-family: 'Junicode', Georgia, serif;
+            line-height: 1.8;
+            margin: 0;
             padding: 0;
-            background-color: #ffffff; /*Background colour*/
-            color: #333; /* Dark text color */
+            background-color: var(--light-bg);
+            background-image: var(--paper-texture);
+            color: var(--text-color);
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            box-sizing: border-box;
+            padding: 0 20px;
         }
 
         header {
-            text-align: center;
-            padding: 20px;
-            background-color: #ffd9b3; /* Light blue header background color */
-            color: #333; /* White text color */
+            padding: 30px 0;
+            background-color: var(--secondary-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            background-image: var(--paper-texture);
+            border-bottom: 3px solid var(--accent-color);
+        }
 
+        header .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Adishila', Georgia, serif;
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            transition: all 0.5s ease;
+        }
+
+        header h1:hover {
+            transform: scale(1.05);
+        }
+
+        header p {
+            font-style: italic;
+            margin: 10px 0 20px;
+            color: #5a5a5a;
+            font-size: 1.1rem;
         }
 
         nav ul {
+            display: flex;
             list-style: none;
             padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+            justify-content: center;
         }
 
         nav ul li {
-            display: inline-block;
-            margin-right: 10px;
+            margin: 5px 10px;
         }
 
         nav ul li a {
             text-decoration: none;
-            color: #333;
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
         }
 
         main {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        h1 {
-            color: #5a1a1a; /* Dark blue heading color */
-        }
-        
-        h3 {
-            color:#7a0000
+            padding: 40px 0;
         }
 
-        a {
-            color: #4caf50; /* Green link color */
-            text-decoration: none;
+        .blog-section {
+            margin-bottom: 60px;
+            animation: fadeIn 1s ease-out;
         }
 
-        a:hover {
-            text-decoration: underline;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-
-        footer {
-            text-align: center;
-            padding: 20px 0;
-        }
-        /* Define @font-face for Adishila Dev */
-        @font-face {
-            font-family: 'Adishila';
-            src: local('Adishila'), url('fonts/AdishilaSemiBoldB.woff') format('woff'); /* Adjust the file path and format */
-            font-weight: normal;
-            font-style: normal;
+        .section-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            position: relative;
+            margin-bottom: 40px;
+            display: inline-block;
+            font-family: 'Adishila', Georgia, serif;
         }
 
-        /* Define @font-face for Aver */
-        @font-face {
-            font-family: 'Aver';
-            src: local('Aver'), url('fonts/Aver.woff') format('woff'); /* Adjust the file path and format */
-            font-weight: normal;
-            font-style: normal;
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 0;
+            transition: width 0.5s ease;
         }
 
-        /* Apply Adishila Dev for Devanagari characters */
-        body, h1, p {
-            font-family: 'Aver', 'Adishila', sans-serif;
-        }
-        .blog-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
+        .section-title:hover::after {
+            width: 100%;
         }
 
-        .blog-item {
-            margin-bottom: 20px;
+        .blog-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 167, 106, 0.2);
+            background-image: var(--paper-texture);
+            margin-bottom: 30px;
+            display: flex;
+            gap: 30px;
         }
 
-        .blog-title {
-            color: #1a237e;
-            text-decoration: underline;
+        .blog-image {
+            flex: 0 0 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
             cursor: pointer;
         }
 
-        .blog-excerpt {
-            margin-top: 5px;
+        .blog-image img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: all 0.3s ease;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-        .new-badge {
-    background-color: #4caf50;
-    color: #fff;
-    padding: 2px 5px;
-    border-radius: 5px;
-    font-size: 12px;
-    margin-left: 10px;
-}
-    </style>
 
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            flex: 1;
+        }
+
+        .blog-meta {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .blog-meta i {
+            color: var(--accent-color);
+        }
+
+        .blog-title {
+            font-family: 'Adishila', Georgia, serif;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin: 0 0 15px 0;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .blog-title:hover {
+            color: var(--primary-color);
+            opacity: 0.8;
+        }
+
+        .blog-excerpt {
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: var(--link-color);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            gap: 5px;
+        }
+
+        .read-more:hover {
+            color: var(--primary-color);
+            transform: translateX(5px);
+        }
+
+        .vintage-corner {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--accent-color);
+            opacity: 0.6;
+        }
+
+        .vintage-corner.top-left {
+            top: 10px;
+            left: 10px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .vintage-corner.top-right {
+            top: 10px;
+            right: 10px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .vintage-corner.bottom-left {
+            bottom: 10px;
+            left: 10px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .vintage-corner.bottom-right {
+            bottom: 10px;
+            right: 10px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .blog-categories {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .category-tag {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .category-tag:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 3px solid var(--accent-color);
+            position: relative;
+            background-image: var(--paper-texture);
+        }
+
+        footer p {
+            color: var(--primary-color);
+            margin-top: 20px;
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 767px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .blog-title {
+                font-size: 1.3rem;
+            }
+            
+            .blog-card {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .blog-image {
+                flex: 0 0 auto;
+            }
+            
+            .blog-meta {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Vyoma's Web Space</h1>
-        <p>प्रणाम!</p>
-    <nav>
-  <ul>
-    <li><a href="/">Home</a></li>
-    <li><a href="/about">About</a></li>
-    <li><a href="/blogs">Blog</a></li>
-    <!-- Add more menu items as needed -->
-  </ul>
-    </nav>
+        <div class="container">
+            <h1>Vyoma's Web Space</h1>
+            <p><em>kṛtvā stambhanamatra tattvanikare vilasāmi kāvyādiṣu</em></p>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/blogs">Blog</a></li>
+                    <li><a href="/jaina-literature">Jaina Literature Portal</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <p>🚀Constantly evolving: This static blog is a dynamic space, regularly updated with fresh content. Stay tuned for the latest insights and updates on this page! ✨"</p>
-    <div class="container">
-    <!--     <p>Skip to</p>
-    
 
-    <ui>
-        <li style="text-align: center;"><a href="#section1">Complete Works</a></li>
-        <li style="text-align: center;"><a href="#section2">Compilations</a></li>
-        <li style="text-align: center;"><a href="#section3">Blogs</a></li>
-    </ui>
-    
-    <ui></ui>
+    <main>
+        <div class="container">
+            <section class="blog-section">
+                <h2 class="section-title">Latest Posts</h2>
 
-    <h1 id="section1"><u>Complete Works</u></h1>
-    <h2>Stuti, Stotra, etc.</h2>
-    <ul class="blog-list">
-        <li class="blog-item">
-            <h3 class="blog-title" onclick="openBlog('blogs/virajinathava_abhayadeva')">Vīrajiṇathavo by Abhayadevasūri</h3>
-            <p class="blog-excerpt">22 verses in praise of Mahāvīrasvāmī by Abhayadevasūri in Prākṛta. Metres used: Anuṣṭubh and Mālinī.</p>
-        </li>
-    <ul class="blog-list">
-        <li class="blog-item">
-            <h3 class="blog-title" onclick="openBlog('blogs/virastutidvatrimsika_ratnakarasuri')">Vīrastutidvātriṃśikā by disciple of Ratnākarasūri</h3>
-            <p class="blog-excerpt">32 verses in praise of Mahāvīrasvāmī depicting the five kalyāṇakas and major events of his life in Indravajrā.</p>
-        </li>
-    <ul class="blog-list">
-        <li class="blog-item">
-            <h3 class="blog-title" onclick="openBlog('blogs/adinatha_ramacandra')">Ādidevadvātriṃśikā by Rāmacandrasūri</h3>
-            <p class="blog-excerpt">32 verses in praise of first Tīrthaṅkara Ādinātha by Kavikaṭāramalla Rāmacandrasūri, disciple of Hemacandrasūri.</p>
-        </li> 
-        <ul class="blog-list">
-        <li class="blog-item">
-            <h3 class="blog-title" onclick="openBlog('blogs/mahavira_dhanapala')">Mahāvīrastava by Dhanapāla</h3>
-            <p class="blog-excerpt">11 verses in praise of 24th Tīrthaṅkara - Mahāvīrasvāmī in Saṃskṛta and Prākṛta.</p>
-        </li>
-          
-        <ul class="blog-list">
-        <li class="blog-item">
-            <h3 class="blog-title" onclick="openBlog('blogs/anandaghana_siddha')">Siddhacaturviṃśikā by Ānandaghana</h3>
-            <p class="blog-excerpt">25 verses on praise of Siddha by Ānandaghana primarily authored in bhujaṅgaprayātam.</p>
-        </li>
-    <ul class="blog-list">
-        <li class="blog-item">
-            <h3 class="blog-title" onclick="openBlog('blogs/anandaghana_siddha')">Siddhacaturviṃśikā by Ānandaghana</h3>
-            <p class="blog-excerpt">25 verses on praise of Siddha by Ānandaghana primarily authored in bhujaṅgaprayātam.</p>
-        </li>
-        <li class="blog-item">
-            <h3 class="blog-title" onclick="openBlog('blogs/parsvacandra_mahavira')">Mahāvīrastavana by Pārśvacandra</h3>
-            <p class="blog-excerpt">11 verses in praise of Mahāvīrasvāmī using technical grammatical terms with commentary by Bhāvaprabhasūri</p>
-        </li>
-    </ul>
+                <!-- Blog Post Card -->
+                <article class="blog-card">
+                    <a href="/blogs/anekartha-2" class="blog-image">
+                        <img src="blogs/images/cover-images/anekartha-cover-2.png" alt="Anekārthī Kāvya and Jaina Poets">
+                    </a>
+                    <div class="blog-content">
+                        <div class="vintage-corner top-left"></div>
+                        <div class="vintage-corner top-right"></div>
+                        <div class="vintage-corner bottom-left"></div>
+                        <div class="vintage-corner bottom-right"></div>
 
-    <h1 id="section2"><u>Compilations</u></h1>
-    <h2>Viṣiṣṭa-Jina-Stuti</h2>
-    <ul class="blog-list">
-        <li class="blog-item">
-            <h3 class="blog-title" onclick="openBlog('blogs/viranirvanastuti')">Vīranirvāṇastutyādisaṅgraha</h3>
-            <p class="blog-excerpt">Contains <em>Vīranirvāṇastava</em> by <em>Jinaprabhasūri</em>, <em>Dīpālikāstuticatuṣṭayī</em> by <em>Guṇasāgaragaṇī</em> and <em>Vīranirvāṇa</em> from <em>Vaḍḍhamāṇasāmīcari:u</em> by <em>Vibudha Śrīdhara</em></p>
-        </li>
-    </ul>
-<h2>Sāmānya-Jina-Stuti</h2>
-        <ul>
-        <li class="blog-item">
-        <h3 class="blog-title" onclick="openBlog('blogs/jinastuti')">Vividha-Jina-Stuti-Saṅgraha</h3>
-        <p class="blog-excerpt">Contains verses in general praise of Jina.</p>
-        </li>
-        <li class="blog-item">
-            <h3 class="blog-title" onclick="openBlog('blogs/jinasadharana_haribhadrasuri')">Jinasādhāraṇastavana (samasaṃskṛta)</h3>
-            <p class="blog-excerpt">11 verses in āryā metre in praise of Haribhadrasūri in sama-saṃskṛta-prākṛta - which means it can be read in both languages - Saṃskṛta and Prākṛta and it means the same.</p>
-            </li>
-        </ul>
-<h2>Gaṇadhara, Sādhu, Sādhvī, Śāsana, Parva, etc., Stuti</h2>
-    <ul>
-        <li class="blog-item">
-        <h3 class="blog-title" onclick="openBlog('blogs/jnanapancamistuti')">Jñānapañcamīstutyādisaṅgraha</h3>
-        <p class="blog-excerpt">Contains verses in praise of Jñānapañcamī</p>
-    </li>
-</ul>
-</div>
-<hr/>
+                        <div class="blog-categories">
+                            <span class="category-tag">Sanskrit</span>
+                            <span class="category-tag">Literature</span>
+                        </div>
 
-<div class="container">
-    <h1 id="section3"><u>Blogs</u></h1>
-<h2>Life and Works</h2>
-<ul class="blog-list">
+                        <a href="/blogs/anekartha-2" style="text-decoration: none;">
+                            <h3 class="blog-title">Anekārthī Kāvya and Jaina Poets</h3>
+                        </a>
+                        
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> January 15, 2024</span>
+                            <span><i class="far fa-clock"></i> 10 min read</span>
+                        </div>
 
-    <li class="blog-item">
-        <h3 class="blog-title" onclick="openBlog('blogs/authors/ramacandra')">Kavikaṭāramalla Rāmacandrasūri</h3>
-        <p class="blog-excerpt">कलिकालसर्वज्ञमहापुरुषाणां शब्द-प्रमाण-साहित्य-च्छन्द-आदिविद्यानामेकनिपुणानां श्रीहेमचन्द्रसूरीणां विषये नास्ति स्वल्पमपि परिचयपदातीतम्...</p>
-    </li>-->
-    
-<h2>Blogs</h2>
-    <h3 class="blog-title" onclick="openBlog('blogs/anekartha-2')">Anekārthī Kāvya and Jaina Poets</h3>
-    <p class="blog-excerpt">Exploring the works authored by Jaina poets in Anekārthī Kāvya/Sandhāna Kāvya genre.</p>
+                        <div class="blog-excerpt">
+                            <p>Exploring the works authored by Jaina poets in Anekārthī Kāvya/Sandhāna Kāvya genre.</p>
+                        </div>
 
+                        <a href="/blogs/anekartha-2" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
 
-    <h3 class="blog-title" onclick="openBlog('blogs/anekartha')">Introduction to Anekārtha Kāvya</h3>
-    <p class="blog-excerpt">Exploring the works jam-packed with uses of śleṣa (or puns!) encompassing a diverse view of multitude of meanings.</p>
+                <!-- Blog Post Card -->
+                <article class="blog-card">
+                    <a href="/blogs/anekartha" class="blog-image">
+                        <img src="blogs/images/cover-images/anekartha-cover-1.png" alt="Introduction to Anekārtha Kāvya">
+                    </a>
+                    <div class="blog-content">
+                        <div class="vintage-corner top-left"></div>
+                        <div class="vintage-corner top-right"></div>
+                        <div class="vintage-corner bottom-left"></div>
+                        <div class="vintage-corner bottom-right"></div>
 
+                        <div class="blog-categories">
+                            <span class="category-tag">Sanskrit</span>
+                            <span class="category-tag">Literature</span>
+                        </div>
 
-    <h3 class="blog-title" onclick="openBlog('blogs/bhasaslesa-3')">Jāti, Bhāṣāśleṣa and Linguistic Interplay</h3>
-    <p class="blog-excerpt">Revisit the art pieces of poetry in Jāti Śabdālaṅkāra and discover the profound linguistic interplay!</p>
+                        <a href="/blogs/anekartha" style="text-decoration: none;">
+                            <h3 class="blog-title">Introduction to Anekārtha Kāvya</h3>
+                        </a>
+                        
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> January 10, 2024</span>
+                            <span><i class="far fa-clock"></i> 8 min read</span>
+                        </div>
 
-    <h3 class="blog-title" onclick="openBlog('blogs/bhasaslesa-2')">The art underlying Bhāṣaśleṣa</h3>
-    <p class="blog-excerpt">A blog exploring the common grounds of Saṃskṛta and Prākṛta which leads to creation of verses with bhāṣāśleṣa.</p>
+                        <div class="blog-excerpt">
+                            <p>Exploring the works jam-packed with uses of śleṣa (or puns!) encompassing a diverse view of multitude of meanings.</p>
+                        </div>
 
-    <h3 class="blog-title" onclick="openBlog('blogs/bhasaslesa')">Macaronic-Equivalent Poetry in Saṃskṛta and Prākṛta</h3>
-    <p class="blog-excerpt">In the quest of searching for Macaronic-Equivalent Poetry in Saṃskṛta and Prākṛta</p>
+                        <a href="/blogs/anekartha" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
 
-    <h3 class="blog-title" onclick="openBlog('blogs/svah_karyamadya')">Few Tongues, 1 Utterance – Part 5</h3>
-    <p class="blog-excerpt">Explore various utterances advocating to refrain individuals from procrastinating.</p>
+                <!-- Blog Post Card -->
+                <article class="blog-card">
+                    <div class="blog-content">
+                        <div class="vintage-corner top-left"></div>
+                        <div class="vintage-corner top-right"></div>
+                        <div class="vintage-corner bottom-left"></div>
+                        <div class="vintage-corner bottom-right"></div>
 
-    <h3 class="blog-title" onclick="openBlog('blogs/drdhatara_nibaddha_musteh')">2 Tongues, 1 Verse - Part 4</h3>
-    <p class="blog-excerpt">Explore utterance of "dṛḍhatarabaddhamuṣṭeḥ koṣaniṣaṇṇasya..." in Prākṛta.</p>
+                        <div class="blog-categories">
+                            <span class="category-tag">Sanskrit</span>
+                            <span class="category-tag">Linguistics</span>
+                        </div>
 
-<!--
-<li class="blog-item">
-    <h3 class="blog-title" onclick="openBlog('blogs/daivayattam_kule_janma')">2 Tongues, 1 Verse - Part 3</h3>
-    <p class="blog-excerpt">Explore utterance of "daivāyattaṃ kule janma" in Prākṛta.</p>
-</li>
-<li class="blog-item">
-    <h3 class="blog-title" onclick="openBlog('blogs/daivayattam_kule_janma')">2 Tongues, 1 Verse - Part 3</h3>
-    <p class="blog-excerpt">Explore utterance of "daivāyattaṃ kule janma" in Prākṛta.</p>
-</li>-->
-    <h3 class="blog-title" onclick="openBlog('blogs/daivayattam_kule_janma')">2 Tongues, 1 Verse - Part 3</h3>
-    <p class="blog-excerpt">Explore utterance of "daivāyattaṃ kule janma" in Prākṛta.</p>
+                        <a href="/blogs/bhasaslesa-3" style="text-decoration: none;">
+                            <h3 class="blog-title">Jāti, Bhāṣāśleṣa and Linguistic Interplay</h3>
+                        </a>
+                        
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> December 20, 2023</span>
+                            <span><i class="far fa-clock"></i> 7 min read</span>
+                        </div>
 
-    <h3 class="blog-title" onclick="openBlog('blogs/raghuvilasa-2')">Rāmacandrasūri's Prākṛta as reflected in Raghvilāsa</h3>
-    <p class="blog-excerpt">A blog exploring the Prākṛta verses and passages in Rāmacandrasūri's Raghuvilāsa.</p>
+                        <div class="blog-excerpt">
+                            <p>Revisit the art pieces of poetry in Jāti Śabdālaṅkāra and discover the profound linguistic interplay!</p>
+                        </div>
 
-    <h3 class="blog-title" onclick="openBlog('blogs/na_hi_vandhya')">2 Tongues, 1 Verse - Part 2</h3>
-    <p class="blog-excerpt">In the intricate tapestry of linguistic expressions, the series "Tongues and Utterances" strives to amalgamate diverse...</p>
+                        <a href="/blogs/bhasaslesa-3" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
 
-    <h3 class="blog-title" onclick="openBlog('blogs/raghuvilasa-1')">Rāmacandrasūri's Raghuvilāsa - 1</h3>
-    <p class="blog-excerpt">A blog on praśnottara in Raghuvilāsa and compilation of usage of svarbhūrbhuvaḥ and bhūrbhuvaḥsvaḥ.</p>
+                <!-- Blog Post Card -->
+                <article class="blog-card">
+                    <div class="blog-content">
+                        <div class="vintage-corner top-left"></div>
+                        <div class="vintage-corner top-right"></div>
+                        <div class="vintage-corner bottom-left"></div>
+                        <div class="vintage-corner bottom-right"></div>
 
-        <h3 class="blog-title" onclick="openBlog('blogs/satesu_jayate_surah')">2 Tongues, 1 Verse (+bonus) – Part 1</h3>
-        <p class="blog-excerpt">Indian literary heritage has been blessed with teaching and preachings on almost every subject. There are works which have crossed...</p>
+                        <div class="blog-categories">
+                            <span class="category-tag">Sanskrit</span>
+                            <span class="category-tag">Prakrit</span>
+                        </div>
 
-</div>
-<script>
-    function openBlog(blogId) {
-        // You can replace this with the actual URL or navigate using your preferred method
-        window.location.href = blogId + '.html';
-    }
-</script>
+                        <a href="/blogs/bhasaslesa-2" style="text-decoration: none;">
+                            <h3 class="blog-title">The art underlying Bhāṣaśleṣa</h3>
+                        </a>
+                        
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> December 15, 2023</span>
+                        </div>
+
+                        <div class="blog-excerpt">
+                            <p>A blog exploring the common grounds of Saṃskṛta and Prākṛta which leads to creation of verses with bhāṣāśleṣa.</p>
+                        </div>
+
+                        <a href="/blogs/bhasaslesa-2" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Macaronic-Equivalent Poetry Post -->
+                <article class="blog-card">
+                  <div class="blog-content">
+                      <div class="vintage-corner top-left"></div>
+                      <div class="vintage-corner top-right"></div>
+                      <div class="vintage-corner bottom-left"></div>
+                      <div class="vintage-corner bottom-right"></div>
+
+                      <div class="blog-categories">
+                          <span class="category-tag">Sanskrit</span>
+                          <span class="category-tag">Prakrit</span>
+                          <span class="category-tag">Poetry</span>
+                      </div>
+
+                      <a href="/blogs/bhasaslesa" style="text-decoration: none;">
+                          <h3 class="blog-title">Macaronic-Equivalent Poetry in Saṃskṛta and Prākṛta</h3>
+                      </a>
+                      
+                      <div class="blog-meta">
+                          <span><i class="far fa-calendar"></i> December 10, 2023</span>
+                      </div>
+
+                      <div class="blog-excerpt">
+                          <p>In the quest of searching for Macaronic-Equivalent Poetry in Saṃskṛta and Prākṛta</p>
+                      </div>
+
+                      <a href="/blogs/bhasaslesa" class="read-more">
+                          Read More <i class="fas fa-arrow-right"></i>
+                      </a>
+                  </div>
+              </article>
+
+              <!-- Few Tongues, 1 Utterance Post -->
+              <article class="blog-card">
+                  <div class="blog-content">
+                      <div class="vintage-corner top-left"></div>
+                      <div class="vintage-corner top-right"></div>
+                      <div class="vintage-corner bottom-left"></div>
+                      <div class="vintage-corner bottom-right"></div>
+
+                      <div class="blog-categories">
+                          <span class="category-tag">Sanskrit</span>
+                          <span class="category-tag">Literature</span>
+                      </div>
+
+                      <a href="/blogs/svah_karyamadya" style="text-decoration: none;">
+                          <h3 class="blog-title">Few Tongues, 1 Utterance – Part 5</h3>
+                      </a>
+                      
+                      <div class="blog-meta">
+                          <span><i class="far fa-calendar"></i> December 5, 2023</span>
+                      </div>
+
+                      <div class="blog-excerpt">
+                          <p>Explore various utterances advocating to refrain individuals from procrastinating.</p>
+                      </div>
+
+                      <a href="/blogs/svah_karyamadya" class="read-more">
+                          Read More <i class="fas fa-arrow-right"></i>
+                      </a>
+                  </div>
+              </article>
+
+              <!-- 2 Tongues, 1 Verse - Part 4 -->
+              <article class="blog-card">
+                  <div class="blog-content">
+                      <div class="vintage-corner top-left"></div>
+                      <div class="vintage-corner top-right"></div>
+                      <div class="vintage-corner bottom-left"></div>
+                      <div class="vintage-corner bottom-right"></div>
+
+                      <div class="blog-categories">
+                          <span class="category-tag">Sanskrit</span>
+                          <span class="category-tag">Prakrit</span>
+                      </div>
+
+                      <a href="/blogs/drdhatara_nibaddha_musteh" style="text-decoration: none;">
+                          <h3 class="blog-title">2 Tongues, 1 Verse - Part 4</h3>
+                      </a>
+                      
+                      <div class="blog-meta">
+                          <span><i class="far fa-calendar"></i> December 1, 2023</span>
+                      </div>
+
+                      <div class="blog-excerpt">
+                          <p>Explore utterance of "dṛḍhatarabaddhamuṣṭeḥ koṣaniṣaṇṇasya..." in Prākṛta.</p>
+                      </div>
+
+                      <a href="/blogs/drdhatara_nibaddha_musteh" class="read-more">
+                          Read More <i class="fas fa-arrow-right"></i>
+                      </a>
+                  </div>
+              </article>
+
+              <!-- 2 Tongues, 1 Verse - Part 3 -->
+              <article class="blog-card">
+                  <div class="blog-content">
+                      <div class="vintage-corner top-left"></div>
+                      <div class="vintage-corner top-right"></div>
+                      <div class="vintage-corner bottom-left"></div>
+                      <div class="vintage-corner bottom-right"></div>
+
+                      <div class="blog-categories">
+                          <span class="category-tag">Sanskrit</span>
+                          <span class="category-tag">Prakrit</span>
+                      </div>
+
+                      <a href="/blogs/daivayattam_kule_janma" style="text-decoration: none;">
+                          <h3 class="blog-title">2 Tongues, 1 Verse - Part 3</h3>
+                      </a>
+                      
+                      <div class="blog-meta">
+                          <span><i class="far fa-calendar"></i> November 25, 2023</span>
+                      </div>
+
+                      <div class="blog-excerpt">
+                          <p>Explore utterance of "daivāyattaṃ kule janma" in Prākṛta.</p>
+                      </div>
+
+                      <a href="/blogs/daivayattam_kule_janma" class="read-more">
+                          Read More <i class="fas fa-arrow-right"></i>
+                      </a>
+                  </div>
+              </article>
+
+              <!-- Rāmacandrasūri's Prākṛta -->
+              <article class="blog-card">
+                  <div class="blog-content">
+                      <div class="vintage-corner top-left"></div>
+                      <div class="vintage-corner top-right"></div>
+                      <div class="vintage-corner bottom-left"></div>
+                      <div class="vintage-corner bottom-right"></div>
+
+                      <div class="blog-categories">
+                          <span class="category-tag">Sanskrit</span>
+                          <span class="category-tag">Prakrit</span>
+                          <span class="category-tag">Literature</span>
+                      </div>
+
+                      <a href="/blogs/raghuvilasa-2" style="text-decoration: none;">
+                          <h3 class="blog-title">Rāmacandrasūri's Prākṛta as reflected in Raghvilāsa</h3>
+                      </a>
+                      
+                      <div class="blog-meta">
+                          <span><i class="far fa-calendar"></i> November 20, 2023</span>
+                      </div>
+
+                      <div class="blog-excerpt">
+                          <p>A blog exploring the Prākṛta verses and passages in Rāmacandrasūri's Raghuvilāsa.</p>
+                      </div>
+
+                      <a href="/blogs/raghuvilasa-2" class="read-more">
+                          Read More <i class="fas fa-arrow-right"></i>
+                      </a>
+                  </div>
+              </article>
+
+              <!-- 2 Tongues, 1 Verse - Part 2 -->
+              <article class="blog-card">
+                  <div class="blog-content">
+                      <div class="vintage-corner top-left"></div>
+                      <div class="vintage-corner top-right"></div>
+                      <div class="vintage-corner bottom-left"></div>
+                      <div class="vintage-corner bottom-right"></div>
+
+                      <div class="blog-categories">
+                          <span class="category-tag">Sanskrit</span>
+                          <span class="category-tag">Prakrit</span>
+                      </div>
+
+                      <a href="/blogs/na_hi_vandhya" style="text-decoration: none;">
+                          <h3 class="blog-title">2 Tongues, 1 Verse - Part 2</h3>
+                      </a>
+                      
+                      <div class="blog-meta">
+                          <span><i class="far fa-calendar"></i> November 15, 2023</span>
+                      </div>
+
+                      <div class="blog-excerpt">
+                          <p>In the intricate tapestry of linguistic expressions, the series "Tongues and Utterances" strives to amalgamate diverse...</p>
+                      </div>
+
+                      <a href="/blogs/na_hi_vandhya" class="read-more">
+                          Read More <i class="fas fa-arrow-right"></i>
+                      </a>
+                  </div>
+              </article>
+
+              <!-- Rāmacandrasūri's Raghuvilāsa - 1 -->
+              <article class="blog-card">
+                  <div class="blog-content">
+                      <div class="vintage-corner top-left"></div>
+                      <div class="vintage-corner top-right"></div>
+                      <div class="vintage-corner bottom-left"></div>
+                      <div class="vintage-corner bottom-right"></div>
+
+                      <div class="blog-categories">
+                          <span class="category-tag">Sanskrit</span>
+                          <span class="category-tag">Literature</span>
+                      </div>
+
+                      <a href="/blogs/raghuvilasa-1" style="text-decoration: none;">
+                          <h3 class="blog-title">Rāmacandrasūri's Raghuvilāsa - 1</h3>
+                      </a>
+                      
+                      <div class="blog-meta">
+                          <span><i class="far fa-calendar"></i> November 10, 2023</span>
+                      </div>
+
+                      <div class="blog-excerpt">
+                          <p>A blog on praśnottara in Raghuvilāsa and compilation of usage of svarbhūrbhuvaḥ and bhūrbhuvaḥsvaḥ.</p>
+                      </div>
+
+                      <a href="/blogs/raghuvilasa-1" class="read-more">
+                          Read More <i class="fas fa-arrow-right"></i>
+                      </a>
+                  </div>
+              </article>
+
+              <!-- 2 Tongues, 1 Verse (+bonus) – Part 1 -->
+              <article class="blog-card">
+                  <div class="blog-content">
+                      <div class="vintage-corner top-left"></div>
+                      <div class="vintage-corner top-right"></div>
+                      <div class="vintage-corner bottom-left"></div>
+                      <div class="vintage-corner bottom-right"></div>
+
+                      <div class="blog-categories">
+                          <span class="category-tag">Sanskrit</span>
+                          <span class="category-tag">Prakrit</span>
+                      </div>
+
+                      <a href="/blogs/satesu_jayate_surah" style="text-decoration: none;">
+                          <h3 class="blog-title">2 Tongues, 1 Verse (+bonus) – Part 1</h3>
+                      </a>
+                      
+                      <div class="blog-meta">
+                          <span><i class="far fa-calendar"></i> November 5, 2023</span>
+                      </div>
+
+                      <div class="blog-excerpt">
+                          <p>Indian literary heritage has been blessed with teaching and preachings on almost every subject. There are works which have crossed...</p>
+                      </div>
+
+                      <a href="/blogs/satesu_jayate_surah" class="read-more">
+                          Read More <i class="fas fa-arrow-right"></i>
+                      </a>
+                  </div>
+              </article>
+
+                <!-- Complete Works Section -->
+                <h2 class="section-title">Complete Works</h2>
+                
+                <!-- Stuti Post -->
+                <article class="blog-card">
+                    <div class="blog-content">
+                        <div class="vintage-corner top-left"></div>
+                        <div class="vintage-corner top-right"></div>
+                        <div class="vintage-corner bottom-left"></div>
+                        <div class="vintage-corner bottom-right"></div>
+
+                        <div class="blog-categories">
+                            <span class="category-tag">Stuti</span>
+                            <span class="category-tag">Prakrit</span>
+                        </div>
+
+                        <a href="/blogs/virajinathava_abhayadeva" style="text-decoration: none;">
+                            <h3 class="blog-title">Vīrajiṇathavo by Abhayadevasūri</h3>
+                        </a>
+                        
+                        <div class="blog-meta">
+                            <span><i class="fas fa-book"></i> Complete Text</span>
+                        </div>
+
+                        <div class="blog-excerpt">
+                            <p>22 verses in praise of Mahāvīrasvāmī by Abhayadevasūri in Prākṛta. Metres used: Anuṣṭubh and Mālinī.</p>
+                        </div>
+
+                        <a href="/blogs/virajinathava_abhayadeva" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Vīrastutidvātriṃśikā Post -->
+                <article class="blog-card">
+                    <div class="blog-content">
+                        <div class="vintage-corner top-left"></div>
+                        <div class="vintage-corner top-right"></div>
+                        <div class="vintage-corner bottom-left"></div>
+                        <div class="vintage-corner bottom-right"></div>
+
+                        <div class="blog-categories">
+                            <span class="category-tag">Stuti</span>
+                            <span class="category-tag">Sanskrit</span>
+                        </div>
+
+                        <a href="/blogs/virastutidvatrimsika_ratnakarasuri" style="text-decoration: none;">
+                            <h3 class="blog-title">Vīrastutidvātriṃśikā by disciple of Ratnākarasūri</h3>
+                        </a>
+                        
+                        <div class="blog-meta">
+                            <span><i class="fas fa-book"></i> Complete Text</span>
+                        </div>
+
+                        <div class="blog-excerpt">
+                            <p>32 verses in praise of Mahāvīrasvāmī depicting the five kalyāṇakas and major events of his life in Indravajrā.</p>
+                        </div>
+
+                        <a href="/blogs/virastutidvatrimsika_ratnakarasuri" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Ādidevadvātriṃśikā Post -->
+                <article class="blog-card">
+                    <div class="blog-content">
+                        <div class="vintage-corner top-left"></div>
+                        <div class="vintage-corner top-right"></div>
+                        <div class="vintage-corner bottom-left"></div>
+                        <div class="vintage-corner bottom-right"></div>
+
+                        <div class="blog-categories">
+                            <span class="category-tag">Stuti</span>
+                            <span class="category-tag">Sanskrit</span>
+                        </div>
+
+                        <a href="/blogs/adinatha_ramacandra" style="text-decoration: none;">
+                            <h3 class="blog-title">Ādidevadvātriṃśikā by Rāmacandrasūri</h3>
+                        </a>
+                        
+                        <div class="blog-meta">
+                            <span><i class="fas fa-book"></i> Complete Text</span>
+                        </div>
+
+                        <div class="blog-excerpt">
+                            <p>32 verses in praise of first Tīrthaṅkara Ādinātha by Kavikaṭāramalla Rāmacandrasūri, disciple of Hemacandrasūri.</p>
+                        </div>
+
+                        <a href="/blogs/adinatha_ramacandra" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Mahāvīrastava Post -->
+                <article class="blog-card">
+                    <div class="blog-content">
+                        <div class="vintage-corner top-left"></div>
+                        <div class="vintage-corner top-right"></div>
+                        <div class="vintage-corner bottom-left"></div>
+                        <div class="vintage-corner bottom-right"></div>
+
+                        <div class="blog-categories">
+                            <span class="category-tag">Stuti</span>
+                            <span class="category-tag">Sanskrit</span>
+                            <span class="category-tag">Prakrit</span>
+                        </div>
+
+                        <a href="/blogs/mahavira_dhanapala" style="text-decoration: none;">
+                            <h3 class="blog-title">Mahāvīrastava by Dhanapāla</h3>
+                        </a>
+                        
+                        <div class="blog-meta">
+                            <span><i class="fas fa-book"></i> Complete Text</span>
+                        </div>
+
+                        <div class="blog-excerpt">
+                            <p>11 verses in praise of 24th Tīrthaṅkara - Mahāvīrasvāmī in Saṃskṛta and Prākṛta.</p>
+                        </div>
+
+                        <a href="/blogs/mahavira_dhanapala" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Siddhacaturviṃśikā Post -->
+                <article class="blog-card">
+                    <div class="blog-content">
+                        <div class="vintage-corner top-left"></div>
+                        <div class="vintage-corner top-right"></div>
+                        <div class="vintage-corner bottom-left"></div>
+                        <div class="vintage-corner bottom-right"></div>
+
+                        <div class="blog-categories">
+                            <span class="category-tag">Stuti</span>
+                            <span class="category-tag">Sanskrit</span>
+                        </div>
+
+                        <a href="/blogs/anandaghana_siddha" style="text-decoration: none;">
+                            <h3 class="blog-title">Siddhacaturviṃśikā by Ānandaghana</h3>
+                        </a>
+                        
+                        <div class="blog-meta">
+                            <span><i class="fas fa-book"></i> Complete Text</span>
+                        </div>
+
+                        <div class="blog-excerpt">
+                            <p>25 verses on praise of Siddha by Ānandaghana primarily authored in bhujaṅgaprayātam.</p>
+                        </div>
+
+                        <a href="/blogs/anandaghana_siddha" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+                <!-- Mahāvīrastavana Post -->
+                <article class="blog-card">
+                    <div class="blog-content">
+                        <div class="vintage-corner top-left"></div>
+                        <div class="vintage-corner top-right"></div>
+                        <div class="vintage-corner bottom-left"></div>
+                        <div class="vintage-corner bottom-right"></div>
+
+                        <div class="blog-categories">
+                            <span class="category-tag">Stuti</span>
+                            <span class="category-tag">Sanskrit</span>
+                            <span class="category-tag">Grammar</span>
+                        </div>
+
+                        <a href="/blogs/parsvacandra_mahavira" style="text-decoration: none;">
+                            <h3 class="blog-title">Mahāvīrastavana by Pārśvacandra</h3>
+                        </a>
+                        
+                        <div class="blog-meta">
+                            <span><i class="fas fa-book"></i> Complete Text</span>
+                        </div>
+
+                        <div class="blog-excerpt">
+                            <p>11 verses in praise of Mahāvīrasvāmī using technical grammatical terms with commentary by Bhāvaprabhasūri</p>
+                        </div>
+
+                        <a href="/blogs/parsvacandra_mahavira" class="read-more">
+                            Read More <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </article>
+
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>2025 &copy; Vyom A. Shah</p>
+        </div>
+    </footer>
 </body>
 </html>

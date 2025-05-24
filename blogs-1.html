@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+	    
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T12BK66SPZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-T12BK66SPZ');
+</script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vyoma's Web Space</title>
+    <style>
+        body {
+            font-family: 'Aver', sans-serif;
+            text-align: left;
+            line-height: 1.6;
+            margin: 0 auto;
+	    max-width: 80em;
+            padding: 0;
+            background-color: #ffffff; /*Background colour*/
+            color: #333; /* Dark text color */
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffd9b3; /* Light blue header background color */
+            color: #333; /* White text color */
+
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #5a1a1a; /* Dark blue heading color */
+        }
+        
+        h3 {
+            color:#7a0000
+        }
+
+        a {
+            color: #4caf50; /* Green link color */
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+        }
+        /* Define @font-face for Adishila Dev */
+        @font-face {
+            font-family: 'Adishila';
+            src: local('Adishila'), url('fonts/AdishilaSemiBoldB.woff') format('woff'); /* Adjust the file path and format */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Define @font-face for Aver */
+        @font-face {
+            font-family: 'Aver';
+            src: local('Aver'), url('fonts/Aver.woff') format('woff'); /* Adjust the file path and format */
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        /* Apply Adishila Dev for Devanagari characters */
+        body, h1, p {
+            font-family: 'Aver', 'Adishila', sans-serif;
+        }
+        .blog-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .blog-item {
+            margin-bottom: 20px;
+        }
+
+        .blog-title {
+            color: #1a237e;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .blog-excerpt {
+            margin-top: 5px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .new-badge {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: 10px;
+}
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>Vyoma's Web Space</h1>
+        <p>प्रणाम!</p>
+    <nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/about">About</a></li>
+    <li><a href="/blogs">Blog</a></li>
+    <!-- Add more menu items as needed -->
+  </ul>
+    </nav>
+    </header>
+    <p>🚀Constantly evolving: This static blog is a dynamic space, regularly updated with fresh content. Stay tuned for the latest insights and updates on this page! ✨"</p>
+    <div class="container">
+    <!--     <p>Skip to</p>
+    
+
+    <ui>
+        <li style="text-align: center;"><a href="#section1">Complete Works</a></li>
+        <li style="text-align: center;"><a href="#section2">Compilations</a></li>
+        <li style="text-align: center;"><a href="#section3">Blogs</a></li>
+    </ui>
+    
+    <ui></ui>
+
+    <h1 id="section1"><u>Complete Works</u></h1>
+    <h2>Stuti, Stotra, etc.</h2>
+    <ul class="blog-list">
+        <li class="blog-item">
+            <h3 class="blog-title" onclick="openBlog('blogs/virajinathava_abhayadeva')">Vīrajiṇathavo by Abhayadevasūri</h3>
+            <p class="blog-excerpt">22 verses in praise of Mahāvīrasvāmī by Abhayadevasūri in Prākṛta. Metres used: Anuṣṭubh and Mālinī.</p>
+        </li>
+    <ul class="blog-list">
+        <li class="blog-item">
+            <h3 class="blog-title" onclick="openBlog('blogs/virastutidvatrimsika_ratnakarasuri')">Vīrastutidvātriṃśikā by disciple of Ratnākarasūri</h3>
+            <p class="blog-excerpt">32 verses in praise of Mahāvīrasvāmī depicting the five kalyāṇakas and major events of his life in Indravajrā.</p>
+        </li>
+    <ul class="blog-list">
+        <li class="blog-item">
+            <h3 class="blog-title" onclick="openBlog('blogs/adinatha_ramacandra')">Ādidevadvātriṃśikā by Rāmacandrasūri</h3>
+            <p class="blog-excerpt">32 verses in praise of first Tīrthaṅkara Ādinātha by Kavikaṭāramalla Rāmacandrasūri, disciple of Hemacandrasūri.</p>
+        </li> 
+        <ul class="blog-list">
+        <li class="blog-item">
+            <h3 class="blog-title" onclick="openBlog('blogs/mahavira_dhanapala')">Mahāvīrastava by Dhanapāla</h3>
+            <p class="blog-excerpt">11 verses in praise of 24th Tīrthaṅkara - Mahāvīrasvāmī in Saṃskṛta and Prākṛta.</p>
+        </li>
+          
+        <ul class="blog-list">
+        <li class="blog-item">
+            <h3 class="blog-title" onclick="openBlog('blogs/anandaghana_siddha')">Siddhacaturviṃśikā by Ānandaghana</h3>
+            <p class="blog-excerpt">25 verses on praise of Siddha by Ānandaghana primarily authored in bhujaṅgaprayātam.</p>
+        </li>
+    <ul class="blog-list">
+        <li class="blog-item">
+            <h3 class="blog-title" onclick="openBlog('blogs/anandaghana_siddha')">Siddhacaturviṃśikā by Ānandaghana</h3>
+            <p class="blog-excerpt">25 verses on praise of Siddha by Ānandaghana primarily authored in bhujaṅgaprayātam.</p>
+        </li>
+        <li class="blog-item">
+            <h3 class="blog-title" onclick="openBlog('blogs/parsvacandra_mahavira')">Mahāvīrastavana by Pārśvacandra</h3>
+            <p class="blog-excerpt">11 verses in praise of Mahāvīrasvāmī using technical grammatical terms with commentary by Bhāvaprabhasūri</p>
+        </li>
+    </ul>
+
+    <h1 id="section2"><u>Compilations</u></h1>
+    <h2>Viṣiṣṭa-Jina-Stuti</h2>
+    <ul class="blog-list">
+        <li class="blog-item">
+            <h3 class="blog-title" onclick="openBlog('blogs/viranirvanastuti')">Vīranirvāṇastutyādisaṅgraha</h3>
+            <p class="blog-excerpt">Contains <em>Vīranirvāṇastava</em> by <em>Jinaprabhasūri</em>, <em>Dīpālikāstuticatuṣṭayī</em> by <em>Guṇasāgaragaṇī</em> and <em>Vīranirvāṇa</em> from <em>Vaḍḍhamāṇasāmīcari:u</em> by <em>Vibudha Śrīdhara</em></p>
+        </li>
+    </ul>
+<h2>Sāmānya-Jina-Stuti</h2>
+        <ul>
+        <li class="blog-item">
+        <h3 class="blog-title" onclick="openBlog('blogs/jinastuti')">Vividha-Jina-Stuti-Saṅgraha</h3>
+        <p class="blog-excerpt">Contains verses in general praise of Jina.</p>
+        </li>
+        <li class="blog-item">
+            <h3 class="blog-title" onclick="openBlog('blogs/jinasadharana_haribhadrasuri')">Jinasādhāraṇastavana (samasaṃskṛta)</h3>
+            <p class="blog-excerpt">11 verses in āryā metre in praise of Haribhadrasūri in sama-saṃskṛta-prākṛta - which means it can be read in both languages - Saṃskṛta and Prākṛta and it means the same.</p>
+            </li>
+        </ul>
+<h2>Gaṇadhara, Sādhu, Sādhvī, Śāsana, Parva, etc., Stuti</h2>
+    <ul>
+        <li class="blog-item">
+        <h3 class="blog-title" onclick="openBlog('blogs/jnanapancamistuti')">Jñānapañcamīstutyādisaṅgraha</h3>
+        <p class="blog-excerpt">Contains verses in praise of Jñānapañcamī</p>
+    </li>
+</ul>
+</div>
+<hr/>
+
+<div class="container">
+    <h1 id="section3"><u>Blogs</u></h1>
+<h2>Life and Works</h2>
+<ul class="blog-list">
+
+    <li class="blog-item">
+        <h3 class="blog-title" onclick="openBlog('blogs/authors/ramacandra')">Kavikaṭāramalla Rāmacandrasūri</h3>
+        <p class="blog-excerpt">कलिकालसर्वज्ञमहापुरुषाणां शब्द-प्रमाण-साहित्य-च्छन्द-आदिविद्यानामेकनिपुणानां श्रीहेमचन्द्रसूरीणां विषये नास्ति स्वल्पमपि परिचयपदातीतम्...</p>
+    </li>-->
+    
+<h2>Blogs</h2>
+    <h3 class="blog-title" onclick="openBlog('blogs/anekartha-2')">Anekārthī Kāvya and Jaina Poets</h3>
+    <p class="blog-excerpt">Exploring the works authored by Jaina poets in Anekārthī Kāvya/Sandhāna Kāvya genre.</p>
+
+
+    <h3 class="blog-title" onclick="openBlog('blogs/anekartha')">Introduction to Anekārtha Kāvya</h3>
+    <p class="blog-excerpt">Exploring the works jam-packed with uses of śleṣa (or puns!) encompassing a diverse view of multitude of meanings.</p>
+
+
+    <h3 class="blog-title" onclick="openBlog('blogs/bhasaslesa-3')">Jāti, Bhāṣāśleṣa and Linguistic Interplay</h3>
+    <p class="blog-excerpt">Revisit the art pieces of poetry in Jāti Śabdālaṅkāra and discover the profound linguistic interplay!</p>
+
+    <h3 class="blog-title" onclick="openBlog('blogs/bhasaslesa-2')">The art underlying Bhāṣaśleṣa</h3>
+    <p class="blog-excerpt">A blog exploring the common grounds of Saṃskṛta and Prākṛta which leads to creation of verses with bhāṣāśleṣa.</p>
+
+    <h3 class="blog-title" onclick="openBlog('blogs/bhasaslesa')">Macaronic-Equivalent Poetry in Saṃskṛta and Prākṛta</h3>
+    <p class="blog-excerpt">In the quest of searching for Macaronic-Equivalent Poetry in Saṃskṛta and Prākṛta</p>
+
+    <h3 class="blog-title" onclick="openBlog('blogs/svah_karyamadya')">Few Tongues, 1 Utterance – Part 5</h3>
+    <p class="blog-excerpt">Explore various utterances advocating to refrain individuals from procrastinating.</p>
+
+    <h3 class="blog-title" onclick="openBlog('blogs/drdhatara_nibaddha_musteh')">2 Tongues, 1 Verse - Part 4</h3>
+    <p class="blog-excerpt">Explore utterance of "dṛḍhatarabaddhamuṣṭeḥ koṣaniṣaṇṇasya..." in Prākṛta.</p>
+
+<!--
+<li class="blog-item">
+    <h3 class="blog-title" onclick="openBlog('blogs/daivayattam_kule_janma')">2 Tongues, 1 Verse - Part 3</h3>
+    <p class="blog-excerpt">Explore utterance of "daivāyattaṃ kule janma" in Prākṛta.</p>
+</li>
+<li class="blog-item">
+    <h3 class="blog-title" onclick="openBlog('blogs/daivayattam_kule_janma')">2 Tongues, 1 Verse - Part 3</h3>
+    <p class="blog-excerpt">Explore utterance of "daivāyattaṃ kule janma" in Prākṛta.</p>
+</li>-->
+    <h3 class="blog-title" onclick="openBlog('blogs/daivayattam_kule_janma')">2 Tongues, 1 Verse - Part 3</h3>
+    <p class="blog-excerpt">Explore utterance of "daivāyattaṃ kule janma" in Prākṛta.</p>
+
+    <h3 class="blog-title" onclick="openBlog('blogs/raghuvilasa-2')">Rāmacandrasūri's Prākṛta as reflected in Raghvilāsa</h3>
+    <p class="blog-excerpt">A blog exploring the Prākṛta verses and passages in Rāmacandrasūri's Raghuvilāsa.</p>
+
+    <h3 class="blog-title" onclick="openBlog('blogs/na_hi_vandhya')">2 Tongues, 1 Verse - Part 2</h3>
+    <p class="blog-excerpt">In the intricate tapestry of linguistic expressions, the series "Tongues and Utterances" strives to amalgamate diverse...</p>
+
+    <h3 class="blog-title" onclick="openBlog('blogs/raghuvilasa-1')">Rāmacandrasūri's Raghuvilāsa - 1</h3>
+    <p class="blog-excerpt">A blog on praśnottara in Raghuvilāsa and compilation of usage of svarbhūrbhuvaḥ and bhūrbhuvaḥsvaḥ.</p>
+
+        <h3 class="blog-title" onclick="openBlog('blogs/satesu_jayate_surah')">2 Tongues, 1 Verse (+bonus) – Part 1</h3>
+        <p class="blog-excerpt">Indian literary heritage has been blessed with teaching and preachings on almost every subject. There are works which have crossed...</p>
+
+</div>
+<script>
+    function openBlog(blogId) {
+        // You can replace this with the actual URL or navigate using your preferred method
+        window.location.href = blogId + '.html';
+    }
+</script>
+</body>
+</html>

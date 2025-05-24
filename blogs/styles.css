@@ -1,0 +1,193 @@
+/* Common styles for blog pages */
+:root {
+    --primary-color: #1a237e;
+    --accent-color: #4caf50;
+    --text-color: #333;
+    --header-bg: #ffd9b3;
+    --paper-texture: url('../images/paper-texture.png');
+}
+
+/* Font faces */
+@font-face {
+    font-family: 'Adishila';
+    src: local('Adishila'), url('../fonts/AdishilaSemiBoldB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Junicode';
+    src: local('Junicode'), url('../fonts/Junicode.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Aver';
+    src: local('Aver'), url('../fonts/Aver.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Base styles */
+body {
+    font-family: 'Aver', 'Adishila', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: var(--text-color);
+    background-color: #ffffff;
+    background-image: var(--paper-texture);
+}
+
+/* Layout */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--header-bg);
+    color: var(--text-color);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    margin: 0;
+    color: var(--primary-color);
+    font-family: 'Adishila', Georgia, serif;
+}
+
+header p {
+    margin: 10px 0;
+    font-style: italic;
+}
+
+/* Navigation */
+nav {
+    margin-top: 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+/* Typography */
+h1, h2 {
+    color: var(--primary-color);
+    font-family: 'Adishila', Georgia, serif;
+}
+
+h3 {
+    color: #7a0000;
+    font-family: 'Adishila', Georgia, serif;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Blog specific */
+.meta-details {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.reading-options {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 20px 0;
+}
+
+.reading-options a {
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.reading-options a:hover {
+    background-color: #2a3f9e;
+    text-decoration: none;
+}
+
+/* Verse container */
+.verse-container {
+    position: relative;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+}
+
+.sanskrit-verse {
+    cursor: pointer;
+    font-family: 'Adishila', Georgia, serif;
+    line-height: 1.8;
+}
+
+.verse {
+    margin-bottom: 20px;
+    padding: 15px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Utility classes */
+.hidden {
+    display: none;
+}
+
+.show {
+    display: block;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .reading-options {
+        flex-direction: column;
+        align-items: center;
+    }
+} 
