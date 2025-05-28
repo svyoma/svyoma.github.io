@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Śrīpura Pārśvanātha Stava - Vyoma's Web Space</title>
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'Adishila';
+            src: local('Adishila'), url('fonts/AdishilaSemiBoldB.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Junicode';
+            src: local('Junicode'), url('fonts/Junicode.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #f8ecd9;
+            --text-color: #3c3227;
+            --link-color: #5a7e51;
+            --accent-color: #a37330;
+            --light-bg: #f7f2ea;
+            --paper-texture: url('data:image/png;base64,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');
+        }
+
+        body {
+            font-family: 'Junicode', Georgia, serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            background-image: var(--paper-texture);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 30px 0;
+            background-color: var(--secondary-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-image: var(--paper-texture);
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        header .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Adishila', Georgia, serif;
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            transition: all 0.5s ease;
+        }
+
+        header h1:hover {
+            transform: scale(1.05);
+        }
+
+        header p {
+            font-style: italic;
+            margin: 10px 0 20px;
+            color: #5a5a5a;
+            font-size: 1.1rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 5px 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        main {
+            padding: 40px 0;
+        }
+
+        .verse-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border: 1px solid rgba(212, 167, 106, 0.2);
+            background-image: var(--paper-texture);
+            position: relative;
+        }
+
+        /* Text Controls */
+        .text-controls {
+            position: sticky;
+            top: 20px;
+            background: var(--secondary-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .text-controls button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .text-controls button:hover {
+            background: var(--accent-color);
+        }
+
+        .text-controls select {
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid var(--primary-color);
+        }
+
+        /* Dark Mode Styles */
+        body.dark-mode {
+            --primary-color: #d4a76a;
+            --secondary-color: #2c2c2c;
+            --text-color: #e0e0e0;
+            --light-bg: #1a1a1a;
+            background-color: #121212;
+        }
+
+        body.dark-mode .verse-container {
+            background-color: #1a1a1a;
+        }
+
+        body.dark-mode .verse {
+            background-color: #2c2c2c;
+        }
+
+        body.dark-mode .translation {
+            background-color: #2c2c2c;
+        }
+
+        /* Verse Navigation */
+        .verse-nav {
+            position: fixed;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--secondary-color);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        .verse-nav button {
+            display: block;
+            width: 40px;
+            height: 40px;
+            margin: 5px 0;
+            border: none;
+            background: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .verse-nav button:hover {
+            background: var(--accent-color);
+            transform: scale(1.1);
+        }
+
+        /* Print Styles */
+        @media print {
+            .text-controls, .verse-nav {
+                display: none;
+            }
+
+            .verse-container {
+                box-shadow: none;
+                border: none;
+            }
+
+            .translation {
+                display: block !important;
+                border: none;
+                background: none;
+            }
+        }
+
+        /* Mobile Responsiveness Updates */
+        @media screen and (max-width: 767px) {
+            .verse-nav {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                top: auto;
+                transform: none;
+                display: flex;
+                gap: 10px;
+            }
+
+            .verse-nav button {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        .verse {
+            font-family: 'Adishila', Georgia, serif;
+            font-size: 1.2rem;
+            line-height: 2;
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: var(--secondary-color);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .verse:hover {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .translation {
+            display: none;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            padding: 15px;
+            margin-top: 10px;
+            background-color: var(--light-bg);
+            border-radius: 4px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .translation.show {
+            display: block;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .metadata {
+            background-color: var(--secondary-color);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .metadata h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+        }
+
+        .metadata p {
+            margin: 5px 0;
+        }
+
+        .metadata em {
+            color: var(--accent-color);
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 3px solid var(--accent-color);
+            position: relative;
+            background-image: var(--paper-texture);
+        }
+
+        footer p {
+            color: var(--primary-color);
+            margin-top: 20px;
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 767px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            .verse {
+                font-size: 1.1rem;
+            }
+            
+            .translation {
+                font-size: 1rem;
+            }
+            
+            .container {
+                padding: 0 15px;
+            }
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .work-title {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background: var(--secondary-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .work-title h3 {
+            font-family: 'Adishila';
+            font-size: 1.8rem;
+            color: var(--accent-color);
+            margin: 0 0 20px 0;
+            line-height: 1.2;
+        }
+
+        .work-title .sanskrit-title {
+            font-family: 'Adishila';
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .introduction {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            padding: 20px;
+            background: var(--secondary-color);
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            line-height: 1.8;
+        }
+
+        .introduction p {
+            margin: 0 0 15px 0;
+            text-align: justify;
+        }
+
+        @media screen and (max-width: 767px) {
+            .work-title h1 {
+                font-size: 2.2rem;
+            }
+
+            .work-title .sanskrit-title {
+                font-size: 1.5rem;
+            }
+
+            .introduction {
+                padding: 15px;
+            }
+        }
+
+        /* Floating Control Ball */
+        .control-ball {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .control-ball i {
+            color: white;
+            font-size: 24px;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .control-ball:hover i {
+            transform: rotate(90deg);
+        }
+
+        .control-panel {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            background: var(--secondary-color);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 200px;
+        }
+
+        .control-panel.show {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .control-panel button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .control-panel button:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .control-panel button i {
+            font-size: 18px;
+        }
+
+        /* Mobile Styles */
+        @media screen and (max-width: 767px) {
+            .hamburger {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--secondary-color);
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+            }
+
+            .control-panel {
+                bottom: 80px;
+                right: 10px;
+                left: 10px;
+                width: 30%;
+                align-items: right;
+            }
+
+            .control-panel button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="hamburger" onclick="toggleMenu(this)">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <h1>Vyoma's Web Space</h1>
+            <p><em>dehi tvaṃ nijapādapadmayugalopāstiṃ praśastāṃ mama</em></p>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/blogs">Blog</a></li>
+                    <li><a href="/jaina-literature">Jaina Literature Portal</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="work-title">
+                <div class="sanskrit-title">                <h3>जिनपतिसूरिविरचितः</h3>
+                    <h1>श्रीश्रीपुरपार्श्वनाथस्तवः</h1></div>
+            </div>
+
+            <div class="introduction">
+                <p>This devotional composition, consisting of sixteen verses, is dedicated to Lord Pārśvanātha, the 23rd Tīrthaṅkara of Jainism. The stava describes the divine presence of Lord Pārśvanātha in Śrīpura (Modern day Shirpur, Washim, Maharashtra, India). Each verse beautifully captures different aspects of the Lord's glory, from his physical appearance to his ability to grant liberation from worldly sufferings.</p>
+                <p>The composition is particularly significant as it not only serves as a devotional hymn but also provides historical insights into the worship of Pārśvanātha in Shirpur.
+                <br>Jinavallabhasūri's grand-disciple Jinapatisūri who flourished during late 12th century C. E. is regarded</p>
+
+            <div class="metadata">
+                <h3>Meta Details:</h3>
+                <p>Name: <em>Śrīpura Pārśvanātha Stava</em><br>
+                Author: <em>Jinapatisūri</em><br>
+                Original Publication: <em>Jaina Stotra Sandoha</em>- 2<br>
+                Original Editor: <em>Muni Caturavijaya</em><br>
+                Original publisher: <em>Sārābhaī Maṇilāla Navāba, Ahmedabad (1936)</em><br>
+                Digitised by: Vyom A. Shah</p>
+            </div></div>
+
+                <div class="verse" onclick="toggleTranslation(1)">
+                    श्रीश्रीपुराभिधपुरप्रथितावतारं प्रोल्लासिमुक्तिकमलाहृदि तारहारम्।<br>
+                    श्रीपार्श्वनाथ! जिनराज! मुदा भवन्तं स्तोष्ये प्रभावभवनं जगतीमवन्तम्॥१
+                </div>
+                <div class="translation" id="translation1">
+                    O Pārśvanātha! O Lord of the Jinas! I praise you who manifested in the city of Śrīpura, whose heart shines like a necklace of radiant liberation-lotus, a brilliant abode protecting the world.
+                </div>
+
+                <div class="verse" onclick="toggleTranslation(2)">
+                    स्वामिन्! निर्मलवाकुलाकणगणैर्निमाप्य सम्पूजिता राज्ञा श्रीखरदूषणेन भवतः श्रीपार्श्व! मूर्तिः पुरा।<br>
+                    श्रीपालेन नराधिपेन तदनु श्रीश्रीपुरेऽस्थापि या सा देव! प्रतिमा तवेयमनघा दिष्ट्याऽद्य दृष्टा मया॥२
+                </div>
+                <div class="translation" id="translation2">
+                    O Pārśvanātha! O Master! Long ago, your image was worshipped by the king Khara and Dūṣaṇa, made from fine gravel grains. Later, King Śrīpāla installed that same pure idol in Śrīpura, and today, by good fortune, I have seen it.
+                </div>
+
+                <div class="verse" onclick="toggleTranslation(3)">
+                    स्वामिन्! नम्रामरनरपते! स्नात्रमात्राम्भसा तेऽद्याऽपि प्रोच्चैः पुर इह दृशो दीप्यते दीप्रदीपः।<br>
+                    तस्य स्पर्शादपि च सकलप्राणभाजां समग्रा रोगा यान्ति क्षतिमथ भवेद् भाग्यसौभाग्यलक्ष्मीः॥३
+                </div>
+                <div class="translation" id="translation3">
+                    O Lord worshipped by kings and gods! Even today, your eyes shine brightly like radiant lamps, blessed by the water of the ceremonial bath (snātra). Just by touching it, all diseases vanish and fortune arises in abundance.
+                </div>
+
+                <div class="verse" onclick="toggleTranslation(4)">
+                    नश्यत्सर्वातिशयविभवे म्लेच्छमालावकीर्णे पूर्णे पापैः प्रवहति कलावत्र काले कराले।<br>
+                    आकाशस्थां तव जिनपते! मूर्तिमालोक्य के के नोच्चैर्भूयुर्भविकनिकरा विस्मयस्मेरनेत्राः॥४
+                </div>
+                <div class="translation" id="translation4">
+                    In this terrible time of Kali Yuga, where all grandeur fades and the world is filled with mlecchas and sins, O Jinapati! When your idol is seen in the sky, who would not, with wonder-filled eyes, be uplifted with devotion?
+                </div>
+
+                <div class="verse" onclick="toggleTranslation(5)">
+                    श्रीमद्वामेय! देव! त्रिभुवनजनताचिन्तितार्थप्रदाने चिन्तारत्नोपमान! प्रविलसदमलज्ञानसम्पन्निधान!।<br>
+                    रागाद्यान् वैरिवर्गान् हृदि कृतवसतीन् दुःखदौर्गत्यदातॄन् स्वामिन्नन्तं नय त्वं मम चरणधनं लुम्पमानानमानम्॥५
+                </div>
+                <div class="translation" id="translation5">
+                    O son of Vāmā! O Lord! You are like a wish-fulfilling gem granting desires of all three worlds, a treasure of pure, brilliant knowledge. O Master! Lead away the enemies like passion who dwell in my heart and bring misfortune, for I long for the wealth of your feet.
+                </div>
+
+                <div class="verse" onclick="toggleTranslation(6)">
+                    आधिव्याधिज्वरभरमहादुष्टकुष्टप्रमुख्यान् रागान् बाह्यानरतिमदनाज्ञानमिथ्यात्वमोहान्।<br>
+                    अन्तःशत्रूनपि च निखिलांस्त्वां हरन्तं हि दृष्ट्वा मन्ये धन्वन्तरिरयमगात् क्वाऽपि लज्जां दधानः॥६
+                </div>
+                <div class="translation" id="translation6">
+                    On seeing you who destroys all inner and outer afflictions—mental torment, disease, fever, leprosy, passion, delusion, false belief—I feel that even Dhanvantari must have retreated in shame.
+                </div>
+
+                <div class="verse" onclick="toggleTranslation(7)">
+                    भ्रामं भ्रामं समयममितं पूर्वदुष्कर्मयोगाल्लाभं लाभं कुमतिवशतो दुःखलक्षाणि साक्षात्।<br>
+                    आप्तः प्राप्तस्त्वमिह मयकाऽचिन्तितार्थप्रदाता शश्वद्विश्वत्रितयजनतात्राणकर्तर्जिनेन्द्र!॥७
+                </div>
+                <div class="translation" id="translation7">
+                    O Jinendra! Eternal savior of the world! After wandering endlessly due to past karma and suffering immense pain under misguided thoughts, I have now found you—the trustworthy one, the giver of all that is sought.
+                </div>
+
+                <div class="verse" onclick="toggleTranslation(8)">
+                    रागद्वेषकषायभीषणमहानक्रौघचक्र-ग्रहग्राहग्रस्तसमग्रविग्रहभृतां दीनारवैर्व्याकुलम्।<br>
+                    संसाराम्बुनिधौ पतन्तमतुलैर्दुष्कर्मभिर्माऽधुना रक्ष त्वं जगतीजनव्रजपरित्राणप्रभूष्णुः प्रभो!॥८
+                </div>
+                <div class="translation" id="translation8">
+                    O mighty Lord! Protect me now from falling into this vast ocean of saṃsāra, where beings suffer, seized by the fierce crocodiles of passion, hatred, and defilements, and are tormented by their cries born of evil karma.
+                </div>
+
+                <div class="verse" onclick="toggleTranslation(9)">
+                    प्रस्फूर्जत्फणमण्डलीचलमणिश्रेणीसमाविर्भवच्-चञ्चच्चन्द्रमरीचिसञ्चयपरित्रस्यत्तमोमण्डलः।<br>
+                    उन्मीलन्नवनीलनीरजदलश्यामाभिरामद्युतिः श्रेयःश्रेणिमनुत्तरां प्रथय नः श्रीपार्श्व! विश्वप्रभो!॥९
+                </div>
+                <div class="translation" id="translation9">
+                    O auspicious Pārśva, Lord of the Universe! Your hoods adorned with moving jewels scatter moonlight rays and dispel darkness; your radiance like the blue lotus petals—shine upon us the supreme good!
+                </div>
+
+                <div class="verse" onclick="toggleTranslation(10)">
+                    लब्धः कामघटः स्फुटं सुरगवी गेहाङ्गणेऽद्यागता चिन्तारत्नमथोऽचिरात् करतले प्राप्तं चिरत्नैः शुभैः।<br>
+                    प्राज्यं राज्यमुपार्जितं त्रिजगतां निःशेषसौख्यावहं यत्तेऽजायत दर्शनं जिनपते! काले करालेऽप्यहो॥१०
+                </div>
+                <div class="translation" id="translation10">
+                    O Jinapati! Having seen you, it seems as if I have received the wish-fulfilling pitcher, the divine cow has come to my home, the wish-fulfilling gem has been received in my hands due to course of long auspicious deeds, and I have copious attained sovereignty over the state of all three worlds which brings complete delight.
+                </div>
+
+                <div class="verse" onclick="toggleTranslation(11)">
+                    मनोवचःकायविजम्भणैर्भृशं शुभेतरैः पापमुपार्जि यन्मया।<br>
+                    तन्मे त्वदीयाननपद्मवीक्षणात् क्षयं क्षणाद् गच्छतु नाथ! सम्प्रति॥११
+                </div>
+                <div class="translation" id="translation11">
+                    O Lord! With the sight of your lotus-like face, may all the sins I have committed through impure thoughts, words, and deeds be instantly destroyed.
+                </div>
+
+                <div class="verse" onclick="toggleTranslation(12)">
+                    अपारसंसारमहाम्बुराशौ दुरुत्तरे बंभ्रमता मयाऽद्य।<br>
+                    श्रीपार्श्व! विश्वत्रयबान्धवस्त्वं लेभे लसत्पोतसमः स्वपुण्यैः॥१२
+                </div>
+                <div class="translation" id="translation12">
+                    O Pārśva! While aimlessly drifting in the vast, impassable ocean of saṃsāra, I have found you—the boat-like friend of the three worlds—through my own merit.
+                </div>
+
+                <div class="verse" onclick="toggleTranslation(13)">
+                    पचेलिमैः प्राचिकपुण्यपूरैः समुज्जजृम्भे सकलैर्ममाऽद्य।<br>
+                    यज्जन्मजातैरपि नैव दृष्टो जिनाधुना दृग्विषयीबभूव॥१३॥
+                </div>
+                <div class="translation" id="translation13">
+                    Today, due to the complete ripening of my past merits, which even those born in great lineages had not earned, I have been blessed to behold the Jina with my own eyes.
+                </div>
+
+                <div class="verse" onclick="toggleTranslation(14)">
+                    नेत्रे पवित्रे विशदा च वाणी करौ कृतार्थौ शुचि मानसं च।<br>
+                    यैर्वीक्षितो नाथ! गुणैः स्तुतश्च सम्पूजितश्चाऽऽरुचि चिन्तितश्च॥१४
+                </div>
+                <div class="translation" id="translation14">
+                    O Lord! The eyes that saw you have been sanctified; the speech that praised your virtues has become clear; the hands that worshipped you are fulfilled; and the mind that meditated on you is pure.
+                </div>
+
+                <div class="verse" onclick="toggleTranslation(15)">
+                    कर्माणि दारुणभवार्णवदुःखदानि क्षीणानि मेऽद्य सुकृतानि तथाऽऽविरासन्।<br>
+                    अद्याऽपि मे जिनपते! शुभभाग्ययोगो जागर्ति यत्तव बभूव पदप्रणामः॥१५
+                </div>
+                <div class="translation" id="translation15">
+                    O Jinapati! Today, all karmas bringing cruel suffering are destroyed, and my merits have revealed themselves. Indeed, the auspicious fortune from bowing to your feet has awakened.
+                </div>
+
+                <div class="verse" onclick="toggleTranslation(16)">
+                    इत्थं श्रीपुरभूमिशालिललनाभाले ललामोपमः श्रीमत्पार्श्व! जिनास्तसर्ववृजिनश्चन्द्रोपमानाननः।<br>
+                    भूयो भक्तिभरावननम्रशिरसा नूतो मया भावतो देहि त्वं निजपादपद्मयुगलोपास्तिं प्रशस्तां मम॥१६
+                </div>
+                <div class="translation" id="translation16">
+                    O Śrīmat Pārśvanātha! Like a forehead jewel on the land of Śrīpura, like a moon-faced Jina who has destroyed all sins—you have been praised by me, my head bowed in devotion. Please grant me the noble path to worship your lotus feet.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="control-ball" onclick="toggleControlPanel()">
+        <i class="fas fa-cog"></i>
+    </div>
+
+    <div class="control-panel">
+        <button onclick="changeFontSize('increase')">
+            <i class="fas fa-arrow-up"></i>
+            <span>A</span>
+        </button>
+        <button onclick="changeFontSize('decrease')">
+            <i class="fas fa-arrow-down"></i>
+            <span>A</span>
+        </button>
+        <button onclick="toggleAllTranslations()">
+            <i class="fas fa-language"></i>
+            <span>Toggle Translations</span>
+        </button>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>2025 &copy; Vyom A. Shah</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleTranslation(id) {
+            const translation = document.getElementById(`translation${id}`);
+            translation.classList.toggle('show');
+        }
+
+        function toggleAllTranslations() {
+            const translations = document.querySelectorAll('.translation');
+            const allHidden = Array.from(translations).every(t => !t.classList.contains('show'));
+            translations.forEach(t => {
+                t.classList.toggle('show', allHidden);
+            });
+        }
+
+        function toggleControlPanel() {
+            const panel = document.querySelector('.control-panel');
+            panel.classList.toggle('show');
+        }
+
+        function toggleMenu(element) {
+            element.classList.toggle('active');
+            const menu = document.querySelector('nav ul');
+            menu.classList.toggle('show');
+        }
+
+        // Font size control
+        function changeFontSize(action) {
+            const verses = document.querySelectorAll('.verse');
+            verses.forEach(verse => {
+                const currentSize = parseFloat(window.getComputedStyle(verse).fontSize);
+                const newSize = action === 'increase' ? currentSize + 2 : currentSize - 2;
+                verse.style.fontSize = `${newSize}px`;
+            });
+        }
+
+        // Save user preferences
+        function savePreferences() {
+            const preferences = {
+                fontSize: window.getComputedStyle(document.querySelector('.verse')).fontSize
+            };
+            localStorage.setItem('textPreferences', JSON.stringify(preferences));
+        }
+
+        // Load user preferences
+        function loadPreferences() {
+            const preferences = JSON.parse(localStorage.getItem('textPreferences'));
+            if (preferences) {
+                const verses = document.querySelectorAll('.verse');
+                verses.forEach(verse => {
+                    verse.style.fontSize = preferences.fontSize;
+                });
+            }
+        }
+
+        // Initialize preferences
+        document.addEventListener('DOMContentLoaded', loadPreferences);
+        window.addEventListener('beforeunload', savePreferences);
+
+        // Close control panel when clicking outside
+        document.addEventListener('click', (e) => {
+            const panel = document.querySelector('.control-panel');
+            const ball = document.querySelector('.control-ball');
+            if (!panel.contains(e.target) && !ball.contains(e.target)) {
+                panel.classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>
