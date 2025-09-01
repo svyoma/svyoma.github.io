@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vyoma's Web Space</title>
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'Adishila';
+            src: local('Adishila'), url('fonts/AdishilaSemiBoldB.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Junicode';
+            src: local('Junicode'), url('fonts/Junicode.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'Aver';
+            src: local('Aver'), url('fonts/Aver.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        :root {
+            --primary-color: #8B4513;
+            --secondary-color: #f8ecd9;
+            --text-color: #3c3227;
+            --link-color: #5a7e51;
+            --accent-color: #d4a76a;
+            --light-bg: #f7f2ea;
+            --paper-texture: url('data:image/png;base64,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');
+        }
+
+        body {
+            font-family: 'Junicode', Georgia, serif;
+            line-height: 1.8;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-bg);
+            background-image: var(--paper-texture);
+            color: var(--text-color);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 30px 0;
+            background-color: var(--secondary-color);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            background-image: var(--paper-texture);
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        header .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        header h1 {
+            font-family: 'Adishila', 'Junicode', serif;
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            letter-spacing: 2px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            transition: all 0.5s ease;
+        }
+
+        header h1:hover {
+            transform: scale(1.05);
+        }
+
+        header p {
+            font-family: 'Adishila', 'Junicode', serif;
+            font-style: italic;
+            margin: 10px 0 20px;
+            color: #5a5a5a;
+            font-size: 1.1rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 5px 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-weight: 600;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        nav ul li a:hover {
+            text-decoration: none;
+        }
+
+        main {
+            padding: 40px 0;
+        }
+
+        .content-section {
+            margin-bottom: 60px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            position: relative;
+            margin-bottom: 40px;
+            display: inline-block;
+            font-family: 'Adishila', Georgia, serif;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 0;
+            transition: width 0.5s ease;
+        }
+
+        .section-title:hover::after {
+            width: 100%;
+        }
+
+        .content-card {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 167, 106, 0.2);
+            background-image: var(--paper-texture);
+            margin-bottom: 30px;
+        }
+
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .content-card p {
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Decorative elements */
+        .vintage-corner {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--accent-color);
+            opacity: 0.6;
+        }
+
+        .vintage-corner.top-left {
+            top: 10px;
+            left: 10px;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .vintage-corner.top-right {
+            top: 10px;
+            right: 10px;
+            border-left: none;
+            border-bottom: none;
+        }
+
+        .vintage-corner.bottom-left {
+            bottom: 10px;
+            left: 10px;
+            border-right: none;
+            border-top: none;
+        }
+
+        .vintage-corner.bottom-right {
+            bottom: 10px;
+            right: 10px;
+            border-left: none;
+            border-top: none;
+        }
+
+        .links-title {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 10px;
+            font-family: 'Adishila', Georgia, serif;
+        }
+
+        .quick-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .quick-links li {
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .quick-links a {
+            color: var(--link-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 2px solid var(--accent-color);
+            position: relative;
+            overflow: hidden;
+            padding: 8px 20px;
+        }
+
+        .quick-links a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--accent-color);
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            z-index: 0;
+        }
+
+        .quick-links a:hover::before {
+            transform: translateY(0);
+        }
+
+        .quick-links a i {
+            font-size: 1rem;
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+            margin-right: 8px;
+        }
+
+        .quick-links a span {
+            position: relative;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .quick-links a:hover i,
+        .quick-links a:hover span {
+            color: #fff;
+        }
+
+        .sanskrit-quote {
+            font-family: 'Adishila', 'Junicode', serif;
+            font-style: italic;
+            text-align: center;
+            margin: 50px auto 30px;
+            max-width: 600px;
+            color: #666;
+            font-size: 1.1rem;
+            padding: 20px;
+            position: relative;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .sanskrit-quote::before,
+        .sanskrit-quote::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--accent-color);
+            opacity: 0.3;
+            position: absolute;
+        }
+
+        .sanskrit-quote::before {
+            top: -20px;
+            left: 0;
+        }
+
+        .sanskrit-quote::after {
+            bottom: -40px;
+            right: 0;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 3px solid var(--accent-color);
+            position: relative;
+            background-image: var(--paper-texture);
+        }
+
+        footer p {
+            color: var(--primary-color);
+            margin-top: 20px;
+        }
+
+        /* Mobile Responsiveness */
+        @media screen and (max-width: 767px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            
+            header p {
+                font-size: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .links-title {
+                font-size: 1.3rem;
+            }
+            
+            .content-card {
+                padding: 20px;
+            }
+        }
+    </style>
+    <meta name="google-site-verification" content="nvi13Juvi_HO-P9gMovobq5VihKZXdZqd2AzDHfIYW8" />
+    <script defer src="https://us.umami.is/script.js" data-website-id="fc7f0594-761b-443d-be32-4a0fed6bf8a5"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T12BK66SPZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-T12BK66SPZ');
+    </script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Vyoma's Web Space</h1>
+            <p><em>अकृत्रिमस्वादुपदां परमार्थाभिधायिनीम्।<br>
+            सर्वभाषापरिणतां जैनीं वाचमुपास्महे॥१ - काव्यानुशासनम्</em></p>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About</a></li>
+                    <li><a href="/blogs">Blog</a></li>
+                    <li><a href="/jaina-literature">Jaina Literature Portal</a></li>
+                    <li><a href="/jaina-literature/dailyverse">Jaina Literature Daily Verse</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+
+
+    <footer>
+        <div class="container">
+            <h3 class="links-title">Navigate</h3>
+            <ul class="quick-links">
+                <li><a href="/jaina-literature"><i class="fas fa-book"></i><span>Jaina Literature Portal</span></a></li>
+                <li><a href="/jaina-literature/dailyverse"><i class="fas fa-leaf"></i><span>JL Daily Verse</span></a></li>
+                <li><a href="/about"><i class="fas fa-user"></i><span>About</span></a></li>
+                <li><a href="/blogs"><i class="fas fa-pen"></i><span>Blog</span></a></li>
+            </ul>
+            <p>2025 &copy; Vyom A. Shah</p>
+        </div>
+    </footer>
+</body>
+</html>
