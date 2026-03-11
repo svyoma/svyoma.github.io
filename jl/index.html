@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="sa" data-script="Devanagari">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hemacandra's Grammar — Haimavyākaraṇa</title>
+  <meta name="description" content="Browse and search the sūtras and commentaries of Hemacandra's Siddha-Hema-Candraśabdānuśāsana, the authoritative Sanskrit and Prakrit grammar of the Jain tradition. Search in Devanagari or IAST." />
+  <meta name="keywords" content="Hemacandra, Śabdānuśāsana, Sanskrit grammar, Prakrit grammar, Jain, IAST, Devanagari, sūtra" />
+  <link rel="stylesheet" href="hemacandra.css" />
+  <style>
+    /* Index-specific styles */
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    main { flex: 1; }
+
+    /* Search tip shortcut hint */
+    .search-hint {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--font-roman);
+      font-size: 0.72rem;
+      color: var(--clr-ink-faint);
+      background: var(--clr-parchment-dk);
+      border: 1px solid var(--clr-border);
+      border-radius: 4px;
+      padding: 1px 6px;
+      letter-spacing: 0.04em;
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+
+    .search-wrap.has-value .search-hint { display: none; }
+
+    /* Ref-toggle button */
+    #ref-toggle {
+      padding: 6px 12px;
+      border: 1.5px solid var(--clr-border);
+      border-radius: var(--r-sm);
+      background: transparent;
+      font-family: var(--font-roman);
+      font-size: 0.78rem;
+      color: var(--clr-ink-muted);
+      transition: all 0.15s;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+      flex-shrink: 0;
+    }
+
+    #ref-toggle:hover {
+      background: var(--clr-parchment-dk);
+      border-color: var(--clr-gold);
+      color: var(--clr-primary);
+    }
+
+    /* Ref display mode */
+    .sutra-item-ref { transition: opacity 0.15s; }
+
+    body.ref-inline .sutra-item-ref { opacity: 1; }
+
+    body.ref-none .sutra-item-ref { opacity: 0; width: 0; min-width: 0; padding: 0; overflow: hidden; }
+
+    /* Statistics bar */
+    .stats-bar {
+      max-width: var(--content-max);
+      margin: 0 auto;
+      padding: 12px 20px 6px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .stat-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      background: rgba(122, 45, 16, 0.06);
+      border: 1px solid rgba(122, 45, 16, 0.12);
+      border-radius: 999px;
+      font-family: var(--font-roman);
+      font-size: 0.75rem;
+      color: var(--clr-primary);
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Hero Header ──────────────────────────────────────────────── -->
+<header class="page-hero" role="banner">
+  <p class="hero-dev-title">सिद्धहेमचन्द्रशब्दानुशासन</p>
+  <h1 class="hero-title">Hemacandra's Grammar</h1>
+  <div class="hero-rule" aria-hidden="true">
+    <span class="hero-rule-gem"></span>
+    <span class="hero-rule-gem"></span>
+    <span class="hero-rule-gem"></span>
+  </div>
+  <p class="hero-subtitle">Siddha-Hema-Candraśabdānuśāsana &middot; Adhyāya 1</p>
+</header>
+
+<!-- ── Sticky Controls ──────────────────────────────────────────── -->
+<div class="controls-bar" id="controls-bar" role="search" aria-label="Search and filter sūtras">
+
+  <!-- Row 1: Search + Script toggle -->
+  <div class="controls-row" style="flex:1;">
+    <div class="search-wrap" id="search-wrap">
+      <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      <input
+        type="search"
+        id="sutra-search"
+        placeholder="Search sūtras in Devanagari or IAST… (press /)"
+        autocomplete="off"
+        spellcheck="false"
+        aria-label="Search sūtras"
+      />
+      <span class="search-hint" aria-hidden="true">/</span>
+      <button class="search-clear" id="search-clear" aria-label="Clear search" title="Clear">✕</button>
+    </div>
+    <div id="script-toggle-mount" aria-label="Script selection"></div>
+  </div>
+
+  <!-- Row 2: Pāda filter + Ref toggle + count -->
+  <div class="controls-row" style="justify-content:space-between; flex-wrap:wrap; gap:6px;">
+    <div class="pada-tabs" id="pada-tabs" role="tablist" aria-label="Filter by Pāda"></div>
+    <div style="display:flex; align-items:center; gap:8px;">
+      <button id="ref-toggle" title="Toggle sūtra number visibility" aria-label="Toggle sūtra number display">
+        ⇄ Ref
+      </button>
+      <span class="result-count" id="result-count" aria-live="polite" aria-atomic="true"></span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ── Main Content ─────────────────────────────────────────────── -->
+<main id="main-content">
+
+  <!-- Stats bar (shown when no search) -->
+  <div class="stats-bar" id="stats-bar" aria-hidden="true"></div>
+
+  <!-- Sutra list -->
+  <div id="sutra-list" class="sutra-list" role="list" aria-label="Sūtra list"></div>
+
+  <!-- Empty state -->
+  <div id="empty-state" class="empty-state" hidden role="status">
+    <div class="empty-icon" aria-hidden="true">🔍</div>
+    <p>No sūtras match your search.</p>
+    <p style="font-size:0.85rem; margin-top:8px; font-style:normal;">Try searching in Devanagari (e.g. <strong>अर्ह</strong>) or IAST (e.g. <strong>arha</strong>).</p>
+  </div>
+
+</main>
+
+<!-- ── Footer ───────────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <p>
+    Haimavyākaraṇa Digitization Project &mdash;
+    Part of <a href="https://svyoma.github.io/jl/" target="_blank" rel="noopener">svyoma.github.io/jl</a>
+  </p>
+  <p style="margin-top:4px;">
+    Contributions welcome &mdash;
+    <a href="README.md">Read the README</a> &mdash;
+    <a href="https://github.com/svyoma" target="_blank" rel="noopener">GitHub</a>
+  </p>
+</footer>
+
+<script src="hemacandra.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  /* ── State ────────────────────────────────────────────────────── */
+  let allSutras   = [];
+  let activePada  = 0;   // 0 = All
+  let searchQuery = "";
+  let searchTimer = null;
+  let refVisible  = localStorage.getItem("haima-ref-visible") !== "false";
+  let padas       = [];  // distinct pada values in order
+
+  /* ── DOM refs ─────────────────────────────────────────────────── */
+  const listEl    = document.getElementById("sutra-list");
+  const emptyEl   = document.getElementById("empty-state");
+  const searchEl  = document.getElementById("sutra-search");
+  const countEl   = document.getElementById("result-count");
+  const tabsEl    = document.getElementById("pada-tabs");
+  const clearBtn  = document.getElementById("search-clear");
+  const wrapEl    = document.getElementById("search-wrap");
+  const statsEl   = document.getElementById("stats-bar");
+
+  /* ── Render ───────────────────────────────────────────────────── */
+  function render() {
+    const q      = searchQuery.trim().toLowerCase();
+    const script = HC.getCurrentScript();
+    const isSearching = !!q;
+
+    const filtered = allSutras.filter(s => {
+      if (activePada !== 0 && s.pada !== activePada) return false;
+      return HC.sutraMatchesQuery(s, q);
+    });
+
+    // Update count display
+    if (filtered.length === allSutras.length && !isSearching) {
+      countEl.textContent = "";
+    } else {
+      countEl.textContent = isSearching
+        ? `${filtered.length} of ${allSutras.length}`
+        : `${filtered.length} sūtras`;
+    }
+
+    // Stats bar (shown only when not searching)
+    statsEl.style.display = isSearching ? "none" : "";
+    statsEl.setAttribute("aria-hidden", isSearching ? "true" : "false");
+
+    if (!filtered.length) {
+      listEl.innerHTML = "";
+      emptyEl.hidden = false;
+      return;
+    }
+    emptyEl.hidden = true;
+
+    const html = [];
+    let lastPada = -1;
+
+    filtered.forEach(s => {
+      // Pāda group divider
+      if (activePada === 0 && s.pada !== lastPada) {
+        if (!isSearching) {
+          const count = filtered.filter(x => x.pada === s.pada).length;
+          html.push(`
+            <div class="pada-divider" role="heading" aria-level="2">
+              <span class="pada-divider-label">Adhyāya ${s.adhyaya}, Pāda ${s.pada}</span>
+              <span class="pada-divider-count">${count} sūtras</span>
+              <span class="pada-divider-line" aria-hidden="true"></span>
+            </div>`);
+        }
+        lastPada = s.pada;
+      }
+
+      const text     = s.texts[script] || s.texts.Devanagari;
+      const dispText = q ? HC.highlight(text, q) : HC.escHtml(text);
+      const refLabel = HC.formatRef(s.ref, script);
+
+      html.push(`
+        <a class="sutra-item" href="sutra.html?id=${HC.escHtml(s.id)}" role="listitem"
+           aria-label="Sūtra ${s.ref}: ${text}">
+          <span class="sutra-item-ref" aria-hidden="true">${HC.escHtml(refLabel)}</span>
+          <span class="sutra-item-text">${dispText}</span>
+          <span class="sutra-item-arrow" aria-hidden="true">›</span>
+        </a>`);
+    });
+
+    listEl.innerHTML = html.join("");
+  }
+
+  /* ── Build Pāda Tabs ─────────────────────────────────────────── */
+  function buildTabs() {
+    const allBtn = document.createElement("button");
+    allBtn.type = "button";
+    allBtn.role = "tab";
+    allBtn.setAttribute("aria-selected", "true");
+    allBtn.dataset.pada = "0";
+    allBtn.classList.add("active");
+    allBtn.textContent = "All";
+    tabsEl.appendChild(allBtn);
+
+    // Build stats chips
+    const statsHtml = [];
+    padas.forEach(p => {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.role = "tab";
+      btn.setAttribute("aria-selected", "false");
+      btn.dataset.pada = p.pada;
+      btn.dataset.adhyaya = p.adhyaya;
+      btn.textContent = `Pāda ${p.pada}`;
+      tabsEl.appendChild(btn);
+
+      statsHtml.push(`
+        <span class="stat-chip">
+          Adhyāya ${p.adhyaya}, Pāda ${p.pada}
+          &ensp;<strong>${p.count}</strong> sūtras
+        </span>`);
+    });
+
+    statsEl.innerHTML = statsHtml.join("");
+
+    tabsEl.addEventListener("click", e => {
+      const btn = e.target.closest("button[data-pada]");
+      if (!btn) return;
+      tabsEl.querySelectorAll("button").forEach(b => {
+        b.classList.remove("active");
+        b.setAttribute("aria-selected", "false");
+      });
+      btn.classList.add("active");
+      btn.setAttribute("aria-selected", "true");
+      activePada = parseInt(btn.dataset.pada, 10);
+      render();
+    });
+  }
+
+  /* ── Search ──────────────────────────────────────────────────── */
+  searchEl.addEventListener("input", () => {
+    const val = searchEl.value;
+    wrapEl.classList.toggle("has-value", !!val);
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => {
+      searchQuery = val;
+      render();
+    }, 180);
+  });
+
+  clearBtn.addEventListener("click", () => {
+    searchEl.value = "";
+    searchQuery = "";
+    wrapEl.classList.remove("has-value");
+    searchEl.focus();
+    render();
+  });
+
+  /* ── Keyboard shortcuts ──────────────────────────────────────── */
+  document.addEventListener("keydown", e => {
+    // "/" to focus search
+    if (e.key === "/" && document.activeElement !== searchEl) {
+      e.preventDefault();
+      searchEl.focus();
+      searchEl.select();
+      return;
+    }
+    // Escape to clear
+    if (e.key === "Escape" && document.activeElement === searchEl) {
+      searchEl.value = "";
+      searchQuery = "";
+      wrapEl.classList.remove("has-value");
+      render();
+      searchEl.blur();
+    }
+  });
+
+  /* ── Ref visibility toggle ───────────────────────────────────── */
+  const refToggleBtn = document.getElementById("ref-toggle");
+  function applyRefVisible() {
+    document.body.classList.toggle("ref-none", !refVisible);
+    document.body.classList.toggle("ref-inline", refVisible);
+    refToggleBtn.title = refVisible ? "Hide sūtra numbers" : "Show sūtra numbers";
+  }
+
+  refToggleBtn.addEventListener("click", () => {
+    refVisible = !refVisible;
+    localStorage.setItem("haima-ref-visible", refVisible);
+    applyRefVisible();
+  });
+
+  /* ── Boot ────────────────────────────────────────────────────── */
+  async function init() {
+    applyRefVisible();
+
+    HC.buildScriptToggle(document.getElementById("script-toggle-mount"), {
+      onSwitch: () => render(),
+    });
+
+    const resp = await fetch("sutras.json");
+    if (!resp.ok) throw new Error("Failed to load sutras.json: " + resp.status);
+    allSutras = await resp.json();
+
+    // Extract distinct padas in order
+    const seen = new Set();
+    allSutras.forEach(s => {
+      const key = `${s.adhyaya}-${s.pada}`;
+      if (!seen.has(key)) {
+        seen.add(key);
+        padas.push({
+          adhyaya: s.adhyaya,
+          pada:    s.pada,
+          count:   allSutras.filter(x => x.adhyaya === s.adhyaya && x.pada === s.pada).length,
+        });
+      }
+    });
+
+    buildTabs();
+    render();
+  }
+
+  init().catch(err => {
+    listEl.innerHTML = `
+      <div class="empty-state" style="color:var(--clr-primary);">
+        <div class="empty-icon">⚠️</div>
+        <p>Could not load sūtra data.</p>
+        <p style="font-size:0.85rem;font-style:normal;margin-top:8px;">
+          Run <code>python build.py</code> to generate <code>sutras.json</code>.
+        </p>
+        <p style="font-size:0.8rem;color:var(--clr-ink-faint);margin-top:6px;">${HC.escHtml(String(err))}</p>
+      </div>`;
+  });
+})();
+</script>
+</body>
+</html>

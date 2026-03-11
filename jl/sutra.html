@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="sa" data-script="Devanagari">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sūtra — Hemacandra's Grammar</title>
+  <meta name="description" content="" id="page-desc" />
+  <link rel="stylesheet" href="hemacandra.css" />
+  <style>
+    /* Sutra detail page extras */
+    body { display: flex; flex-direction: column; min-height: 100vh; }
+
+    /* Ref label: Devanagari when dev-script, Roman otherwise */
+    .ref-dev  { font-family: var(--font-dev); }
+    [data-script="IAST"] .ref-dev,
+    [data-script="ISO15919"] .ref-dev,
+    [data-script="HK"] .ref-dev { font-family: var(--font-roman); }
+
+    /* Transition on script switch */
+    .sutra-main-text,
+    .sutra-alt-text,
+    .commentary-text {
+      transition: opacity 0.15s;
+    }
+
+    .script-transitioning .sutra-main-text,
+    .script-transitioning .sutra-alt-text,
+    .script-transitioning .commentary-text {
+      opacity: 0.4;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Compact Header ──────────────────────────────────────────── -->
+<header class="sutra-page-header">
+  <a href="index.html" class="back-link" aria-label="Back to all sūtras">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+    All Sūtras
+  </a>
+
+  <span class="header-title" aria-hidden="true">सिद्धहेमशब्दानुशासन</span>
+
+  <span class="header-ref ref-dev" id="header-ref" aria-hidden="true"></span>
+
+  <div id="script-toggle-header" aria-label="Script"></div>
+</header>
+
+<!-- ── Main Content ────────────────────────────────────────────── -->
+<main id="main-content" class="sutra-page-body">
+
+  <!-- Sutra card (skeleton until loaded) -->
+  <section class="sutra-card" id="sutra-card" aria-label="Sūtra" aria-live="polite">
+    <span class="skeleton" style="display:block;height:16px;width:80px;margin:0 auto 20px;"></span>
+    <div class="skeleton" style="height:3rem;border-radius:6px;margin-bottom:12px;"></div>
+    <div class="skeleton" style="height:1.5rem;border-radius:4px;width:60%;margin:0 auto;"></div>
+  </section>
+
+  <!-- Commentary (skeleton until loaded) -->
+  <section class="commentary-section" id="commentary-section" aria-label="Commentary">
+    <div class="skeleton" style="height:1rem;width:120px;margin-bottom:16px;border-radius:4px;"></div>
+    <div class="skeleton" style="height:100px;border-radius:12px;"></div>
+  </section>
+
+</main>
+
+<!-- ── Bottom Navigation ────────────────────────────────────────── -->
+<nav class="sutra-nav-bar" aria-label="Sūtra navigation">
+
+  <button class="nav-btn nav-prev disabled" id="btn-prev" aria-label="Previous sūtra">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <polyline points="15 18 9 12 15 6"/>
+    </svg>
+    <span class="nav-btn-label">
+      <span class="nav-btn-sub ref-dev" id="prev-ref"></span>
+      <span>Previous</span>
+    </span>
+  </button>
+
+  <div class="nav-center ref-dev" id="nav-center" aria-current="page">—</div>
+
+  <button class="nav-btn nav-next disabled" id="btn-next" aria-label="Next sūtra">
+    <span class="nav-btn-label">
+      <span class="nav-btn-sub ref-dev" id="next-ref"></span>
+      <span>Next</span>
+    </span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <polyline points="9 18 15 12 9 6"/>
+    </svg>
+  </button>
+
+</nav>
+
+<script src="hemacandra.js"></script>
+<script>
+(function () {
+  "use strict";
+
+  /* ── State ───────────────────────────────────────────────────── */
+  let allSutras    = [];
+  let currentIndex = -1;
+  let currentSutra = null;
+
+  const urlId = new URLSearchParams(location.search).get("id");
+
+  /* ── DOM refs ────────────────────────────────────────────────── */
+  const cardEl     = document.getElementById("sutra-card");
+  const commEl     = document.getElementById("commentary-section");
+  const headerRef  = document.getElementById("header-ref");
+  const navCenter  = document.getElementById("nav-center");
+  const btnPrev    = document.getElementById("btn-prev");
+  const btnNext    = document.getElementById("btn-next");
+  const prevRefEl  = document.getElementById("prev-ref");
+  const nextRefEl  = document.getElementById("next-ref");
+
+  /* ── Render sutra card ───────────────────────────────────────── */
+  function renderCard(s) {
+    const script    = HC.getCurrentScript();
+    const mainText  = s.texts[script] || s.texts.Devanagari;
+    const altText   = script !== "Devanagari" ? s.texts.Devanagari : "";
+    const refLabel  = HC.formatRef(s.ref, script);
+    const padaName  = `Pāda ${s.pada}`;
+    const adhName   = `Adhyāya ${s.adhyaya}`;
+
+    document.title = `${s.ref} — Hemacandra's Grammar`;
+    document.getElementById("page-desc").content =
+      `Sūtra ${s.ref} of Hemacandra's Śabdānuśāsana: ${s.texts.Devanagari}`;
+
+    headerRef.textContent = refLabel;
+    navCenter.textContent = refLabel;
+
+    cardEl.innerHTML = `
+      <div class="sutra-card-location">
+        <span class="location-chip">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="3" y="3" width="18" height="18" rx="2"/>
+            <path d="M3 9h18M9 21V9"/>
+          </svg>
+          ${HC.escHtml(adhName)}
+        </span>
+        <span class="sep" aria-hidden="true">·</span>
+        <span class="location-chip">${HC.escHtml(padaName)}</span>
+        <span class="sep" aria-hidden="true">·</span>
+        <span style="font-size:0.75rem; color:var(--clr-ink-faint);">${HC.escHtml(refLabel)}</span>
+      </div>
+
+      <div class="sutra-main-text" id="main-text" lang="${script === 'Devanagari' ? 'sa' : 'en'}">${HC.escHtml(mainText)}</div>
+
+      ${altText ? `<div class="sutra-alt-text" lang="sa" aria-label="Devanagari equivalent">${HC.escHtml(altText)}</div>` : ""}
+
+      <div class="card-ornament" aria-hidden="true">
+        <span class="card-ornament-inner"></span>
+      </div>
+
+      <div class="sutra-actions">
+        <button class="action-btn" id="copy-btn" onclick="copySutra()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <rect x="9" y="9" width="13" height="13" rx="2"/>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+          </svg>
+          Copy
+        </button>
+        <button class="action-btn" onclick="shareSutra()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+          </svg>
+          Share
+        </button>
+        <a class="action-btn" href="index.html" style="text-decoration:none;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+            <polyline points="9 22 9 12 15 12 15 22"/>
+          </svg>
+          Index
+        </a>
+      </div>
+    `;
+  }
+
+  /* ── Render commentary ───────────────────────────────────────── */
+  function renderCommentary(s) {
+    const script = HC.getCurrentScript();
+
+    if (!s.commentaries || s.commentaries.length === 0) {
+      commEl.innerHTML = `
+        <h2 class="commentary-section-title">Commentary</h2>
+        <div class="commentary-empty">
+          <p>No commentary digitized yet for this sūtra.<br>
+          Contributions welcome — see the <a href="README.md">README</a>.</p>
+        </div>`;
+      return;
+    }
+
+    const html = [`<h2 class="commentary-section-title">Commentary</h2>`];
+
+    if (s.commentaries.length > 1) {
+      html.push(`<div class="commentary-tabs" role="tablist" aria-label="Commentary sources">`);
+      s.commentaries.forEach((c, i) => {
+        html.push(`<button role="tab" class="commentary-tab${i === 0 ? " active" : ""}"
+          data-idx="${i}" aria-selected="${i === 0 ? "true" : "false"}">
+          ${HC.escHtml(c.label || "Commentary " + (i + 1))}
+        </button>`);
+      });
+      html.push(`</div>`);
+    }
+
+    html.push(`<div class="commentary-body">`);
+    s.commentaries.forEach((c, i) => {
+      const text = c[script] || c.Devanagari || "";
+      html.push(`<div class="commentary-text" data-idx="${i}"
+        lang="${script === 'Devanagari' ? 'sa' : 'en'}"
+        style="display:${i === 0 ? "block" : "none"}">${HC.escHtml(text)}</div>`);
+    });
+    html.push(`</div>`);
+
+    commEl.innerHTML = html.join("");
+
+    // Tab switching
+    commEl.querySelectorAll(".commentary-tab").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const idx = parseInt(btn.dataset.idx, 10);
+        commEl.querySelectorAll(".commentary-tab").forEach(b => {
+          b.classList.remove("active");
+          b.setAttribute("aria-selected", "false");
+        });
+        btn.classList.add("active");
+        btn.setAttribute("aria-selected", "true");
+        commEl.querySelectorAll(".commentary-text").forEach(el => {
+          el.style.display = parseInt(el.dataset.idx, 10) === idx ? "block" : "none";
+        });
+      });
+    });
+  }
+
+  /* ── Full page render ────────────────────────────────────────── */
+  function renderPage(idx) {
+    const s = allSutras[idx];
+    currentIndex = idx;
+    currentSutra = s;
+
+    const script = HC.getCurrentScript();
+    const prev   = allSutras[idx - 1];
+    const next   = allSutras[idx + 1];
+
+    prevRefEl.textContent = prev ? HC.formatRef(prev.ref, script) : "";
+    nextRefEl.textContent = next ? HC.formatRef(next.ref, script) : "";
+
+    btnPrev.classList.toggle("disabled", !prev);
+    btnNext.classList.toggle("disabled", !next);
+    btnPrev.onclick = prev ? () => navigate(idx - 1) : null;
+    btnNext.onclick = next ? () => navigate(idx + 1) : null;
+
+    renderCard(s);
+    renderCommentary(s);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function navigate(idx) {
+    if (idx < 0 || idx >= allSutras.length) return;
+    const s = allSutras[idx];
+    history.replaceState(null, "", `sutra.html?id=${s.id}`);
+    renderPage(idx);
+  }
+
+  /* ── Copy & Share ────────────────────────────────────────────── */
+  window.copySutra = function () {
+    if (!currentSutra) return;
+    const el = document.getElementById("main-text");
+    const text = `${el ? el.textContent : ""}\n— Hemacandra, Śabdānuśāsana ${currentSutra.ref}`;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById("copy-btn");
+      if (!btn) return;
+      const orig = btn.innerHTML;
+      btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg> Copied!`;
+      btn.style.color = "var(--clr-primary)";
+      setTimeout(() => { btn.innerHTML = orig; btn.style.color = ""; }, 2000);
+    });
+  };
+
+  window.shareSutra = function () {
+    if (!currentSutra) return;
+    const text = `${currentSutra.texts.Devanagari}\n— Hemacandra, Śabdānuśāsana ${currentSutra.ref}`;
+    if (navigator.share) {
+      navigator.share({ title: `Hemacandra ${currentSutra.ref}`, text, url: location.href }).catch(() => {});
+    } else {
+      navigator.clipboard.writeText(location.href).then(() => alert("Link copied!"));
+    }
+  };
+
+  /* ── Keyboard & swipe nav ────────────────────────────────────── */
+  document.addEventListener("keydown", e => {
+    if (e.key === "ArrowLeft"  && !btnPrev.classList.contains("disabled")) btnPrev.click();
+    if (e.key === "ArrowRight" && !btnNext.classList.contains("disabled")) btnNext.click();
+    if (e.key === "Escape") history.back();
+  });
+
+  let touchX = 0;
+  document.addEventListener("touchstart", e => { touchX = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener("touchend", e => {
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) < 55) return;
+    if (dx > 0 && !btnPrev.classList.contains("disabled")) btnPrev.click();
+    if (dx < 0 && !btnNext.classList.contains("disabled")) btnNext.click();
+  }, { passive: true });
+
+  /* ── Boot ────────────────────────────────────────────────────── */
+  async function init() {
+    HC.buildScriptToggle(document.getElementById("script-toggle-header"), {
+      onSwitch: () => {
+        if (currentSutra !== null) {
+          document.body.classList.add("script-transitioning");
+          requestAnimationFrame(() => {
+            renderPage(currentIndex);
+            document.body.classList.remove("script-transitioning");
+          });
+        }
+      },
+    });
+
+    const resp = await fetch("sutras.json");
+    if (!resp.ok) throw new Error("sutras.json not found — run python build.py");
+    allSutras = await resp.json();
+
+    if (!urlId) {
+      cardEl.innerHTML = `<div style="text-align:center;padding:40px 0;">
+        <p style="font-family:var(--font-display);color:var(--clr-ink-muted);">No sūtra specified.</p>
+        <p style="margin-top:10px;"><a href="index.html">Browse all sūtras →</a></p>
+      </div>`;
+      commEl.innerHTML = "";
+      return;
+    }
+
+    const idx = allSutras.findIndex(s => s.id === urlId);
+    if (idx === -1) {
+      cardEl.innerHTML = `<div style="text-align:center;padding:40px 0;">
+        <p style="font-family:var(--font-display);color:var(--clr-ink-muted);">
+          Sūtra <code>${HC.escHtml(urlId)}</code> not found.
+        </p>
+        <p style="margin-top:10px;"><a href="index.html">Browse all sūtras →</a></p>
+      </div>`;
+      commEl.innerHTML = "";
+      return;
+    }
+
+    renderPage(idx);
+  }
+
+  init().catch(err => {
+    cardEl.innerHTML = `<div style="text-align:center;padding:40px 0;">
+      <p style="color:var(--clr-primary);font-family:var(--font-display);">Failed to load data</p>
+      <p style="font-size:0.85rem;margin-top:8px;color:var(--clr-ink-muted);">
+        Run <code>python build.py</code> to generate <code>sutras.json</code>.
+      </p>
+    </div>`;
+    console.error(err);
+  });
+})();
+</script>
+</body>
+</html>
