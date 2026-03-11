@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siddhahemaśabdānuśāsana Search</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Junicode', 'Adishila', sans-serif;
+            background-color: #ffffff;
+            color: #333;
+            line-height: 1.6;
+            max-width: 80em;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            overflow-y: auto;
+        }
+
+        .modal.open {
+            display: block;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            border-radius: 4px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            color: #1a237e;
+        }
+
+        .close-modal {
+            font-size: 28px;
+            font-weight: bold;
+            color: #999;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0;
+            width: auto;
+        }
+
+        .close-modal:hover {
+            color: #333;
+        }
+
+        .modal-body {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 14px;
+            line-height: 1.8;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 4px;
+            border-left: 4px solid #4caf50;
+        }
+
+        @font-face {
+            font-family: 'Adishila';
+            src: local('Adishila'), url('/fonts/AdishilaSemiBoldB.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Junicode';
+            src: local('Junicode'), url('/fonts/Junicode.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Ekatra-B';
+            src: local('Ekatra-B'), url('/fonts/Ekatra-B.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffd9b3;
+            color: #333;
+        }
+
+        header h1 {
+            color: #1a237e;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #333;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #1a237e;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .search-container {
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Junicode', 'Adishila', sans-serif;
+            margin-bottom: 10px;
+        }
+
+        .search-box:focus {
+            outline: none;
+            border-color: #4caf50;
+            box-shadow: 0 0 5px rgba(76, 175, 80, 0.3);
+        }
+
+        .controls {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+            font-family: 'Junicode', sans-serif;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        button:active {
+            transform: scale(0.98);
+        }
+
+        .advanced-toggle {
+            background-color: #2196f3;
+            padding: 8px 12px;
+            font-size: 13px;
+        }
+
+        .advanced-toggle:hover {
+            background-color: #1976d2;
+        }
+
+        .advanced-options {
+            display: none;
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 15px;
+            border: 1px solid #ddd;
+        }
+
+        .advanced-options.open {
+            display: block;
+        }
+
+        .option-group {
+            margin-bottom: 15px;
+        }
+
+        .option-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+            color: #1a237e;
+            font-size: 13px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 6px;
+            cursor: pointer;
+        }
+
+        input[type="number"] {
+            padding: 6px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-family: 'Junicode', sans-serif;
+            font-size: 13px;
+            width: 100px;
+        }
+
+        .search-type {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .radio-item {
+            display: flex;
+            align-items: center;
+        }
+
+        input[type="radio"] {
+            margin-right: 6px;
+            cursor: pointer;
+        }
+
+        .adhyaya-tabs {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 8px 12px;
+            background-color: #e8e8e8;
+            border: 2px solid #ddd;
+            color: #333;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 13px;
+            font-family: 'Junicode', sans-serif;
+        }
+
+        .tab-btn.active {
+            background-color: #4caf50;
+            color: white;
+            border-color: #4caf50;
+        }
+
+        .tab-btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        .tab-btn.active:hover {
+            background-color: #45a049;
+        }
+
+        .results-container {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #4caf50;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .result-item:hover {
+            background-color: #f0f8f5;
+            box-shadow: 0 2px 8px rgba(76, 175, 80, 0.15);
+        }
+
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-left {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .adhyaya-label {
+            font-weight: bold;
+            color: #1a237e;
+            background-color: #e8f5e9;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 12px;
+        }
+
+        .line-number {
+            color: #999;
+            font-size: 12px;
+        }
+
+        .view-page-btn {
+            background-color: #ff9800;
+            color: white;
+            padding: 4px 8px;
+            border: none;
+            border-radius: 3px;
+            font-size: 11px;
+            cursor: pointer;
+            font-family: 'Junicode', sans-serif;
+        }
+
+        .view-page-btn:hover {
+            background-color: #f57c00;
+        }
+
+        .result-text {
+            font-size: 14px;
+            line-height: 1.7;
+            word-wrap: break-word;
+            white-space: pre-wrap;
+            margin-bottom: 8px;
+        }
+
+        .result-context {
+            font-size: 13px;
+            color: #666;
+            background-color: #f5f5f5;
+            padding: 10px;
+            border-radius: 2px;
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        .context-line {
+            margin-bottom: 4px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        .context-before, .context-after {
+            color: #999;
+        }
+
+        .match-line {
+            font-weight: bold;
+            color: #333;
+            background-color: #fffacd;
+            padding: 2px 0;
+        }
+
+        .highlight {
+            background-color: #ffeb3b;
+            font-weight: bold;
+            padding: 2px 4px;
+            border-radius: 2px;
+        }
+
+        .status {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #e3f2fd;
+            border-left: 3px solid #2196f3;
+            border-radius: 2px;
+            color: #1565c0;
+            font-size: 13px;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 30px 20px;
+            color: #999;
+        }
+
+        .info-box {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .results-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .result-nav {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .result-nav button {
+            padding: 6px 10px;
+            font-size: 12px;
+        }
+
+        .result-counter {
+            color: #666;
+            font-size: 13px;
+            padding: 6px 10px;
+            background-color: #f0f0f0;
+            border-radius: 3px;
+        }
+
+        .result-item.highlighted {
+            background-color: #fff3cd;
+            border-left-color: #ff9800;
+            box-shadow: 0 2px 8px rgba(255, 152, 0, 0.25);
+        }
+
+        .sort-options {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .sort-btn {
+            padding: 8px 12px;
+            background-color: #e8e8e8;
+            border: 1px solid #ddd;
+            color: #333;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 12px;
+            font-family: 'Junicode', sans-serif;
+        }
+
+        .sort-btn.active {
+            background-color: #4caf50;
+            color: white;
+            border-color: #4caf50;
+        }
+
+        .sort-btn:hover {
+            background-color: #ddd;
+        }
+
+        .sort-btn.active:hover {
+            background-color: #45a049;
+        }
+
+        .line-input-group {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .line-input-group input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            font-size: 13px;
+            width: 100px;
+            font-family: 'Junicode', sans-serif;
+        }
+
+        .line-input-group button {
+            padding: 8px 12px;
+            font-size: 12px;
+        }
+
+        .quick-filters {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .quick-filter-btn {
+            padding: 6px 10px;
+            background-color: #e3f2fd;
+            border: 1px solid #90caf9;
+            color: #1565c0;
+            cursor: pointer;
+            border-radius: 3px;
+            font-size: 12px;
+            font-family: 'Junicode', sans-serif;
+        }
+
+        .quick-filter-btn:hover {
+            background-color: #bbdefb;
+        }
+
+        .quick-filter-btn.active {
+            background-color: #1976d2;
+            color: white;
+            border-color: #1565c0;
+        }
+
+        .stats-panel {
+            background-color: #e8f5e9;
+            border-left: 4px solid #4caf50;
+            padding: 12px;
+            border-radius: 3px;
+            margin-bottom: 15px;
+            font-size: 13px;
+            line-height: 1.6;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .stat-row:last-child {
+            margin-bottom: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+            margin-top: 40px;
+            color: #999;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            main {
+                padding: 10px;
+            }
+
+            .search-box {
+                font-size: 16px;
+            }
+
+            .controls {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+
+            .adhyaya-tabs {
+                gap: 3px;
+            }
+
+            .tab-btn {
+                flex: 1;
+                min-width: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Siddhahemaśabdānuśāsana</h1>
+        <p>सिद्धहेमशब्दानुशासन - Search Interface</p>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/jl">Jain Linguistics</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Text Search</h2>
+
+        <div class="info-box">
+            <strong>About:</strong> The Siddhahemaśabdānuśāsana (सिद्धहेमशब्दानुशासन) is a comprehensive Sanskrit grammar treatise composed by Hemacandra Sūri (12th century). This interface provides full-text search across all seven adhyāyas (chapters) of the work.
+        </div>
+
+        <div class="search-container">
+            <input
+                type="text"
+                id="searchBox"
+                class="search-box"
+                placeholder="Search text (Devanagari or transliteration)..."
+                autocomplete="off"
+            >
+
+            <div class="controls">
+                <button onclick="performSearch()">Search All</button>
+                <button onclick="clearResults()">Clear</button>
+                <button class="advanced-toggle" onclick="toggleAdvancedOptions()">Advanced Options</button>
+            </div>
+
+            <div id="advancedOptions" class="advanced-options">
+                <div class="option-group">
+                    <label>Search Type:</label>
+                    <div class="search-type">
+                        <div class="radio-item">
+                            <input type="radio" id="exact" name="searchType" value="exact" onchange="updateSearchType()">
+                            <label for="exact" style="margin: 0; font-weight: normal;">Exact Match</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="fuzzy" name="searchType" value="fuzzy" checked onchange="updateSearchType()">
+                            <label for="fuzzy" style="margin: 0; font-weight: normal;">Contains (Default)</label>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" id="regex" name="searchType" value="regex" onchange="updateSearchType()">
+                            <label for="regex" style="margin: 0; font-weight: normal;">Regex</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="option-group">
+                    <label>Search in Adhyāyas:</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="allAdhyayas" onchange="toggleAllAdhyayas(this)">
+                            <label for="allAdhyayas" style="margin: 0; font-weight: normal;">Select All</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="check1" onchange="updateAdhyayaCheckboxes()">
+                            <label for="check1" style="margin: 0; font-weight: normal;">1</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="check2" onchange="updateAdhyayaCheckboxes()">
+                            <label for="check2" style="margin: 0; font-weight: normal;">2</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="check3" onchange="updateAdhyayaCheckboxes()">
+                            <label for="check3" style="margin: 0; font-weight: normal;">3</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="check4" onchange="updateAdhyayaCheckboxes()">
+                            <label for="check4" style="margin: 0; font-weight: normal;">4</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="check5" onchange="updateAdhyayaCheckboxes()">
+                            <label for="check5" style="margin: 0; font-weight: normal;">5</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="check6" onchange="updateAdhyayaCheckboxes()">
+                            <label for="check6" style="margin: 0; font-weight: normal;">6</label>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" id="check7" onchange="updateAdhyayaCheckboxes()">
+                            <label for="check7" style="margin: 0; font-weight: normal;">7</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="option-group">
+                    <label>Context Lines:</label>
+                    <input type="number" id="contextLines" min="0" max="10" value="2" style="width: 80px;">
+                    <small style="color: #666; margin-left: 5px;">Lines before and after match</small>
+                </div>
+
+                <div class="option-group">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="caseSensitive">
+                        <label for="caseSensitive" style="margin: 0; font-weight: normal;">Case Sensitive</label>
+                    </div>
+                </div>
+
+                <div class="option-group">
+                    <label>Results per page:</label>
+                    <input type="number" id="resultsPerPage" min="10" max="500" value="50" style="width: 80px;">
+                </div>
+            </div>
+
+            <div class="line-input-group">
+                <label for="jumpToLine" style="margin: 0; font-weight: normal;">Jump to line:</label>
+                <input type="number" id="jumpToLine" min="1" placeholder="Enter line number">
+                <button onclick="jumpToLine()" style="padding: 8px 12px; font-size: 12px;">Go</button>
+            </div>
+
+            <div class="quick-filters">
+                <button class="quick-filter-btn" onclick="filterByAdhyaya(2)">Adhyāya 2 (Largest)</button>
+                <button class="quick-filter-btn" onclick="filterByAdhyaya(1)">Adhyāya 1</button>
+                <button class="quick-filter-btn" onclick="resetQuickFilters()">Show All</button>
+            </div>
+
+            <div class="adhyaya-tabs">
+                <button class="tab-btn" onclick="toggleAdhyaya(1, this)">Adhyāya 1</button>
+                <button class="tab-btn" onclick="toggleAdhyaya(2, this)">Adhyāya 2</button>
+                <button class="tab-btn" onclick="toggleAdhyaya(3, this)">Adhyāya 3</button>
+                <button class="tab-btn" onclick="toggleAdhyaya(4, this)">Adhyāya 4</button>
+                <button class="tab-btn" onclick="toggleAdhyaya(5, this)">Adhyāya 5</button>
+                <button class="tab-btn" onclick="toggleAdhyaya(6, this)">Adhyāya 6</button>
+                <button class="tab-btn" onclick="toggleAdhyaya(7, this)">Adhyāya 7</button>
+            </div>
+        </div>
+
+        <div id="sortOptions" class="sort-options" style="display: none;">
+            <label style="font-weight: bold; margin-right: 10px;">Sort by:</label>
+            <button class="sort-btn active" onclick="sortResults('adhyaya')">Adhyāya</button>
+            <button class="sort-btn" onclick="sortResults('line')">Line Number</button>
+            <button class="sort-btn" onclick="sortResults('relevance')">Relevance</button>
+        </div>
+
+        <div id="statsPanel" style="display: none;"></div>
+
+        <div id="resultsHeader" class="results-header" style="display: none;">
+            <span id="resultCount" class="result-counter"></span>
+            <div class="result-nav">
+                <button onclick="previousResult()" style="padding: 6px 10px; font-size: 12px;">← Previous</button>
+                <span id="currentResult" class="result-counter">-</span>
+                <button onclick="nextResult()" style="padding: 6px 10px; font-size: 12px;">Next →</button>
+            </div>
+        </div>
+
+        <div id="resultsContainer" class="results-container"></div>
+    </main>
+
+    <!-- Modal for viewing full page OCR -->
+    <div id="pageModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Full Page OCR</h2>
+                <button class="close-modal" onclick="closePageModal()">&times;</button>
+            </div>
+            <div id="modalBody" class="modal-body"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Siddhahemaśabdānuśāsana Search | Raw OCR Data | <a href="/">Vyoma's Web Space</a></p>
+    </footer>
+
+    <script>
+        let textData = {};
+        let selectedAdhyayas = new Set();
+        let searchType = 'fuzzy';
+        let allResults = [];
+        let currentResultIndex = 0;
+        let currentSortOrder = 'adhyaya';
+        let currentQuickFilter = null;
+
+        // Load adhyaya data
+        async function loadAdhyayaData() {
+            const resultsContainer = document.getElementById('resultsContainer');
+            resultsContainer.innerHTML = '<div class="status">Loading data...</div>';
+
+            try {
+                for (let i = 1; i <= 7; i++) {
+                    const response = await fetch(`/jl/shs-root/shs-${i}.txt`);
+                    if (response.ok) {
+                        textData[i] = await response.text();
+                    } else {
+                        console.warn(`Could not load adhyaya ${i}`);
+                    }
+                }
+                resultsContainer.innerHTML = '';
+            } catch (error) {
+                resultsContainer.innerHTML = `<div class="status" style="border-color: #f44336; background-color: #ffebee; color: #c62828;">Error loading data: ${error.message}</div>`;
+            }
+        }
+
+        // Toggle advanced options
+        function toggleAdvancedOptions() {
+            const options = document.getElementById('advancedOptions');
+            options.classList.toggle('open');
+        }
+
+        // Update search type
+        function updateSearchType() {
+            searchType = document.querySelector('input[name="searchType"]:checked').value;
+        }
+
+        // Toggle all adhyayas
+        function toggleAllAdhyayas(checkbox) {
+            for (let i = 1; i <= 7; i++) {
+                document.getElementById(`check${i}`).checked = checkbox.checked;
+            }
+            updateAdhyayaCheckboxes();
+        }
+
+        // Update adhyaya selection from checkboxes
+        function updateAdhyayaCheckboxes() {
+            selectedAdhyayas.clear();
+            for (let i = 1; i <= 7; i++) {
+                if (document.getElementById(`check${i}`).checked) {
+                    selectedAdhyayas.add(i);
+                }
+            }
+        }
+
+        // Toggle adhyaya selection from tabs
+        function toggleAdhyaya(num, button) {
+            if (selectedAdhyayas.has(num)) {
+                selectedAdhyayas.delete(num);
+                button.classList.remove('active');
+                document.getElementById(`check${num}`).checked = false;
+            } else {
+                selectedAdhyayas.add(num);
+                button.classList.add('active');
+                document.getElementById(`check${num}`).checked = true;
+            }
+        }
+
+        // Escape regex special characters
+        function escapeRegex(str) {
+            return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        }
+
+        // Get context lines
+        function getContextLines(lines, lineIdx, contextCount) {
+            const start = Math.max(0, lineIdx - contextCount);
+            const end = Math.min(lines.length, lineIdx + contextCount + 1);
+            return {
+                before: lines.slice(start, lineIdx),
+                match: lines[lineIdx],
+                after: lines.slice(lineIdx + 1, end)
+            };
+        }
+
+        // Perform search
+        function performSearch() {
+            const query = document.getElementById('searchBox').value.trim();
+            const resultsContainer = document.getElementById('resultsContainer');
+            const contextLines = parseInt(document.getElementById('contextLines').value) || 0;
+
+            if (!query) {
+                resultsContainer.innerHTML = '<div class="no-results">Please enter a search term.</div>';
+                return;
+            }
+
+            updateAdhyayaCheckboxes();
+
+            if (selectedAdhyayas.size === 0) {
+                resultsContainer.innerHTML = '<div class="no-results">Please select at least one adhyāya.</div>';
+                return;
+            }
+
+            resultsContainer.innerHTML = '<div class="status">Searching...</div>';
+
+            setTimeout(() => {
+                const results = [];
+
+                for (const adhyayaNum of Array.from(selectedAdhyayas).sort()) {
+                    const text = textData[adhyayaNum];
+                    if (!text) continue;
+
+                    const lines = text.split('\n');
+                    lines.forEach((line, lineIdx) => {
+                        let matches = false;
+
+                        if (searchType === 'exact') {
+                            matches = matchExact(line, query);
+                        } else if (searchType === 'regex') {
+                            matches = matchRegex(line, query);
+                        } else {
+                            matches = matchFuzzy(line, query);
+                        }
+
+                        if (matches) {
+                            const context = getContextLines(lines, lineIdx, contextLines);
+                            results.push({
+                                adhyaya: adhyayaNum,
+                                lineNumber: lineIdx + 1,
+                                text: line,
+                                context: context,
+                                query: query
+                            });
+                        }
+                    });
+                }
+
+                displayResults(results, query);
+            }, 0);
+        }
+
+        // Exact match
+        function matchExact(text, query) {
+            const caseSensitive = document.getElementById('caseSensitive').checked;
+            const t = caseSensitive ? text : text.toLowerCase();
+            const q = caseSensitive ? query : query.toLowerCase();
+            return t === q;
+        }
+
+        // Fuzzy/Contains match
+        function matchFuzzy(text, query) {
+            const caseSensitive = document.getElementById('caseSensitive').checked;
+            const t = caseSensitive ? text : text.toLowerCase();
+            const q = caseSensitive ? query : query.toLowerCase();
+            return t.includes(q);
+        }
+
+        // Regex match
+        function matchRegex(text, query) {
+            try {
+                const caseSensitive = document.getElementById('caseSensitive').checked;
+                const flags = caseSensitive ? 'g' : 'gi';
+                const pattern = new RegExp(query, flags);
+                return pattern.test(text);
+            } catch (e) {
+                alert('Invalid regex: ' + e.message);
+                return false;
+            }
+        }
+
+        // Display search results with pagination and sorting
+        function displayResults(results, query) {
+            const resultsContainer = document.getElementById('resultsContainer');
+            const caseSensitive = document.getElementById('caseSensitive').checked;
+            const resultsPerPage = parseInt(document.getElementById('resultsPerPage').value) || 50;
+
+            allResults = results;
+            currentResultIndex = 0;
+            currentSortOrder = 'adhyaya';
+
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<div class="no-results">No results found for "' + escapeHtml(query) + '"</div>';
+                document.getElementById('sortOptions').style.display = 'none';
+                document.getElementById('statsPanel').style.display = 'none';
+                document.getElementById('resultsHeader').style.display = 'none';
+                return;
+            }
+
+            // Show sorting options and stats
+            document.getElementById('sortOptions').style.display = 'flex';
+            document.getElementById('resultsHeader').style.display = 'flex';
+            updateStatsPanel(results);
+
+            // Sort results
+            const sortedResults = sortResultsArray(results, currentSortOrder);
+
+            // Render results
+            renderResultsPage(sortedResults, query, caseSensitive, resultsPerPage, 0);
+        }
+
+        // Render a page of results
+        function renderResultsPage(results, query, caseSensitive, perPage, startIdx) {
+            const resultsContainer = document.getElementById('resultsContainer');
+            const endIdx = Math.min(startIdx + perPage, results.length);
+            const pageResults = results.slice(startIdx, endIdx);
+
+            let html = `<div class="status">Showing ${startIdx + 1}–${endIdx} of ${results.length} match${results.length !== 1 ? 'es' : ''}</div>`;
+
+            pageResults.forEach((result, idx) => {
+                const highlightedText = highlightMatches(result.text, query, caseSensitive);
+                const contextHtml = buildContextHtml(result.context, query, caseSensitive);
+                const resultNum = startIdx + idx + 1;
+
+                html += `
+                    <div class="result-item" id="result-${resultNum}" onclick="viewPageOCR(${result.adhyaya}, ${result.lineNumber})">
+                        <div class="result-header">
+                            <div class="header-left">
+                                <span class="adhyaya-label">Adhyāya ${result.adhyaya}</span>
+                                <span class="line-number">Line ${result.lineNumber}</span>
+                                <span class="line-number" style="color: #999;">#${resultNum}</span>
+                            </div>
+                            <button class="view-page-btn" onclick="event.stopPropagation(); viewPageOCR(${result.adhyaya}, ${result.lineNumber})">View Page</button>
+                        </div>
+                        <div class="result-text">${highlightedText}</div>
+                        ${contextHtml ? '<div class="result-context">' + contextHtml + '</div>' : ''}
+                    </div>
+                `;
+            });
+
+            resultsContainer.innerHTML = html;
+            document.getElementById('resultCount').textContent = `${results.length} results`;
+            document.getElementById('currentResult').textContent = `${startIdx + 1}–${endIdx}`;
+        }
+
+        // Update stats panel
+        function updateStatsPanel(results) {
+            const adhyayaCounts = {};
+            results.forEach(r => {
+                adhyayaCounts[r.adhyaya] = (adhyayaCounts[r.adhyaya] || 0) + 1;
+            });
+
+            let html = '<div class="stats-panel">';
+            html += '<div class="stat-row"><strong>Total Matches:</strong> ' + results.length + '</div>';
+            html += '<div class="stat-row"><strong>Adhyāyas with matches:</strong>';
+            const adhyayasWithMatches = Object.keys(adhyayaCounts).sort((a, b) => a - b);
+            html += ' ' + adhyayasWithMatches.map(a => `${a} (${adhyayaCounts[a]})`).join(', ');
+            html += '</div></div>';
+
+            document.getElementById('statsPanel').innerHTML = html;
+            document.getElementById('statsPanel').style.display = 'block';
+        }
+
+        // Sort results
+        function sortResults(order) {
+            currentSortOrder = order;
+            const sortedResults = sortResultsArray(allResults, order);
+            const caseSensitive = document.getElementById('caseSensitive').checked;
+            const query = document.getElementById('searchBox').value.trim();
+            const resultsPerPage = parseInt(document.getElementById('resultsPerPage').value) || 50;
+
+            // Update button states
+            document.querySelectorAll('.sort-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            renderResultsPage(sortedResults, query, caseSensitive, resultsPerPage, 0);
+        }
+
+        // Sort results array
+        function sortResultsArray(results, order) {
+            const sorted = [...results];
+            if (order === 'adhyaya') {
+                sorted.sort((a, b) => {
+                    if (a.adhyaya !== b.adhyaya) return a.adhyaya - b.adhyaya;
+                    return a.lineNumber - b.lineNumber;
+                });
+            } else if (order === 'line') {
+                sorted.sort((a, b) => a.lineNumber - b.lineNumber);
+            } else if (order === 'relevance') {
+                sorted.sort((a, b) => {
+                    const query = document.getElementById('searchBox').value.trim();
+                    const matchCountA = (a.text.match(new RegExp(escapeRegex(query), 'gi')) || []).length;
+                    const matchCountB = (b.text.match(new RegExp(escapeRegex(query), 'gi')) || []).length;
+                    return matchCountB - matchCountA;
+                });
+            }
+            return sorted;
+        }
+
+        // Navigation functions
+        function nextResult() {
+            const resultsPerPage = parseInt(document.getElementById('resultsPerPage').value) || 50;
+            const maxStart = Math.max(0, allResults.length - resultsPerPage);
+            const currentStart = Math.floor(currentResultIndex / resultsPerPage) * resultsPerPage;
+            const nextStart = Math.min(currentStart + resultsPerPage, maxStart);
+            if (nextStart !== currentStart) {
+                const query = document.getElementById('searchBox').value.trim();
+                const caseSensitive = document.getElementById('caseSensitive').checked;
+                const sortedResults = sortResultsArray(allResults, currentSortOrder);
+                renderResultsPage(sortedResults, query, caseSensitive, resultsPerPage, nextStart);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        function previousResult() {
+            const resultsPerPage = parseInt(document.getElementById('resultsPerPage').value) || 50;
+            const currentStart = Math.floor(currentResultIndex / resultsPerPage) * resultsPerPage;
+            const prevStart = Math.max(0, currentStart - resultsPerPage);
+            if (prevStart !== currentStart) {
+                const query = document.getElementById('searchBox').value.trim();
+                const caseSensitive = document.getElementById('caseSensitive').checked;
+                const sortedResults = sortResultsArray(allResults, currentSortOrder);
+                renderResultsPage(sortedResults, query, caseSensitive, resultsPerPage, prevStart);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Jump to specific line
+        function jumpToLine() {
+            const lineNum = parseInt(document.getElementById('jumpToLine').value);
+            if (!lineNum || lineNum < 1) {
+                alert('Please enter a valid line number');
+                return;
+            }
+
+            // Perform search for exact line (if not already done)
+            const adhyaya = parseInt(document.getElementById('check1').checked ? 1 : document.getElementById('check2').checked ? 2 : 1);
+            const text = textData[adhyaya];
+            if (!text) return;
+
+            const lines = text.split('\n');
+            if (lineNum > lines.length) {
+                alert(`Line ${lineNum} does not exist in Adhyāya ${adhyaya}`);
+                return;
+            }
+
+            // Show the line with context
+            const contextCount = parseInt(document.getElementById('contextLines').value) || 2;
+            const context = getContextLines(lines, lineNum - 1, contextCount);
+
+            const result = {
+                adhyaya: adhyaya,
+                lineNumber: lineNum,
+                text: lines[lineNum - 1],
+                context: context,
+                query: ''
+            };
+
+            const modal = document.getElementById('pageModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+
+            modalTitle.textContent = `Adhyāya ${adhyaya} - Line ${lineNum}`;
+            modalBody.textContent = text;
+            modal.classList.add('open');
+
+            // Highlight the line in the modal (if possible)
+            setTimeout(() => {
+                const lineText = lines[lineNum - 1];
+                if (modalBody.textContent.includes(lineText)) {
+                    // Simple visual indicator
+                    console.log(`Jumped to line ${lineNum}`);
+                }
+            }, 100);
+        }
+
+        // Quick filter functions
+        function filterByAdhyaya(adhyayaNum) {
+            selectedAdhyayas.clear();
+            selectedAdhyayas.add(adhyayaNum);
+
+            // Update checkboxes
+            for (let i = 1; i <= 7; i++) {
+                document.getElementById(`check${i}`).checked = (i === adhyayaNum);
+            }
+
+            currentQuickFilter = adhyayaNum;
+            document.querySelectorAll('.quick-filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+        }
+
+        function resetQuickFilters() {
+            selectedAdhyayas.clear();
+            for (let i = 1; i <= 7; i++) {
+                selectedAdhyayas.add(i);
+                document.getElementById(`check${i}`).checked = true;
+            }
+            currentQuickFilter = null;
+            document.querySelectorAll('.quick-filter-btn').forEach(btn => btn.classList.remove('active'));
+        }
+
+        // Highlight matches in text
+        function highlightMatches(text, query, caseSensitive) {
+            try {
+                const flags = caseSensitive ? 'g' : 'gi';
+                const pattern = new RegExp(`(${escapeRegex(query)})`, flags);
+                return escapeHtml(text).replace(pattern, '<span class="highlight">$1</span>');
+            } catch (e) {
+                return escapeHtml(text);
+            }
+        }
+
+        // Build context HTML
+        function buildContextHtml(context, query, caseSensitive) {
+            let html = '';
+            const before = context.before || [];
+            const match = context.match;
+            const after = context.after || [];
+
+            before.forEach(line => {
+                html += `<div class="context-line context-before">${escapeHtml(line)}</div>`;
+            });
+
+            const highlightedMatch = highlightMatches(match, query, caseSensitive);
+            html += `<div class="context-line match-line">${highlightedMatch}</div>`;
+
+            after.forEach(line => {
+                html += `<div class="context-line context-after">${escapeHtml(line)}</div>`;
+            });
+
+            return html;
+        }
+
+        // View full page OCR
+        function viewPageOCR(adhyaya, lineNum) {
+            const text = textData[adhyaya];
+            if (!text) return;
+
+            const modal = document.getElementById('pageModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+
+            modalTitle.textContent = `Adhyāya ${adhyaya} - Full OCR (Line ${lineNum})`;
+            modalBody.textContent = text;
+
+            modal.classList.add('open');
+        }
+
+        // Close modal
+        function closePageModal() {
+            document.getElementById('pageModal').classList.remove('open');
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            const modal = document.getElementById('pageModal');
+            if (event.target === modal) {
+                modal.classList.remove('open');
+            }
+        }
+
+        // Clear results
+        function clearResults() {
+            document.getElementById('searchBox').value = '';
+            document.getElementById('jumpToLine').value = '';
+            document.getElementById('resultsContainer').innerHTML = '';
+            document.getElementById('sortOptions').style.display = 'none';
+            document.getElementById('statsPanel').style.display = 'none';
+            document.getElementById('resultsHeader').style.display = 'none';
+            allResults = [];
+        }
+
+        // Escape HTML
+        function escapeHtml(text) {
+            const map = {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#039;'
+            };
+            return text.replace(/[&<>"']/g, m => map[m]);
+        }
+
+        // Handle Enter key
+        document.addEventListener('DOMContentLoaded', () => {
+            loadAdhyayaData();
+            document.getElementById('searchBox').addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
