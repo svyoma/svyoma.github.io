@@ -2,7 +2,7 @@
 
 **Hemacandra's *Śabdānuśāsana* — Interactive Digital Edition**
 
-*Part of [svyoma.github.io/jl](https://svyoma.github.io/jl/) · Live at [svyoma.github.io/jl/haima](https://svyoma.github.io/jl/haima)*
+*Part of [svyoma.github.io/jl](https://svyoma.github.io/shs/) · Live at [svyoma.github.io/shs](https://svyoma.github.io/shs)*
 
 ---
 
@@ -33,7 +33,7 @@ The text comes with Hemacandra's own *Laghuvṛtti* (brief auto-commentary), his
 
 This repository provides a **lightweight, static, mobile-friendly web interface** for browsing and searching the sūtras and commentaries of the *Śabdānuśāsana*. It is hosted at:
 
-> **https://svyoma.github.io/jl/haima**
+> **https://svyoma.github.io/shs**
 
 ### Features
 
@@ -112,19 +112,17 @@ This is a **long-term solo project** and contributions from scholars, students, 
 ### What We Need
 
 1. **Sūtra data entry** — transcribing sūtras from Adhyāyas 1–8 into the CSV format
-2. **Laghuvṛtti transcription** — Hemacandra's own brief commentary (partially done)
+2. **Laghuvṛtti transcription** — Hemacandra's own brief commentary (underway)
 3. **Bṛhadvṛtti transcription** — Hemacandra's full commentary (major undertaking)
-4. **Later commentaries** — Particularly the *Brāhmaṇīvṛtti* and *Nyāsapaddhati*
-5. **Proofreading** — Cross-checking against the critical edition and manuscripts
+4. **Later commentaries** — Particularly the *Laghunyāsa* and *Ḍhuṇḍhikā*
+5. **Proofreading** — Cross-checking against the critical edition
 6. **Encoding corrections** — Fixing any errors in existing entries
 
 ### Manuscript and Edition Sources
 
 The primary printed edition is:
 
-- **Laghuvṛtti edition**: Pischel, Richard. *Hemachandra's Grammatik der Prākritsprachen*. Halle, 1877–80.
-- **Sanskrit portion**: Various editions; the complete grammar with Laghuvṛtti was edited by Śivadatta and K. P. Parab (Bombay, 1900–1913).
-- Manuscripts are held at the Oriental Institute, Baroda; Bhandarkar Oriental Research Institute, Pune; and various Jain bhaṇḍāras in Gujarat.
+- **Laghuvṛtti edition**: Jambuvijaya, Muni *Hemacandra's Siddhahemacandraśabdānuśāsana with Laghuvṛtti*, Patan, 1994.
 
 ### How to Submit Contributions
 
@@ -145,7 +143,7 @@ The primary printed edition is:
 
 ## Contact
 
-**Project maintainer**: Svyoma
+**Project maintainer**: Vyom A.
 **Website**: [svyoma.github.io](https://svyoma.github.io)
 **GitHub**: [github.com/svyoma](https://github.com/svyoma)
 
@@ -157,7 +155,7 @@ For questions about the grammar, historical context, or scholarly collaboration,
 
 The **code** (HTML, CSS, JavaScript, Python build script) is released under the **MIT License**.
 
-The **textual data** (sūtras and commentaries) is in the public domain — Hemacandra composed them in the 12th century. Our transcriptions of this data are dedicated to the public domain under **CC0 1.0**.
+The **textual data** (sūtras and commentaries) is in the public domain — Hemacandra composed them in the 12th century. Our transcriptions of this data are dedicated to the public domain under **CC0 4.0**.
 
 ---
 
