@@ -4,298 +4,866 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jaina Literature Portal</title>
-<style>
-    /* General Page Styling */
-    body {
-            font-family: 'Junicode', sans-serif;
-            text-align: left;
-            line-height: 1.6;
-            margin: 0 auto;
-	    max-width: 80em;
-            padding: 0;
-            background-color: #ffffff; /*Background colour*/
-            color: #333; /* Dark text color */
+    <style>
+        :root {
+            --parchment:      #f5eed6;
+            --parchment-mid:  #ede4c6;
+            --parchment-dark: #e0d5b0;
+            --ink:            #1e120a;
+            --burgundy:       #5c0a0a;
+            --burgundy-light: #8b1a1a;
+            --gold:           #a07820;
+            --gold-light:     #c9a84c;
+            --gold-pale:      #ecd98c;
+            --ochre:          #b87820;
+            --rust:           #7a2e00;
+            --muted:          #6b5a3a;
+            --border:         rgba(160, 120, 32, 0.35);
+            --border-strong:  rgba(160, 120, 32, 0.6);
         }
 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .image img{
-            max-width: 100%;
-            height: auto;
-            border-radius: 18px;
-        }
-
-        header {
-            text-align: center;
-            padding: 20px;
-            background-color: #ffd9b3; /* Light blue header background color */
-            color: #333; /* White text color */
-            
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        nav ul li {
-            display: inline-block;
-            margin-right: 10px;
-        }
-
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-        }
-
-        main {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        h1, h2 {
-            color: #630000; /* Dark blue heading color */
-        }
-
-        h3 {
-            color: #1a237e; /* Dark blue heading color */
-        }
-        a {
-            color: #630000; /* Green link color */
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-
-        footer {
-            text-align: center;
-            padding: 20px 0;
-        }
-        /* Define @font-face for Adishila Dev */
-        @font-face {
-            font-family: 'Adishila';
-            src: local('Adishila'), url('fonts/AdishilaSemiBoldB.woff') format('woff'); /* Adjust the file path and format */
-            font-weight: normal;
-            font-style: normal;
-        }
-
-        /* Define @font-face for Aver */
         @font-face {
             font-family: 'Junicode';
-            src: local('Junicode'), url('fonts/Junicode.woff2') format('woff2'); /* Adjust the file path and format */
-            font-weight: normal;
-            font-style: normal;
+            src: local('Junicode'), url('fonts/Junicode.woff2') format('woff2');
+            font-weight: normal; font-style: normal;
         }
-
+        @font-face {
+            font-family: 'Adishila';
+            src: local('Adishila'), url('fonts/AdishilaSemiBoldB.woff') format('woff');
+            font-weight: normal; font-style: normal;
+        }
         @font-face {
             font-family: 'Ekatra-B';
-            src: local('Ekatra-B'), url('fonts/Ekatra-B.woff') format('woff'); /* Adjust the file path and format */
-            font-weight: normal;
-            font-style: normal;
-            color: #7a0000;
+            src: local('Ekatra-B'), url('fonts/Ekatra-B.woff') format('woff');
+            font-weight: normal; font-style: normal;
         }
 
-        /* Apply Adishila Dev for Devanagari characters */
-        body, h1, h2, h3, p {
-            font-family: 'Junicode', 'Adishila', sans-serif;
-        }
-        
-        blockquote {
-        font-family: 'Adishila', 'Junicode';
-        font-weight: bold;
-        color: #7a0000;
-        text-align: left;
-        background-color: #f5f5f5;
-        border-left: 5px solid #8f8f8f; /* Grey border on the left */
-        padding: 15px;
-        margin: 20px 0;
+        body {
+            font-family: 'Junicode', 'Adishila', Georgia, serif;
+            background-color: var(--parchment);
+            background-image:
+                radial-gradient(ellipse 80% 60% at 15% 40%, rgba(193,127,36,0.07) 0%, transparent 60%),
+                radial-gradient(ellipse 70% 50% at 85% 20%, rgba(92,10,10,0.04) 0%, transparent 55%),
+                radial-gradient(ellipse 90% 70% at 55% 85%, rgba(184,120,32,0.05) 0%, transparent 60%);
+            color: var(--ink);
+            min-height: 100vh;
         }
 
-        blockquote p {
-            display: inline;
-        }
-
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 20px;
-        padding: 30px;
-    }
-
-        /* Card Styling */
-        .card {
-            width: 200px;
-            height: 300px;
-            perspective: 1000px;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
-        }
-
-        .card-inner {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            background-color: #fff;
-            border-radius: 10px;
-        }
-
-        .card:hover .card-inner {
-            transform: rotateY(180deg);
-        }
-
-        .card-front, .card-back {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            backface-visibility: hidden;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 40px;
-            box-sizing: border-box;
-            flex-direction: column;
-        }
-
-        .card-front {
-            background-color: #ffd9b3; /* Light green pastel */
-            color: #333;
-            font-size: larger;
-            
-        }
-
-        .card-back {
-            background-color: #ffffff; /* Light peach pastel */
-            color: #333;
-            transform: rotateY(180deg);
+        /* ── HEADER ─────────────────────────────────────────── */
+        .site-header {
+            background-color: var(--burgundy);
+            background-image:
+                radial-gradient(ellipse 110% 80% at 50% -10%, rgba(138,26,26,0.9) 0%, transparent 65%),
+                linear-gradient(175deg, #6e0e0e 0%, #3e0606 100%);
+            color: var(--gold-pale);
+            padding: 64px 40px 56px;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* subtle horizontal ruled-paper lines in header */
+        .site-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 30px,
+                rgba(255,255,255,0.018) 30px,
+                rgba(255,255,255,0.018) 31px
+            );
+            pointer-events: none;
+        }
+
+        /* faint corner ornaments */
+        .site-header::after {
+            content: '';
+            position: absolute;
+            inset: 16px;
+            border: 1px solid rgba(201,168,76,0.18);
+            pointer-events: none;
+        }
+
+        .header-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 860px;
+            margin: 0 auto;
+        }
+
+        .header-rule-top {
             display: flex;
-            flex-direction: column;
-            justify-content: space-between; /* Space text and button apart */
+            align-items: center;
+            gap: 14px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+        .header-rule-top::before,
+        .header-rule-top::after {
+            content: '';
+            flex: 1;
+            max-width: 180px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+        }
+        .header-ornament-glyph {
+            color: var(--gold-light);
+            font-size: 13px;
+            letter-spacing: 7px;
+            opacity: 0.85;
+        }
+
+        .site-title {
+            font-family: 'Junicode', 'Adishila', Georgia, serif;
+            font-size: clamp(2rem, 5.5vw, 3.4rem);
+            font-weight: normal;
+            letter-spacing: 0.06em;
+            color: var(--parchment);
+            line-height: 1.2;
+            margin-bottom: 14px;
+        }
+
+        .site-subtitle {
+            font-family: 'Junicode', Georgia, serif;
+            font-size: clamp(0.85rem, 2vw, 1rem);
+            font-style: italic;
+            color: var(--gold-pale);
+            opacity: 0.8;
+            letter-spacing: 0.1em;
+            margin-bottom: 28px;
+        }
+
+        .header-divider {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            margin: 0 auto 24px;
+            max-width: 320px;
+        }
+        .header-divider::before,
+        .header-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(201,168,76,0.5));
+        }
+        .header-divider::after {
+            background: linear-gradient(270deg, transparent, rgba(201,168,76,0.5));
+        }
+        .header-divider-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--gold-light);
+            opacity: 0.7;
+        }
+
+        .attribution {
+            font-size: 0.75rem;
+            color: var(--gold-pale);
+            opacity: 0.6;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        .attribution a {
+            color: var(--gold-pale);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255,220,140,0.3);
+            transition: opacity 0.2s, border-color 0.2s;
+        }
+        .attribution a:hover {
+            opacity: 1;
+            border-color: rgba(255,220,140,0.7);
+        }
+
+        /* ── CONTROLS ────────────────────────────────────────── */
+        .controls {
+            max-width: 900px;
+            margin: 44px auto 28px;
+            padding: 0 28px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-wrap {
+            position: relative;
+            flex: 1;
+            min-width: 180px;
+            max-width: 320px;
+        }
+        .search-wrap::before {
+            content: '⌕';
+            position: absolute;
+            left: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--muted);
+            font-size: 1.05rem;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+        .search-input {
+            width: 100%;
+            padding: 9px 14px 9px 36px;
+            border: 1px solid var(--border-strong);
+            border-radius: 2px;
+            background: rgba(255,255,255,0.45);
+            font-family: 'Junicode', Georgia, serif;
+            font-size: 0.9rem;
+            color: var(--ink);
+            outline: none;
+            transition: border-color 0.2s, background 0.2s;
+        }
+        .search-input:focus {
+            border-color: var(--ochre);
+            background: rgba(255,255,255,0.72);
+        }
+        .search-input::placeholder {
+            color: var(--muted);
+            opacity: 0.65;
+            font-style: italic;
+        }
+
+        .filter-wrap {
+            display: flex;
+            gap: 7px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            padding: 7px 14px;
+            border: 1px solid var(--border-strong);
+            background: transparent;
+            font-family: 'Junicode', Georgia, serif;
+            font-size: 0.78rem;
+            color: var(--muted);
+            cursor: pointer;
+            border-radius: 2px;
+            letter-spacing: 0.05em;
+            transition: background 0.2s, color 0.2s, border-color 0.2s;
+        }
+        .filter-btn:hover {
+            background: var(--parchment-dark);
+            color: var(--burgundy);
+            border-color: var(--ochre);
+        }
+        .filter-btn.active {
+            background: var(--burgundy);
+            color: var(--gold-pale);
+            border-color: var(--burgundy);
+        }
+
+        /* ── CATALOGUE ───────────────────────────────────────── */
+        .catalogue {
+            max-width: 900px;
+            margin: 0 auto 70px;
+            padding: 0 28px;
+        }
+
+        .catalogue-meta {
+            font-size: 0.72rem;
+            color: var(--muted);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            margin-bottom: 22px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
             align-items: center;
         }
+        .catalogue-meta-title {
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            opacity: 0.5;
+        }
 
-        /* Button to Open Text */
-        .open-link {
+        /* ── ENTRY ───────────────────────────────────────────── */
+        .entry {
+            position: relative;
+            background: rgba(255,255,255,0.3);
+            /* manuscript ruled-line texture */
+            background-image:
+                linear-gradient(rgba(160,120,32,0.045) 1px, transparent 1px),
+                linear-gradient(rgba(255,255,255,0.3) 1px, transparent 1px);
+            background-size: 100% 28px, 100% 28px;
+            background-position: 0 0, 0 0;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--burgundy);
+            margin-bottom: 18px;
+            padding: 28px 32px 24px 30px;
+            transition: background-color 0.25s, box-shadow 0.25s, border-color 0.25s;
+            opacity: 0;
+            animation: entryReveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .entry:nth-child(2)  { animation-delay: 0.06s; }
+        .entry:nth-child(3)  { animation-delay: 0.12s; }
+        .entry:nth-child(4)  { animation-delay: 0.18s; }
+        .entry:nth-child(5)  { animation-delay: 0.24s; }
+        .entry:nth-child(6)  { animation-delay: 0.30s; }
+        .entry:nth-child(7)  { animation-delay: 0.36s; }
+        .entry:nth-child(8)  { animation-delay: 0.42s; }
+        .entry:nth-child(9)  { animation-delay: 0.48s; }
+        .entry:nth-child(10) { animation-delay: 0.54s; }
+        .entry:nth-child(11) { animation-delay: 0.60s; }
+
+        @keyframes entryReveal {
+            from { opacity: 0; transform: translateY(14px); }
+            to   { opacity: 1; transform: translateY(0);  }
+        }
+
+        .entry:hover {
+            background-color: rgba(255,255,255,0.55);
+            box-shadow: 0 6px 28px rgba(92,10,10,0.09), 0 1px 4px rgba(92,10,10,0.05);
+            border-color: var(--gold);
+            border-left-color: var(--gold);
+        }
+
+        .entry.hidden { display: none; }
+
+        .accession {
+            position: absolute;
+            top: 13px;
+            right: 18px;
+            font-size: 0.65rem;
+            color: var(--muted);
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            opacity: 0.45;
+            font-variant-numeric: tabular-nums;
+            user-select: none;
+        }
+
+        .entry-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .entry-title {
+            font-family: 'Junicode', 'Adishila', Georgia, serif;
+            font-size: 1.3rem;
+            font-weight: normal;
+            color: var(--burgundy);
+            line-height: 1.25;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .tags {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+            flex-shrink: 0;
+            padding-top: 3px;
+        }
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            font-size: 0.64rem;
+            font-family: 'Junicode', Georgia, serif;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+            border: 1px solid;
+            border-radius: 1px;
+            white-space: nowrap;
+        }
+        .tag-sanskrit  { color: #5c3e00; border-color: #c9a84c; background: rgba(201,168,76,0.12); }
+        .tag-prakrit   { color: #1a3458; border-color: #4a7aac; background: rgba(74,122,172,0.10); }
+        .tag-apabhramsha { color: #243a18; border-color: #5a8a3a; background: rgba(90,138,58,0.10); }
+        .tag-sauraseni { color: #3e1650; border-color: #8a4aaa; background: rgba(138,74,170,0.10); }
+
+        .entry-author {
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--rust);
             margin-bottom: 10px;
-            padding: 10px 20px;
-            background-color: #A6A9D4; /* Soft lavender */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            text-decoration: none;
-            font-size: 14px;
+            letter-spacing: 0.02em;
+        }
+        .entry-author::before { content: '— '; opacity: 0.45; }
+
+        .entry-meta {
+            display: flex;
+            gap: 18px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .meta-item {
+            font-size: 0.76rem;
+            color: var(--muted);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .meta-dot {
+            width: 3px; height: 3px;
+            border-radius: 50%;
+            background: var(--gold);
+            display: inline-block;
+            flex-shrink: 0;
         }
 
-        .open-link:hover {
-            background-color: #6D9DC5;
+        .entry-desc {
+            font-size: 0.91rem;
+            line-height: 1.7;
+            color: #3a2a18;
+            margin-bottom: 18px;
         }
-</style>
+
+        .entry-footer {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .read-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Junicode', Georgia, serif;
+            font-size: 0.8rem;
+            color: var(--burgundy);
+            text-decoration: none;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding-bottom: 2px;
+            border-bottom: 1px solid rgba(92,10,10,0.25);
+            transition: color 0.2s, border-color 0.2s, gap 0.2s;
+        }
+        .read-link::after {
+            content: '→';
+            font-style: normal;
+            transition: transform 0.2s;
+        }
+        .read-link:hover {
+            color: var(--ochre);
+            border-color: rgba(184,120,32,0.5);
+            gap: 12px;
+        }
+        .read-link:hover::after {
+            transform: translateX(3px);
+        }
+
+        /* ── NO RESULTS ──────────────────────────────────────── */
+        .no-results {
+            text-align: center;
+            padding: 64px 20px;
+            color: var(--muted);
+            font-style: italic;
+            font-size: 0.95rem;
+            display: none;
+            opacity: 0.7;
+        }
+
+        /* ── FOOTER ──────────────────────────────────────────── */
+        footer {
+            border-top: 1px solid var(--border);
+            text-align: center;
+            padding: 28px 20px;
+            color: var(--muted);
+            font-size: 0.73rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+        footer a {
+            color: var(--muted);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+            transition: color 0.2s;
+        }
+        footer a:hover { color: var(--burgundy); }
+
+        /* ── RESPONSIVE ──────────────────────────────────────── */
+        @media (max-width: 640px) {
+            .site-header { padding: 44px 22px 40px; }
+            .site-header::after { display: none; }
+            .controls { flex-direction: column; align-items: stretch; padding: 0 18px; }
+            .search-wrap { max-width: 100%; }
+            .catalogue { padding: 0 18px; }
+            .entry { padding: 22px 20px 20px; }
+            .accession { display: none; }
+            .entry-header { flex-direction: column; gap: 10px; }
+            .tags { flex-direction: row; }
+        }
+        </style>
+<meta name="google-site-verification" content="nvi13Juvi_HO-P9gMovobq5VihKZXdZqd2AzDHfIYW8" />
+    <script defer src="https://us.umami.is/script.js" data-website-id="fc7f0594-761b-443d-be32-4a0fed6bf8a5"></script>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T12BK66SPZ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-T12BK66SPZ');
+    </script>
 </head>
 <body>
-    <header>
-        <h1>The Jaina Literature Portal</h1>
-            <h3 style="text-align: center;">Repository of various Jaina texts. Curated and managed by <a href="../index.html">svyoma.</h3>
-    </header>
 
-    <div class="container">
-        <!-- Card 1 -->
-        <div class="card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3 style="text-align: center;">Ādidevadvātriṃśikā<br/>by<br/>Rāmacandrasūri</h3>
-                </div>
-                <div class="card-back">
-                    <p>32 verses in praise of first Tīrthaṅkara Ādinātha by Kavikaṭāramalla Rāmacandrasūri, disciple of Hemacandrasūri.</p>
-                    <a href="misc-works/adinatha_ramacandra.html" class="open-link" target="_blank">Read Text</a>
-                </div>
-            </div>
+<header class="site-header">
+    <div class="header-inner">
+        <div class="header-rule-top">
+            <span class="header-ornament-glyph">✦ &nbsp; ✦ &nbsp; ✦</span>
         </div>
 
-        <!-- Card 2 -->
-        <div class="card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3 style="text-align: center;">Siddhacaturviṃśikā<br/>by<br/>Ānandaghana</h3>
-                </div>
-                <div class="card-back">
-                    <p>25 verses on praise of Siddha by Ānandaghana primarily authored in bhujaṅgaprayātam.</p>
-                    <a href="misc-works/anandaghana_siddha.html" class="open-link" target="_blank">Read Text</a>
-                </div>
-            </div>
+        <h1 class="site-title">The Jaina Literature Portal</h1>
+        <p class="site-subtitle">A Repository of Classical Jaina Texts</p>
+
+        <div class="header-divider">
+            <span class="header-divider-dot"></span>
+            <span class="header-divider-dot"></span>
+            <span class="header-divider-dot"></span>
         </div>
 
-        <!-- Card 3 -->
-        <div class="card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3 style="text-align: center;">Jinasādhāraṇastavana<br>by<br>Haribhadrasūri</h3>
-                </div>
-                <div class="card-back">
-                    <p>11 verses in āryā metre in praise of Haribhadrasūri in sama-saṃskṛta-prākṛta.</p>
-                    <a href="misc-works/jinasadharana_haribhadrasuri.html" class="open-link" target="_blank">Read Text</a>
-                </div>
-            </div>
-        </div>
-        <!-- Card 4-->>
-        <div class="card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3 style="text-align: center;">Mahāvīracariu <br> by <br>Jinaprabhasūri</h3>
-                </div>
-                <div class="card-back">
-                    <p>14th century text consisting of 24 verses in Apabhraṃśa summarizing the lives of Mahāvīrasvāmī.</p>
-                    <a href="misc-works/mahaviracariu_jinaprabhasuri.html" class="open-link" target="_blank">Read Text</a>
-                </div>
-            </div>
-        </div>
-                <!-- Card 5 -->
-                <div class="card">
-                    <div class="card-inner">
-                        <div class="card-front">
-                            <h3 style="text-align: center;">Caturviṃśati-Jinastavana<br/>by<br/>Ratnakśekharasūri</h3>
-                        </div>
-                        <div class="card-back">
-                            <p>Praise of 24 Jinas in Saṃskṛta, Prākṛta and Śaurasenī.</p>
-                            <a href="misc-works/caturvimsatistavana_ratnasekhara.html" class="open-link" target="_blank">Read Text</a>
-                        </div>
-                    </div>
-                </div>
-    
-        <!-- Card 2
-        <div class="card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3 style="text-align: center;">Siddhacaturviṃśikā<br/>by<br/>Ānandaghana</h3>
-                </div>
-                <div class="card-back">
-                    <p>25 verses on praise of Siddha by Ānandaghana primarily authored in bhujaṅgaprayātam.</p>
-                    <a href="/jaina-literature/misc-works/anandaghana_siddha.html" class="open-link" target="_blank">Read Text</a>
-                </div>
-            </div>
-        </div>
- -->
-        <!-- Card 3 
-        <div class="card">
-            <div class="card-inner">
-                <div class="card-front">
-                    <h3 style="text-align: center;">Jinasādhāraṇastavana<br>by<br>Haribhadrasūri</h3>
-                </div>
-                <div class="card-back">
-                    <p>11 verses in āryā metre in praise of Haribhadrasūri in sama-saṃskṛta-prākṛta.</p>
-                    <a href="/jaina-literature/misc-works/jinasadharana_haribhadrasuri.html" class="open-link" target="_blank">Read Text</a>
-                </div>
-            </div>
-
-        </div>
-        -->
-        <!-- Add more cards as needed --> 
-        
+        <p class="attribution">Curated &amp; maintained by <a href="../index.html">svyoma</a></p>
     </div>
+</header>
+
+<div class="controls">
+    <div class="search-wrap">
+        <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="Search by title or author…"
+            aria-label="Search catalogue"
+        />
+    </div>
+    <div class="filter-wrap" role="group" aria-label="Filter by language">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="sanskrit">Sanskrit</button>
+        <button class="filter-btn" data-filter="prakrit">Prākṛta</button>
+        <button class="filter-btn" data-filter="apabhramsha">Apabhraṃśa</button>
+    </div>
+</div>
+
+<main class="catalogue" id="catalogue">
+    <div class="catalogue-meta">
+        <span id="catalogueCount">Showing 10 texts</span>
+        <span class="catalogue-meta-title">Jaina Literature Portal</span>
+    </div>
+
+    <!-- Entry 1 -->
+    <article class="entry"
+        data-title="ādidevadvātriṃśikā adinatha ramacandrasuri"
+        data-author="rāmacandrasūri ramacandrasuri"
+        data-languages="sanskrit">
+        <span class="accession">JLP · 001</span>
+        <div class="entry-header">
+            <h2 class="entry-title">Ādidevadvātriṃśikā</h2>
+            <div class="tags">
+                <span class="tag tag-sanskrit">Sanskrit</span>
+            </div>
+        </div>
+        <p class="entry-author">Rāmacandrasūri</p>
+        <div class="entry-meta">
+            <span class="meta-item"><span class="meta-dot"></span>32 verses</span>
+            <span class="meta-item"><span class="meta-dot"></span>Disciple of Hemacandrasūri</span>
+        </div>
+        <p class="entry-desc">
+            Thirty-two verses in praise of the first Tīrthaṅkara, Ādinātha, composed by Kavikaṭāramalla Rāmacandrasūri, a disciple of Hemacandrasūri. A devotional hymn of the Śvetāmbara tradition celebrating the earliest of the twenty-four Jinas.
+        </p>
+        <div class="entry-footer">
+            <a href="misc-works/adinatha_ramacandra.html" class="read-link" target="_blank">Read Text</a>
+        </div>
+    </article>
+
+    <!-- Entry 2 -->
+    <article class="entry"
+        data-title="siddhacaturviṃśikā anandaghana"
+        data-author="ānandaghana anandaghana"
+        data-languages="sanskrit">
+        <span class="accession">JLP · 002</span>
+        <div class="entry-header">
+            <h2 class="entry-title">Siddhacaturviṃśikā</h2>
+            <div class="tags">
+                <span class="tag tag-sanskrit">Sanskrit</span>
+            </div>
+        </div>
+        <p class="entry-author">Ānandaghana</p>
+        <div class="entry-meta">
+            <span class="meta-item"><span class="meta-dot"></span>25 verses</span>
+            <span class="meta-item"><span class="meta-dot"></span>Bhujaṅgaprayāta metre</span>
+        </div>
+        <p class="entry-desc">
+            Twenty-five verses in praise of the Siddha, composed by the celebrated mystic poet Ānandaghana in the serpentine bhujaṅgaprayāta metre. A meditative work extolling the liberated souls who have transcended all karma and attained perfect knowledge.
+        </p>
+        <div class="entry-footer">
+            <a href="misc-works/anandaghana_siddha.html" class="read-link" target="_blank">Read Text</a>
+        </div>
+    </article>
+
+    <!-- Entry 3 -->
+    <article class="entry"
+        data-title="jinasādhāraṇastavana jinasadharana haribhadrasuri"
+        data-author="haribhadrasūri haribhadrasuri"
+        data-languages="sanskrit prakrit">
+        <span class="accession">JLP · 003</span>
+        <div class="entry-header">
+            <h2 class="entry-title">Jinasādhāraṇastavana</h2>
+            <div class="tags">
+                <span class="tag tag-sanskrit">Sanskrit</span>
+                <span class="tag tag-prakrit">Prākṛta</span>
+            </div>
+        </div>
+        <p class="entry-author">Haribhadrasūri</p>
+        <div class="entry-meta">
+            <span class="meta-item"><span class="meta-dot"></span>11 verses</span>
+            <span class="meta-item"><span class="meta-dot"></span>Āryā metre</span>
+            <span class="meta-item"><span class="meta-dot"></span>Sama-saṃskṛta-prākṛta</span>
+        </div>
+        <p class="entry-desc">
+            Eleven verses in the āryā metre in praise of the Jina, composed by the prolific polymath Haribhadrasūri in a mixed Sanskrit–Prākṛta register known as sama-saṃskṛta-prākṛta. A testament to the classical bilingual literary tradition of Jaina scholarship.
+        </p>
+        <div class="entry-footer">
+            <a href="misc-works/jinasadharana_haribhadrasuri.html" class="read-link" target="_blank">Read Text</a>
+        </div>
+    </article>
+
+    <!-- Entry 4 -->
+    <article class="entry"
+        data-title="mahāvīracariu mahaviracariu jinaprabhasuri"
+        data-author="jinaprabhasūri jinaprabhasuri"
+        data-languages="apabhramsha">
+        <span class="accession">JLP · 004</span>
+        <div class="entry-header">
+            <h2 class="entry-title">Mahāvīracariu</h2>
+            <div class="tags">
+                <span class="tag tag-apabhramsha">Apabhraṃśa</span>
+            </div>
+        </div>
+        <p class="entry-author">Jinaprabhasūri</p>
+        <div class="entry-meta">
+            <span class="meta-item"><span class="meta-dot"></span>24 verses</span>
+            <span class="meta-item"><span class="meta-dot"></span>14th century</span>
+        </div>
+        <p class="entry-desc">
+            A fourteenth-century text of twenty-four verses in Apabhraṃśa summarizing the sacred life of Mahāvīrasvāmī, the twenty-fourth and final Tīrthaṅkara of the present cosmic cycle. An important document of late medieval Jaina vernacular literary tradition.
+        </p>
+        <div class="entry-footer">
+            <a href="misc-works/mahaviracariu_jinaprabhasuri.html" class="read-link" target="_blank">Read Text</a>
+        </div>
+    </article>
+
+    <!-- Entry 5 -->
+    <article class="entry"
+        data-title="caturviṃśati jinastavana caturvimsatistavana ratnaksekharasuri ratnasekhara"
+        data-author="ratnakśekharasūri ratnaksekharasuri"
+        data-languages="sanskrit prakrit">
+        <span class="accession">JLP · 005</span>
+        <div class="entry-header">
+            <h2 class="entry-title">Caturviṃśati-Jinastavana</h2>
+            <div class="tags">
+                <span class="tag tag-sanskrit">Sanskrit</span>
+                <span class="tag tag-prakrit">Prākṛta</span>
+                <span class="tag tag-sauraseni">Śaurasenī</span>
+            </div>
+        </div>
+        <p class="entry-author">Ratnakśekharasūri</p>
+        <div class="entry-meta">
+            <span class="meta-item"><span class="meta-dot"></span>Praise of 24 Jinas</span>
+            <span class="meta-item"><span class="meta-dot"></span>Trilingual</span>
+        </div>
+        <p class="entry-desc">
+            A trilingual work in praise of the twenty-four Jinas, composed by Ratnakśekharasūri, spanning Saṃskṛta, Prākṛta, and Śaurasenī. A remarkable example of Jaina multilingual literary practice demonstrating mastery across three prestige registers of classical Jaina scholarship.
+        </p>
+        <div class="entry-footer">
+            <a href="misc-works/caturvimsatistavana_ratnasekhara.html" class="read-link" target="_blank">Read Text</a>
+        </div>
+    </article>
+
+    <!-- Entry 6 -->
+    <article class="entry"
+        data-title="mūrkhaśataka murkhasataka ratnaśekharasūri ratnasekharasuri"
+        data-author="ratnaśekharasūri ratnasekharasuri"
+        data-languages="sanskrit">
+        <span class="accession">JLP · 006</span>
+        <div class="entry-header">
+            <h2 class="entry-title">Mūrkhaśataka</h2>
+            <div class="tags">
+                <span class="tag tag-sanskrit">Sanskrit</span>
+            </div>
+        </div>
+        <p class="entry-author">Ratnaśekharasūri</p>
+        <div class="entry-meta">
+            <span class="meta-item"><span class="meta-dot"></span>27 verses</span>
+            <span class="meta-item"><span class="meta-dot"></span>Anuṣṭubh metre</span>
+            <span class="meta-item"><span class="meta-dot"></span>15th century</span>
+        </div>
+        <p class="entry-desc">
+            A witty enumeration of twenty-seven types of foolish conduct, composed by Ratnaśekharasūri in the anuṣṭubh metre. Framed as royal counsel, each verse catalogues a recognisable human folly — a rare specimen of Jaina didactic literature in a satirical register.
+        </p>
+        <div class="entry-footer">
+            <a href="misc-works/murkhasataka_ratnasekharasuri.html" class="read-link" target="_blank">Read Text</a>
+        </div>
+    </article>
+
+    <!-- Entry 7 -->
+    <article class="entry"
+        data-title="vīrajiṇathaya virajinathava vīrajinastava abhayadevasūri abhayadevasuri"
+        data-author="abhayadevasūri abhayadevasuri"
+        data-languages="prakrit">
+        <span class="accession">JLP · 007</span>
+        <div class="entry-header">
+            <h2 class="entry-title">Vīrajiṇathaya</h2>
+            <div class="tags">
+                <span class="tag tag-prakrit">Prākṛta</span>
+            </div>
+        </div>
+        <p class="entry-author">Abhayadevasūri</p>
+        <div class="entry-meta">
+            <span class="meta-item"><span class="meta-dot"></span>22 verses</span>
+            <span class="meta-item"><span class="meta-dot"></span>Anuṣṭubh &amp; Mālinī metres</span>
+        </div>
+        <p class="entry-desc">
+            A Prākṛta eulogy of Mahāvīra in twenty-two verses by the celebrated commentator Abhayadevasūri, composed in anuṣṭubh (vv. 1–20, 22) and mālinī (v. 21). An important hymn from the Jaina Stotra Sandoha anthology, celebrating the qualities and enlightenment of the twenty-fourth Tīrthaṅkara.
+        </p>
+        <div class="entry-footer">
+            <a href="misc-works/virajinathava_abhayadeva.html" class="read-link" target="_blank">Read Text</a>
+        </div>
+    </article>
+
+    <!-- Entry 8 -->
+    <article class="entry"
+        data-title="vīranirvāṇastutyādisaṅgraha viranirvanastuti jinaprabhasūri jinaprabhasuri guṇasāgaragaṇi"
+        data-author="jinaprabhasūri jinaprabhasuri guṇasāgaragaṇi anthology"
+        data-languages="sanskrit apabhramsha">
+        <span class="accession">JLP · 008</span>
+        <div class="entry-header">
+            <h2 class="entry-title">Vīranirvāṇastutyādisaṅgraha</h2>
+            <div class="tags">
+                <span class="tag tag-sanskrit">Sanskrit</span>
+                <span class="tag tag-apabhramsha">Apabhraṃśa</span>
+            </div>
+        </div>
+        <p class="entry-author">Anthology — Jinaprabhasūri, Guṇasāgaragaṇi &amp; others</p>
+        <div class="entry-meta">
+            <span class="meta-item"><span class="meta-dot"></span>3 texts compiled</span>
+            <span class="meta-item"><span class="meta-dot"></span>Dīpāvali occasion</span>
+        </div>
+        <p class="entry-desc">
+            A compiled anthology of three texts for the occasion of Mahāvīra's nirvāṇa: the <em>Vīranirvāṇakālyāṇakastava</em> of Jinaprabhasūri (19 verses, Sanskrit); the <em>Dīpālikāstutūcatuṣṭayī</em> of Guṇasāgaragaṇi (4 verses, Sanskrit); and an Apabhraṃśa passage from Vibudhśrīdhara's <em>Vardhamānacarita</em> on the same occasion.
+        </p>
+        <div class="entry-footer">
+            <a href="misc-works/viranirvanastuti.html" class="read-link" target="_blank">Read Text</a>
+        </div>
+    </article>
+
+    <!-- Entry 9 -->
+    <article class="entry"
+        data-title="vīrastutidvātriṃśikā virastutidvatrimsika ratnākarasūri ratnakarasuri"
+        data-author="disciple of ratnākarasūri ratnakarasuri"
+        data-languages="sanskrit">
+        <span class="accession">JLP · 009</span>
+        <div class="entry-header">
+            <h2 class="entry-title">Vīrastutidvātriṃśikā</h2>
+            <div class="tags">
+                <span class="tag tag-sanskrit">Sanskrit</span>
+            </div>
+        </div>
+        <p class="entry-author">Disciple of Ratnākarasūri</p>
+        <div class="entry-meta">
+            <span class="meta-item"><span class="meta-dot"></span>33 verses</span>
+            <span class="meta-item"><span class="meta-dot"></span>Indravajrā &amp; Śārdūlavikrīḍita</span>
+        </div>
+        <p class="entry-desc">
+            Thirty-three verses in praise of Mahāvīra, composed by an unnamed disciple of Ratnākarasūri, employing the indravajrā metre for verses 1–32 and śārdūlavikrīḍita for the closing colophon verse. An elegant devotional work that weaves biography with philosophical reflection, published in <em>Sambodhi</em> Vol. 7.
+        </p>
+        <div class="entry-footer">
+            <a href="misc-works/virastutidvatrimsika_ratnakarasuri.html" class="read-link" target="_blank">Read Text</a>
+        </div>
+    </article>
+
+    <!-- Entry 10 -->
+    <article class="entry"
+        data-title="jñānapañcamīstuti jnanapancamistuti"
+        data-author="puṇyavijaya punyavijaya compilation"
+        data-languages="sanskrit">
+        <span class="accession">JLP · 010</span>
+        <div class="entry-header">
+            <h2 class="entry-title">Jñānapañcamīstuti</h2>
+            <div class="tags">
+                <span class="tag tag-sanskrit">Sanskrit</span>
+            </div>
+        </div>
+        <p class="entry-author">Compiled by Puṇyavijaya</p>
+        <div class="entry-meta">
+            <span class="meta-item"><span class="meta-dot"></span>4 verses</span>
+            <span class="meta-item"><span class="meta-dot"></span>Kārtika Śukla Pañcamī occasion</span>
+        </div>
+        <p class="entry-desc">
+            A short compilation of four Sanskrit verses for the occasion of Jñānapañcamī (Kārtika Śukla Pañcamī), preserved in the collection of Puṇyavijaya. The verses invoke Jina, the Siddhas, and the goddess Ambikā in praise of śruta (canonical knowledge) and the merit accrued by observing the pañcamī fast.
+        </p>
+        <div class="entry-footer">
+            <a href="misc-works/jnanapancamistuti.html" class="read-link" target="_blank">Read Text</a>
+        </div>
+    </article>
+
+    <p class="no-results" id="noResults">No texts found matching your search.</p>
+</main>
+
+<footer>
+    <p>The Jaina Literature Portal &nbsp;·&nbsp; Curated by <a href="../index.html">svyoma</a></p>
+</footer>
+
+<script>
+    const searchInput   = document.getElementById('searchInput');
+    const filterBtns    = document.querySelectorAll('.filter-btn');
+    const entries       = document.querySelectorAll('.entry');
+    const countEl       = document.getElementById('catalogueCount');
+    const noResultsEl   = document.getElementById('noResults');
+
+    let activeFilter = 'all';
+    let activeSearch = '';
+
+    function refresh() {
+        let visible = 0;
+        entries.forEach(entry => {
+            const title  = (entry.dataset.title  || '').toLowerCase();
+            const author = (entry.dataset.author || '').toLowerCase();
+            const langs  = (entry.dataset.languages || '');
+
+            const matchSearch = !activeSearch ||
+                title.includes(activeSearch) || author.includes(activeSearch);
+            const matchFilter = activeFilter === 'all' ||
+                langs.includes(activeFilter);
+
+            const show = matchSearch && matchFilter;
+            entry.classList.toggle('hidden', !show);
+            if (show) visible++;
+        });
+
+        countEl.textContent = visible === 1
+            ? 'Showing 1 text'
+            : `Showing ${visible} texts`;
+
+        noResultsEl.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    searchInput.addEventListener('input', e => {
+        activeSearch = e.target.value.toLowerCase().trim();
+        refresh();
+    });
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            activeFilter = btn.dataset.filter;
+            refresh();
+        });
+    });
+</script>
+
 </body>
 </html>
