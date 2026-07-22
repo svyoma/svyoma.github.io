@@ -257,7 +257,7 @@
       const refLabel = HC.formatRef(s.ref, script);
 
       html.push(`
-        <a class="sutra-item" href="sutra.html?id=${HC.escHtml(s.id)}" role="listitem"
+        <a class="sutra-item" href="sutra?id=${HC.escHtml(s.id)}" role="listitem"
            aria-label="Sūtra ${s.ref}: ${text}">
           <span class="sutra-item-ref" aria-hidden="true">${HC.escHtml(refLabel)}</span>
           <span class="sutra-item-text">${dispText}</span>

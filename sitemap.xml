@@ -1,82 +1,208 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://svyoma.github.io/</loc>
-  <lastmod>2024-12-09T15:17:43+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://svyoma.github.io/about</loc>
-  <lastmod>2024-12-09T15:17:43+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://svyoma.github.io/blogs</loc>
-  <lastmod>2024-12-09T15:17:43+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://svyoma.github.io/jaina-literature/</loc>
-  <lastmod>2024-12-09T15:17:43+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://svyoma.github.io/jaina-literature/dailyverse</loc>
-  <lastmod>2024-12-09T15:17:43+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://svyoma.github.io/index.html</loc>
-  <lastmod>2024-12-09T15:17:43+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://svyoma.github.io/jaina-literature/misc-works/adinatha_ramacandra.html</loc>
-  <lastmod>2024-12-09T15:17:43+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://svyoma.github.io/jaina-literature/misc-works/anandaghana_siddha.html</loc>
-  <lastmod>2024-12-09T15:17:43+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://svyoma.github.io/jaina-literature/misc-works/jinasadharana_haribhadrasuri.html</loc>
-  <lastmod>2024-12-09T15:17:43+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://svyoma.github.io/jaina-literature/misc-works/mahaviracariu_jinaprabhasuri.html</loc>
-  <lastmod>2024-12-09T15:17:43+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://svyoma.github.io/jaina-literature/misc-works/caturvimsatistavana_ratnasekhara.html</loc>
-  <lastmod>2024-12-09T15:17:43+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
-<url>
-  <loc>https://svyoma.github.io/jaina-literature/index.html</loc>
-  <lastmod>2024-12-09T15:17:43+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://svyoma.github.io/blogs/bhasaslesa-2.html</loc>
-  <lastmod>2024-12-09T15:17:43+00:00</lastmod>
-  <priority>0.51</priority>
-</url>
-<url>
-  <loc>https://svyoma.github.io/blogs/bhasaslesa.html</loc>
-  <lastmod>2024-12-09T15:17:43+00:00</lastmod>
-  <priority>0.41</priority>
-</url>
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://svyoma.github.io/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/about</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/cv</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/anekartha-2</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/anekartha</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/bechardas_doshi</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/bhasaslesa-2</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/bhasaslesa-3</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/bhasaslesa</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/brhattippanika-1</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/daivayattam_kule_janma</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/drdhatara_nibaddha_musteh</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/gita-bhagavat-mbh</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/gyan-panchami</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/na_hi_vandhya</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/raghuvilasa-1</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/raghuvilasa-2</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/satesu_jayate_surah</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/sutra</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/svah_karyamadya</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/authors/ramacandra</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.40</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/text?slug=adinatha_ramacandra</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/text?slug=anandaghana_siddha</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/text?slug=caturvimsatistavana_ratnasekhara</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/text?slug=jinasadharana_haribhadrasuri</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/misc-works/jnanapancamistuti.html</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/text?slug=mahaviracariu_jinaprabhasuri</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/text?slug=murkhasataka_ratnasekharasuri</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/text?slug=virajinathava_abhayadeva</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/misc-works/viranirvanastuti.html</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/misc-works/virastutidvatrimsika_ratnakarasuri.html</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.60</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/translations/jaina-samskrta-sahitya.html</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/shs/</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/prakrit_grammar/sutras/0801044.html</loc>
+    <lastmod>2026-07-21</lastmod>
+    <priority>0.40</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/text?slug=jinapati_sripura_parsvanatha</loc>
+    <lastmod>2026-07-22</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/text?slug=mahavira_dhanapala</loc>
+    <lastmod>2026-07-22</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/text?slug=parsvacandra_mahavira</loc>
+    <lastmod>2026-07-22</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/text?slug=jinastuti</loc>
+    <lastmod>2026-07-22</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/blogs/chapannayagahao</loc>
+    <lastmod>2026-07-22</lastmod>
+    <priority>0.60</priority>
+  </url>
 </urlset>

@@ -1,0 +1,63 @@
+---
+slug: jinasadharana_haribhadrasuri
+accession: JLP-003
+title:
+  deva: जिनसाधारणस्तवनम्
+author:
+  name:
+    deva: हरिभद्रसूरि
+language:
+- sanskrit
+- prakrit
+genre: stotra
+sourceScript: both
+metre:
+- name: आर्या
+  lakshana: यस्याः प्रथमे पादे द्वादशमात्रस्तथा तृतीयेऽपि। अष्टादश द्वितीये चतुर्थके पञ्चदश साऽऽर्या॥
+edition:
+  name: Jinasādhāraṇastavana (samasaṃskṛta)
+  publisher: Nemisuri Gyanmandir Ahmedabad (1979)
+  publication: Anusandhāna Issue 22
+  editor: Śīlacandrasūri
+  digitized_by: Vyom A. Shah
+blurb: Eleven verses in the āryā metre in praise of the Jina, composed by the prolific polymath Haribhadrasūri
+  in a mixed Sanskrit–Prākṛta register known as sama-saṃskṛta-prākṛta. A testament to the classical bilingual
+  literary tradition of Jaina scholarship.
+note: This is a sama-saṃskṛta-prākṛta stavana, meaning it can be read in both Saṃskṛta and Prākṛta with
+  the same meaning in both languages.
+---
+
+@1
+अङ्गुलिदलाभिरामं सुरनरनिवहालिकुलसमालीढम्।
+देव! तव चरणकमलं नमामि संसारभयहरणम्॥
+
+@2
+कामकरिकुम्भदारण! भवदवजलवाह! विमलगुणनिलय!
+किंकिल्लिपल्लवारुण-करचरण! निरुद्धचलकरण!॥
+
+@3
+मायारेणुसमीरण! भवभूरुहसिन्धुर! निरीह!
+मरणजरामयवारण! मोहमहामल्लबलहरण!॥
+
+@4
+भावारिहरिणहरिवर! संसारमहाजलालयतरण्ड!
+कलिलभरतिमिरभासुररविमण्डल! गुणमणिकरण्ड!॥
+
+@5
+अमर-पुरन्दर-किन्नर-नरवरसन्दोहभसलवरकमल!
+करुणारसकुलमन्दिर! सिद्धिमहापुरवरनिवास!॥
+
+@6
+स्वसमयकमलसरोवर! सुरगिरिवरसारसुन्दरावयव!
+चिन्तामणिफलसङ्गम! रागोरुगगरुडवरचरण!॥
+
+@7
+हरहास-हार-हिमकर-हिम-कुन्द-करेणुधवल! समचित्त!
+अकलङ्क! सुकुलसम्भव! भवविरहं देहि मम देव!॥
+
+@8
+एवं संस्कृतवचनैः प्राकृतवचनैश्च सर्वथा साम्यम्।
+विदधानैर्विनुतो मे जिनेश्वरो भवतु सुखहेतुः॥
+
+@@colophon
+इति सर्वश्रीजिनसाधारणस्तवनं समसंस्कृतं श्रीहरिभद्रसूरिकृतम्॥

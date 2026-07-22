@@ -1,0 +1,18 @@
+# Personal source documents — not part of the published site
+*.docx
+*.doc
+*.pages
+*.tmp
+
+# Python build caches (build.py / build_feed.py)
+__pycache__/
+*.py[cod]
+
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.vscode/
+.idea/

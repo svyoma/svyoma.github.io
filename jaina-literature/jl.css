@@ -1,0 +1,128 @@
+/* jl.css — verse rendering, script toggle, citation UI for text.html.
+   Builds on assets/css/text-style.css (parchment/burgundy theme + variables). */
+
+/* ---- header extras ---- */
+.accession-badge {
+    display: inline-block; font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--gold); border: 1px solid var(--border-strong); border-radius: 2px;
+    padding: 2px 8px; margin-bottom: 8px;
+}
+.text-author .author-note { font-style: italic; color: var(--muted); font-weight: normal; font-size: 0.9em; }
+.tag-genre { background: var(--parchment-mid); color: var(--rust); border: 1px solid var(--border); }
+
+/* ---- prose blocks ---- */
+.section-label {
+    font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--gold); margin: 0 0 6px;
+}
+.blurb {
+    font-size: 1.06rem; line-height: 1.7; color: var(--ink); margin: 4px 0 20px;
+    padding-bottom: 18px; border-bottom: 1px solid var(--border);
+}
+.about { margin: 22px 0; }
+.about p { line-height: 1.75; margin: 0 0 10px; color: var(--ink); }
+.about em { font-style: italic; color: var(--burgundy); }
+.overview { margin: 22px 0; }
+.overview ul { margin: 0; padding-left: 20px; }
+.overview li { line-height: 1.7; color: var(--ink); }
+.note-callout {
+    margin: 20px 0; padding: 12px 16px; background: var(--parchment-mid);
+    border-left: 3px solid var(--gold); border-radius: 2px; font-size: 0.95rem;
+    line-height: 1.65; color: var(--rust);
+}
+.lakshana { display: block; margin-top: 3px; font-style: italic; color: var(--muted); font-size: 0.9em; }
+
+/* interleaved structural headings */
+.section-heading {
+    font-size: 1rem; color: var(--burgundy); margin: 26px 0 4px; padding-bottom: 4px;
+    border-bottom: 1px dotted var(--border-strong); letter-spacing: 0.01em;
+}
+.verses .verse:first-child + .section-heading, .section-heading:first-child { margin-top: 6px; }
+
+/* akṣara-frequency (extras.analysisTable) */
+.analysis { margin: 24px 0 0; border-top: 1px solid var(--border); padding-top: 14px; }
+.analysis summary {
+    cursor: pointer; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted);
+}
+.ana-grid { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-top: 12px; }
+.ana-cell { font-size: 0.9rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.ana-cell b { color: var(--ink); font-size: 1.05rem; }
+
+.script-toolbar {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+    margin: 22px 0 10px;
+}
+.script-toggle { display: inline-flex; border: 1px solid var(--border-strong); border-radius: 2px; overflow: hidden; }
+.toggle-btn {
+    font-family: inherit; font-size: 0.8rem; padding: 5px 12px; cursor: pointer;
+    background: transparent; color: var(--muted); border: none; border-right: 1px solid var(--border);
+}
+.toggle-btn:last-child { border-right: none; }
+.toggle-btn.active { background: var(--burgundy); color: var(--gold-pale); }
+.toggle-btn:hover:not(.active) { background: var(--parchment-mid); }
+
+.mode-btn {
+    font-family: inherit; font-size: 0.72rem; letter-spacing: 0.05em; text-transform: uppercase;
+    padding: 5px 12px; cursor: pointer; background: transparent; color: var(--rust);
+    border: 1px solid var(--border-strong); border-radius: 2px;
+}
+.mode-btn.active { background: var(--gold); color: #fff; border-color: var(--gold); }
+
+.verses { margin-top: 8px; }
+.verse {
+    position: relative; padding: 14px 0 14px 42px; border-bottom: 1px solid var(--border);
+    scroll-margin-top: 16px;
+}
+.verse:last-child { border-bottom: none; }
+.verse-num {
+    position: absolute; left: 0; top: 16px; width: 30px; text-align: right;
+    font-size: 0.8rem; color: var(--gold); font-variant-numeric: tabular-nums;
+}
+.verse-permalink {
+    position: absolute; left: 34px; top: 16px; opacity: 0; text-decoration: none;
+    color: var(--gold); font-size: 0.85rem; transition: opacity 0.15s;
+}
+.verse:hover .verse-permalink, .verse:focus-within .verse-permalink { opacity: 0.7; }
+.verse-permalink:hover { opacity: 1; }
+.verse:target { background: rgba(201,168,76,0.14); border-radius: 3px; }
+
+.pada-block { margin: 0; white-space: pre-line; line-height: 1.9; font-size: 1.05rem; }
+.pada-block.deva { font-family: 'Adishila', 'Junicode', serif; font-size: 1.15rem; }
+.script-line { display: block; }
+.script-line .lbl {
+    display: inline-block; min-width: 46px; font-size: 0.6rem; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--muted); opacity: 0.7; vertical-align: top;
+    user-select: none;
+}
+/* compare (interlinear) mode: stack labelled scripts + translation */
+.verse .stack .pada-block { margin-bottom: 4px; }
+.verse .translation { margin-top: 8px; font-style: italic; color: var(--rust); font-size: 0.95rem; }
+.verse .translation .lbl { font-style: normal; }
+.verse .commentary { margin-top: 8px; padding-left: 12px; border-left: 2px solid var(--border); font-size: 0.92rem; color: var(--muted); }
+.verse .apparatus { margin-top: 6px; font-size: 0.78rem; color: var(--muted); }
+.verse .apparatus::before { content: '⁂ '; color: var(--gold); }
+
+.cite-btn {
+    font-family: inherit; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em;
+    background: transparent; color: var(--muted); border: 1px solid var(--border);
+    border-radius: 2px; padding: 3px 9px; cursor: pointer; margin-left: auto;
+}
+.cite-btn:hover { color: var(--burgundy); border-color: var(--border-strong); }
+
+.cite-box {
+    margin: 10px 0; background: var(--parchment-mid); border: 1px solid var(--border);
+    border-radius: 3px; padding: 12px; display: none;
+}
+.cite-box.open { display: block; }
+.cite-box pre { margin: 0; white-space: pre-wrap; font-family: ui-monospace, monospace; font-size: 0.76rem; color: var(--ink); }
+.cite-box .copy { margin-top: 8px; font-size: 0.7rem; cursor: pointer; background: var(--burgundy); color: var(--gold-pale); border: none; border-radius: 2px; padding: 4px 10px; }
+
+.colophon { margin-top: 20px; font-style: italic; color: var(--muted); text-align: center; }
+.loading, .error { text-align: center; color: var(--muted); padding: 40px 0; }
+.error { color: var(--burgundy); }
+
+@media (max-width: 600px) {
+    .verse { padding-left: 34px; }
+    .script-line .lbl { min-width: 38px; }
+}

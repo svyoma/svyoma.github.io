@@ -44,7 +44,7 @@
 
 <!-- ── Compact Header ──────────────────────────────────────────── -->
 <header class="sutra-page-header">
-  <a href="index.html" class="back-link" aria-label="Back to all sūtras">
+  <a href="index" class="back-link" aria-label="Back to all sūtras">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
       <polyline points="15 18 9 12 15 6"/>
     </svg>
@@ -180,7 +180,7 @@
           </svg>
           Share
         </button>
-        <a class="action-btn" href="index.html" style="text-decoration:none;">
+        <a class="action-btn" href="index" style="text-decoration:none;">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
             <polyline points="9 22 9 12 15 12 15 22"/>
@@ -338,7 +338,7 @@
     if (!urlId) {
       cardEl.innerHTML = `<div style="text-align:center;padding:40px 0;">
         <p style="font-family:var(--font-display);color:var(--clr-ink-muted);">No sūtra specified.</p>
-        <p style="margin-top:10px;"><a href="index.html">Browse all sūtras →</a></p>
+        <p style="margin-top:10px;"><a href="index">Browse all sūtras →</a></p>
       </div>`;
       commEl.innerHTML = "";
       return;
@@ -350,7 +350,7 @@
         <p style="font-family:var(--font-display);color:var(--clr-ink-muted);">
           Sūtra <code>${HC.escHtml(urlId)}</code> not found.
         </p>
-        <p style="margin-top:10px;"><a href="index.html">Browse all sūtras →</a></p>
+        <p style="margin-top:10px;"><a href="index">Browse all sūtras →</a></p>
       </div>`;
       commEl.innerHTML = "";
       return;

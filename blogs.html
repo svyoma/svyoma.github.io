@@ -3,7 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Vyoma's Web Space</title>
+    <title>Blog — Vyom A. Shah on Sanskrit, Prakrit &amp; Jaina Literature</title>
+    <meta name="description" content="Scholarly blog by Vyom A. Shah on Sanskrit and Prakrit literature — śleṣa poetry, Jaina stutis and stotras, grammar, and studies of authors such as Rāmacandrasūri and Hemacandra.">
+    <meta name="author" content="Vyom A. Shah">
+    <meta name="keywords" content="Vyom Shah, Sanskrit blog, Prakrit, Jaina literature, slesa, anekartha, kavya, stuti, Indology">
+    <link rel="canonical" href="https://svyoma.github.io/blogs">
+    <meta name="robots" content="index, follow">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Vyoma's Web Space">
+    <meta property="og:title" content="Blog — Vyom A. Shah on Sanskrit, Prakrit &amp; Jaina Literature">
+    <meta property="og:description" content="Scholarly essays on Sanskrit and Prakrit literature, śleṣa poetry, Jaina stutis, and grammar.">
+    <meta property="og:url" content="https://svyoma.github.io/blogs">
+    <meta property="og:image" content="https://svyoma.github.io/images/VAS.jpg">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Blog — Vyom A. Shah on Sanskrit, Prakrit &amp; Jaina Literature">
+    <meta name="twitter:image" content="https://svyoma.github.io/images/VAS.jpg">
+    <link rel="icon" href="/images/VAS.jpg">
     <!-- Font Awesome for social icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -350,7 +365,52 @@
                 flex-wrap: wrap;
             }
         }
+
+        /* --- dynamic index: search + tag filter (rendered by blog.js) --- */
+        .blog-controls {
+            display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-bottom: 18px;
+        }
+        .blog-search {
+            flex: 1 1 240px; max-width: 360px; font-family: inherit; font-size: 0.95rem;
+            padding: 8px 14px; border: 1px solid rgba(212,167,106,0.5); border-radius: 20px;
+            background: #fff; color: var(--primary-color);
+        }
+        .blog-search:focus { outline: none; border-color: var(--accent-color); }
+        .blog-count { font-size: 0.85rem; color: #666; }
+        .blog-rss {
+            margin-left: auto; font-size: 0.85rem; color: var(--link-color); text-decoration: none;
+            display: inline-flex; align-items: center; gap: 5px;
+        }
+        .blog-rss:hover { color: var(--accent-color); }
+        .blog-filter { margin-bottom: 30px; }
+        .filter-row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; }
+        .filter-label {
+            font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: #999;
+            min-width: 52px;
+        }
+        .series-chip { border-style: dashed; }
+        .series-chip.active { background: var(--primary-color); border-color: var(--primary-color); color: #fff; }
+        .blog-series { margin-bottom: 10px; }
+        .series-badge {
+            display: inline-flex; align-items: center; gap: 6px; cursor: pointer;
+            font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase;
+            color: var(--primary-color); border: 1px dashed rgba(122,31,43,0.4);
+            border-radius: 12px; padding: 3px 10px; background: rgba(122,31,43,0.04);
+        }
+        .series-badge:hover { background: var(--primary-color); color: #fff; }
+        .filter-chip {
+            font-family: inherit; font-size: 0.82rem; cursor: pointer;
+            background: var(--secondary-color); color: var(--primary-color);
+            border: 1px solid rgba(212,167,106,0.35); border-radius: 15px; padding: 4px 12px;
+            transition: all 0.2s ease;
+        }
+        .filter-chip:hover { background: var(--accent-color); color: #fff; }
+        .filter-chip.active { background: var(--accent-color); color: #fff; border-color: var(--accent-color); }
+        .filter-chip .chip-n { opacity: 0.6; font-size: 0.72em; }
+        .blog-categories .category-tag { cursor: pointer; }
+        .blog-empty, .blog-error { color: #666; padding: 30px 0; }
         </style>
+    <link rel="alternate" type="application/rss+xml" title="Vyom A. Shah — Blog" href="/blogs/feed.xml">
 <meta name="google-site-verification" content="nvi13Juvi_HO-P9gMovobq5VihKZXdZqd2AzDHfIYW8" />
     <script defer src="https://us.umami.is/script.js" data-website-id="fc7f0594-761b-443d-be32-4a0fed6bf8a5"></script>
     <!-- Google Analytics -->
@@ -371,8 +431,10 @@
                 <ul>
                     <li><a href="/">Home</a></li>
                     <li><a href="/about">About</a></li>
+                    <li><a href="/cv">CV</a></li>
                     <li><a href="/blogs">Blog</a></li>
                     <li><a href="/jaina-literature">Jaina Literature Portal</a></li>
+                    <li><a href="/shs">Siddhahema Grammar</a></li>
                 </ul>
             </nav>
         </div>
@@ -383,772 +445,20 @@
             <section class="blog-section">
                 <h2 class="section-title">Latest Posts</h2>
 
-                <article class="blog-card">
-                                <div class="blog-content">
-                                    <div class="vintage-corner top-left"></div>
-                                    <div class="vintage-corner top-right"></div>
-                                    <div class="vintage-corner bottom-left"></div>
-                                    <div class="vintage-corner bottom-right"></div>
-
-                                    <div class="blog-categories">
-                                        <span class="category-tag">Jaina Literature</span>
-                                        <span class="category-tag">AI</span>
-                                        <span class="category-tag">Philosophy</span>
-                                    </div>
-
-                                    <a href="/blogs/sutra.html" style="text-decoration: none;">
-                                        <h3 class="blog-title">Tokenizing Efficiently: Ancient India's 32-Fault System for Compressing Knowledge</h3>
-                                    </a>
-
-                                    <div class="blog-meta">
-                                        <span><i class="far fa-calendar"></i> January 31, 2026</span>
-                                    </div>
-
-                                    <div class="blog-excerpt">
-                                        <p>Exploring the parallel between modern AI tokenization and ancient Indian sūtra composition – two systems grappling with the same challenge of compressing maximum information into minimum space.</p>
-                                    </div>
-
-                                    <a href="/blogs/sutra.html" class="read-more">
-                                        Read More <i class="fas fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                </article>
-
-                <article class="blog-card">
-                                <div class="blog-content">
-                                    <div class="vintage-corner top-left"></div>
-                                    <div class="vintage-corner top-right"></div>
-                                    <div class="vintage-corner bottom-left"></div>
-                                    <div class="vintage-corner bottom-right"></div>
-
-                                    <div class="blog-categories">
-                                        <span class="category-tag">Jaina Literature</span>
-                                        <span class="category-tag">Cataloguing</span>
-                                    </div>
-
-                                    <a href="/blogs/brhattippanika.html" style="text-decoration: none;">
-                                        <h3 class="blog-title">Cataloguing Culture in Medieval India: Evidence from the Bṛhaṭṭippanikā</h3>
-                                    </a>
-                                    
-                                    <div class="blog-meta">
-                                        <span><i class="far fa-calendar"></i> January 13, 2026</span>
-                                    </div>
-
-                                    <div class="blog-excerpt">
-                                        <p>Explore the history of cataloguing from the Royal Library of Ashurbanipal to the Bṛhaṭṭippanikā manuscript in medieval India.</p>
-                                    </div>
-
-                                    <a href="/blogs/brhattippanika.html" class="read-more">
-                                        Read More <i class="fas fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                </article>
-                
-                <article class="blog-card">
-                                <div class="blog-content">
-                                    <div class="vintage-corner top-left"></div>
-                                    <div class="vintage-corner top-right"></div>
-                                    <div class="vintage-corner bottom-left"></div>
-                                    <div class="vintage-corner bottom-right"></div>
-
-                                    <div class="blog-categories">
-                                        <span class="category-tag">Jaina Knowledge Repositories</span>
-                                        <span class="category-tag">Jaina Jñānabhaṇḍāras</span>
-                                    </div>
-
-                                    <a href="/blogs/gyan-panchami.html" style="text-decoration: none;">
-                                        <h3 class="blog-title">Jaina Jñānabhaṇḍāras</h3>
-                                    </a>
-                                    
-                                    <div class="blog-meta">
-                                        <span><i class="far fa-calendar"></i> 26th October, 2025</span>
-                                    </div>
-
-                                    <div class="blog-excerpt">
-                                        <p>Explore the rich repositories of Jaina knowledge, including texts, manuscripts, and scholarly works.</p>
-                                    </div>
-
-                                    <a href="/blogs/gyan-panchami.html" class="read-more">
-                                        Read More <i class="fas fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                </article>
-                <article class="blog-card">
-                                <div class="blog-content">
-                                    <div class="vintage-corner top-left"></div>
-                                    <div class="vintage-corner top-right"></div>
-                                    <div class="vintage-corner bottom-left"></div>
-                                    <div class="vintage-corner bottom-right"></div>
-
-                                    <div class="blog-categories">
-                                        <span class="category-tag">Jaina Scholars</span>
-                                        <span class="category-tag">Prakrit Scholars</span>
-                                    </div>
-
-                                    <a href="/blogs/bechardas_doshi.html" style="text-decoration: none;">
-                                        <h3 class="blog-title">Bechardas Doshi</h3>
-                                    </a>
-                                    
-                                    <div class="blog-meta">
-                                        <span><i class="far fa-calendar"></i> October 11, 2025</span>
-                                    </div>
-
-                                    <div class="blog-excerpt">
-                                        <p>Remembering the legacy of Pt. Bechardas Doshi.</p>
-                                    </div>
-
-                                    <a href="/blogs/bechardas_doshi.html" class="read-more">
-                                        Read More <i class="fas fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                </article>
-
-
-
-
-                <!-- Bhagavad-bhagavat-mbh -->
-
-                <article class="blog-card">
-                  <div class="blog-content">
-                      <div class="vintage-corner top-left"></div>
-                      <div class="vintage-corner top-right"></div>
-                      <div class="vintage-corner bottom-left"></div>
-                      <div class="vintage-corner bottom-right"></div>
-
-                      <div class="blog-categories">
-                          <span class="category-tag">Sanskrit</span>
-                          <span class="category-tag">Prakrit</span>
-                      </div>
-
-                      <a href="/blogs/gita-bhagavat-mbh.html" style="text-decoration: none;">
-                          <h3 class="blog-title">Few Tongues, 1 Utterance – Part 6</h3>
-                      </a>
-                      
-                      <div class="blog-meta">
-                          <span><i class="far fa-calendar"></i> Septermber 9, 2025</span>
-                      </div>
-
-                      <div class="blog-excerpt">
-                          <p>While on a journey to find parallels across languages, we stumble upon the retellings of the verses from Śrīmad-Bhagavad-Gītā, Bhāgavatapurāṇa and Mahābhārata (& Manusmṛti) </p>
-                      </div>
-
-                      <a href="/blogs/gita-bhagavat-mbh.html" class="read-more">
-                          Read More <i class="fas fa-arrow-right"></i>
-                      </a>
-                  </div>
-              </article>
-                <!-- Blog Post Card -->
-                <article class="blog-card">
-                    <a href="/blogs/jinapati_sripura_parsvanatha.html" class="blog-image">
-                        <img src="blogs/images/cover-images/antarikshji.png" alt="Jinapatisūri's Śrīpura Parsvanātha Stava">
-                    </a>
-                    <div class="blog-content">
-                        <div class="vintage-corner top-left"></div>
-                        <div class="vintage-corner top-right"></div>
-                        <div class="vintage-corner bottom-left"></div>
-                        <div class="vintage-corner bottom-right"></div>
-
-                        <div class="blog-categories">
-                            <span class="category-tag">Sanskrit</span>
-                            <span class="category-tag">Literature</span>
-                        </div>
-
-                        <a href="/blogs/jinapati_sripura_parsvanatha.html" style="text-decoration: none;">
-                            <h3 class="blog-title">Jinapatisūri's Śrīpura Parsvanātha Stava</h3>
-                        </a>
-                        
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> May 28, 2025</span>
-                            <span><i class="far fa-clock"></i> 4 min read</span>
-                        </div>
-
-                        <div class="blog-excerpt">
-                            <p>12th century Jaina poet monk Jinapatisūri's Śrīpura Parsvanātha Stava consisting of 16 verses.</p>
-                        </div>
-
-                        <a href="/blogs/jinapati_sripura_parsvanatha.html" class="read-more">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Blog Post Card -->
-                <article class="blog-card">
-                    <a href="/blogs/jinapati_sripura_parsvanatha" class="blog-image">
-                        <img src="blogs/images/cover-images/" alt="Introduction to Anekārtha Kāvya">
-                    </a>
-                    <div class="blog-content">
-                        <div class="vintage-corner top-left"></div>
-                        <div class="vintage-corner top-right"></div>
-                        <div class="vintage-corner bottom-left"></div>
-                        <div class="vintage-corner bottom-right"></div>
-
-                        <div class="blog-categories">
-                            <span class="category-tag">Sanskrit</span>
-                            <span class="category-tag">Literature</span>
-                        </div>
-
-                        <a href="/blogs/anekartha" style="text-decoration: none;">
-                            <h3 class="blog-title">Introduction to Anekārtha Kāvya</h3>
-                        </a>
-                        
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> January 10, 2024</span>
-                            <span><i class="far fa-clock"></i> 8 min read</span>
-                        </div>
-
-                        <div class="blog-excerpt">
-                            <p>Exploring the works jam-packed with uses of śleṣa (or puns!) encompassing a diverse view of multitude of meanings.</p>
-                        </div>
-
-                        <a href="/blogs/anekartha" class="read-more">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Blog Post Card -->
-                <article class="blog-card">
-                    <a href="/blogs/anekartha" class="blog-image">
-                        <img src="blogs/images/cover-images/anekartha-cover-1.png" alt="Introduction to Anekārtha Kāvya">
-                    </a>
-                    <div class="blog-content">
-                        <div class="vintage-corner top-left"></div>
-                        <div class="vintage-corner top-right"></div>
-                        <div class="vintage-corner bottom-left"></div>
-                        <div class="vintage-corner bottom-right"></div>
-
-                        <div class="blog-categories">
-                            <span class="category-tag">Sanskrit</span>
-                            <span class="category-tag">Literature</span>
-                        </div>
-
-                        <a href="/blogs/anekartha" style="text-decoration: none;">
-                            <h3 class="blog-title">Introduction to Anekārtha Kāvya</h3>
-                        </a>
-                        
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> January 10, 2024</span>
-                            <span><i class="far fa-clock"></i> 8 min read</span>
-                        </div>
-
-                        <div class="blog-excerpt">
-                            <p>Exploring the works jam-packed with uses of śleṣa (or puns!) encompassing a diverse view of multitude of meanings.</p>
-                        </div>
-
-                        <a href="/blogs/anekartha" class="read-more">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Blog Post Card -->
-                <article class="blog-card">
-                    <div class="blog-content">
-                        <div class="vintage-corner top-left"></div>
-                        <div class="vintage-corner top-right"></div>
-                        <div class="vintage-corner bottom-left"></div>
-                        <div class="vintage-corner bottom-right"></div>
-
-                        <div class="blog-categories">
-                            <span class="category-tag">Sanskrit</span>
-                            <span class="category-tag">Linguistics</span>
-                        </div>
-
-                        <a href="/blogs/bhasaslesa-3" style="text-decoration: none;">
-                            <h3 class="blog-title">Jāti, Bhāṣāśleṣa and Linguistic Interplay</h3>
-                        </a>
-                        
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> December 20, 2023</span>
-                            <span><i class="far fa-clock"></i> 7 min read</span>
-                        </div>
-
-                        <div class="blog-excerpt">
-                            <p>Revisit the art pieces of poetry in Jāti Śabdālaṅkāra and discover the profound linguistic interplay!</p>
-                        </div>
-
-                        <a href="/blogs/bhasaslesa-3" class="read-more">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Blog Post Card -->
-                <article class="blog-card">
-                    <div class="blog-content">
-                        <div class="vintage-corner top-left"></div>
-                        <div class="vintage-corner top-right"></div>
-                        <div class="vintage-corner bottom-left"></div>
-                        <div class="vintage-corner bottom-right"></div>
-
-                        <div class="blog-categories">
-                            <span class="category-tag">Sanskrit</span>
-                            <span class="category-tag">Prakrit</span>
-                        </div>
-
-                        <a href="/blogs/bhasaslesa-2" style="text-decoration: none;">
-                            <h3 class="blog-title">The art underlying Bhāṣaśleṣa</h3>
-                        </a>
-                        
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> December 15, 2023</span>
-                        </div>
-
-                        <div class="blog-excerpt">
-                            <p>A blog exploring the common grounds of Saṃskṛta and Prākṛta which leads to creation of verses with bhāṣāśleṣa.</p>
-                        </div>
-
-                        <a href="/blogs/bhasaslesa-2" class="read-more">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Macaronic-Equivalent Poetry Post -->
-                <article class="blog-card">
-                  <div class="blog-content">
-                      <div class="vintage-corner top-left"></div>
-                      <div class="vintage-corner top-right"></div>
-                      <div class="vintage-corner bottom-left"></div>
-                      <div class="vintage-corner bottom-right"></div>
-
-                      <div class="blog-categories">
-                          <span class="category-tag">Sanskrit</span>
-                          <span class="category-tag">Prakrit</span>
-                          <span class="category-tag">Poetry</span>
-                      </div>
-
-                      <a href="/blogs/bhasaslesa" style="text-decoration: none;">
-                          <h3 class="blog-title">Macaronic-Equivalent Poetry in Saṃskṛta and Prākṛta</h3>
-                      </a>
-                      
-                      <div class="blog-meta">
-                          <span><i class="far fa-calendar"></i> December 10, 2023</span>
-                      </div>
-
-                      <div class="blog-excerpt">
-                          <p>In the quest of searching for Macaronic-Equivalent Poetry in Saṃskṛta and Prākṛta</p>
-                      </div>
-
-                      <a href="/blogs/bhasaslesa" class="read-more">
-                          Read More <i class="fas fa-arrow-right"></i>
-                      </a>
-                  </div>
-              </article>
-
-              <!-- Few Tongues, 1 Utterance Post -->
-              <article class="blog-card">
-                  <div class="blog-content">
-                      <div class="vintage-corner top-left"></div>
-                      <div class="vintage-corner top-right"></div>
-                      <div class="vintage-corner bottom-left"></div>
-                      <div class="vintage-corner bottom-right"></div>
-
-                      <div class="blog-categories">
-                          <span class="category-tag">Sanskrit</span>
-                          <span class="category-tag">Literature</span>
-                      </div>
-
-                      <a href="/blogs/svah_karyamadya" style="text-decoration: none;">
-                          <h3 class="blog-title">Few Tongues, 1 Utterance – Part 5</h3>
-                      </a>
-                      
-                      <div class="blog-meta">
-                          <span><i class="far fa-calendar"></i> December 5, 2023</span>
-                      </div>
-
-                      <div class="blog-excerpt">
-                          <p>Explore various utterances advocating to refrain individuals from procrastinating.</p>
-                      </div>
-
-                      <a href="/blogs/svah_karyamadya" class="read-more">
-                          Read More <i class="fas fa-arrow-right"></i>
-                      </a>
-                  </div>
-              </article>
-
-              <!-- 2 Tongues, 1 Verse - Part 4 -->
-              <article class="blog-card">
-                  <div class="blog-content">
-                      <div class="vintage-corner top-left"></div>
-                      <div class="vintage-corner top-right"></div>
-                      <div class="vintage-corner bottom-left"></div>
-                      <div class="vintage-corner bottom-right"></div>
-
-                      <div class="blog-categories">
-                          <span class="category-tag">Sanskrit</span>
-                          <span class="category-tag">Prakrit</span>
-                      </div>
-
-                      <a href="/blogs/drdhatara_nibaddha_musteh" style="text-decoration: none;">
-                          <h3 class="blog-title">2 Tongues, 1 Verse - Part 4</h3>
-                      </a>
-                      
-                      <div class="blog-meta">
-                          <span><i class="far fa-calendar"></i> December 1, 2023</span>
-                      </div>
-
-                      <div class="blog-excerpt">
-                          <p>Explore utterance of "dṛḍhatarabaddhamuṣṭeḥ koṣaniṣaṇṇasya..." in Prākṛta.</p>
-                      </div>
-
-                      <a href="/blogs/drdhatara_nibaddha_musteh" class="read-more">
-                          Read More <i class="fas fa-arrow-right"></i>
-                      </a>
-                  </div>
-              </article>
-
-              <!-- 2 Tongues, 1 Verse - Part 3 -->
-              <article class="blog-card">
-                  <div class="blog-content">
-                      <div class="vintage-corner top-left"></div>
-                      <div class="vintage-corner top-right"></div>
-                      <div class="vintage-corner bottom-left"></div>
-                      <div class="vintage-corner bottom-right"></div>
-
-                      <div class="blog-categories">
-                          <span class="category-tag">Sanskrit</span>
-                          <span class="category-tag">Prakrit</span>
-                      </div>
-
-                      <a href="/blogs/daivayattam_kule_janma" style="text-decoration: none;">
-                          <h3 class="blog-title">2 Tongues, 1 Verse - Part 3</h3>
-                      </a>
-                      
-                      <div class="blog-meta">
-                          <span><i class="far fa-calendar"></i> November 25, 2023</span>
-                      </div>
-
-                      <div class="blog-excerpt">
-                          <p>Explore utterance of "daivāyattaṃ kule janma" in Prākṛta.</p>
-                      </div>
-
-                      <a href="/blogs/daivayattam_kule_janma" class="read-more">
-                          Read More <i class="fas fa-arrow-right"></i>
-                      </a>
-                  </div>
-              </article>
-
-              <!-- Rāmacandrasūri's Prākṛta -->
-              <article class="blog-card">
-                  <div class="blog-content">
-                      <div class="vintage-corner top-left"></div>
-                      <div class="vintage-corner top-right"></div>
-                      <div class="vintage-corner bottom-left"></div>
-                      <div class="vintage-corner bottom-right"></div>
-
-                      <div class="blog-categories">
-                          <span class="category-tag">Sanskrit</span>
-                          <span class="category-tag">Prakrit</span>
-                          <span class="category-tag">Literature</span>
-                      </div>
-
-                      <a href="/blogs/raghuvilasa-2" style="text-decoration: none;">
-                          <h3 class="blog-title">Rāmacandrasūri's Prākṛta as reflected in Raghvilāsa</h3>
-                      </a>
-                      
-                      <div class="blog-meta">
-                          <span><i class="far fa-calendar"></i> November 20, 2023</span>
-                      </div>
-
-                      <div class="blog-excerpt">
-                          <p>A blog exploring the Prākṛta verses and passages in Rāmacandrasūri's Raghuvilāsa.</p>
-                      </div>
-
-                      <a href="/blogs/raghuvilasa-2" class="read-more">
-                          Read More <i class="fas fa-arrow-right"></i>
-                      </a>
-                  </div>
-              </article>
-
-              <!-- 2 Tongues, 1 Verse - Part 2 -->
-              <article class="blog-card">
-                  <div class="blog-content">
-                      <div class="vintage-corner top-left"></div>
-                      <div class="vintage-corner top-right"></div>
-                      <div class="vintage-corner bottom-left"></div>
-                      <div class="vintage-corner bottom-right"></div>
-
-                      <div class="blog-categories">
-                          <span class="category-tag">Sanskrit</span>
-                          <span class="category-tag">Prakrit</span>
-                      </div>
-
-                      <a href="/blogs/na_hi_vandhya" style="text-decoration: none;">
-                          <h3 class="blog-title">2 Tongues, 1 Verse - Part 2</h3>
-                      </a>
-                      
-                      <div class="blog-meta">
-                          <span><i class="far fa-calendar"></i> November 15, 2023</span>
-                      </div>
-
-                      <div class="blog-excerpt">
-                          <p>In the intricate tapestry of linguistic expressions, the series "Tongues and Utterances" strives to amalgamate diverse...</p>
-                      </div>
-
-                      <a href="/blogs/na_hi_vandhya" class="read-more">
-                          Read More <i class="fas fa-arrow-right"></i>
-                      </a>
-                  </div>
-              </article>
-
-              <!-- Rāmacandrasūri's Raghuvilāsa - 1 -->
-              <article class="blog-card">
-                  <div class="blog-content">
-                      <div class="vintage-corner top-left"></div>
-                      <div class="vintage-corner top-right"></div>
-                      <div class="vintage-corner bottom-left"></div>
-                      <div class="vintage-corner bottom-right"></div>
-
-                      <div class="blog-categories">
-                          <span class="category-tag">Sanskrit</span>
-                          <span class="category-tag">Literature</span>
-                      </div>
-
-                      <a href="/blogs/raghuvilasa-1" style="text-decoration: none;">
-                          <h3 class="blog-title">Rāmacandrasūri's Raghuvilāsa - 1</h3>
-                      </a>
-                      
-                      <div class="blog-meta">
-                          <span><i class="far fa-calendar"></i> November 10, 2023</span>
-                      </div>
-
-                      <div class="blog-excerpt">
-                          <p>A blog on praśnottara in Raghuvilāsa and compilation of usage of svarbhūrbhuvaḥ and bhūrbhuvaḥsvaḥ.</p>
-                      </div>
-
-                      <a href="/blogs/raghuvilasa-1" class="read-more">
-                          Read More <i class="fas fa-arrow-right"></i>
-                      </a>
-                  </div>
-              </article>
-
-              <!-- 2 Tongues, 1 Verse (+bonus) – Part 1 -->
-              <article class="blog-card">
-                  <div class="blog-content">
-                      <div class="vintage-corner top-left"></div>
-                      <div class="vintage-corner top-right"></div>
-                      <div class="vintage-corner bottom-left"></div>
-                      <div class="vintage-corner bottom-right"></div>
-
-                      <div class="blog-categories">
-                          <span class="category-tag">Sanskrit</span>
-                          <span class="category-tag">Prakrit</span>
-                      </div>
-
-                      <a href="/blogs/satesu_jayate_surah" style="text-decoration: none;">
-                          <h3 class="blog-title">2 Tongues, 1 Verse (+bonus) – Part 1</h3>
-                      </a>
-                      
-                      <div class="blog-meta">
-                          <span><i class="far fa-calendar"></i> November 5, 2023</span>
-                      </div>
-
-                      <div class="blog-excerpt">
-                          <p>Indian literary heritage has been blessed with teaching and preachings on almost every subject. There are works which have crossed...</p>
-                      </div>
-
-                      <a href="/blogs/satesu_jayate_surah" class="read-more">
-                          Read More <i class="fas fa-arrow-right"></i>
-                      </a>
-                  </div>
-              </article>
-
-                <!-- Complete Works Section -->
-                <h2 class="section-title">Complete Works</h2>
-                
-                <!-- Stuti Post -->
-                <article class="blog-card">
-                    <div class="blog-content">
-                        <div class="vintage-corner top-left"></div>
-                        <div class="vintage-corner top-right"></div>
-                        <div class="vintage-corner bottom-left"></div>
-                        <div class="vintage-corner bottom-right"></div>
-
-                        <div class="blog-categories">
-                            <span class="category-tag">Stuti</span>
-                            <span class="category-tag">Prakrit</span>
-                        </div>
-
-                        <a href="/blogs/virajinathava_abhayadeva" style="text-decoration: none;">
-                            <h3 class="blog-title">Vīrajiṇathavo by Abhayadevasūri</h3>
-                        </a>
-                        
-                        <div class="blog-meta">
-                            <span><i class="fas fa-book"></i> Complete Text</span>
-                        </div>
-
-                        <div class="blog-excerpt">
-                            <p>22 verses in praise of Mahāvīrasvāmī by Abhayadevasūri in Prākṛta. Metres used: Anuṣṭubh and Mālinī.</p>
-                        </div>
-
-                        <a href="/blogs/virajinathava_abhayadeva" class="read-more">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Vīrastutidvātriṃśikā Post -->
-                <article class="blog-card">
-                    <div class="blog-content">
-                        <div class="vintage-corner top-left"></div>
-                        <div class="vintage-corner top-right"></div>
-                        <div class="vintage-corner bottom-left"></div>
-                        <div class="vintage-corner bottom-right"></div>
-
-                        <div class="blog-categories">
-                            <span class="category-tag">Stuti</span>
-                            <span class="category-tag">Sanskrit</span>
-                        </div>
-
-                        <a href="/blogs/virastutidvatrimsika_ratnakarasuri" style="text-decoration: none;">
-                            <h3 class="blog-title">Vīrastutidvātriṃśikā by disciple of Ratnākarasūri</h3>
-                        </a>
-                        
-                        <div class="blog-meta">
-                            <span><i class="fas fa-book"></i> Complete Text</span>
-                        </div>
-
-                        <div class="blog-excerpt">
-                            <p>32 verses in praise of Mahāvīrasvāmī depicting the five kalyāṇakas and major events of his life in Indravajrā.</p>
-                        </div>
-
-                        <a href="/blogs/virastutidvatrimsika_ratnakarasuri" class="read-more">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Ādidevadvātriṃśikā Post -->
-                <article class="blog-card">
-                    <div class="blog-content">
-                        <div class="vintage-corner top-left"></div>
-                        <div class="vintage-corner top-right"></div>
-                        <div class="vintage-corner bottom-left"></div>
-                        <div class="vintage-corner bottom-right"></div>
-
-                        <div class="blog-categories">
-                            <span class="category-tag">Stuti</span>
-                            <span class="category-tag">Sanskrit</span>
-                        </div>
-
-                        <a href="/blogs/adinatha_ramacandra" style="text-decoration: none;">
-                            <h3 class="blog-title">Ādidevadvātriṃśikā by Rāmacandrasūri</h3>
-                        </a>
-                        
-                        <div class="blog-meta">
-                            <span><i class="fas fa-book"></i> Complete Text</span>
-                        </div>
-
-                        <div class="blog-excerpt">
-                            <p>32 verses in praise of first Tīrthaṅkara Ādinātha by Kavikaṭāramalla Rāmacandrasūri, disciple of Hemacandrasūri.</p>
-                        </div>
-
-                        <a href="/blogs/adinatha_ramacandra" class="read-more">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Mahāvīrastava Post -->
-                <article class="blog-card">
-                    <div class="blog-content">
-                        <div class="vintage-corner top-left"></div>
-                        <div class="vintage-corner top-right"></div>
-                        <div class="vintage-corner bottom-left"></div>
-                        <div class="vintage-corner bottom-right"></div>
-
-                        <div class="blog-categories">
-                            <span class="category-tag">Stuti</span>
-                            <span class="category-tag">Sanskrit</span>
-                            <span class="category-tag">Prakrit</span>
-                        </div>
-
-                        <a href="/blogs/mahavira_dhanapala" style="text-decoration: none;">
-                            <h3 class="blog-title">Mahāvīrastava by Dhanapāla</h3>
-                        </a>
-                        
-                        <div class="blog-meta">
-                            <span><i class="fas fa-book"></i> Complete Text</span>
-                        </div>
-
-                        <div class="blog-excerpt">
-                            <p>11 verses in praise of 24th Tīrthaṅkara - Mahāvīrasvāmī in Saṃskṛta and Prākṛta.</p>
-                        </div>
-
-                        <a href="/blogs/mahavira_dhanapala" class="read-more">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Siddhacaturviṃśikā Post -->
-                <article class="blog-card">
-                    <div class="blog-content">
-                        <div class="vintage-corner top-left"></div>
-                        <div class="vintage-corner top-right"></div>
-                        <div class="vintage-corner bottom-left"></div>
-                        <div class="vintage-corner bottom-right"></div>
-
-                        <div class="blog-categories">
-                            <span class="category-tag">Stuti</span>
-                            <span class="category-tag">Sanskrit</span>
-                        </div>
-
-                        <a href="/blogs/anandaghana_siddha" style="text-decoration: none;">
-                            <h3 class="blog-title">Siddhacaturviṃśikā by Ānandaghana</h3>
-                        </a>
-                        
-                        <div class="blog-meta">
-                            <span><i class="fas fa-book"></i> Complete Text</span>
-                        </div>
-
-                        <div class="blog-excerpt">
-                            <p>25 verses on praise of Siddha by Ānandaghana primarily authored in bhujaṅgaprayātam.</p>
-                        </div>
-
-                        <a href="/blogs/anandaghana_siddha" class="read-more">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-
-                <!-- Mahāvīrastavana Post -->
-                <article class="blog-card">
-                    <div class="blog-content">
-                        <div class="vintage-corner top-left"></div>
-                        <div class="vintage-corner top-right"></div>
-                        <div class="vintage-corner bottom-left"></div>
-                        <div class="vintage-corner bottom-right"></div>
-
-                        <div class="blog-categories">
-                            <span class="category-tag">Stuti</span>
-                            <span class="category-tag">Sanskrit</span>
-                            <span class="category-tag">Grammar</span>
-                        </div>
-
-                        <a href="/blogs/parsvacandra_mahavira" style="text-decoration: none;">
-                            <h3 class="blog-title">Mahāvīrastavana by Pārśvacandra</h3>
-                        </a>
-                        
-                        <div class="blog-meta">
-                            <span><i class="fas fa-book"></i> Complete Text</span>
-                        </div>
-
-                        <div class="blog-excerpt">
-                            <p>11 verses in praise of Mahāvīrasvāmī using technical grammatical terms with commentary by Bhāvaprabhasūri</p>
-                        </div>
-
-                        <a href="/blogs/parsvacandra_mahavira" class="read-more">
-                            Read More <i class="fas fa-arrow-right"></i>
-                        </a>
-                    </div>
-                </article>
-
+                <div class="blog-controls">
+                    <input id="blog-search" class="blog-search" type="search" placeholder="Search posts…" aria-label="Search posts">
+                    <span id="blog-count" class="blog-count"></span>
+                    <a class="blog-rss" href="/blogs/feed.xml" title="RSS feed"><i class="fas fa-rss"></i> RSS</a>
+                </div>
+                <div id="blog-filter" class="blog-filter" role="group" aria-label="Filter posts by tag"></div>
+
+                <div id="blog-grid" class="blog-grid"></div>
+                <p id="blog-empty" class="blog-empty" style="display:none;">No posts match your search.</p>
             </section>
         </div>
     </main>
+
+    <script src="/blogs/blog.js"></script>
 
     <footer>
         <div class="container">
