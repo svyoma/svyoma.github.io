@@ -34,24 +34,26 @@ Legend:  ✅ done · 🔨 in progress · ⏳ planned · 💡 prospect
 | Status | Item |
 |:--:|---|
 | ✅ | Broken Anekārtha card / empty `img src` fixed; oversized cover image lazy-loaded + sized |
+| ✅ | Orphan posts recovered into `posts.json` (`anekartha-2`, `brhattippanika-1`, `jinastuti`…); empty/duplicate posts retired (`parsvanatha_bilhana` deleted, `brhattippanika`→`-1` redirect, `chapannayagahao` removed as a Pārśvacandra duplicate) |
 | ⏳ | Compress `blogs/images/cover-images/antarikshji.png` (~1.7 MB → <200 KB) and audit other covers |
-| ⏳ | Add the orphan posts to the index (`chapannayagahao`, `parsvanatha_bilhana`, etc.) or retire them |
+| ⏳ | Backfill the remaining `needsMetadata`/undated posts in `posts.json` (`gita-bhagavat-mbh`, etc.) |
 | ⏳ | Per-post `meta description` + OpenGraph on the older posts that still lack them |
 | ⏳ | JSON-LD `BlogPosting` + author on each post |
 
 ### Blog system (the real leverage)
-The blog is 31 hand-copied HTML files with a hand-maintained index — it drifts and
-doesn't scale. Since Jekyll is off the table, use the **same data→build→render pattern
+The blog was 31 hand-copied HTML files with a hand-maintained index that drifted.
+Since Jekyll is off the table, it now uses the **same data→build→render pattern
 as the portals**:
 
 | Status | Item |
 |:--:|---|
-| ✅ | **`blogs/posts.json`** — one record per post (slug, title, date, tags, excerpt, url); seeded from the curated cards + 5 recovered orphan essays. 24 posts. |
+| ✅ | **`blogs/posts.json`** — one record per post (slug, title, date, tags, series, excerpt, url); seeded from the curated cards + recovered orphan essays. 17 posts (text-editions relocated to JL). |
 | ✅ | **Auto-rendered blog index** from `posts.json` via `blog.js` (no more hand-editing cards); dated posts newest-first. |
 | ✅ | **Client-side tag filter** (chips with counts) — browsable by theme (Sanskrit, Prakrit, Stuti, scholars…). |
+| ✅ | **Series classification** (`series` field): Two Tongues One Verse, Bhāṣāśleṣa, Raghuvilāsa, Anekārthī Kāvya — a "Series" filter row + per-card badge. |
 | ✅ | **RSS 2.0 feed** `blogs/feed.xml` generated from `posts.json` by `blogs/build_feed.py`; autodiscovery `<link>` added. |
-| ✅ | **Client-side search** over title/excerpt/tags (live filter box). |
-| ⏳ | Backfill the 4 `needsMetadata` + 7 undated posts in `posts.json` (dates/tags/excerpts) so they enter the RSS and sort chronologically. |
+| ✅ | **Client-side search** over title/excerpt/tags/series (live filter box). |
+| ⏳ | Backfill the remaining undated posts in `posts.json` (e.g. `gita-bhagavat-mbh`) so they enter the RSS and sort chronologically. |
 | 💡 | A post "template" file + build step so a new post is *content only*, not a full HTML copy-paste. |
 
 ### UX / a11y / SEO polish
@@ -84,11 +86,18 @@ all other scripts generated (kills entity corruption + Devanagari-only gaps by c
   per-verse permalinks (`#v17`), BibTeX citation export — browser-verified.
 
 ### 🔨 P1 — migrate all texts
+**11 texts migrated** (JLP-001..007, 011..014), incl. blog text-editions
+(`jinapati_sripura_parsvanatha`, `mahavira_dhanapala`, `parsvacandra_mahavira`) and
+the **Vividha Stuti Saṅgraha** anthology (`jinastuti`) — which fit the single-text
+schema via `sections` (Jina-wise headings) + per-verse `apparatus` (source works).
+No separate anthology model was needed.
+
 | Status | Item |
 |:--:|---|
-| 🔨 | Convert the remaining `misc-works/*.html` into `texts/*.txt` (draft-extract Devanagari → review → build). Several already have generated JSON. |
-| ⏳ | Reconcile `catalog.json` — run one `python build.py` once every text has a source in `texts/` so the catalogue lists them all. |
-| ⏳ | Fix the 3 legacy Devanagari-only texts on the way in (metadata now schema-required). |
+| ✅ | Reconciled pipeline: rich hand-authored JSON folded back into `texts/*.txt`; `build.py` emits rich fields **and** derives all 5 scripts. `catalog.json` reconciled. |
+| ✅ | Blog→JL extraction (`scratchpad/extract_jl.py`): Devanagari-only (avoids entity-corrupted IAST); vṛtti commentary + source apparatus preserved. `chapannayagahao` dropped (a Pārśvacandra duplicate). |
+| ⏳ | Migrate the **3 remaining** `misc-works/*.html` (`jnanapancamistuti`, `viranirvanastuti`, `virastutidvatrimsika_ratnakarasuri`, JLP-008..010). `viranirvanastuti` is a genuine multi-author anthology — needs a sub-work model. |
+| 💡 | Re-extract the real **Chappaṇṇaya Gāhāo** (56 gāthās) from its blog `<p>` blocks as a distinct text, if wanted. |
 
 ### ⏳ P2 — catalogue & search
 | Status | Item |
@@ -97,11 +106,11 @@ all other scripts generated (kills entity corruption + Devanagari-only gaps by c
 | ⏳ | **Corpus-wide full-text search** — vendor MiniSearch (`vendor/minisearch.js`, no npm), lazy-load `verses-flat.json`, diacritic-insensitive `processTerm`, search *inside* verses across scripts. |
 | ⏳ | A "Search inside texts" toggle on the catalogue → results deep-link to `text?slug=…#vN`. |
 
-### ⏳ P3 — de-duplicate & retire legacy
+### 🔨 P3 — de-duplicate & retire legacy
 | Status | Item |
 |:--:|---|
-| ⏳ | Retire the 7 drifted `blogs/*` copies of portal texts → replace each with a `meta refresh` + `rel=canonical` stub pointing at `text?slug=…` (no link rot; GH Pages has no server redirects). |
-| ⏳ | Turn old `misc-works/*.html` into the same redirect stubs once `text.html` covers them. |
+| ✅ | Retired the drifted `blogs/*` text-edition copies → `meta refresh` + `rel=canonical` stubs pointing at `text?slug=…`; `blogs.html` + `sitemap.xml` repointed to JL. |
+| ✅ | Migrated `misc-works/*.html` (the 11 covered texts) turned into the same redirect stubs. |
 | ⏳ | Relocate/relabel `translations/jaina-samskrta-sahitya.html` (it's a history essay, not a translation). |
 
 ### ⏳ P4 — scholarly depth (schema already has the slots)
@@ -164,12 +173,17 @@ but cover <2% of the grammar and don't yet scale.
 
 ## 4. Suggested sequencing
 
-1. **Finish JL P1** (all texts migrated + catalogue reconciled) — highest visible payoff, foundation already built.
-2. **JL P2 search + faceted catalogue** — makes the corpus actually usable.
-3. **Blog `posts.json` + auto-index + RSS + tags** — stops the copy-paste drift, aids SEO/discovery.
+1. ~~Finish JL P1~~ — **done** for 11 texts; only the 3 `misc-works` anthologies remain (one needs a sub-work model).
+2. ~~Blog `posts.json` + auto-index + RSS + tags/series~~ — **done**; drift stopped.
+3. **JL P2 search + faceted catalogue** — render `index.html` from `catalog.json`; vendor MiniSearch over `verses-flat.json`. Next-highest payoff.
 4. **SHS P0 consolidation + sort/id fixes** — cheap, corrects real bugs, unifies the two apps.
-5. **JL P4 translations/commentary** & **SHS P1 richer schema** — the long-tail scholarly depth, filled in incrementally.
+5. **JL P4 translations/commentary** & **SHS P1 richer schema** — long-tail scholarly depth, filled in incrementally.
 6. Cross-cutting polish (analytics consolidation, self-hosted fonts, dark mode, a11y) as it fits.
+
+> **Shipped & deployed** (commit `0cdde49`, authored by svyoma): reconciled JL
+> pipeline (11 texts), blog data-model with tag/series filters + RSS, blog→JL
+> migrations with redirect stubs, sitemap/robots/JSON-LD, dead-file cleanup,
+> `.gitignore`.
 
 ---
 
