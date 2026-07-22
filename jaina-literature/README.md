@@ -120,9 +120,27 @@ data/                     # BUILD OUTPUT (committed): catalog.json, verses-flat.
 text.html                 # generic renderer shell
 jl.js                     # renderer runtime (script toggle, compare, permalinks, cite)
 jl.css                    # verse / toggle / citation styles (extends assets/css/text-style.css)
-index.html                # faceted catalogue
+index.html                # faceted catalogue + corpus search (rendered by catalog.js)
+catalog.js                # catalogue renderer, facet filters, in-text verse search
+data/misc-catalog.json    # hand-kept entries for texts not yet in the pipeline
 misc-works/               # legacy hand-coded pages (being migrated into texts/)
 ```
+
+## Catalogue & search (`index.html` + `catalog.js`)
+
+The catalogue is no longer hand-coded — `catalog.js` renders every card from
+`data/catalog.json`, merged with `data/misc-catalog.json` (the handful of texts
+still living in `misc-works/`, so nothing disappears before it is migrated).
+
+- **Faceted browse** — chip filters for language, genre and metre are built
+  from the data at load time, plus a free-text title/author/blurb search. All
+  filtering is diacritic-insensitive (type `sardula` or `śārdūla`).
+- **Search inside texts** — a second mode lazy-loads `data/verses-flat.json`
+  and searches the verse corpus itself (all scripts folded to plain ASCII),
+  highlighting matches and deep-linking each hit to `text?slug=<slug>#v<N>`.
+
+No search library is vendored — the corpus is small enough that a folded linear
+scan is instant and keeps the page dependency-free.
 
 ## Validation
 
@@ -132,18 +150,21 @@ any HTML entity (`&…;`) — a regression guard against the old paste-corruptio
 
 ## Migration status
 
-**7 of 10 texts** are on the reconciled `texts/*.txt` → `build.py` → `text.html`
+**11 of 14 texts** are on the reconciled `texts/*.txt` → `build.py` → `text.html`
 pipeline, each with all five scripts auto-derived:
 
 - ✅ `adinatha_ramacandra` (JLP-001) · `anandaghana_siddha` (002) ·
   `jinasadharana_haribhadrasuri` (003) · `mahaviracariu_jinaprabhasuri` (004) ·
   `caturvimsatistavana_ratnasekhara` (005) · `murkhasataka_ratnasekharasuri` (006) ·
-  `virajinathava_abhayadeva` (007).
-- ⏳ 3 remaining are **multi-work anthologies** (`jnanapancamistuti`,
-  `viranirvanastuti`, `virastutidvatrimsika_ratnakarasuri`) — they hold several
-  sub-works by different authors and need an anthology/section model before they
-  fit the single-text schema cleanly. They still render from their canonical
-  `misc-works/*.html` pages for now.
+  `virajinathava_abhayadeva` (007) · `jinapati_sripura_parsvanatha` (011) ·
+  `mahavira_dhanapala` (012) · `parsvacandra_mahavira` (013) ·
+  `jinastuti` / Vividha Stuti Saṅgraha (014).
+- ⏳ 3 remaining are **multi-work anthologies** (`jnanapancamistuti` JLP-010,
+  `viranirvanastuti` 008, `virastutidvatrimsika_ratnakarasuri` 009) — they hold
+  several sub-works by different authors and need an anthology/section model
+  before they fit the single-text schema cleanly. They still render from their
+  canonical `misc-works/*.html` pages, and are kept in the catalogue via
+  `data/misc-catalog.json`.
 
 ### Legacy consolidation (done)
 

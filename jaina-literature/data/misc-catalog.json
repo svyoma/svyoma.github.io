@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "viranirvanastuti",
+    "accession": "JLP-008",
+    "title": {"deva": "वीरनिर्वाणस्तुत्यादिसङ्ग्रह", "iast": "vīranirvāṇastutyādisaṅgraha"},
+    "author": {"name": {"deva": "सङ्कलित", "iast": "saṅkalita"}, "note": "Anthology — Jinaprabhasūri, Guṇasāgaragaṇi & others"},
+    "language": ["sanskrit", "apabhramsha"],
+    "genre": "stotra",
+    "period": "14th century",
+    "sect": null,
+    "metre": [],
+    "blurb": "A compiled anthology of three texts for the occasion of Mahāvīra's nirvāṇa: the Vīranirvāṇakālyāṇakastava of Jinaprabhasūri (19 verses, Sanskrit); the Dīpālikāstutūcatuṣṭayī of Guṇasāgaragaṇi (4 verses, Sanskrit); and an Apabhraṃśa passage from Vibudhśrīdhara's Vardhamānacarita on the same occasion.",
+    "verse_count": null,
+    "meta_note": "3 texts compiled · Dīpāvali occasion",
+    "href": "misc-works/viranirvanastuti"
+  },
+  {
+    "slug": "virastutidvatrimsika_ratnakarasuri",
+    "accession": "JLP-009",
+    "title": {"deva": "वीरस्तुतिद्वात्रिंशिका", "iast": "vīrastutidvātriṃśikā"},
+    "author": {"name": {"deva": "रत्नाकरसूरिशिष्य", "iast": "ratnākarasūriśiṣya"}, "note": "Disciple of Ratnākarasūri"},
+    "language": ["sanskrit"],
+    "genre": "stotra",
+    "period": null,
+    "sect": null,
+    "metre": ["indravajrā", "śārdūlavikrīḍita"],
+    "blurb": "Thirty-three verses in praise of Mahāvīra, composed by an unnamed disciple of Ratnākarasūri, employing the indravajrā metre for verses 1–32 and śārdūlavikrīḍita for the closing colophon verse. An elegant devotional work that weaves biography with philosophical reflection, published in Sambodhi Vol. 7.",
+    "verse_count": 33,
+    "meta_note": null,
+    "href": "misc-works/virastutidvatrimsika_ratnakarasuri"
+  },
+  {
+    "slug": "jnanapancamistuti",
+    "accession": "JLP-010",
+    "title": {"deva": "ज्ञानपञ्चमीस्तुति", "iast": "jñānapañcamīstuti"},
+    "author": {"name": {"deva": "सङ्कलित", "iast": "saṅkalita"}, "note": "Compiled by Puṇyavijaya"},
+    "language": ["sanskrit"],
+    "genre": "stotra",
+    "period": null,
+    "sect": null,
+    "metre": [],
+    "blurb": "A short compilation of four Sanskrit verses for the occasion of Jñānapañcamī (Kārtika Śukla Pañcamī), preserved in the collection of Puṇyavijaya. The verses invoke Jina, the Siddhas, and the goddess Ambikā in praise of śruta (canonical knowledge) and the merit accrued by observing the pañcamī fast.",
+    "verse_count": 4,
+    "meta_note": "Kārtika Śukla Pañcamī occasion",
+    "href": "misc-works/jnanapancamistuti"
+  }
+]
