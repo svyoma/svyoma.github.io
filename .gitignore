@@ -1,6 +1,9 @@
 # Internal planning / notes — not part of the published site
 plan.md
 
+# Local authoring tool (editor) — not part of the published site
+tools/
+
 # Personal source documents — not part of the published site
 *.docx
 *.doc

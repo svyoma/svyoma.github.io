@@ -6,7 +6,15 @@
     <atom:link href="https://svyoma.github.io/blogs/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Essays on Jaina literature, Sanskrit and Prakrit poetry, śleṣa, stuti, manuscripts and grammar by Vyom A. Shah.</description>
     <language>en</language>
-    <lastBuildDate>Wed, 22 Jul 2026 09:37:55 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 23 Jul 2026 05:25:22 +0000</lastBuildDate>
+    <item>
+      <title>Recovering the Margins: Music in Prakrit and Sanskrit Texts</title>
+      <link>https://svyoma.github.io/blogs/recovering_the_margins_music</link>
+      <guid isPermaLink="true">https://svyoma.github.io/blogs/recovering_the_margins_music</guid>
+      <pubDate>Thu, 23 Jul 2026 00:00:00 +0000</pubDate>
+      <category>sanskrit</category><category>prakrit</category><category>music</category>
+      <description>The first in a series recovering forgotten Prakrit, Sanskrit and Apabhraṃśa texts within the Bhāratīya Jñāna Paramparā. This installment surveys music — from Jaina canonical sources to 14th century Malwa.</description>
+    </item>
     <item>
       <title>Tokenizing Efficiently: Ancient India's 32-Fault System for Compressing Knowledge</title>
       <link>https://svyoma.github.io/blogs/sutra</link>
