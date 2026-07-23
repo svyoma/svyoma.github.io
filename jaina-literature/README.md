@@ -16,8 +16,9 @@ Devanagari-only gaps, and drift against `blogs/` copies. Now:
 - **One source of truth per text** — you type only Devanagari; every other script
   is *generated*, so IAST corruption and missing-script gaps are impossible.
 - **One renderer** (`text.html` + `jl.js`) for all texts — consistent layout,
-  4-script switching, an interlinear **Compare** view, per-verse permalinks
-  (`text?slug=<slug>#v17`), and BibTeX citation export.
+  4-script switching, an interlinear **Compare** view, an on-demand
+  **Translation** toggle (shown only for texts that carry `>xx:` renderings),
+  per-verse permalinks (`text?slug=<slug>#v17`), and BibTeX citation export.
 
 ## Pipeline
 
@@ -150,7 +151,7 @@ any HTML entity (`&…;`) — a regression guard against the old paste-corruptio
 
 ## Migration status
 
-**11 of 14 texts** are on the reconciled `texts/*.txt` → `build.py` → `text.html`
+**12 of 15 texts** are on the reconciled `texts/*.txt` → `build.py` → `text.html`
 pipeline, each with all five scripts auto-derived:
 
 - ✅ `adinatha_ramacandra` (JLP-001) · `anandaghana_siddha` (002) ·
@@ -158,7 +159,9 @@ pipeline, each with all five scripts auto-derived:
   `caturvimsatistavana_ratnasekhara` (005) · `murkhasataka_ratnasekharasuri` (006) ·
   `virajinathava_abhayadeva` (007) · `jinapati_sripura_parsvanatha` (011) ·
   `mahavira_dhanapala` (012) · `parsvacandra_mahavira` (013) ·
-  `jinastuti` / Vividha Stuti Saṅgraha (014).
+  `jinastuti` / Vividha Stuti Saṅgraha (014) ·
+  `bhaktamara` / Bhaktāmara Stotra (015, first text with a verse-by-verse
+  English translation, revealed on demand).
 - ⏳ 3 remaining are **multi-work anthologies** (`jnanapancamistuti` JLP-010,
   `viranirvanastuti` 008, `virastutidvatrimsika_ratnakarasuri` 009) — they hold
   several sub-works by different authors and need an anthology/section model

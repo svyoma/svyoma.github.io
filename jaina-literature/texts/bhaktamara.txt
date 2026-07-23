@@ -1,0 +1,258 @@
+---
+slug: bhaktamara
+accession: JLP-015
+title:
+  deva: भक्तामरस्तोत्रम्
+author:
+  name:
+    deva: मानतुङ्गसूरि
+  note: Śvetāmbara ācārya, c. 7th century CE
+language:
+- sanskrit
+genre: stotra
+metre:
+- name: वसन्ततिलका
+  verses: "1–44"
+  lakshana: उक्ता वसन्ततिलका तभजा जगौ गः
+blurb: Mānatuṅga's celebrated forty-four-verse hymn to Ṛṣabha, the first Tīrthaṅkara — among
+  the most beloved and recited stotras in the Jaina tradition, every verse cast in the
+  Vasantatilakā metre. An English prose rendering can be revealed verse by verse.
+about:
+- The <em>Bhaktāmara Stotra</em> — named for its opening words, "the gods whose crowns bow
+  in devotion" — is a hymn of forty-four verses addressed to <em>Ṛṣabhadeva</em>, the first
+  Jina. Composed by Ācārya Mānatuṅga, it is revered across the Śvetāmbara tradition and, in a
+  longer forty-eight-verse recension, among the Digambaras.
+- The hymn moves from the poet's professed humility before an inexpressible subject, through
+  the incomparable qualities and radiance of the Jina, to the eight great perils — elephant,
+  lion, fire, serpent, war, ocean, dropsy, and captivity — from which devoted remembrance is
+  said to bring release.
+overview:
+- Forty-four verses, all in the Vasantatilakā metre
+- Verses 1–2 form a single syntactic unit (yugma) with one continuous rendering
+- Verses 34–43 invoke deliverance from the eight great perils (aṣṭa-mahābhaya)
+edition:
+  digitized_by: Vyom A. Shah
+---
+
+
+@1
+भक्तामरप्रणतमौलिमणिप्रभाणामुद्योतकं दलितपापतमोवितानम्।
+सम्यक् प्रणम्य जिनपादयुगं युगादावालम्बनं भवजले पततां जनानाम्॥१॥
+>en: (vv. 1–2) Having duly bowed to the (holy) pair of Jina's [Lord Ṛṣabha's] feet – the feet which enhance the lustre of the jewels (set) in the crowns lowered by the devoted gods, which have destroyed the pitchy darkness of sins and which were in the beginning of the Yuga the (main) support of mankind sinking in the sea of existence [bhava], I [Mānatuṅga], too, will indeed praise that (very) first Lord of the Jinas, who has been extolled in hymns, lofty and captivating the hearts of (the living being of) the three worlds, by the lords of the celestial worlds, (– the lords) who had become proficient on the account of the insight they acquired by gaining the knowledge of the true principles of all the sciences.
+
+@2
+यः संस्तुतः सकलवाङ्मयतत्त्वबोधादुद्भूतबुद्धिपटुभिः सुरलोकनाथैः।
+स्तोत्रैर्जगत्त्रितयचित्तहरैरुदारैः स्तोष्ये किलाहमपि तं प्रथमं जिनेन्द्रम्॥२॥
+
+@3
+बुद्ध्या विनापि विबुधार्चितपादपीठ! स्तोतुं समुद्यतमतिर्विगतत्रपोऽहम्।
+बालं विहाय जलसंस्थितमिन्दुबिम्बमन्यः क इच्छति जनः सहसा ग्रहीतुम्॥३॥
+>en: O Lord whose foot-stool is adorned by the wise (or the celestials), I (really) have become shameless for, though wanting in intelligence, I make an attempt at praising you. Who else than a child would hasten to catch the disc of the moon reflected in water?
+
+@4
+वक्तुं गुणान् गुणसमुद्रशशाङ्ककान्तान् कस्ते क्षमः सुरगुरुप्रतिमोऽपि बुद्ध्या।
+कल्पान्तकालपवनोद्धतनक्रचक्रं को वा तरीतुमलमम्बुनिधिं भुजाभ्याम्॥४॥
+>en: O the ocean of virtues! Is even he who equals Bṛhaspati [the preceptor of gods] in knowledge capable of enumerating your merits that are charming like the moon? Who would be able to swim by the means of his hands the ocean in which the multitude of crocodiles (or Nakras and Cakras) are stirred up by the hurricane blowing at the time of the destructing of the universe [Kalpānta]?
+
+@5
+सोऽहं तथापि तव भक्तिवशान्मुनीश! कर्तुं स्तवं विगतशक्तिरपि प्रवृत्तः।
+प्रतीत्याऽऽत्मवीर्यमविचार्य मृगो मृगेन्द्रं नाभ्येति किं निजशिशोः परिपालनार्थम्॥५॥
+>en: O master of the saints! in spite of this, being induces by devotion, I, that very man, though powerless, proceed to praise you. Without being conscious of its power does not (even) an antelope rush against the king of beasts [lion] in order to protect its young one, owing to the affection it cherishes for it?
+
+@6
+अल्पश्रुतं श्रुतवतां परिहासधाम त्वद्भक्तिरेव मुखरीकुरुते बलान्माम्।
+यत् कोकिलः किल मधौ मधुरं विरौति तच्चारुचूतकलिकानिकरैकहेतुः॥६॥
+>en: It is my devotion to you that compels me to prattle –me, who am an object of ridicule to the scholars on account of my possessing little knowledge. That the cuckoo sings sweet songs in the spring solely due to (the presence of) the charming bunches of mango-sprouts.
+
+@7
+त्वत्संस्तवेन भवसन्ततिसन्निबद्धं पापं क्षणात् क्षयमुपैति शरीरभाजाम्।
+आक्रान्तलोकमलिनीलमशेषमाशु सूर्यांशुभिन्नमिव शार्वरमन्धकारम्॥७॥
+>en: The sins of the embodied souls accumulated within a series of births are instantaneously annihilated by praising you, as is the case with the jet-black nocturnal darkness pervading the universe, when pierced by the rays of the sun.
+
+@8
+मत्वेति नाथ! तव संस्तवनं मयेदमारभ्यते तनुधियाऽपि तव प्रभावात्।
+चेतो हरिष्यति सतां नलिनीदलेषु मुक्ताफलद्युतिमुपैति ननूदबिन्दुः॥८॥
+>en: Having thus thought over, O Lord, I, though poor in intelligence commence (composing) this hymn of yours. Owing to your prowess, this (humble) work of mine will surely attract the attention of the good; (for, even) a drop of water shines like a pearl, when resting on a lead of lotus-plant.
+
+@9
+आस्तां तव स्तवनमस्तसमस्तदोषं त्वत्सङ्कथाऽपि जगतां दुरितानि हन्ति।
+दूरे सहस्रकिरणः कुरुते प्रभैव पद्माकरेषु जलजानि विकासभाञ्जि॥९॥
+>en: Let your psalm which has destroyed all faults be out of consideration since even the narration of your life annihilates the sins of the universe. Leave aside the case of the Sun, when (even) its light alone opens the lotuses lying in the lakes.
+
+@10
+नात्यद्भुतं भुवनभूषणभूत! नाथ! भूतैर्गुणैर्भुवि भवन्तमभिष्टुवन्तः।
+तुल्या भवन्ति भवतो ननु तेन किं वा भूत्याश्रितं य इह नात्मसमं करोति॥१०॥
+>en: O Lord! O ornament of the universe! It is not the matter of great surprise that those who praise you on this earth by singing your really existing merits attain your status [become your equals]. Or else what is the use of him [that lord] who does not raise his devotee to the same level of prosperity where he is?
+
+@11
+दृष्ट्वा भवन्तमनिमेषविलोकनीयं नान्यत्र तोषमुपयाति जनस्य चक्षुः।
+पीत्वा पयः शशिकरद्युति दुग्धसिन्धोः क्षारं जलं जलनिधेरशितुं क इच्छेत्॥११॥
+>en: After seeing your worthy to be unwinkingly looked at, the eye of a person does not find pleasure elsewhere. Who would desire to taste the brackish water of the sea, when once he has drunk the ilk of the milk-ocean shining like the rays of the moon?
+
+@12
+यैः शान्तरागरुचिभिः परमाणुभिस्त्वं निर्मापितस्त्रिभुवनैकललामभूत!।
+तावन्त एव खलु तेऽप्यणव पृथिव्यां यत् ते समानमपरं न हि रूपमस्ति॥१२॥
+>en: O unique ornament of the forehead of the three worlds! Certainly, in the universe, there are only as many atoms possessing the sentiment of quietude as you are formed of; for, there is no other (being having) elegance like yours.
+
+@13
+वक्त्रं क्व ते सुरनरोरगनेत्रहारि निःशेषनिर्जितजगत्त्रितयोपमानम्।
+बिम्बं कलङ्कमलिनं क्व निशाकरस्य यद् वासरे भवति पाण्डुपलाशकल्पम्॥१३॥
+>en: Where is your face which attracts the eyes of the celestials, the human-beings and the serpent-gods and which far excels all the standards of comparison to be found in the three worlds? And where is the disc of the moon which is stained with a blot and which grows pale-white like a lead of the Palāśa tree by daybreak?
+
+@14
+सम्पूर्णमण्डलशशाङ्ककलाकलापशुभ्रा गुणस्त्रिभुवनं तव लङ्घयन्ति।
+ये संश्रितास्त्रिजगदीश्वर! नाथमेकं कस्तान् निवारयति सञ्चरतो यथेष्टम्॥१४॥
+>en: O master of the three worlds! Your virtues shining like the collection of the digits of the moon having a complete disc are not contained in the three worlds. Who can prevent from walking freely those that have chosen you as their sole master?
+
+@15
+चित्रं किमत्र यदि ते त्रिदशाङ्गनाभिर्नीतं मनागपि मनो न विकारमार्गम्।
+कल्पान्तकालमरुताचलिताचलेन किं मन्दराद्रिशिखरं चलितं कदाचित्॥१५॥
+>en: What is there to wonder at, if the celestial nymphs could not diver your mind towards the path of passions even in the least? Can the peak of Mandara [Meru] mountain be ever moved by the wind blowing at the time of the destruction of the universe–the wind which shakes the other mountains?
+
+@16
+निर्धूमवर्तिरपवर्जिततैलपूरः कृत्स्नं जगत्त्रयमिदं प्रकटीकरोषि।
+गम्यो न जातु मरुतां चलिताचलानां दीपोऽपरस्त्वमसि नाथ! जगत्प्रकाशः॥१६॥
+>en: O Lord! You are the supernatural lamp, the light of the world–the lamp which is free from smoke (of aversion), wherein there is no wick (of lust), which does not require to be filled up with oil (of attachment), which completely illumines the three worlds (in virtue of omniscience) and which is unassailable by the winds (or gods) that move the mountains.
+
+@17
+नास्तं कदाचिदुपयासि न राहुगम्यः स्पष्टीकरोषि सहसा युगपज्जगन्ति।
+नाम्भोधरोदरनिरुद्धमहाप्रभावः सूर्यातिशायि महिमाऽसि मुनीन्द्र! लोके॥१७॥
+>en: O Lord of the ascetics! In this world you surpassed the sun in greatness. Form neither do you ever set, nor are you accessible to Rāhu; (moreover) all of a sudden you illumine all the worlds simultaneously and your immense prowess is not obstructed by the intervention of the clouds.
+
+@18
+नित्योदयं दलितमोहमहान्धकारं गम्यं न राहुवदनस्य न वारिदानाम्।
+विभ्राजते तव मुखाब्जमनल्पकान्ति विद्योतयज्जगदपूर्वशशाङ्कबिम्बम्॥१८॥
+>en: Your lotus-like face shines like the disc of an extra-ordinary Moon; for, it has a perpetual rise (as it never sets), has destroyed the pitch darkness of infatuation, is never within the reach of Rāhu or clouds, possesses immense lustre and illuminates the world.
+
+@19
+किं शर्वरीषु शशिनाऽह्नि विवस्वता वा युष्मन्मुखेन्दुदलितेषु तमस्सु नाथ!।
+निष्पन्नशालिवनशालिनि जीवलोके कार्यं कियज्जलधरैर्जलभारनम्रैः॥१९॥
+>en: What is the use of the Moon at night and what use is there of the Sun by day, when O Lord! Your Moon-like face destroys darkness (of ignorance)? What necessity is there of the clouds surcharges with water [lit. bent down by the burden of water], when the (mortal) world is (already) resplendent with the fields of the fully grown Śāli rice?
+
+@20
+ज्ञानं यथा त्वयि विभाति कृतावकाशं नैवं तथा हरिहरादिषु नायकेषु।
+तेजः स्फुरन् मणिषु याति यथा महत्त्वं नैवं तु काचशकले किरणाकुलेऽपि॥२०॥
+>en: Knowledge ( which illumines all the objects ) does not shine with so great an effulgence in the case of Hari (Viṣṇu), Hara (Śiva) and others, the lords (of the followers of other systems of philosophy) as it does when it resorts to yours [lit. when it finds a place in you]. Light attains its magnificence, when it falls on the sparkling jewels; but it fails to attain the same (sort of magnificence), when it falls on a piece of glass, even if it be pervaded by the rays of light.
+
+@21
+मन्ये वरं हरिहरादय एव दृष्टा दृष्टेषु येषु हृदयं त्वयि तोषमेति।
+किं वीक्षितेन भवता भुवि येन नान्यः कश्चिन्मनो हरति नाथ! भवान्तरेऽपि॥२१॥
+>en: I believe that it was for the better that (first of all) I verily saw Hari, Hara and the like; (for) as I have already seen them, my heart gets complete satisfaction on seeing you. What has been the result of seeing you? (The reply is that) O Lord! No one else in this world will be able to divert my mind from you even in the next birth.
+
+@22
+स्त्रीणां शतानि शतशो जनयन्ति पुत्रान् नान्या सुतं त्वदुपमं जननी प्रसूता।
+सर्वा दिशो दधति भानि सहस्ररश्मिं प्राच्येव दिग् जनयति स्फुरदंशुजालम्॥२२॥
+>en: Hundreds of women give birth to hundreds of sons; but no mother (except yours) gave birth to a son that  could stand (out in) comparison with yours. In all the directions there are [lit. all the quarters contain] constellations; but it is only the east which brings firth the Sun having a collection of resplendent rays.
+
+@23
+त्वामामनन्ति मुनयः परमं पुमांसमादित्यवर्णममलं तमसः परस्तात्।
+त्वामेव सम्यगुपलभ्य जयन्ति मृत्युं नान्यः शिवः शिवपदस्य मुनीन्द्र! पन्थाः॥२३॥
+>en: O Lord of the ascetics! The sages give you the noble appellation of the Supreme Being having the colour of the sun, bright and inaccessible to darkness and free from blemishes. They conquer death by duly realizing yours alone; (for) there is no other beneficial path leading to the auspicious abode [liberation].
+
+@24
+त्वामव्ययं विभुमचिन्त्यमसङ्ख्यमाद्यं ब्रह्माणमीश्वरमनन्तमनङ्गकेतुम्।
+योगीश्वरं विदितयोगमनेकमेकं ज्ञानस्वरूपममलं प्रवदन्ति सन्तः॥२४॥
+>en: The good declare you as imperishable, omnipresent (or powerful), incomprehensible, innumerable (or free from wars), first (in position and time), Brahman, Īśvara, infinite, the comet in destroying the Cupid, the master of Yogins, well-versed in Yoga, many, one, the embodiment of knowledge and pure.
+
+@25
+बुद्धस्त्वमेव विबुधार्चितबुद्धिबोधात् त्वं शङ्करोऽसि भुवनत्रयशङ्करत्वात्।
+धाताऽसि धीर! शिवमार्गविधेर्विधानाद् व्यक्तं त्वमेव भगवन्! पुरुषोत्तमोऽसि॥२५॥
+>en: You alone are Buddha, because the gods have worshipped the enlightenment of your knowledge. There is no other Śaṅkara than you, for you (alone) bestow happiness to the three worlds. O Intelligent Being! You alone are the creator (Brahman); for, you have pointed out the path leading to liberation. O Divine Being! it is quite evident that you alon are the best of men [Puruṣottama i.e. Nārāyaṇa].
+
+@26
+तुभ्यं नमस्त्रिभुवनार्तिहराय नाथ! तुभ्यं नमः क्षितितलामलभूषणाय।
+तुभ्यं नमस्त्रिगतः परमेश्वराय तुभ्यं नमो जिन! भवोदधिशोषणाय॥२६॥
+>en: O Lord! Obeisance to you, the destroyer of the miseries of the three worlds. Obeisance to you, the pure jewel on the surface of the earth (or the unsullied ornament of the mortal, nether and celestial worlds). Obeisance to you, the Supreme Lord of the three worlds. O Jina! adoration to you that has dried up the ocean of mundane existence.
+
+@27
+को विस्मयोऽत्र यदि नाम गुणैरशेषैस्त्वं संश्रितो निरवकाशतया मुनीश!।
+दोषैरुपात्तविविधाश्रयजातगर्वैः स्वप्नान्तरेऽपि न कदाचिदपेक्षितोऽसि॥२७॥
+>en: O Lord of the ascetics! What wonder is there, if you are wholly resorted to by all the virtues and that you are not seen even in a dream by vices which are puffed up with pride owing to the manifold shelter that they found elsewhere?
+
+@28
+उच्चैरशोकतरुसंश्रितमुन्मयूखमाभाति रूपममलं भवतो नितान्तम्।
+स्पष्टोल्लसत्किरणमस्ततमोवितानं बिम्बं रवेरिव पयोधरपार्श्ववर्ति॥२८॥
+>en: Your defectless [perfect] figure which has resorted to the lofty Aśoka tree and from which lustre emanates shrines in full effulgence like the disc of the Sun lying adjacent to a cloud–the disc which possess clear and splendid beams and which has dispelled the mass of darkness.
+
+@29
+सिंहासने मणिमयूखशिखाविचित्रे विभ्राजते तव वपुः कनकावदातम्।
+बिम्बं वियद्विलसदंशुलतावितानं तुङ्गोदयाद्रिशिरसीव सहस्ररश्मेः॥२९॥
+>en: Your body (resting) on the lion-throne variegated by the (radiance of the) pencil of rays of jewels and beautiful (or yellow) like gold shines like the disc of the Sun on the high summit of the sun-rise-mountain–the disc having the collection of its branch-like rays spreading in the sky.
+
+@30
+कुन्दावदातचलचामरचारुशोभं विभ्राजते तव वपुः कलधौतकान्तम्।
+उद्यच्छशाङ्कशुचिनिर्झरवारिधारमुच्चैस्तटं सुरगिरेरिव शातकौम्भम्॥३०॥
+>en: Your body which is lovely like gold and which possess fascinating beauty owing to the moving chowries white like the jasmine flowers, shines like the top-most golden peak of the mountain of gods [Meru] from which the water-falls pure like the rising moon are gurgling.
+
+@31
+छत्रत्रयं तव विभाति शशाङ्ककान्तमुच्चैः स्थितं स्थगितभानुकरप्रतापम्।
+मुक्ताफलप्रकरजालविवृद्धशोभं प्रख्यापयत् त्रिजगतः परमेश्वरत्वम्॥३१॥
+>en: Your three canopies which are lying above (your head), which are beautiful like the Moon, which have (even) eclipsed the light (or have remove the excessive heat) of the rays of the Sun and whose beauty is enhances by a zone of pearls and which proclaim your supremacy over the three worlds are resplendent.
+
+@32
+उन्निन्द्रहेमनवपङ्कजपुञ्जकान्तिपर्युल्लन्नखमयूखशिखाभिरामौ।
+पादौ पदानि तव यत्र जिनेन्द्र! धत्तः पद्मानि तत्र विबुधाः परिकल्पयन्ति॥३२॥
+>en: O Lord of the Jinas! The gods create (nine) lotuses wherever the footprints are formed by your feet which are attractive on account of the pencil of rays issuing from your nails shining with the splendour of the cluster of the blooming golden fresh (or nine) lotuses.
+
+@33
+इत्थं यथा तव विभूतिरभूज्जिनेन्द्र! धर्मोपदेशनविधौ न तथा परस्य।
+यादृक् प्रभा दिनकृतः प्रहतान्धकारा तादृक् कुतो ग्रहगणस्य विकाशिनोऽपि॥३३॥
+>en: O Lord of the Jinas! No other being can attain the above-described grandeur of yours which you possess at the time of preaching religion. (For), when can the light of a group of constellations, though shining, match with the lustre of the sun by which darkness is destroyed?
+
+@34
+श्च्योतन्मदाविलविलोलकपोलमूलमत्तभ्रमद्भ्रमरनादविवृद्धकोपम्।
+ऐरावताभमिभमुद्धतमापतन्तं दृष्ट्वा भयं भवति नो भवदाश्रितानाम्॥३४॥
+>en: Those who resort to you are not terrified when they see a wild elephant comparable with Airāvata rushing against them–the elephant whose anger is increased by the humming of the bees which are madly whirling round their restless temples soiled with the trickling rut.
+
+@35
+भिन्नेभकुम्भगलदुज्ज्वलशोणिताक्तमुक्ताफलप्रकरभूषितभूमिभागः।
+बद्धक्रमः क्रमगतं हरिणाधिपोऽपि नाक्रामति क्रमयुगाचलसंश्रितं ते॥३५॥
+>en: The lion who is about to pounce upon and who has adorned the ground by scattering on it a collection of pearls besmeared with the bright blood issuing forth fromm the temples of the elephants torn by him, does not attack him, who has resorted to the mountain (in the form) of the pair of your feet, even though he is within his clutches.
+
+@36
+कल्पान्तकालपवनोद्धतवह्निकल्पं दावानलं ज्वलितमुज्ज्वलमुत्फुलिङ्गम्।
+विश्वं जिघत्सुमिव सम्मुखमापतन्तं त्वन्नामकीर्तनजलं शमयत्यशेषम्॥३६॥
+>en: The water (in the form) of mentioning your name completely extinguishes the conflagration which resembles the fire kindled by the hurricane (furiously blowing) at the time of the destruction of the world, which is fully ablaze and bright and from which flash forth the sparks and which approaches as if with a desire to swallow the entire universe.
+
+@37
+रक्तेक्षणं समदकोकिलकण्ठनीलं क्रोधोद्धतं फणिनमुत्फणमापतन्तम्।
+आक्रामति क्रमयुगेन निरस्तशङ्कस्त्वन्नामनागदमनी हृदि यस्य पुंसः॥३७॥
+>en: That man in whose heart rests the snake-charm (Nāga-damanī) of your name fearlessly treads upon a a red-eyed cobra, which is as black as the throat of intoxicated cuckoo wild with rage and which is rushing forth with its hood raised up.
+
+@38
+वल्गत्तुरङ्गगजगर्जितभीमनादमाजौ बलं बलवतामपि भूपतीनाम्।
+उद्यद्दिवाकरमयूखशिखापविद्धं त्वत्कीर्तनात् तम इवाशु भिदामुपैति॥३८॥
+>en: The army of even mighty monarchs, wherein the horses are running at full gallop and wherein the elephants are making tremendous noise by roaring, is immediately destroyed on the battlefield by praising you like the darkness when peirced by the sharp ends of rays of the rising sun.
+
+@39
+कुन्ताग्रभिन्नगजशोणितवारिवाहवेगावतारतरणातुरयोधभीमे।
+युद्धे जयं विजितदुर्जयजेयपक्षास्त्वत्पादपङ्कजवनाश्रयिणो लभन्ते॥३९॥
+>en: Those who take shelter under the lotus-grove of your feet gain victory by vanquishing the unconquerable enemies in the war which is horrible on account of the warriors being impatient to cross the powerful streams of blood gushing forth from (the temples of) the elephants pierced by the pointed ends of lances.
+
+@40
+अम्भोनिधौ क्षुभितभीषणनक्रचक्रपाठीनपीठभयदोल्बणवाडवाग्नौ।
+रङ्गत्तरङ्गशिखरस्थितयानपात्रास्त्रासं विहाय भवतः स्मरणाद् व्रजन्ति॥४०॥
+>en: Those who remember you fearlessly reach (the shore,) even when they are sailing in a vessel floating on the tops of the rising billows in the ocean which is the abode of a manifest submarine fire and of the hosts of the ferocious and excited crocodiles and alligators.
+
+@41
+उद्भूतभीषणजलोदरभारभुग्नाः शोच्यां दशामुपगताश्च्युतजीविताशाः।
+त्वत्पादपङ्कजरजोऽमृतदिग्धदेहा मर्त्या भवन्ति मकरध्वजतुल्यरूपाः॥४१॥
+>en: The mortals, who are bent down under the burden of dreadful dropsy that has arisen, who are reduced to a deplorable condition and who have lost all hopes of surviving become Cupid-like in beauty, when they anoint their body with the ambrosia of the pollen of the lotuses (in the form) of your feet.
+
+@42
+आपादकण्ठमुरुशृङ्खलवेष्टिताङ्गा गाढं बृहन्निबिडकोटिनिघृष्टजङ्घाः।
+त्वन्नाममन्त्रमनिशं मनुजाः स्मरन्तः सद्यः स्वयं विगतबन्धभया भवन्ति॥४२॥
+>en: Those men whose limbs are clothed from foot to neck in heavy fetters and whose shanks are severely skinned by millions of strong chains, automatically become at once free from the fear of bondage by always meditating upon your name as mantra.
+
+@43
+मत्तद्विपेन्द्रमृगराजदवानलाहिसङ्ग्रामवारिधिमहोदरबन्धनोत्थम्।
+तस्याशु नाशमुपयाति भयं भियेव यस्तावकं स्तवमिमं मतिमानधीते॥४३॥
+>en: The danger arising from (1) the intoxicated lordly elephants, (2) the kings of beasts (lions), (3) conflagrations, (4) serpents, (5) wars, (6) oceans, (7) dropsy and (8) confinements speedily disappears as if through fear in the case of that talented man who recited this hymn in your praise.
+
+@44
+स्तोत्रस्रजं तवजिनेन्द्रगुणैर्निबद्धां भक्त्या मया रुचिरवर्णविचित्रपुष्पाम्।
+धत्ते जनो य इह कण्ठगतामजस्रं तं मानतुङ्गमवशा समुपैति लक्ष्मीः॥४४॥
+>en: O master of the Jinas! The goddess of wealth spontaneously awaits on that Mānatuṅga who, in this world incessantly wears around his neck the garland of prayer prepared by me with devotion, the garland which is knitted with your merits and which has variegated flowers of attractive (colours in the form of) beautiful letters.
+
+@@colophon
+॥ इति मानतुङ्गसूरिविरचितं भक्तामरस्तोत्रं संपन्नम्॥

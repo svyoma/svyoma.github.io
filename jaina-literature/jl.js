@@ -13,8 +13,13 @@
     { key: "hk", label: "HK" }
   ];
   var STORE_KEY = "jl-script";
+  var STORE_TRANS = "jl-trans";
 
   function qs(name) { return new URLSearchParams(location.search).get(name); }
+  function langLabel(code) {
+    var m = { en: "English", hi: "हिन्दी", gu: "ગુજરાતી", sa: "Sanskrit", mr: "मराठी" };
+    return m[code] || (code || "").toUpperCase();
+  }
   function el(tag, cls, html) {
     var e = document.createElement(tag);
     if (cls) e.className = cls;
@@ -33,7 +38,8 @@
     return obj[currentScript()] || obj.deva || obj.iast || "";
   }
 
-  var state = { text: null, script: localStorage.getItem(STORE_KEY) || "deva", mode: "single", scrolled: false };
+  var state = { text: null, script: localStorage.getItem(STORE_KEY) || "deva", mode: "single",
+    showTrans: localStorage.getItem(STORE_TRANS) === "1", scrolled: false };
 
   function currentScript() {
     return SCRIPTS.some(function (s) { return s.key === state.script; }) ? state.script : "deva";
@@ -64,10 +70,12 @@
     }
     node.appendChild(body);
 
-    (v.translations || []).forEach(function (t) {
-      node.appendChild(el("div", "translation",
-        '<span class="lbl">' + esc(t.lang) + "</span> " + esc(t.text)));
-    });
+    if (state.showTrans) {
+      (v.translations || []).forEach(function (t) {
+        node.appendChild(el("div", "translation",
+          '<span class="lbl">' + esc(langLabel(t.lang)) + "</span>" + esc(t.text)));
+      });
+    }
     (v.commentary || []).forEach(function (c) {
       node.appendChild(el("div", "commentary",
         "<strong>" + esc(cap(c.label)) + ".</strong> " + esc(pick(c))));
@@ -228,6 +236,21 @@
       renderVerses();
     });
     bar.appendChild(cmp);
+
+    // translation toggle — only offered when the text actually carries translations
+    var hasTrans = (t.verses || []).some(function (v) {
+      return v.translations && v.translations.length;
+    });
+    if (hasTrans) {
+      var tr = el("button", "mode-btn" + (state.showTrans ? " active" : ""), "Translation");
+      tr.addEventListener("click", function () {
+        state.showTrans = !state.showTrans;
+        localStorage.setItem(STORE_TRANS, state.showTrans ? "1" : "0");
+        tr.classList.toggle("active");
+        renderVerses();
+      });
+      bar.appendChild(tr);
+    }
     main.appendChild(bar);
 
     var vwrap = el("div", "verses");
