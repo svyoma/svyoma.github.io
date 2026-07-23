@@ -24,24 +24,12 @@
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        @font-face {
-            font-family: 'Junicode';
-            src: local('Junicode'), url('fonts/Junicode.woff2') format('woff2');
-            font-weight: normal; font-style: normal;
-        }
-        @font-face {
-            font-family: 'Adishila';
-            src: local('Adishila'), url('fonts/AdishilaSemiBoldB.woff') format('woff');
-            font-weight: normal; font-style: normal;
-        }
-        @font-face {
-            font-family: 'Ekatra-B';
-            src: local('Ekatra-B'), url('fonts/Ekatra-B.woff') format('woff');
-            font-weight: normal; font-style: normal;
-        }
+        @font-face{font-family:'Junicode';src:local('Junicode'),url('/fonts/Junicode.woff2') format('woff2'),url('/fonts/Junicode.woff') format('woff');font-weight:normal;font-style:normal;}
+        @font-face{font-family:'Adishila';src:local('Adishila'),url('/fonts/AdishilaSemiBoldB.woff2') format('woff2'),url('/fonts/AdishilaSemiBoldB.woff') format('woff');font-weight:normal;font-style:normal;}
+        @font-face{font-family:'Ekatra-B';src:local('Ekatra-B'),url('/fonts/Ekatra-B.woff') format('woff');font-weight:normal;font-style:normal;}
 
         body {
-            font-family: 'Junicode', 'Adishila', Georgia, serif;
+            font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif;
             background-color: var(--parchment);
             background-image:
                 radial-gradient(ellipse 80% 60% at 15% 40%, rgba(193,127,36,0.07) 0%, transparent 60%),
@@ -118,7 +106,7 @@
         }
 
         .site-title {
-            font-family: 'Junicode', 'Adishila', Georgia, serif;
+            font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif;
             font-size: clamp(2rem, 5.5vw, 3.4rem);
             font-weight: normal;
             letter-spacing: 0.06em;
@@ -128,7 +116,7 @@
         }
 
         .site-subtitle {
-            font-family: 'Junicode', Georgia, serif;
+            font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif;
             font-size: clamp(0.85rem, 2vw, 1rem);
             font-style: italic;
             color: var(--gold-pale);
@@ -216,7 +204,7 @@
             border: 1px solid var(--border-strong);
             border-radius: 2px;
             background: rgba(255,255,255,0.45);
-            font-family: 'Junicode', Georgia, serif;
+            font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif;
             font-size: 0.9rem;
             color: var(--ink);
             outline: none;
@@ -241,7 +229,7 @@
             padding: 7px 14px;
             border: 1px solid var(--border-strong);
             background: transparent;
-            font-family: 'Junicode', Georgia, serif;
+            font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif;
             font-size: 0.78rem;
             color: var(--muted);
             cursor: pointer;
@@ -353,7 +341,7 @@
         }
 
         .entry-title {
-            font-family: 'Junicode', 'Adishila', Georgia, serif;
+            font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif;
             font-size: 1.3rem;
             font-weight: normal;
             color: var(--burgundy);
@@ -373,7 +361,7 @@
             display: inline-block;
             padding: 2px 8px;
             font-size: 0.64rem;
-            font-family: 'Junicode', Georgia, serif;
+            font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif;
             letter-spacing: 0.09em;
             text-transform: uppercase;
             border: 1px solid;
@@ -431,7 +419,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            font-family: 'Junicode', Georgia, serif;
+            font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif;
             font-size: 0.8rem;
             color: var(--burgundy);
             text-decoration: none;
@@ -469,7 +457,7 @@
             border: 1px solid var(--border);
             border-bottom: none;
             background: transparent;
-            font-family: 'Junicode', Georgia, serif;
+            font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif;
             font-size: 0.82rem;
             color: var(--muted);
             cursor: pointer;

@@ -8,30 +8,20 @@
 }
 
 /* Font faces */
-@font-face {
-    font-family: 'Adishila';
-    src: local('Adishila'), url('../fonts/AdishilaSemiBoldB.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+@font-face{font-family:'Ekatra-B';src:local('Ekatra-B'),url('/fonts/Ekatra-B.woff') format('woff');font-weight:normal;font-style:normal;}@font-face{font-family:'Adishila';src:local('Adishila'),url('/fonts/AdishilaSemiBoldB.woff2') format('woff2'),url('/fonts/AdishilaSemiBoldB.woff') format('woff');font-weight:normal;font-style:normal;}
 
-@font-face {
-    font-family: 'Junicode';
-    src: local('Junicode'), url('../fonts/Junicode.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
+@font-face{font-family:'Junicode';src:local('Junicode'),url('/fonts/Junicode.woff2') format('woff2'),url('/fonts/Junicode.woff') format('woff');font-weight:normal;font-style:normal;}
 
 @font-face {
     font-family: 'Aver';
-    src: local('Aver'), url('../fonts/Aver.woff') format('woff');
+    src: local('Aver'), url('/fonts/Aver.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
 
 /* Base styles */
 body {
-    font-family: 'Aver', 'Adishila', sans-serif;
+    font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
@@ -60,7 +50,7 @@ header {
 header h1 {
     margin: 0;
     color: var(--primary-color);
-    font-family: 'Adishila', Georgia, serif;
+    font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif;
 }
 
 header p {
@@ -96,12 +86,12 @@ nav ul li a:hover {
 /* Typography */
 h1, h2 {
     color: var(--primary-color);
-    font-family: 'Adishila', Georgia, serif;
+    font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif;
 }
 
 h3 {
     color: #7a0000;
-    font-family: 'Adishila', Georgia, serif;
+    font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif;
 }
 
 a {
@@ -156,7 +146,7 @@ a:hover {
 
 .sanskrit-verse {
     cursor: pointer;
-    font-family: 'Adishila', Georgia, serif;
+    font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif;
     line-height: 1.8;
 }
 

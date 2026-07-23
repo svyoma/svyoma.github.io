@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         body {
-            font-family: 'Aver', sans-serif;
+            font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif;
             text-align: left;
             line-height: 1.6;
             margin: 0 auto;
@@ -68,36 +68,25 @@
             padding: 20px 0;
         }
         /* Define @font-face for Adishila Dev */
-        @font-face {
-            font-family: 'Adishila';
-            src: local('Adishila'), url('fonts/AdishilaSemiBoldB.woff') format('woff'); /* Adjust the file path and format */
-            font-weight: normal;
-            font-style: normal;
-        }
+        @font-face{font-family:'Junicode';src:local('Junicode'),url('/fonts/Junicode.woff2') format('woff2'),url('/fonts/Junicode.woff') format('woff');font-weight:normal;font-style:normal;}@font-face{font-family:'Adishila';src:local('Adishila'),url('/fonts/AdishilaSemiBoldB.woff2') format('woff2'),url('/fonts/AdishilaSemiBoldB.woff') format('woff');font-weight:normal;font-style:normal;}
 
         /* Define @font-face for Aver */
         @font-face {
             font-family: 'Aver';
-            src: local('Aver'), url('fonts/Aver.woff') format('woff'); /* Adjust the file path and format */
+            src: local('Aver'), url('/fonts/Aver.woff') format('woff'); /* Adjust the file path and format */
             font-weight: normal;
             font-style: normal;
         }
 
-        @font-face {
-            font-family: 'Ekatra-B';
-            src: local('Ekatra-B'), url('fonts/Ekatra-B.woff') format('woff'); /* Adjust the file path and format */
-            font-weight: normal;
-            font-style: normal;
-            color: #7a0000;
-        }
+        @font-face{font-family:'Ekatra-B';src:local('Ekatra-B'),url('/fonts/Ekatra-B.woff') format('woff');font-weight:normal;font-style:normal;}
 
         /* Apply Adishila Dev for Devanagari characters */
         body, h1, h2, p {
-            font-family: 'Aver', 'Adishila', sans-serif;
+            font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif;
         }
         
         blockquote{
-            font-family: 'Adishila', 'Ekatra-B';
+            font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif;
             font-weight: bold;
             color: #7a0000;
         }

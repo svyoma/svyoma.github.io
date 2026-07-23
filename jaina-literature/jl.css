@@ -88,7 +88,7 @@
 .verse:target { background: rgba(201,168,76,0.14); border-radius: 3px; }
 
 .pada-block { margin: 0; white-space: pre-line; line-height: 1.9; font-size: 1.05rem; }
-.pada-block.deva { font-family: 'Adishila', 'Junicode', serif; font-size: 1.15rem; }
+.pada-block.deva { font-family: 'Junicode', 'Adishila', 'Ekatra-B', Georgia, serif; font-size: 1.15rem; }
 .script-line { display: block; }
 .script-line .lbl {
     display: inline-block; min-width: 46px; font-size: 0.6rem; letter-spacing: 0.08em;
