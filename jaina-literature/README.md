@@ -143,7 +143,7 @@ still living in `misc-works/`, so nothing disappears before it is migrated).
 No search library is vendored — the corpus is small enough that a folded linear
 scan is instant and keeps the page dependency-free.
 
-## Sectioned works: Kāvyas (`kavyas/`) and Darśana (`darshana/`)
+## Sectioned works: Kāvyas (`kavyas/`), Darśana (`darshana/`), Poetics & Prosody (`poetics/`)
 
 Long works that arrive as the running text of a printed edition have their own
 sections. Kāvyas, with or without a *ṭīkā*, are at **`/jaina-literature/kavyas/`**.
@@ -184,6 +184,23 @@ and `section.js` serve both sections, and `darshana/*.html` load them from
   marks each borrowed line in its verse and adds a *source* view linking every
   line to where it is used.
 
+### `format: vyakhya`
+For a mūla that survives only inside its commentary.
+The yml lists several `volumes:`, each with a `body_start` line. `unit_close` is a
+regex for the colophon that ends each unit; here it is the notes-writer's, which
+follows the commentator's. A paragraph is taken as **mūla** when the next
+paragraph (or one up to three further on, with a pratīka of five or more
+akṣaras) opens by quoting it: `…इत्यादि,` / `(…इति)`. Everything until the next
+passage is its commentary. `अथ …वादः` lines become section headings. After a
+volume's last colophon, back matter is dropped.
+
+### `format: json`
+For a work that already exists as structured JSON (`json:` in the yml): chapters →
+sections, each with a `sutra` and commentary `layers:` (e.g. `vritti`, `viveka`) of
+typed blocks (prose, lead, example with `num`, verse, quote, citation, source, note).
+Page numbers, Prākṛta `chaya` and ṭippaṇa notes from the appendices are kept on
+each block. The reader folds every layer after the first under its own heading.
+
 ### `format: sutra`
 - The body starts after `body_start:`. Units close with an `इति श्री…ऽध्यायः` colophon,
   and the rest of that block opens the next unit.
@@ -219,6 +236,7 @@ To add a work, drop `<slug>.txt` and `<slug>.yml` into `<section>/sources/`, run
 | `jaina_kumarasambhavam` (JLK-001): Jayaśekharasūri, with Dharmaśekharasūri's ṭīkā | Kāvyas | Text digitised by **eBharatiSampat**; 1946 Devchand Lalbhai edition (Series 93) | ✅ 11 sargas, 850 verses |
 | `parsvabhyudaya` (JLK-002): Jinasena, samasyāpūraṇa on the Meghadūta | Kāvyas | Encoded and proofread by **Pallasena Narayanaswami** | ✅ 4 sargas, 364 verses; 475/480 borrowed lines located |
 | `dharmabindu` (JLD-001): Haribhadrasūri, with Municandrasūri's vṛtti | Darśana | Bibliotheca Indica 220 (ed. Suali / Chakravarti, 1940) | ✅ 8 adhyāyas, 575 sūtras |
+| `kavyanusasana` (JLA-001): Hemacandra, with his Alaṅkāracūḍāmaṇi and Viveka | Poetics & Prosody | 1938 ed. R. C. Parikh, via the structured JSON | ✅ 8 adhyāyas, 208 sūtras |
 
 ## Validation
 

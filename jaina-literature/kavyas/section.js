@@ -14,18 +14,28 @@
       $scope = document.getElementById("scope"), $scopeTika = document.getElementById("scopeTika");
 
   function genreLabel(g) {
-    return { mahakavya: "Mahākāvya", kavya: "Kāvya", prakarana: "Prakaraṇa" }[g] || cap(g || "");
+    return { mahakavya: "Mahākāvya", kavya: "Kāvya", prakarana: "Prakaraṇa", tarka: "Tarka", alankara: "Alaṅkāra", chandas: "Chandas" }[g] || cap(g || "");
   }
   function plural(n, word) { return n + " " + (n === 1 ? word : word + "s"); }
   function itemWord(k) { return (k.item && k.item.iast) || "verse"; }
-  function commName(c) { return c && c.name ? cap(c.name.iast) : "commentary"; }
+  function commName(c) { return c && c.short ? c.short : c && c.name ? cap(c.name.iast) : "commentary"; }
+
+  // a work with its own app (e.g. the Kāvyānuśāsana reader) is linked there instead of the shared reader
+  function readHref(k, unit) {
+    if (k.app) return k.app + (unit ? "#/" + unit : "");
+    return READER + "?k=" + k.slug + (unit ? "#s" + unit : "");
+  }
+  function hitHref(k, unit, v) {
+    if (k.app) return k.app + "#/" + (v.sid || unit);
+    return READER + "?k=" + k.slug + "#" + unit + "." + v.n;
+  }
 
   function card(k) {
     var c = (k.commentary || [])[0];
     var main = (k.metres || []).slice(0, 3).map(function (m) { return cap(m[0]); }).join(", ");
     var maxC = Math.max.apply(null, k.sarga_counts);
     var strip = k.sarga_counts.map(function (n, i) {
-      return '<a href="' + READER + "?k=" + k.slug + "#s" + (i + 1) + '" style="height:' + (35 + 65 * n / maxC) + '%" title="' +
+      return '<a href="' + readHref(k, i + 1) + '" style="height:' + (35 + 65 * n / maxC) + '%" title="' +
         esc(cap(k.unit.iast)) + " " + (i + 1) + " · " + plural(n, itemWord(k)) + '"><span>' + (i + 1) + "</span></a>";
     }).join("");
     return '<article class="entry">' +
@@ -38,11 +48,11 @@
         (k.tags || []).map(function (t) { return '<span class="tag tag-genre">' + esc(t) + "</span>"; }).join("") +
         (c ? '<span class="tag tag-comm">With ' + esc(commName(c)) + "</span>" : '<span class="tag tag-genre">Mūla</span>') + "</div>" +
       '<div class="entry-meta"><span>' + plural(k.sarga_count, k.unit.iast) + "</span><span>" + plural(k.verse_count, itemWord(k)) + "</span>" +
-        (main && k.format !== "sutra" ? "<span>" + esc(main) + "</span>" : "") + "</div>" +
+        (main && k.format === "kavya" ? "<span>" + esc(main) + "</span>" : "") + "</div>" +
       (k.blurb ? '<p class="entry-desc">' + esc(k.blurb) + "</p>" : "") +
       '<p class="strip-label">' + esc(cap(k.unit.iast)) + "s · click to open</p>" +
       '<div class="sarga-strip">' + strip + "</div>" +
-      '<div class="entry-footer"><a class="read-link" href="' + READER + "?k=" + k.slug + '">Read</a></div>' +
+      '<div class="entry-footer"><a class="read-link" href="' + readHref(k) + '">Read</a></div>' +
       "</article>";
   }
 
@@ -108,7 +118,7 @@
         hits.forEach(function (h) {
           if (shown++ >= LIMIT) return;
           var r = h.s + "." + h.v.n;
-          html.push('<a class="hit' + (h.tika ? " tika-hit" : "") + '" href="' + READER + "?k=" + x.k.slug + "#" + r + '">' +
+          html.push('<a class="hit' + (h.tika ? " tika-hit" : "") + '" href="' + hitHref(x.k, h.s, h.v) + '">' +
             '<div class="hit-head"><b>' + r + '</b><span class="kind">' + (h.tika || "mūla") + "</span>" +
             (h.v.m ? "<span>" + esc(cap(h.v.m)) + "</span>" : "") + "</div>" +
             '<div class="hit-body' + (q.deva ? " deva" : "") + (h.tika ? " small" : "") + '">' + h.html + "</div></a>");

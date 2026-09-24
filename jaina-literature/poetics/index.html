@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kāvyas — Jaina Literature Portal</title>
-    <meta name="description" content="Jaina kāvyas and mahākāvyas, with or without their Sanskrit commentaries. Read sarga by sarga in Devanagari, IAST, ISO-15919 or Harvard-Kyoto, see the metre of each verse, and search across mūla and ṭīkā.">
-    <link rel="canonical" href="https://svyoma.github.io/jaina-literature/kavyas/">
+    <title>Poetics &amp; Prosody — Jaina Literature Portal</title>
+    <meta name="description" content="Jaina works on poetics (alaṅkāra) and prosody (chandas), with their commentaries: Hemacandra's Kāvyānuśāsana with the Alaṅkāracūḍāmaṇi and Viveka, read sūtra by sūtra with examples, chāyās and ṭippaṇa, in Devanagari, IAST, ISO-15919 or Harvard-Kyoto.">
+    <link rel="canonical" href="https://svyoma.github.io/jaina-literature/poetics/">
     <link rel="stylesheet" href="../assets/css/text-style.css">
-    <link rel="stylesheet" href="kavya.css">
+    <link rel="stylesheet" href="../kavyas/kavya.css">
     <style>
         /* catalogue-specific: mirrors the portal index (../index.html) */
         .site-header.big { padding: 60px 40px 50px; text-align: center; }
@@ -89,32 +89,31 @@
 <header class="site-header big">
     <div class="header-inner">
         <div class="header-rule-top"><span class="header-ornament-glyph">✦ &nbsp; ✦ &nbsp; ✦</span></div>
-        <h1 class="site-title">Kāvyas<span class="deva">काव्यानि</span></h1>
-        <p class="site-subtitle">Ornate poetry of the Jaina tradition, with and without its commentaries</p>
+        <h1 class="site-title">Poetics &amp; Prosody<span class="deva">अलङ्कारः छन्दश्च</span></h1>
+        <p class="site-subtitle">Jaina treatises on the art of poetry and the science of metre, with their commentaries</p>
         <p class="attribution">A section of the <a href="../">Jaina Literature Portal</a> · curated by <a href="../../index.html">svyoma</a></p>
     </div>
 </header>
 
 <div class="wrap">
     <div class="mode-tabs" role="tablist" aria-label="Mode">
-        <button class="mode-tab active" id="tabBrowse" role="tab" aria-selected="true">Browse kāvyas</button>
-        <button class="mode-tab" id="tabSearch" role="tab" aria-selected="false">Search inside kāvyas</button>
-        <a class="mode-tab link" href="../darshana/">Darśana →</a>
-        <a class="mode-tab link" href="../poetics/" style="margin-left:0">Poetics &amp; Prosody →</a>
+        <button class="mode-tab active" id="tabBrowse" role="tab" aria-selected="true">Browse works</button>
+        <button class="mode-tab" id="tabSearch" role="tab" aria-selected="false">Search inside works</button>
+        <a class="mode-tab link" href="../kavyas/">Kāvyas →</a>
+        <a class="mode-tab link" href="../darshana/" style="margin-left:0">Darśana →</a>
         <a class="mode-tab link" href="../" style="margin-left:0">← Portal catalogue</a>
     </div>
 
     <p class="section-intro">
-        Kāvyas are long, sarga-divided compositions, and many reach us with a
-        <em>ṭīkā</em> that is as important as the poem. Each work here is read
-        <em>sarga</em> by <em>sarga</em>. The commentary stays out of the way until you open it.
+        Jaina scholars wrote some of the most systematic treatises on <em>alaṅkāra</em>, the art of poetry,
+        and <em>chandas</em>, metre, and often commented on them themselves. Each work here opens
+        <em>adhyāya</em> by <em>adhyāya</em>. The sūtra comes first, with the commentaries layered beneath it.
     </p>
     <div class="features">
-        <div class="feature"><b>Mūla &amp; ṭīkā</b>Show the commentary for every verse, one verse at a time, or not at all. Pratīkas are highlighted.</div>
-        <div class="feature"><b>Chandas</b>Each verse's metre is identified by scansion. A per-sarga profile and a chandas index come with it.</div>
-        <div class="feature"><b>Samasyā</b>In a poem built on another poem's lines, each borrowed line is marked and the source poem is rebuilt from them.</div>
-        <div class="feature"><b>Four scripts</b>Devanagari, IAST, ISO-15919 and Harvard-Kyoto. Parallel view puts two scripts together.</div>
-        <div class="feature"><b>Search</b>Search the verses and the commentary together. Diacritics and spacing are ignored, and Devanagari queries work too.</div>
+        <div class="feature"><b>Layered commentaries</b>Hemacandra's Alaṅkāracūḍāmaṇi comes first, with his fuller Viveka folded beneath it. Open either one per sūtra or for the whole adhyāya.</div>
+        <div class="feature"><b>Examples</b>The illustrative verses keep their numbers, and every Prākṛta verse shows its Sanskrit chāyā.</div>
+        <div class="feature"><b>Ṭippaṇa &amp; pages</b>Glosses from the palm-leaf ṭippaṇa appear under the passage they explain, beside the page numbers of the printed edition.</div>
+        <div class="feature"><b>Search</b>Search the sūtras and both commentaries together, in any script. Diacritics and spacing are ignored.</div>
     </div>
 
     <div class="controls" id="controls">
@@ -125,17 +124,17 @@
         </span>
     </div>
 
-    <div class="count-line"><span id="count">Loading…</span><span style="opacity:.5">Kāvyas</span></div>
+    <div class="count-line"><span id="count">Loading…</span><span style="opacity:.5">Poetics &amp; Prosody</span></div>
     <main id="list" style="max-width:none;padding:0;margin:0"></main>
-    <p class="upcoming">More kāvyas, with and without commentaries, will be added to this section.</p>
+    <p class="upcoming">More works on alaṅkāra and chandas will be added to this section.</p>
 </div>
 
 <footer>
     <a href="../">Jaina Literature Portal</a> &nbsp;·&nbsp; Curated by <a href="../../index.html">svyoma</a>
 </footer>
 
-<script>window.KV_SECTION = { name: "Kāvyas", noun: "kāvya", reader: "reader.html" };</script>
-<script src="kavya-common.js"></script>
-<script src="section.js"></script>
+<script>window.KV_SECTION = { name: "Poetics & Prosody", noun: "work", reader: "reader.html" };</script>
+<script src="../kavyas/kavya-common.js"></script>
+<script src="../kavyas/section.js"></script>
 </body>
 </html>

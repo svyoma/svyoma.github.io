@@ -53,7 +53,7 @@ import yaml
 from aksharamukha import transliterate
 
 ROOT = Path(__file__).parent
-SECTIONS = ["kavyas", "darshana"]
+SECTIONS = ["kavyas", "darshana", "poetics"]
 
 DIGITS = "०१२३४५६७८९"
 _deva_re = re.compile(r"[ऀ-ॿ]")
@@ -938,8 +938,237 @@ def parse_sutra(text, cfg):
 
 
 # ---------------------------------------------------------------------------
+# Vyākhyā format (a mūla that survives only inside its commentary, e.g. the
+# Dvādaśāranayacakra embedded in Siṃhasūri's Nyāyāgamānusāriṇī)
+# ---------------------------------------------------------------------------
+
+RULE_RE = re.compile(r"^\s*[—–\-_]{8,}\s*$")
+DEVA_ONLY_RE = re.compile(r"[^ऀ-ॣॱ-ॿ]")
+# a gloss opens by quoting its passage: "द्रव्यार्थपर्यायार्थेत्यादि," / "(तदिति)" / "अथोच्येतेति,"
+PRATIKA_RE = re.compile(r"^\(?\s*([^\s,।()]{2,}?(?:\s[^\s,।()]+){0,4}?)\s*"
+                        r"(?:इत्यादि|त्यादि|इति|ेति|ीति|ूति)\s*[,)।]")
+SECTION_RE = re.compile(r"^अथ\s+\S+(?:\s+\S+)?\s*$")          # "अथ नियतिवादः"
+
+
+def _pratika_of(para):
+    m = PRATIKA_RE.match(para)
+    return DEVA_ONLY_RE.sub("", m.group(1)) if m else None
+
+
+def _quotes(gloss, passage, min_len=2):
+    """Does `gloss` open by quoting the beginning of `passage`?"""
+    x = _pratika_of(gloss)
+    if not x or len(x) < min_len:
+        return False
+    k = max(3, len(x) - 2)
+    return DEVA_ONLY_RE.sub("", passage)[:k] == x[:k]
+
+
+def volume_paragraphs(text, start, stop_after):
+    """Paragraphs of one volume's body: blank lines and printed rules separate them."""
+    lines = clean_text(text).split("\n")
+    a = next(i for i, l in enumerate(lines) if l.strip() == start and not l.startswith("\t\t"))
+    paras, cur = [], []
+    for l in lines[a:]:
+        if not l.strip() or RULE_RE.match(l):
+            if cur:
+                paras.append(cur)
+                cur = []
+            continue
+        cur.append(l.rstrip())
+    if cur:
+        paras.append(cur)
+    return paras
+
+
+def parse_vyakhya(section_dir, cfg):
+    close_re = re.compile(cfg["unit_close"])        # the notes-writer's colophon closes an ara
+    names = {int(k): v for k, v in (cfg.get("unit_names") or {}).items()}
+    comm_colophon_re = re.compile(cfg.get("comm_colophon", r"$^"))
+    units, cur = [], None
+
+    def open_unit():
+        nonlocal cur
+        cur = {"num": len(units) + 1, "heading": names.get(len(units) + 1), "intro": [], "verses": [],
+               "colophon": None, "_paras": []}
+        units.append(cur)
+
+    for vol in cfg["volumes"]:
+        text = (section_dir / "sources" / vol["file"]).read_text(encoding="utf-8")
+        paras = volume_paragraphs(text, vol["body_start"], None)
+        if cur is None or cur["_paras"]:
+            open_unit()
+        opened_by_close, finished = None, False
+        i = 0
+        while i < len(paras):
+            blk = paras[i]
+            joined = " ".join(l.strip() for l in blk)
+            if close_re.search(joined):
+                # the colophon may run on into the next paragraph ("… द्वितीयो विधिविध्यरः समाप्तः॥")
+                col = joined
+                if not re.search(r"(समाप्तः|रः)\s*[।॥]*\s*$", joined) and i + 1 < len(paras):
+                    i += 1
+                    col += " " + " ".join(l.strip() for l in paras[i])
+                cur["_colophons"] = cur.get("_colophons", []) + [col]
+                if len(units) < cfg.get("units", 99):
+                    open_unit()
+                    opened_by_close = cur
+                else:
+                    finished, opened_by_close = True, None   # the last ara is closed: the rest is back matter
+                i += 1
+                continue
+            if not finished:
+                cur["_paras"].append(blk)
+            i += 1
+        # each volume ends an ara: anything after its last colophon (booklists, adverts) is dropped
+        if opened_by_close is cur:
+            cur["_paras"] = []
+    if units and not units[-1]["_paras"]:
+        units.pop()
+
+    for u in units:
+        paras = [" ".join(l.strip() for l in b) if not (len(b) >= 2 and verse_like(b)) else "\n".join(l.strip() for l in b)
+                 for b in u.pop("_paras")]
+        # the ara's own heading / colophon lines are not text
+        skip = set()
+        for k, p in enumerate(paras[:4]):
+            if len(p) < 40 and re.search(r"(रः|नयः|भयम्)\s*[।॥]?\s*$", p):
+                skip.add(k)
+        is_mula = [False] * len(paras)
+        for k in range(len(paras)):
+            if k in skip or _pratika_of(paras[k]) is not None:
+                continue
+            # the gloss usually follows at once; a notes paragraph or two may sit in
+            # between, so further away a longer pratīka is required
+            for j in range(k + 1, min(k + 5, len(paras))):
+                if _quotes(paras[j], paras[k], 2 if j == k + 1 else 5):
+                    is_mula[k] = True
+                    break
+        item, pending_head = None, None
+        for k, p in enumerate(paras):
+            if k in skip:
+                continue
+            if comm_colophon_re.search(p):
+                u["colophon_comm"] = p
+                continue
+            if SECTION_RE.match(p) and len(p) < 40:
+                pending_head = p
+                continue
+            if is_mula[k]:
+                lines_ = p.split("\n")
+                item = {"num": len(u["verses"]) + 1, "deva": p.rstrip("।॥ ,") + "॥", "tika": [],
+                        "kind": "v" if len(lines_) >= 2 and verse_like(lines_) else "s"}
+                if pending_head:
+                    item["head"], pending_head = pending_head, None
+                u["verses"].append(item)
+                continue
+            tgt = item["tika"] if item else u["intro"]
+            if pending_head:
+                tgt.append({"t": "h", "deva": pending_head})
+                pending_head = None
+            tgt.append({"t": "v" if "\n" in p else "p", "deva": p})
+        cols = ([u["colophon_comm"]] if u.get("colophon_comm") else []) + u.pop("_colophons", [])
+        u.pop("colophon_comm", None)
+        u["colophon"] = " — ".join(cols) if cols else None
+    return units, None
+
+
+def vyakhya_frontmatter(section_dir, cfg):
+    items = []
+    for part in (cfg.get("frontmatter") or {}).get("parts", []):
+        vol = next(v for v in cfg["volumes"] if v["file"] == part["file"])
+        lines = clean_text((section_dir / "sources" / vol["file"]).read_text(encoding="utf-8")).split("\n")
+        got = parse_frontmatter(lines, part)
+        if got:
+            items.append({"t": "h", "text": part.get("heading", "")})
+            items += [it for it in got if not (it["t"] == "h" and it["text"] == part.get("start"))]
+    return items
+
+
+# ---------------------------------------------------------------------------
+# Edition-JSON format (a work already structured as JSON: chapters → sections
+# with a sūtra and layered commentaries, e.g. the Kāvyānuśāsana with
+# Alaṅkāracūḍāmaṇi + Viveka, ṭippaṇa notes and a chāyā appendix)
+# ---------------------------------------------------------------------------
+
+import html as _html
+
+
+def html_to_text(h):
+    h = re.sub(r"<br\s*/?>", "\n", h or "")
+    h = re.sub(r"<[^>]+>", "", h)
+    return "\n".join(l.strip() for l in _html.unescape(h).split("\n")).strip()
+
+
+def parse_edition_json(section_dir, cfg):
+    src = json.loads((section_dir / "sources" / cfg["json"]).read_text(encoding="utf-8"))
+    layers = cfg.get("layers") or ["vritti", "viveka"]
+    tips = {}
+    for a in src.get("appendices") or []:
+        for n in a.get("notes") or []:
+            tips[n["id"]] = n
+    TYPE = {"prose": "p", "lead": "lead", "example": "v", "verse": "v", "quote": "v",
+            "citation": "v", "source": "src", "note": "note"}
+
+    def block_item(b, layer):
+        text = html_to_text(b.get("html")) or b.get("text", "")
+        kind = TYPE.get(b.get("type"), "p")
+        if kind == "v" and "\n" not in text and len(text) > 160:
+            kind = "p"                                   # a long prose citation
+        it = {"t": kind, "deva": text, "l": layer, "pg": b.get("page")}
+        if b.get("type") == "example" and b.get("num"):
+            it["n"] = b["num"]
+        if b.get("chaya"):
+            it["chaya"] = b["chaya"]
+        tl = []
+        for tid in b.get("tippana") or []:
+            n = tips.get(tid)
+            if n:
+                tl.append(f"{n.get('lemma', '').strip()} {n.get('gloss', '').strip()}".strip())
+        if tl:
+            it["tips"] = tl
+        return it
+
+    units = []
+    for ch in src["chapters"]:
+        u = {"num": ch["n"], "heading": ch.get("topic") or ch.get("title"), "intro": [], "verses": [],
+             "colophon": " — ".join(html_to_text(c.get("html")) or c.get("text", "") for c in ch.get("colophons") or []) or None,
+             "topic_en": ch.get("topic_en")}
+        for sec in ch["sections"]:
+            comm = [block_item(b, L) for L in layers for b in (sec.get(L) or [])]
+            s = sec.get("sutra")
+            if not s:
+                (u["verses"][-1]["tika"] if u["verses"] else u["intro"]).extend(comm)
+                continue
+            text = html_to_text(s.get("html")) or s.get("text", "")
+            lines = text.split("\n")
+            u["verses"].append({"num": int(s["n"]), "deva": text.rstrip("।॥ ") + "॥" + to_devnum(int(s["n"])) + "॥",
+                                "tika": comm, "kind": "v" if len(lines) >= 2 and verse_like(lines) else "s",
+                                "pg": s.get("page"), "gnum": s.get("g"), "sid": sec.get("id")})
+        units.append(u)
+    front = []
+    for f in src.get("front") or []:
+        front.append({"t": "h", "text": f.get("title", "")})
+        for b in f.get("blocks") or []:
+            t = html_to_text(b.get("html")) or b.get("text", "")
+            if t:
+                front.append({"t": "h" if b.get("type") in ("heading", "h") else "p", "text": t})
+    return units, None, front
+
+
+# ---------------------------------------------------------------------------
 # Build
 # ---------------------------------------------------------------------------
+
+def comm_item(it):
+    out = {k: v for k, v in it.items() if v not in (None, "", [])}
+    out["iast"] = tr(it["deva"], "IAST")
+    if it.get("chaya"):
+        out["chaya_iast"] = tr(it["chaya"], "IAST")
+    if it.get("tips"):
+        out["tips_iast"] = [tr(t, "IAST") for t in it["tips"]]
+    return out
+
 
 def label(cfg, key, deva, iast):
     u = cfg.get(key) or {}
@@ -950,15 +1179,21 @@ def build(section_dir, slug_yml):
     cfg = yaml.safe_load(slug_yml.read_text(encoding="utf-8"))
     slug = cfg["slug"]
     fmt = cfg.get("format", "kavya")
-    raw = (section_dir / "sources" / f"{slug}.txt").read_text(encoding="utf-8")
-    appendix = {}
-    if fmt == "sutra":
-        sargas, prasasti = parse_sutra(raw, cfg)
+    appendix, topics = {}, []
+    if fmt == "vyakhya":
+        sargas, prasasti = parse_vyakhya(section_dir, cfg)
+        front = vyakhya_frontmatter(section_dir, cfg)
+    elif fmt == "json":
+        sargas, prasasti, front = parse_edition_json(section_dir, cfg)
     else:
-        sargas, prasasti, appendix = parse_kavya(raw, cfg)
-    raw_lines = clean_text(raw).split("\n")
-    front = parse_frontmatter(raw_lines, cfg.get("frontmatter"))
-    topics = parse_topics(raw_lines, cfg)
+        raw = (section_dir / "sources" / f"{slug}.txt").read_text(encoding="utf-8")
+        if fmt == "sutra":
+            sargas, prasasti = parse_sutra(raw, cfg)
+        else:
+            sargas, prasasti, appendix = parse_kavya(raw, cfg)
+        raw_lines = clean_text(raw).split("\n")
+        front = parse_frontmatter(raw_lines, cfg.get("frontmatter"))
+        topics = parse_topics(raw_lines, cfg)
 
     out_dir = section_dir / "data" / slug
     out_dir.mkdir(parents=True, exist_ok=True)
@@ -982,6 +1217,12 @@ def build(section_dir, slug_yml):
                 vo["g"] = v["group"]
             if v.get("rubric"):
                 vo["r"] = sf(v["rubric"])
+            if v.get("head"):
+                vo["h"] = sf(v["head"])          # section heading printed before this passage
+            if v.get("pg"):
+                vo["pg"] = v["pg"]               # page of the printed edition
+            if v.get("sid"):
+                vo["sid"] = v["sid"]             # the work's own section id (for its dedicated app)
             if v.get("sam"):
                 vo["sam"] = v["sam"]
                 for sm in v["sam"]:
@@ -998,6 +1239,7 @@ def build(section_dir, slug_yml):
         idx = {
             "num": s["num"],
             "heading": sf(s["heading"]) if s["heading"] else None,
+            "subtitle": s.get("topic_en"),
             "count": len(s["verses"]),
             "metres": metres.most_common(),
             "colophon": sf(s["colophon"], ("iast",)) if s["colophon"] else None,
@@ -1007,13 +1249,11 @@ def build(section_dir, slug_yml):
             idx["topics"] = [{"t": sf(t["t"]), "sub": t["sub"]} for t in topics[s["num"] - 1]]
         sarga_index.append(idx)
         tika = {"sarga": s["num"],
-                "intro": [dict(it, iast=tr(it["deva"], "IAST")) for it in s["intro"]],
+                "intro": [comm_item(it) for it in s["intro"]],
                 "verses": {}}
         for v in s["verses"]:
             if v["tika"]:
-                tika["verses"][str(v["num"])] = [
-                    {"t": it["t"], "deva": it["deva"], "iast": tr(it["deva"], "IAST")} for it in v["tika"]
-                ]
+                tika["verses"][str(v["num"])] = [comm_item(it) for it in v["tika"]]
         if any(s["verses"]) and (tika["intro"] or tika["verses"]):
             (out_dir / f"tika-{s['num']}.json").write_text(
                 json.dumps(tika, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
@@ -1033,6 +1273,7 @@ def build(section_dir, slug_yml):
     comm = []
     for c in cfg.get("commentary", []) or []:
         comm.append({"label": c.get("label", "tika"), "name": sf((c.get("name") or {}).get("deva")),
+                     "short": c.get("short"),
                      "author": sf((c.get("author") or {}).get("deva")), "note": c.get("note")})
 
     author = cfg.get("author") or {}
@@ -1043,6 +1284,7 @@ def build(section_dir, slug_yml):
         "title": sf(cfg["title"]["deva"]),
         "short_title": sf((cfg.get("short_title") or cfg["title"])["deva"]),
         "display_title": cfg.get("display_title"),
+        "app": cfg.get("app"),                  # a dedicated reader, used instead of the shared one
         "author": {"name": sf(author.get("deva")), "note": author.get("note"),
                    "period": author.get("period"), "sect": author.get("sect"),
                    "role": author.get("role")},

@@ -28,6 +28,7 @@
     scale: parseFloat(KV.store.get("kv-scale", "1")) || 1,
     showMetre: KV.store.get("kv-metre", "1") === "1",
     showSam: KV.store.get("kv-samasya", "1") === "1",
+    layerOpen: KV.store.get("kv-layer2", "0") === "1",   // later commentary layers (e.g. Viveka) unfolded
     open: {},              // "s.v" -> true (ṭīkā opened in fold mode)
     metreFilter: null,
     query: "",
@@ -88,17 +89,18 @@
     var it = S.d.item || { iast: "verse" };
     return n === 1 ? it.iast : (it.plural || it.iast + "s");
   }
-  function isSutraWork() { return S.d.format === "sutra"; }
+  function isSutraWork() { return S.d.format === "sutra" || S.d.format === "vyakhya" || S.d.format === "json"; }
   function verseByNum(s, n) {
     for (var i = 0; i < s.verses.length; i++) if (s.verses[i].n === n) return s.verses[i];
     return null;
   }
   function commName() {                       // "Ṭīkā", "Vṛtti"
     var c = (S.d.commentary || [])[0];
+    if (c && c.short) return c.short;
     return c && c.name ? cap(pick(c.name, "iast")) : "Commentary";
   }
   function genreLabel(g) {
-    return { mahakavya: "Mahākāvya", kavya: "Kāvya", prakarana: "Prakaraṇa" }[g] || cap(g || "");
+    return { mahakavya: "Mahākāvya", kavya: "Kāvya", prakarana: "Prakaraṇa", tarka: "Tarka", alankara: "Alaṅkāra", chandas: "Chandas" }[g] || cap(g || "");
   }
 
   function sargaName(s) {
@@ -111,7 +113,7 @@
   }
   function introTitle() {
     var fm = S.d.frontmatter || {};
-    return fm.lang === "gu" ? "Prastāvanā" : "Introduction";
+    return fm.lang === "gu" ? "Prastāvanā" : fm.lang === "sa" ? "Upodghāta" : "Introduction";
   }
   function title() {
     if (!isDeva() && S.d.display_title) return S.d.display_title;
@@ -174,7 +176,7 @@
       (pick(d.title) !== title() ? '<p class="text-subtitle">' + esc(cap(pick(d.title))) + "</p>" : "") +
       (a.name ? '<p class="text-author">' + esc(cap(pick(a.name))) + "</p>" : "") +
       (c && c.author ? '<p class="comm-line">' + (isDeva() ? esc(pick(c.author, "deva")) + "कृतया " +
-          esc(pick(c.name, "deva")).replace(/ा$/, "या").replace(/ि$/, "्या") + " सहितम्"
+          esc(pick(c.name, "deva")).replace(/ा$/, "या").replace(/[िी]$/, "्या") + " सहितम्"
         : "with the " + esc(commName().toLowerCase()) + " of " + esc(cap(pick(c.author)))) + "</p>" : "") +
       '<div class="tags">' + tags + "</div></div>" +
       '<div class="kv-header-stats"><div><b>' + d.sargas.length + "</b><span>" + esc(units()) + "</span></div>" +
@@ -197,7 +199,7 @@
       h.push('<a href="#source" data-v="source"><span class="n">☁</span><span class="t">' + esc(cap(pick(d.samasya.name, "iast"))) +
         "<small>The borrowed lines, rebuilt</small></span></a>");
     if (d.metres.length)
-      h.push('<a href="#metres" data-v="metres"><span class="n">⏑</span><span class="t">Chandas index<small>' + d.metres.length + " metres</small></span></a>");
+      h.push('<a href="#metres" data-v="metres"><span class="n">⏑</span><span class="t">Chandas index<small>' + d.metres.length + (d.metres.length === 1 ? " metre" : " metres") + "</small></span></a>");
     h.push('<p class="kv-toc-label">' + esc(cap(units())) + "</p>");
     d.sargas.forEach(function (s) {
       var main = isSutraWork() ? s.count + " " + itemNoun() : (s.metres[0] ? metreName(s.metres[0][0]) : "");
@@ -393,16 +395,17 @@
     }
     // sargas table
     var sutra = isSutraWork();
+    var hasTopics = d.sargas.some(function (s) { return s.topics && s.topics.length; });
     h.push('<div class="kv-block"><h2 class="kv-h2">' + esc(cap(units())) + "</h2>" +
       '<table class="sarga-table"><thead><tr><th>#</th><th>' + esc(cap(d.unit.iast)) + "</th>" +
-      (sutra ? '<th class="mt">Topics</th>' : '<th class="mt">Principal metre</th><th class="bar-cell">Metrical profile</th>') +
+      (sutra ? (hasTopics ? '<th class="mt">Topics</th>' : "") : '<th class="mt">Principal metre</th><th class="bar-cell">Metrical profile</th>') +
       '<th class="cnt">' + esc(cap(itemNoun())) + "</th></tr></thead><tbody>" +
       d.sargas.map(function (s) {
         var main = s.metres[0];
         return '<tr data-href="#s' + s.num + '"><td class="num">' + s.num + '</td><td class="nm"><a href="#s' + s.num + '">' +
           esc(cap(sargaName(s))) + "</a></td>" +
-          (sutra ? '<td class="mt">' + esc((s.topics || []).filter(function (t) { return !t.sub; }).slice(0, 3)
-              .map(function (t) { return pick(t.t); }).join(" · ")) + ((s.topics || []).length > 3 ? " …" : "") + "</td>"
+          (sutra ? (!hasTopics ? "" : '<td class="mt">' + esc((s.topics || []).filter(function (t) { return !t.sub; }).slice(0, 3)
+              .map(function (t) { return pick(t.t); }).join(" · ")) + ((s.topics || []).length > 3 ? " …" : "") + "</td>")
             : '<td class="mt">' + (main ? esc(metreName(main[0])) : "—") + '</td><td class="bar-cell">' + metreBar(s.metres, s.count) + "</td>") +
           '<td class="cnt">' + s.count + "</td></tr>";
       }).join("") + "</tbody></table></div>");
@@ -496,6 +499,7 @@
     acts += '<button class="kv-act" type="button" data-act="copy" title="Copy ' + esc(itemNoun(1)) + '">Copy</button>' +
       '<button class="kv-act" type="button" data-act="link" title="Copy link to this verse">Link</button>' +
       '<button class="kv-act" type="button" data-act="cite" title="BibTeX citation">Cite</button>';
+    if (v.pg != null) meta += '<span class="kv-pg inline" title="Page of the printed edition">p. ' + esc(v.pg) + "</span>";
     h += '<div class="kv-vmeta">' + meta + '<span class="kv-actions">' + acts + "</span></div>";
     if (notes.length) h += notes.map(function (x) { return '<p class="kv-app">' + x + "</p>"; }).join("");
     node.innerHTML = h;
@@ -520,26 +524,80 @@
   }
 
   function tikaItemsHTML(items, q) {
-    var dv = isDeva();
+    var dv = isDeva(), lastPg = null;
     return items.map(function (it) {
-      var txt = dv ? it.deva : it.iast;
-      if (it.t === "v") return '<p class="q">' + (q ? KV.highlight(txt, q) : esc(txt)) + "</p>";
-      if (it.t === "note") return '<p class="ed-note">' + esc(txt) + "</p>";
-      if (it.t === "lead") return '<p class="lead">' + (q ? KV.highlight(txt, q) : esc(txt)) + "</p>";
-      // pratīka: opening citation of the verse, closed by the abbreviation mark
-      var m = txt.match(dv ? /^(.{1,80}?[०॰])(\s*[।,]?)/ : /^(.{1,80}?°)(\s*[|,]?)/);
-      if (m) {
-        var rest = txt.slice(m[0].length);
-        return '<p><span class="pratika">' + (q ? KV.highlight(m[1], q) : esc(m[1])) + "</span>" + esc(m[2]) +
-          (q ? KV.highlight(rest, q) : esc(rest)) + "</p>";
+      var pg = "";
+      if (it.pg != null && it.pg !== lastPg) {
+        pg = '<span class="kv-pg" title="Page of the printed edition">p. ' + esc(it.pg) + "</span>";
+        lastPg = it.pg;
       }
-      return "<p>" + (q ? KV.highlight(txt, q) : esc(txt)) + "</p>";
+      return pg + tikaItemHTML(it, dv, q) + extrasHTML(it, dv);
     }).join("");
+  }
+  function extrasHTML(it, dv) {
+    var h = "";
+    if (it.chaya) {
+      h += '<p class="kv-chaya"><span class="lbl">chāyā</span>' + esc(dv ? it.chaya : (it.chaya_iast || it.chaya)) + "</p>";
+    }
+    if (it.tips && it.tips.length) {
+      var tips = dv ? it.tips : (it.tips_iast || it.tips);
+      h += '<ul class="kv-tips"><li class="lbl">ṭippaṇa</li>' +
+        tips.map(function (t) { return "<li>" + esc(t) + "</li>"; }).join("") + "</ul>";
+    }
+    return h;
+  }
+  function tikaItemHTML(it, dv, q) {
+    var txt = dv ? it.deva : it.iast;
+    if (it.t === "v") return '<p class="q' + (it.n ? " ex" : "") + '">' +
+      (it.n ? '<span class="ex-num" title="Example ' + esc(it.n) + '">' + esc(it.n) + "</span>" : "") +
+      (q ? KV.highlight(txt, q) : esc(txt)) + "</p>";
+    if (it.t === "src") return '<p class="src">' + esc(txt) + "</p>";
+    if (it.t === "note") return '<p class="ed-note">' + esc(txt) + "</p>";
+    if (it.t === "h") return '<h4 class="kv-sec">' + esc(txt) + "</h4>";
+    if (it.t === "lead") return '<p class="lead">' + (q ? KV.highlight(txt, q) : esc(txt)) + "</p>";
+    // pratīka: opening citation of the verse, closed by the abbreviation mark
+    var m = txt.match(dv ? /^(.{1,80}?[०॰])(\s*[।,]?)/ : /^(.{1,80}?°)(\s*[|,]?)/);
+    if (m && !/[('‘(]/.test(m[1])) {           // a citation like "(सम्मति कां०" is not a pratīka
+      var rest = txt.slice(m[0].length);
+      return '<p><span class="pratika">' + (q ? KV.highlight(m[1], q) : esc(m[1])) + "</span>" + esc(m[2]) +
+        (q ? KV.highlight(rest, q) : esc(rest)) + "</p>";
+    }
+    return "<p>" + (q ? KV.highlight(txt, q) : esc(txt)) + "</p>";
+  }
+  function layerLabel(key) {
+    var cs = S.d.commentary || [], c = null;
+    cs.forEach(function (x) { if (x.label === key) c = x; });
+    if (!c) return commentaryLabel();
+    var nm = isDeva() ? pick(c.name, "deva") : cap(pick(c.name, latinKey()));
+    var au = c.author ? pick(c.author, isDeva() ? "deva" : latinKey()) : "";
+    return nm + (au ? " · " + cap(au) : "");
   }
   function tikaBlock(items) {
     var box = el("div", "kv-tika" + (isDeva() ? " deva" : ""));
     var q = S.q && (S.q.deva === isDeva()) ? S.q : null;
-    box.innerHTML = '<p class="kv-tika-label">' + esc(commentaryLabel()) + "</p>" + tikaItemsHTML(items, q);
+    // group by commentary layer, keeping order of first appearance
+    var order = [], by = {};
+    items.forEach(function (it) {
+      var k = it.l || "_";
+      if (!by[k]) { by[k] = []; order.push(k); }
+      by[k].push(it);
+    });
+    var h = "";
+    order.forEach(function (k, i) {
+      var label = k === "_" ? commentaryLabel() : layerLabel(k);
+      if (i === 0) {
+        h += '<p class="kv-tika-label">' + esc(label) + "</p>" + tikaItemsHTML(by[k], q);
+      } else {
+        h += '<details class="kv-layer"' + (S.layerOpen || q ? " open" : "") + '><summary>' + esc(label) +
+          ' <span class="cnt">' + by[k].length + "</span></summary>" + tikaItemsHTML(by[k], q) + "</details>";
+      }
+    });
+    box.innerHTML = h;
+    box.addEventListener("toggle", function (e) {
+      if (e.target.classList && e.target.classList.contains("kv-layer")) {
+        S.layerOpen = e.target.open; KV.store.set("kv-layer2", S.layerOpen ? "1" : "0");
+      }
+    }, true);
     return box;
   }
 
@@ -568,6 +626,7 @@
     var head = el("div", "sarga-head");
     head.innerHTML = '<div class="sarga-kicker">' + esc(unitName()) + " " + s.num + " / " + S.d.sargas.length + "</div>" +
       '<h2 class="sarga-title">' + esc(cap(sargaName(s))) + "</h2>" +
+      (s.subtitle ? '<div class="sarga-en">' + esc(s.subtitle) + "</div>" : "") +
       '<div class="sarga-sub">' + s.count + " " + esc(itemNoun(s.count)) + "</div>" +
       (s.metres.length && !isSutraWork() ? metreBar(s.metres, s.count) : "") + (s.metres.length ? metreLegend(s.metres, true) : "") +
       topicsHTML(s) +
@@ -588,6 +647,7 @@
         if (v.n === g.to) n.classList.add("grp-last");
       }
       if (S.metreFilter && v.m !== S.metreFilter) n.classList.add("dim");
+      if (v.h && !S.metreFilter) wrap.appendChild(el("h3", "kv-sec-head", esc(pick(v.h, isDeva() ? "deva" : latinKey()))));
       nodes[v.n] = n;
       wrap.appendChild(n);
       if (v.r && !S.metreFilter) wrap.appendChild(el("div", "kv-rubric", esc(pick(v.r, isDeva() ? "deva" : latinKey()))));
@@ -660,9 +720,23 @@
       loadTika(s.num).then(function (t) {
         if (!S.view || S.view.name !== "sarga" || S.view.s !== s.num) return;
         if (t.intro && t.intro.length && wantAll) introBox.appendChild(tikaBlock(t.intro));
-        s.verses.forEach(function (v) {
-          if (wantAll || S.open[ref(s.num, v.n)]) attachTika(nodes[v.n], s, v, t, groups);
-        });
+        var todo = s.verses.filter(function (v) { return wantAll || S.open[ref(s.num, v.n)]; });
+        if (todo.length > 12 && "IntersectionObserver" in window) {
+          // a long unit: render each commentary as its passage comes within ~2 screens
+          if (S.io) S.io.disconnect();
+          var byNode = new Map();
+          S.io = new IntersectionObserver(function (entries) {
+            entries.forEach(function (en) {
+              if (!en.isIntersecting) return;
+              var v = byNode.get(en.target);
+              S.io.unobserve(en.target);
+              if (v && en.target.isConnected) attachTika(en.target, s, v, t, groups);
+            });
+          }, { rootMargin: "1600px 0px 1600px 0px" });
+          todo.forEach(function (v) { byNode.set(nodes[v.n], v); S.io.observe(nodes[v.n]); });
+        } else {
+          todo.forEach(function (v) { attachTika(nodes[v.n], s, v, t, groups); });
+        }
         if (view.v) focusVerse(view.v);
       });
     }

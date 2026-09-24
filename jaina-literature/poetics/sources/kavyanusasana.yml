@@ -1,0 +1,63 @@
+# Metadata for poetics/sources/kavyanusasana.json — an already-structured
+# edition (chapters → sections: sūtra + Alaṅkāracūḍāmaṇi vṛtti + Viveka, with
+# ṭippaṇa notes and Prākṛta chāyās), read by `format: json`.
+slug: kavyanusasana
+accession: JLA-001
+format: json
+app: kavyanusasana/            # read in its dedicated app (poetics/kavyanusasana/)
+json: kavyanusasana.json
+layers: [vritti, viveka]
+title:
+  deva: काव्यानुशासनम्
+display_title: Kāvyānuśāsana
+author:
+  deva: हेमचन्द्राचार्य
+  note: "Kalikālasarvajña; author of the Siddhahemaśabdānuśāsana, Chandonuśāsana, Triṣaṣṭiśalākāpuruṣacarita and more"
+  period: "1088/89–1172/73 CE"
+  sect: Śvetāmbara
+  role: Author
+commentary:
+  - label: vritti
+    name:
+      deva: अलङ्कारचूडामणि
+    short: Vṛtti
+    author:
+      deva: हेमचन्द्राचार्य
+    note: "Hemacandra's own vṛtti on his sūtras"
+  - label: viveka
+    name:
+      deva: विवेक
+    short: Viveka
+    author:
+      deva: हेमचन्द्राचार्य
+    note: "Hemacandra's second, fuller auto-commentary, with the discussions and citations"
+language: [sanskrit]
+genre: alankara
+tags: [Alaṅkāraśāstra, Svopajña]
+unit:
+  deva: अध्याय
+  iast: adhyāya
+item:
+  deva: सूत्र
+  iast: sūtra
+edition:
+  name: "Kāvyānuśāsana of Ācārya Hemacandra, with the auto-commentaries Alaṅkāracūḍāmaṇi and Viveka"
+  publisher: "Śrī Mahāvīra Jaina Vidyālaya, Bombay"
+  year: 1938
+  editor: "Rasiklal C. Parikh"
+  digitized_by: "Structured by Vyom A. Shah"
+blurb: >-
+  Hemacandra's manual of poetics in eight adhyāyas of sūtras, with his own two
+  commentaries. The Alaṅkāracūḍāmaṇi explains each sūtra and gives its example.
+  The Viveka argues the finer points with a wealth of citations from earlier
+  poetics, especially Ānandavardhana, Abhinavagupta and Mammaṭa. Together they
+  cover the purpose and cause of poetry, word and meaning, rasa, faults and
+  excellences, the figures of sound and sense, the characters of literature,
+  and the kinds of composition.
+about:
+  - "Hemacandra wrote the <em>Kāvyānuśāsana</em> as one of the treatises that fill out his <em>Siddhahemaśabdānuśāsana</em>, alongside the <em>Chandonuśāsana</em> on prosody. It works as a compendium: the sūtras are brief, and the two commentaries hold most of the matter. They quote hundreds of verses from Sanskrit and Prākṛta literature as examples, so the work is also an anthology."
+  - "In the reader, each sūtra keeps the edition's number within its adhyāya. The commentary panel gives the <em>Alaṅkāracūḍāmaṇi</em> first and folds the <em>Viveka</em> beneath it. Numbered examples keep their numbers, and each Prākṛta verse shows its Sanskrit chāyā. Glosses from the anonymous palm-leaf <em>ṭippaṇa</em> are listed under the passage they explain, and small markers give the page of the printed edition."
+frontmatter:
+  lang: en
+  label: "Publishers' Preface, Foreword and Acknowledgements of the 1938 edition"
+  note: "From the 1938 edition, as printed."

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kāvyānuśāsana — Jaina Literature Portal</title>
+<meta name="description" content="Reading and search edition of Hemacandra's Kāvyānuśāsana with the auto-commentaries Alaṅkāracūḍāmaṇi and Viveka (ed. R. C. Parikh, 1938).">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%235c0a0a'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='%23ecd98c' font-family='serif'%3E%E0%A4%95%3C/text%3E%3C/svg%3E">
+<link rel="canonical" href="https://svyoma.github.io/jaina-literature/poetics/kavyanusasana/">
+<link rel="stylesheet" href="assets/style.css">
+<script defer src="https://us.umami.is/script.js" data-website-id="fc7f0594-761b-443d-be32-4a0fed6bf8a5"></script>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-T12BK66SPZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-T12BK66SPZ');
+</script>
+</head>
+<body class="kv-page">
+<div id="kavya-app" class="kv" data-src="../sources/kavyanusasana.json">
+  <a class="kv-skip" href="#kv-main">Skip to text</a>
+
+  <header class="kv-masthead" role="banner">
+    <div class="kv-masthead-inner">
+      <a class="kv-back" href="../">← Poetics &amp; Prosody</a>
+      <p class="kv-title"><a href="#/" lang="sa" class="kv-title-sa">काव्यानुशासनम्</a></p>
+      <p class="kv-title-en" id="kv-title-en">Kāvyānuśāsana of Ācārya Hemacandra</p>
+      <div class="kv-rule-dots" aria-hidden="true"><span></span><span></span><span></span></div>
+      <p class="kv-subtitle"><span id="kv-subtitle">with the auto-commentaries Alaṅkāracūḍāmaṇi and Viveka</span> <span class="kv-edition" id="kv-edition"></span></p>
+    </div>
+  </header>
+
+  <div class="kv-toolbar" role="toolbar" aria-label="Reader controls">
+    <button type="button" class="kv-btn kv-toc-btn" id="kv-toc-btn" aria-controls="kv-toc" aria-expanded="false" title="Contents">
+      <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+      <span class="kv-hide-sm">Contents</span>
+    </button>
+    <form class="kv-search" id="kv-search-form" role="search" autocomplete="off">
+      <label for="kv-q" class="kv-sr">Search the text</label>
+      <input type="search" id="kv-q" name="q" placeholder="Search — देवनागरी, IAST or HK (e.g. pratibhā, dhvani)" spellcheck="false" autocapitalize="off">
+      <kbd class="kv-kbd kv-hide-sm" aria-hidden="true">/</kbd>
+    </form>
+    <div class="kv-controls">
+      <div class="kv-menu" id="kv-view-menu">
+        <button type="button" class="kv-btn" id="kv-view-btn" aria-haspopup="true" aria-expanded="false" aria-controls="kv-view-panel" title="Layers and display">
+          <svg aria-hidden="true" viewBox="0 0 20 20" width="18" height="18"><path d="M10 3 2 7l8 4 8-4-8-4Zm-8 7 8 4 8-4M2 13l8 4 8-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg>
+          <span class="kv-hide-sm">Display</span>
+        </button>
+        <div class="kv-panel" id="kv-view-panel" hidden>
+          <fieldset>
+            <legend>Layers</legend>
+            <label class="kv-check"><input type="checkbox" id="kv-l-vritti" checked> <span>Vṛtti <span lang="sa">(अलङ्कारचूडामणिः)</span></span></label>
+            <div class="kv-row-label">Viveka <span lang="sa">(विवेकः)</span></div>
+            <div class="kv-seg" role="radiogroup" aria-label="Viveka display">
+              <label><input type="radio" name="kv-viv" value="open"> <span>Shown</span></label>
+              <label><input type="radio" name="kv-viv" value="collapsed" checked> <span>Collapsed</span></label>
+              <label><input type="radio" name="kv-viv" value="hidden"> <span>Hidden</span></label>
+            </div>
+            <label class="kv-check"><input type="checkbox" id="kv-l-chaya" checked> <span>Chāyā of Prākṛt verses <span lang="sa">(छाया)</span></span></label>
+            <label class="kv-check"><input type="checkbox" id="kv-l-pages" checked> <span>Page numbers (1938 ed.)</span></label>
+            <button type="button" class="kv-btn kv-btn-block" id="kv-sutras-only">Sūtras only</button>
+            <a class="kv-btn kv-btn-block" href="#/sutras">Sūtrapāṭha — all 208 sūtras</a>
+          </fieldset>
+          <fieldset>
+            <legend>Script</legend>
+            <div class="kv-seg" role="radiogroup" aria-label="Script">
+              <label><input type="radio" name="kv-script" value="deva" checked> <span lang="sa">देवनागरी</span></label>
+              <label><input type="radio" name="kv-script" value="iast"> <span>IAST</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Text size</legend>
+            <div class="kv-seg kv-size">
+              <button type="button" class="kv-btn" id="kv-size-dn" aria-label="Smaller text">A−</button>
+              <output id="kv-size-val" aria-live="polite">100%</output>
+              <button type="button" class="kv-btn" id="kv-size-up" aria-label="Larger text">A+</button>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kv-body">
+    <nav class="kv-toc" id="kv-toc" aria-label="Contents">
+      <div class="kv-toc-head">
+        <span>Contents</span>
+        <button type="button" class="kv-btn kv-toc-close" id="kv-toc-close" aria-label="Close contents">×</button>
+      </div>
+      <div id="kv-toc-inner"><p class="kv-muted">Loading…</p></div>
+    </nav>
+    <div class="kv-scrim" id="kv-scrim" hidden></div>
+    <main class="kv-main" id="kv-main" tabindex="-1">
+      <div class="kv-loading" id="kv-loading" role="status">
+        <div class="kv-spinner" aria-hidden="true"></div>
+        <p>Loading the text <span id="kv-load-pct"></span></p>
+      </div>
+      <div id="kv-view"></div>
+    </main>
+  </div>
+
+  <footer class="kv-footer" role="contentinfo">
+    <p id="kv-footer-ed"></p>
+    <p><a href="../">Poetics &amp; Prosody</a> &nbsp;·&nbsp; <a href="../../">The Jaina Literature Portal</a> &nbsp;·&nbsp; Curated by <a href="/">svyoma</a></p>
+  </footer>
+  <div class="kv-toast" id="kv-toast" role="status" aria-live="polite"></div>
+</div>
+<script src="assets/translit.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>

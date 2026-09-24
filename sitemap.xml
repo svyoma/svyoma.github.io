@@ -141,6 +141,16 @@
     <priority>0.70</priority>
   </url>
   <url>
+    <loc>https://svyoma.github.io/jaina-literature/poetics/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/poetics/kavyanusasana/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
     <loc>https://svyoma.github.io/jaina-literature/text?slug=adinatha_ramacandra</loc>
     <lastmod>2026-07-21</lastmod>
     <priority>0.70</priority>
