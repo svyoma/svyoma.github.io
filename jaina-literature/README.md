@@ -143,6 +143,83 @@ still living in `misc-works/`, so nothing disappears before it is migrated).
 No search library is vendored — the corpus is small enough that a folded linear
 scan is instant and keeps the page dependency-free.
 
+## Sectioned works: Kāvyas (`kavyas/`) and Darśana (`darshana/`)
+
+Long works that arrive as the running text of a printed edition have their own
+sections. Kāvyas, with or without a *ṭīkā*, are at **`/jaina-literature/kavyas/`**.
+Works of philosophy and doctrine are at **`/jaina-literature/darshana/`**. Both
+are linked from the portal's tab bar and banners. They don't use the `texts/`
+marker format. `build_works.py` segments the edition text directly and serves
+every section.
+
+```
+<section>/sources/<slug>.txt   edition text as digitised
+<section>/sources/<slug>.yml   metadata, commentary, edition/credits, parse hints; `format: kavya | sutra`
+        │  python build_works.py [section]   (aksharamukha, pyyaml)
+        ▼
+<section>/data/catalog.json            one entry per work
+<section>/data/<slug>/mula.json        units (sarga/adhyāya), every verse/sūtra in deva/iast/iso/hk, metre
+<section>/data/<slug>/tika-<n>.json    commentary per unit (deva + iast), lazy-loaded
+```
+
+The reader engine is shared. `kavyas/kavya.js`, `kavya.css`, `kavya-common.js`
+and `section.js` serve both sections, and `darshana/*.html` load them from
+`../kavyas/`, with `window.KV_SECTION` naming the section.
+
+### `format: kavya`
+- A sarga opens with a short `[अथ] … सर्गः` line.
+- A verse is a block of short lines ending `॥N॥`, where N is the next number.
+  Out-of-sequence numbered blocks, such as the commentator's maṅgala or quoted
+  verses, are kept as commentary.
+- In a **mūla-only** edition (no `commentary:`), numbering slips are tolerated and
+  recorded on the verse: jumps, a repeated number, a missing daṇḍa, or no number at all.
+- `युग्मम्` / `त्रिभिर्विशेषकम्` / `कलापकम्` / `[नवभि कुलकम्]` mark multi-verse units.
+- An `इति/इत्य… सर्गः` or `…सर्गव्याख्या समाप्ता` line is the sarga colophon. `अथ प्रशस्तिः`
+  begins the closing praśasti.
+- A half-verse split off by a page break is rejoined. A note fenced by `———` rules
+  becomes an editor's note.
+- **Samasyā** (`samasya:` in the yml): `(Megha 1a)` tags mark the line borrowed from
+  a source poem, and `var …` notes become variant readings. The appendix listing
+  the borrowed lines (`appendix_start:`) rebuilds the source poem. The reader
+  marks each borrowed line in its verse and adds a *source* view linking every
+  line to where it is used.
+
+### `format: sutra`
+- The body starts after `body_start:`. Units close with an `इति श्री…ऽध्यायः` colophon,
+  and the rest of that block opens the next unit.
+- A sūtra is a numbered block followed by the vṛtti, which opens `इति॥`/`इति।`.
+  Printed numbers are kept when they fit the sequence. A slip, a jump or a
+  missing number is recorded on the sūtra. Verses quoted in the vṛtti are never
+  followed by `इति॥`, which is how they are told apart.
+- Short lead-ins (`कुत एतदित्याह ।`) are attached to the sūtra they introduce.
+- `first_sutra:` marks where the sūtras begin, so the commentator's own maṅgala
+  stays as introduction. `unit_names:` fixes names that sandhi or OCR garbled in
+  the colophons, and `contents:` supplies each unit's topics.
+
+**Metre** is found by laghu/guru scansion of each pāda (prose sūtras are skipped)
+and matched against the common kāvya metres (sama, ardhasama, anuṣṭubh, āryā family).
+
+**Reader** (`reader.html?k=<slug>`):
+- A unit sidebar, and an overview with metrical profiles (kāvya) or topics (sūtra).
+- The commentary can be *off*, opened *on tap*, or fully *open*. Pratīkas and lead-ins are marked.
+- Four scripts plus a parallel view.
+- Chandas chips, a metre filter and a chandas index.
+- Samasyā marking and a source view.
+- Variant readings and numbering notes shown under each item.
+- Search across mūla and commentary.
+- Go-to, copy/link/BibTeX per item, the edition's front matter, and closing verses.
+- Deep links: `#3.24`, `#s3`, `#metres`, `#intro`, `#prasasti`, `#source`. The
+  parameters `&script=iast&tika=open&q=…` override the saved preferences.
+
+To add a work, drop `<slug>.txt` and `<slug>.yml` into `<section>/sources/`, run
+`python build_works.py`, and commit `<section>/data/`.
+
+| Work | Section | Source | Status |
+|------|---------|--------|--------|
+| `jaina_kumarasambhavam` (JLK-001): Jayaśekharasūri, with Dharmaśekharasūri's ṭīkā | Kāvyas | Text digitised by **eBharatiSampat**; 1946 Devchand Lalbhai edition (Series 93) | ✅ 11 sargas, 850 verses |
+| `parsvabhyudaya` (JLK-002): Jinasena, samasyāpūraṇa on the Meghadūta | Kāvyas | Encoded and proofread by **Pallasena Narayanaswami** | ✅ 4 sargas, 364 verses; 475/480 borrowed lines located |
+| `dharmabindu` (JLD-001): Haribhadrasūri, with Municandrasūri's vṛtti | Darśana | Bibliotheca Indica 220 (ed. Suali / Chakravarti, 1940) | ✅ 8 adhyāyas, 575 sūtras |
+
 ## Validation
 
 `build.py` rejects a source before it can be committed if it: is missing required

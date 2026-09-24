@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Darśana — Jaina Literature Portal</title>
+    <meta name="description" content="Jaina works on philosophy and doctrine (darśana), with their Sanskrit commentaries: read sūtra by sūtra with the vṛtti on demand, in Devanagari, IAST, ISO-15919 or Harvard-Kyoto, and search across text and commentary.">
+    <link rel="canonical" href="https://svyoma.github.io/jaina-literature/darshana/">
+    <link rel="stylesheet" href="../assets/css/text-style.css">
+    <link rel="stylesheet" href="../kavyas/kavya.css">
+    <style>
+        /* catalogue-specific: mirrors the portal index (../index.html) */
+        .site-header.big { padding: 60px 40px 50px; text-align: center; }
+        .site-header.big::after { content: ''; position: absolute; inset: 16px; border: 1px solid rgba(201,168,76,0.18); pointer-events: none; }
+        .site-header.big .header-inner { max-width: 860px; }
+        .header-rule-top { display: flex; align-items: center; gap: 14px; justify-content: center; margin-bottom: 26px; }
+        .header-rule-top::before, .header-rule-top::after { content: ''; flex: 1; max-width: 180px; height: 1px; background: linear-gradient(90deg, transparent, var(--gold-light), transparent); }
+        .header-ornament-glyph { color: var(--gold-light); font-size: 13px; letter-spacing: 7px; opacity: 0.85; }
+        .site-title { font-weight: normal; font-size: clamp(2rem, 5.5vw, 3.2rem); letter-spacing: 0.06em; color: var(--parchment); line-height: 1.2; margin-bottom: 12px; }
+        .site-title .deva { display: block; font-size: 0.5em; letter-spacing: 0; color: var(--gold-light); margin-top: 6px; }
+        .site-subtitle { font-size: clamp(0.85rem, 2vw, 1rem); font-style: italic; color: var(--gold-pale); opacity: 0.8; letter-spacing: 0.08em; margin-bottom: 22px; }
+        .attribution { font-size: 0.72rem; color: var(--gold-pale); opacity: 0.65; letter-spacing: 0.15em; text-transform: uppercase; }
+        .attribution a { color: var(--gold-pale); text-decoration: none; border-bottom: 1px solid rgba(255,220,140,0.3); }
+
+        .wrap { max-width: 900px; margin: 0 auto; padding: 0 28px; }
+        .mode-tabs { display: flex; gap: 4px; border-bottom: 1px solid var(--border); margin-top: 40px; flex-wrap: wrap; }
+        .mode-tab {
+            padding: 9px 20px; border: 1px solid var(--border); border-bottom: none; background: transparent;
+            font-family: inherit; font-size: 0.82rem; color: var(--muted); cursor: pointer; letter-spacing: 0.06em;
+            border-radius: 3px 3px 0 0; margin-bottom: -1px; text-decoration: none;
+        }
+        .mode-tab:hover { color: var(--burgundy); }
+        .mode-tab.active { background: rgba(255,255,255,0.5); color: var(--burgundy); border-color: var(--border-strong); border-bottom: 1px solid var(--parchment); }
+        .mode-tab.link { margin-left: auto; border-color: transparent; }
+        .section-intro { margin: 26px 0 8px; line-height: 1.75; color: #3a2a18; font-size: 0.95rem; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 10px; margin: 18px 0 8px; }
+        .feature { padding: 12px 14px; border: 1px solid var(--border); background: rgba(255,255,255,0.25); font-size: 0.82rem; line-height: 1.55; color: var(--muted); }
+        .feature b { display: block; font-weight: normal; color: var(--burgundy); font-size: 0.9rem; margin-bottom: 2px; }
+
+        .controls { display: flex; flex-wrap: wrap; gap: 12px 18px; align-items: center; margin: 26px 0 18px; }
+        .controls .kv-search { margin-left: 0; flex: 1 1 260px; max-width: 360px; }
+        .facet-chips { display: flex; gap: 6px; flex-wrap: wrap; }
+        .filter-btn { padding: 6px 13px; border: 1px solid var(--border-strong); background: transparent; font-family: inherit; font-size: 0.76rem; color: var(--muted); cursor: pointer; border-radius: 2px; letter-spacing: 0.04em; }
+        .filter-btn:hover { background: var(--parchment-dark); color: var(--burgundy); }
+        .filter-btn.active { background: var(--burgundy); color: var(--gold-pale); border-color: var(--burgundy); }
+        .count-line { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; padding-bottom: 10px; border-bottom: 1px solid var(--border); margin-bottom: 20px; display: flex; justify-content: space-between; }
+
+        .entry {
+            position: relative; background: rgba(255,255,255,0.3); border: 1px solid var(--border); border-left: 4px solid var(--burgundy);
+            margin-bottom: 18px; padding: 26px 30px 22px 28px; transition: background 0.25s, box-shadow 0.25s, border-color 0.25s;
+        }
+        .entry:hover { background: rgba(255,255,255,0.55); box-shadow: 0 6px 28px rgba(92,10,10,0.09); border-color: var(--gold); border-left-color: var(--gold); }
+        .accession { position: absolute; top: 12px; right: 16px; font-size: 0.64rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); opacity: 0.5; }
+        .entry-title { font-weight: normal; font-size: 1.35rem; color: var(--burgundy); line-height: 1.25; }
+        .entry-title .deva { display: block; font-size: 0.8em; color: var(--muted); margin-top: 2px; }
+        .entry-author { font-style: italic; color: var(--rust); margin: 6px 0 2px; font-size: 0.92rem; }
+        .entry-author::before { content: '— '; opacity: 0.45; }
+        .entry-comm { font-size: 0.84rem; color: var(--muted); font-style: italic; margin-bottom: 10px; }
+        .entry .tags { margin: 10px 0 12px; }
+        .entry .tag { font-size: 0.62rem; }
+        .entry .tag-sanskrit { color: #5c3e00; border-color: #c9a84c; background: rgba(201,168,76,0.12); }
+        .entry .tag-genre { color: var(--rust); border-color: var(--border-strong); background: var(--parchment-mid); }
+        .entry .tag-comm { color: #7a1f1f; border-color: rgba(122,31,31,0.4); background: rgba(122,31,31,0.06); }
+        .entry-meta { display: flex; gap: 16px; flex-wrap: wrap; font-size: 0.76rem; color: var(--muted); margin-bottom: 10px; }
+        .entry-desc { font-size: 0.92rem; line-height: 1.7; color: #3a2a18; margin-bottom: 14px; }
+        .strip-label { font-size: 0.6rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); opacity: 0.8; margin-bottom: 4px; }
+        .sarga-strip { display: flex; gap: 3px; align-items: flex-end; height: 34px; margin-bottom: 16px; }
+        .sarga-strip a { flex: 1; display: block; background: var(--parchment-dark); border-top: 2px solid var(--gold); position: relative; text-decoration: none; transition: background 0.15s; }
+        .sarga-strip a:hover { background: var(--gold-light); }
+        .sarga-strip a span { position: absolute; bottom: 2px; left: 0; right: 0; text-align: center; font-size: 0.6rem; color: var(--muted); }
+        .entry-footer { display: flex; justify-content: flex-end; }
+        .read-link { display: inline-flex; gap: 8px; font-size: 0.8rem; color: var(--burgundy); text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase; border-bottom: 1px solid rgba(92,10,10,0.25); padding-bottom: 2px; }
+        .read-link::after { content: '→'; }
+        .read-link:hover { color: var(--ochre); }
+        .upcoming { border: 1px dashed var(--border-strong); padding: 16px 20px; color: var(--muted); font-size: 0.86rem; font-style: italic; text-align: center; margin: 26px 0 60px; }
+        @media (max-width: 640px) {
+            .site-header.big { padding: 42px 20px 36px; }
+            .site-header.big::after { display: none; }
+            .wrap { padding: 0 16px; }
+            .entry { padding: 22px 18px 18px; }
+            .accession { display: none; }
+            .mode-tab.link { margin-left: 0; }
+        }
+    </style>
+    <meta name="google-site-verification" content="nvi13Juvi_HO-P9gMovobq5VihKZXdZqd2AzDHfIYW8" />
+    <script defer src="https://us.umami.is/script.js" data-website-id="fc7f0594-761b-443d-be32-4a0fed6bf8a5"></script>
+</head>
+<body>
+<header class="site-header big">
+    <div class="header-inner">
+        <div class="header-rule-top"><span class="header-ornament-glyph">✦ &nbsp; ✦ &nbsp; ✦</span></div>
+        <h1 class="site-title">Darśana<span class="deva">दर्शनम्</span></h1>
+        <p class="site-subtitle">Works on Jaina philosophy, doctrine and discipline, read with their commentaries</p>
+        <p class="attribution">A section of the <a href="../">Jaina Literature Portal</a> · curated by <a href="../../index.html">svyoma</a></p>
+    </div>
+</header>
+
+<div class="wrap">
+    <div class="mode-tabs" role="tablist" aria-label="Mode">
+        <button class="mode-tab active" id="tabBrowse" role="tab" aria-selected="true">Browse works</button>
+        <button class="mode-tab" id="tabSearch" role="tab" aria-selected="false">Search inside works</button>
+        <a class="mode-tab link" href="../kavyas/">Kāvyas →</a>
+        <a class="mode-tab link" href="../" style="margin-left:0">← Portal catalogue</a>
+    </div>
+
+    <p class="section-intro">
+        Works of <em>darśana</em>, from sūtra manuals to kārikā treatises, are compressed by design and read
+        through their commentaries. Each work here opens <em>adhyāya</em> by <em>adhyāya</em>. The sūtra comes
+        first, and the <em>vṛtti</em> or <em>ṭīkā</em> sits beneath it, ready when you want it.
+    </p>
+    <div class="features">
+        <div class="feature"><b>Sūtra &amp; vṛtti</b>Open the commentary on every sūtra, one sūtra at a time, or not at all. The commentator's lead-in to each sūtra is kept with it.</div>
+        <div class="feature"><b>Topics</b>Each adhyāya lists its topics from the edition's table of contents.</div>
+        <div class="feature"><b>Faithful numbering</b>Sūtras keep the edition's numbers. Wherever the print skips or repeats a number, the reader says so.</div>
+        <div class="feature"><b>Search</b>Search the sūtras and the commentary together, in any script. Diacritics and spacing are ignored.</div>
+    </div>
+
+    <div class="controls" id="controls">
+        <div class="kv-search"><input type="search" id="q" placeholder="Filter by title, author, commentator…" aria-label="Search" autocomplete="off"></div>
+        <div class="facet-chips" id="facets"></div>
+        <span class="kv-scope" id="scope" hidden>
+            <label><input type="checkbox" id="scopeTika" checked>Include commentaries</label>
+        </span>
+    </div>
+
+    <div class="count-line"><span id="count">Loading…</span><span style="opacity:.5">Darśana</span></div>
+    <main id="list" style="max-width:none;padding:0;margin:0"></main>
+    <p class="upcoming">More works on darśana, with and without commentaries, will be added to this section.</p>
+</div>
+
+<footer>
+    <a href="../">Jaina Literature Portal</a> &nbsp;·&nbsp; Curated by <a href="../../index.html">svyoma</a>
+</footer>
+
+<script>window.KV_SECTION = { name: "Darśana", noun: "work", reader: "reader.html" };</script>
+<script src="../kavyas/kavya-common.js"></script>
+<script src="../kavyas/section.js"></script>
+</body>
+</html>

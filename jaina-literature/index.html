@@ -474,6 +474,46 @@
             border-bottom: 1px solid var(--parchment);
         }
 
+        .mode-tab-section {
+            margin-left: auto;
+            text-decoration: none;
+            color: var(--burgundy);
+            border-color: var(--border-strong);
+        }
+        .mode-tab-section:hover { background: var(--burgundy); color: var(--gold-pale); }
+        .mode-tab-section.second { margin-left: 0; }
+        .section-banners {
+            max-width: 844px; margin: 22px auto 0;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px;
+        }
+        .section-banners .section-banner { margin: 0; max-width: none; }
+
+        /* ── SECTION BANNER (Kāvyas) ─────────────────────────── */
+        .section-banner {
+            display: block;
+            max-width: 844px;
+            margin: 22px auto 0;
+            padding: 18px 24px 18px 22px;
+            text-decoration: none;
+            color: var(--ink);
+            background: rgba(255,255,255,0.3);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--gold);
+            transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+        }
+        .section-banner:hover {
+            background: rgba(255,255,255,0.55);
+            border-left-color: var(--burgundy);
+            box-shadow: 0 4px 20px rgba(92,10,10,0.08);
+        }
+        .section-banner-kicker {
+            display: block; font-size: 0.64rem; letter-spacing: 0.16em; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 4px;
+        }
+        .section-banner-title { display: block; font-size: 1.15rem; color: var(--burgundy); margin-bottom: 4px; }
+        .section-banner-title::after { content: ' →'; transition: margin 0.2s; }
+        .section-banner-desc { display: block; font-size: 0.86rem; line-height: 1.65; color: var(--muted); }
+
         /* ── FACETS ──────────────────────────────────────────── */
         .facets {
             max-width: 900px;
@@ -595,6 +635,8 @@
             .controls { flex-direction: column; align-items: stretch; padding: 0 18px; }
             .search-wrap { max-width: 100%; }
             .mode-tabs, .facets, .catalogue-wrap { padding-left: 18px; padding-right: 18px; }
+            .mode-tabs { flex-wrap: wrap; }
+            .section-banners { margin-left: 18px; margin-right: 18px; }
             .entry { padding: 22px 20px 20px; }
             .accession { display: none; }
             .entry-header { flex-direction: column; gap: 10px; }
@@ -636,6 +678,21 @@
 <div class="mode-tabs" role="tablist" aria-label="Browse mode">
     <button class="mode-tab active" id="tabBrowse" role="tab" aria-selected="true">Browse catalogue</button>
     <button class="mode-tab" id="tabCorpus" role="tab" aria-selected="false">Search inside texts</button>
+    <a class="mode-tab mode-tab-section" href="kavyas/">Kāvyas <span aria-hidden="true">→</span></a>
+    <a class="mode-tab mode-tab-section second" href="darshana/">Darśana <span aria-hidden="true">→</span></a>
+</div>
+
+<div class="section-banners">
+    <a class="section-banner" href="kavyas/">
+        <span class="section-banner-kicker">Section · Kāvyas</span>
+        <span class="section-banner-title">Kāvyas, with and without their commentaries</span>
+        <span class="section-banner-desc">Read sarga by sarga, with the ṭīkā on demand, the metre of every verse, and the source lines of samasyā poems marked. Now: <em>Jaina Kumārasambhava</em> of Jayaśekharasūri with Dharmaśekharasūri's ṭīkā, and Jinasena's <em>Pārśvābhyudaya</em>, built on the Meghadūta.</span>
+    </a>
+    <a class="section-banner" href="darshana/">
+        <span class="section-banner-kicker">Section · Darśana</span>
+        <span class="section-banner-title">Works on philosophy and doctrine</span>
+        <span class="section-banner-desc">Read sūtra by sūtra, with the vṛtti on demand and each adhyāya's topics. Now: Haribhadra's <em>Dharmabindu</em> with Municandrasūri's vṛtti.</span>
+    </a>
 </div>
 
 <div class="controls">

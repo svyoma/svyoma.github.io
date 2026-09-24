@@ -1,0 +1,69 @@
+# Metadata + parse hints for darshana/sources/dharmabindu.txt
+# Sūtra + vṛtti: each numbered sūtra of Haribhadra is followed by Municandra's
+# commentary, which opens "इति॥"; each adhyāya closes with the vṛtti colophon.
+slug: dharmabindu
+accession: JLD-001
+format: sutra
+title:
+  deva: धर्मबिन्दुप्रकरणम्
+short_title:
+  deva: धर्मबिन्दुः
+display_title: Dharmabindu
+author:
+  deva: हरिभद्रसूरि
+  note: "Author of the Ṣaḍdarśanasamuccaya, Yogadṛṣṭisamuccaya and many other works"
+  period: "8th century CE"
+  sect: Śvetāmbara
+  role: Author
+commentary:
+  - label: vrtti
+    name:
+      deva: वृत्ति
+    author:
+      deva: मुनिचन्द्रसूरि
+    note: "Bṛhadgaccha ācārya, teacher of Vādidevasūri; early 12th century CE"
+language: [sanskrit]
+genre: prakarana
+tags: [Ācāra]
+unit:
+  deva: अध्याय
+  iast: adhyāya
+item:
+  deva: सूत्र
+  iast: sūtra
+units: 8
+body_start: "नमः सर्वज्ञाय।"
+contents:
+  start: "विषयसूची"
+  end: "ओं"
+  skip: ["विषयः"]
+closing_heading: उपसंहारः
+closing_note: "Municandra's closing verse and colophon, and the extent of the work (3,000 anuṣṭubh units)"
+edition:
+  name: "Dharmabindu, a work on Jaina philosophy, by Haribhadra, with the commentary of Municandra"
+  series: "Bibliotheca Indica, Work No. 220"
+  publisher: "Royal Asiatic Society of Bengal, Calcutta (printed at the Baptist Mission Press)"
+  year: 1940
+  editor: "Luigi Suali; partly revised and seen through the press by Chintaharan Chakravarti"
+  digitized_by: "Structured for the portal by Vyom A. Shah"
+blurb: >-
+  Haribhadra's compact manual of the Jaina way of life, in eight adhyāyas of
+  terse sūtras. It moves from the general duties of a householder to the
+  special vows, the fitness for and discipline of ascetic life, and the
+  fruits of dharma up to liberation. It is read here with the full vṛtti of
+  Municandrasūri.
+about:
+  - "Haribhadra opens with a verse promising a <em>bindu</em>, a drop drawn from the ocean of scripture, and defines <em>dharma</em> as conduct that follows the uncontradicted word of the Jina and is joined with <em>maitrī</em> and the other three attitudes. He then divides it into the dharma of the householder and that of the ascetic. Adhyāyas 1–3 treat householder dharma in its general and special forms, including the <em>aṇuvratas</em>, <em>guṇavratas</em> and <em>śikṣāpadas</em> with their transgressions. Adhyāyas 4–6 treat renunciation and the life of the ascetic, and adhyāyas 7–8 the fruit of dharma."
+  - "Municandrasūri's vṛtti opens each sūtra with a short lead-in, which the reader shows above the sūtra's commentary. It then glosses the sūtra word by word and supports it with verses cited from Jaina and Brahmanical sources."
+  - "Suali's Bibliotheca Indica edition was begun in 1908, stalled after 1921, and completed by Chintaharan Chakravarti in 1940. It counts the opening and closing verses of each adhyāya as sūtras and prints the closing <em>iti</em> apart from the sūtra, unlike the 1924 Ahmedabad edition. Where the printed sūtra number in this text is a slip, the reader numbers the sūtras in sequence and notes the printed number."
+frontmatter:
+  start: "PREFACE"
+  end: "CONTENTS"
+  lang: en
+  label: "Preface and Introduction to the 1940 edition (English)"
+  note: "The Royal Asiatic Society's preface and Chintaharan Chakravarti's introduction, as printed."
+first_sutra: "प्रणम्य परमात्मानं"      # Municandra's maṅgala verses precede it
+unit_names:                            # where the colophon's wording is garbled
+  2: देशनाविधिः
+  6: यतिधर्मविषयविधिः
+  8: विशेषतो धर्मफलविधिः

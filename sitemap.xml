@@ -112,8 +112,33 @@
   </url>
   <url>
     <loc>https://svyoma.github.io/jaina-literature/</loc>
-    <lastmod>2026-07-21</lastmod>
+    <lastmod>2026-09-24</lastmod>
     <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/kavyas/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/kavyas/reader.html?k=jaina_kumarasambhavam</loc>
+    <lastmod>2026-09-24</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/kavyas/reader.html?k=parsvabhyudaya</loc>
+    <lastmod>2026-09-24</lastmod>
+    <priority>0.70</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/darshana/</loc>
+    <lastmod>2026-09-24</lastmod>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://svyoma.github.io/jaina-literature/darshana/reader.html?k=dharmabindu</loc>
+    <lastmod>2026-09-24</lastmod>
+    <priority>0.70</priority>
   </url>
   <url>
     <loc>https://svyoma.github.io/jaina-literature/text?slug=adinatha_ramacandra</loc>

@@ -1,0 +1,52 @@
+# Metadata + parse hints for kavyas/sources/parsvabhyudaya.txt
+# Mūla only (no commentary). Every verse is tagged "(Megha 1a)" etc. for the
+# line of Kālidāsa's Meghadūta it embeds; the list at the end of the file
+# rebuilds the Meghadūta from those lines.
+slug: parsvabhyudaya
+accession: JLK-002
+format: kavya
+title:
+  deva: पार्श्वाभ्युदयम्
+display_title: Pārśvābhyudaya
+author:
+  deva: जिनसेनाचार्य
+  note: "Digambara; pupil of Vīrasena, author of the Ādipurāṇa, preceptor of the Rāṣṭrakūṭa king Amoghavarṣa"
+  period: "9th century CE (the poem before 783 CE, per the source's introduction)"
+  sect: Digambara
+  role: Poet
+language: [sanskrit]
+genre: kavya
+tags: [Samasyāpūraṇa]
+unit:
+  deva: सर्ग
+  iast: sarga
+samasya:
+  tag: Megha
+  name:
+    deva: मेघदूतम्
+  author: Kālidāsa
+  appendix_start: "Based on this work"
+  verses: 120                     # drops the appendix's stray "(Megha 340d)"
+  note: "Line numbering follows V. P. Joshi (ed.), The Complete Works of Kālidāsa (Leiden: Brill, 1976): verse number + pāda a–d."
+edition:
+  name: "Śrījinasenācāryaviracitaṃ Pārśvābhyudayam (reference edition, with Muktendu Varma's Bālabodhinī)"
+  publisher: "Bhāratīya Śruti-Darśana Kendra, Jaipur"
+  year: 1965
+  source: "Encoded and proofread by Pallasena Narayanaswami"
+  digitized_by: "Pallasena Narayanaswami; structured for the portal by Vyom A. Shah"
+blurb: >-
+  Jinasena's life of Pārśvanātha, the 23rd Tīrthaṅkara, woven around Kālidāsa's
+  Meghadūta. Every one of the Meghadūta's lines is taken up as a samasyā and
+  completed into a new verse, so the demon Śambara's assault on the meditating
+  Pārśva is told in the cadence of the yakṣa's message to the cloud. The poem
+  has four sargas and 364 verses, almost all in mandākrāntā.
+about:
+  - "Jinasena uses the samasyāpūraṇa technique throughout. He takes a line of the <em>Meghadūta</em> unchanged and composes the rest of the verse around it. Usually the borrowed line is the fourth, but it can be the first, second or third, and in 117 verses two lines are taken. Across 358 verses all 480 lines of Kālidāsa's 120 verses are used. The last six verses of sarga 4 are Jinasena's own conclusion, in other metres."
+  - "Because a samasyā must keep the borrowed line intact, scholars since K. B. Pathak have used the <em>Pārśvābhyudaya</em> as a witness to the <em>Meghadūta</em> as it was read in the ninth century. The reader marks each borrowed line in the verse and rebuilds the <em>Meghadūta</em> from them in the order Jinasena uses them."
+  - "The colophons call each of the four sargas <em>bhagavatkaivalyavarṇana</em>, and the source notes that it is unclear why they all share this name."
+frontmatter:
+  start: "Jinasena was a ninth century"
+  end: "॥ श्रीपार्श्वाभ्युदयम् ॥"
+  lang: en
+  label: "Introduction and notes of the digital edition (English)"
+  note: "The encoder's introduction to the digital text, as supplied."

@@ -1,0 +1,53 @@
+# Metadata + parse hints for kavyas/sources/jaina_kumarasambhavam.txt
+# The .txt is the edition's running text (mūla verses + ṭīkā) exactly as
+# digitised; build_kavyas.py segments it into sargas, verses and commentary.
+slug: jaina_kumarasambhavam
+accession: JLK-001
+title:
+  deva: जैनकुमारसम्भवमहाकाव्यम्
+short_title:
+  deva: जैनकुमारसम्भवम्
+display_title: Jaina Kumārasambhava        # Latin-script display name
+author:
+  deva: जयशेखरसूरि
+  note: "Añcala (Vidhipakṣa) gaccha; disciple of Mahendraprabhasūri"
+  period: "fl. c. 1380–1410 CE (works dated VS 1436–1464)"
+  sect: Śvetāmbara
+commentary:
+  - label: tika
+    name:
+      deva: टीका
+    author:
+      deva: धर्मशेखरसूरि
+    note: "Pupil of the poet; composed VS 1483 (1426 CE) at Ṣaṭpura, Sapādalakṣa; revised by Māṇikyasundarasūri"
+language: [sanskrit]
+genre: mahakavya
+unit:
+  deva: सर्ग
+  iast: sarga
+edition:
+  name: "Jaina Kumārasambhava Mahākāvya with the commentary of Dharmaśekharasūri"
+  series: "Seth Devchand Lalbhai Jain Pustakoddhar Fund Series, No. 93"
+  publisher: "Seth Devchand Lalbhai Jain Pustakoddhar Fund, Surat (printed at Nirnaya Sagar Press, Bombay)"
+  year: 1946
+  editor: "Ācārya Vijayakṣamābhadrasūri (sargas 1–8); Muni Vikramavijaya (sargas 9–11)"
+  source: "Digitised text from eBharatiSampat"
+  source_url: "https://ebharatisampat.in/"
+  digitized_by: "eBharatiSampat; structured for the portal by Vyom A. Shah"
+blurb: >-
+  A fifteenth-century Jaina answer to Kālidāsa's Kumārasambhava. Where Kālidāsa
+  tells of the birth of Kumāra (Kārttikeya), Jayaśekharasūri tells of the birth
+  of Bharata, son of Ṛṣabhadeva. On the way the poem describes Ayodhyā,
+  Ṛṣabha's birth and youth, his marriage to Sumaṅgalā and Sunandā, the fourteen
+  dreams, the seasons and the dawn. It runs to eleven sargas and is printed with
+  the ṭīkā of the poet's pupil Dharmaśekharasūri.
+about:
+  - "According to the commentator, Sarasvatī appeared to Jayaśekharasūri while he sat in meditation at Stambhatīrtha (Khambhat). She gave him the two opening verses, <em>astyuttarasyāṃ diśi kośaleti</em> and <em>sampannakāmā nayanābhirāmāḥ</em>, and asked him to compose the rest. The poet calls himself <em>vāṇīdattavaraḥ</em> in the last verse of the final sarga."
+  - "Dharmaśekharasūri's ṭīkā is deliberately simple. It opens each verse with a <em>pratīka</em>, restores prose word order, glosses words with synonyms and names figures of speech such as <em>utprekṣā</em> and <em>virodha</em>. It also cites Hemacandra's <em>Siddhahema</em> for grammatical points."
+  - "The 1946 edition was begun by Ācārya Vijayakṣamābhadrasūri, who died after eight sargas had been printed. Muni Vikramavijaya completed it from sarga 9 onward using the same press copy."
+frontmatter:
+  start: "प्रस्तावना"
+  end: "श्रेष्ठि–देवचन्द्र लालभाई–जैनपुस्तकोद्वारे—"
+  lang: gu
+  label: "Prastāvanā (Gujarati introduction to the 1946 edition)"
+closing_note: "Dharmaśekharasūri on his teacher, his ṭīkā, and its date: VS 1483, at Ṣaṭpura in Sapādalakṣa"
