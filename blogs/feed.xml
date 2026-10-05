@@ -6,7 +6,15 @@
     <atom:link href="https://svyoma.github.io/blogs/feed.xml" rel="self" type="application/rss+xml"/>
     <description>Essays on Jaina literature, Sanskrit and Prakrit poetry, śleṣa, stuti, manuscripts and grammar by Vyom A. Shah.</description>
     <language>en</language>
-    <lastBuildDate>Thu, 23 Jul 2026 05:25:22 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2026 11:01:19 +0000</lastBuildDate>
+    <item>
+      <title>Versifying the Sanskrit Grammar</title>
+      <link>https://svyoma.github.io/blogs/versifying_sanskrit_grammar</link>
+      <guid isPermaLink="true">https://svyoma.github.io/blogs/versifying_sanskrit_grammar</guid>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 +0000</pubDate>
+      <category>sanskrit</category><category>grammar</category>
+      <description>How Buddhisāgarasūri’s Pañcagranthī (1023 CE) set an entire Sanskrit grammar — sūtras, gaṇapāṭha, dhātupāṭha, liṅgānuśāsana and uṇādi — in verse, against the backdrop of Pāṇinian and non-Pāṇinian schools.</description>
+    </item>
     <item>
       <title>Recovering the Margins: Music in Prakrit and Sanskrit Texts</title>
       <link>https://svyoma.github.io/blogs/recovering_the_margins_music</link>
